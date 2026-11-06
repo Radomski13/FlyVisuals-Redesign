@@ -21,8 +21,8 @@ body{margin:0}
 <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 18px">
 <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px; flex-wrap: wrap"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><a href="ServiceArea.dc.html" style="color: #D4D4D4">Locations</a><span aria-hidden="true">/</span><span>{{c.name}}, FL</span></nav>
-<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8A8F">{{c.county}} County</span>
-<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800">Signs, Wraps &amp; Tint in {{c.name}}, FL</h1>
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8A8F">{{c.county}} County · Signs, Wraps &amp; Tint</span>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800">Sign Company in {{c.name}}, FL</h1>
 <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">{{c.intro}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
@@ -189,7 +189,7 @@ class Component extends DCLogic {
       return { name: s.name, label: s.name + ' in ' + c.name, href: s.file.replace('.dc.html', '-' + c0.file.slice(5, -8) + '.dc.html'), img: s.img ? B + s.img : '', noImg: !s.img };
     });
     var raw = [
-      { q: 'Do you install in ' + c.name + '?', a: 'Yes. Our crew installs signs, wraps and tint throughout ' + c.name + ' and nearby areas. Vehicles are wrapped at our shop.' },
+      { q: 'Are you a local sign company for ' + c.name + '?', a: 'Yes. Our crew installs signs, wraps and tint throughout ' + c.name + ' and nearby areas. Vehicles are wrapped at our shop.' },
       { q: 'Do you handle ' + c.county + ' County sign permits?', a: 'Yes. We prepare the drawings and file with the city or county, depending on where your business is located.' },
       { q: 'Can you come measure my location?', a: 'Yes. We offer a free on-site consultation and measure for ' + c.name + ' businesses.' }
     ];
