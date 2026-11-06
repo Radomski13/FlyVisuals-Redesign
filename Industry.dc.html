@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Industry Page</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="industries" hint-size="100%,132px"></dc-import>
+
+<section style="background: #111111; color: #FFFFFF; padding: 64px 24px 72px">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px; flex-wrap: wrap"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><a href="Industries.dc.html" style="color: #D4D4D4">Industries</a><span aria-hidden="true">/</span><span>{{d.name}}</span></nav>
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8A8F">Signs &amp; graphics for</span>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800">{{d.name}}</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">{{d.intro}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
+<a href="tel:7274946162" style="border: 2px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call (727) 494-6162</a>
+</div>
+</div>
+<sc-if value="{{hasHero}}" hint-placeholder-val="{{true}}"><img src="{{hero}}" alt="Fly Visuals work for {{d.name}}" style="width: 100%; height: 400px; object-fit: cover; border-radius: 6px; display: block"></sc-if>
+<sc-if value="{{noHero}}" hint-placeholder-val="{{false}}"><div style="height: 400px; border-radius: 6px; background: repeating-linear-gradient(135deg, #1C1C1C 0 14px, #242424 14px 28px); display: flex; align-items: center; justify-content: center; color: #9E9E9E; font-size: 13px; font-weight: 600; text-align: center; padding: 16px; box-sizing: border-box">{{d.photo}}</div></sc-if>
+</div>
+</section>
+
+<section style="padding: 88px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 48px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">What {{d.short}} need from signage</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #555555">We plan every job around how your customers find you and what they need to see.</p>
+</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 16px">
+<sc-for list="{{d.needs}}" as="n" hint-placeholder-count="3">
+<li style="display: flex; gap: 14px; align-items: flex-start; font-size: 17px; line-height: 1.55; padding: 18px 20px; background: #F4F4F4; border-radius: 6px">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#DC1A21" stroke-width="2.5" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg>
+<span><strong style="font-family: 'Montserrat', sans-serif; color: #111111">{{n.t}}.</strong> {{n.d}}</span>
+</li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<section style="background: #F4F4F4; padding: 88px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">What we build for {{d.short}}</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 22px">
+<sc-for list="{{products}}" as="p" hint-placeholder-count="4">
+<a href="{{p.href}}" style="background: #FFFFFF; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,0.06)">
+<sc-if value="{{p.img}}" hint-placeholder-val="{{true}}"><img src="{{p.img}}" alt="{{p.name}} by Fly Visuals" style="width: 100%; height: 170px; object-fit: cover; display: block"></sc-if>
+<sc-if value="{{p.noImg}}" hint-placeholder-val="{{false}}"><div style="height: 170px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PHOTO]</div></sc-if>
+<div style="padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1">
+<h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 19px; font-weight: 700; color: #111111">{{p.name}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #555555; flex-grow: 1">{{p.why}}</p>
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #DC1A21">View options →</span>
+</div>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="padding: 88px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Recent work</h2>
+<a href="Gallery.dc.html" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px">See our work →</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px">
+<sc-for list="{{work}}" as="w" hint-placeholder-count="4">
+<img src="{{w}}" alt="Fly Visuals project" style="width: 100%; height: 230px; object-fit: cover; border-radius: 6px; display: block">
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="background: #F4F4F4; padding: 88px 24px">
+<div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111; text-align: center">Common questions</h2>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border-radius: 6px; border: 1px solid #E5E5E5">
+<button type="button" aria-expanded="{{f.expanded}}" onClick="{{f.toggle}}" style="width: 100%; background: none; border: none; font: inherit; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 17px; color: #111111; text-align: left; padding: 20px 22px; min-height: 60px; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer">
+<span>{{f.q}}</span><span aria-hidden="true" style="font-size: 22px; color: #DC1A21">{{f.icon}}</span>
+</button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{false}}">
+<p style="margin: 0; padding: 0 22px 22px; font-size: 16px; line-height: 1.6; color: #555555">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="padding: 56px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px">
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; color: #111111; margin-right: 8px">Other industries:</span>
+<sc-for list="{{others}}" as="o" hint-placeholder-count="8">
+<a href="{{o.file}}" style="border: 1px solid #111111; border-radius: 999px; padding: 10px 18px; font-weight: 700; font-size: 14px; color: #111111; text-decoration: none; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">{{o.name}}</a>
+</sc-for>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"ind":{"editor":"enum","options":["contractors","restaurants","retail","medical","realestate","automarine","hoa","schools","government"],"default":"contractors"},"$preview":{"width":1440,"height":3200}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { open: 0 }; }
+  renderVals() {
+    var self = this;
+    var B = '_blob/';
+    var P = {
+      storefront: { name: 'Storefront Signs', href: 'Storefront-Signs.dc.html', img: 'ac6cac82d583332c286e5535e17ff041' },
+      wraps: { name: 'Commercial Vehicle Wraps', href: 'Commercial-Vehicle-Wraps.dc.html', img: 'c2dc4bbda700701bfbd9882c5d8b35d0' },
+      monument: { name: 'Monument Signs', href: 'Monument-Signs.dc.html', img: '1bb5e5a8dd3bfa305e0608f8c7c1f176' },
+      window: { name: 'Window Graphics', href: 'Window-Graphics.dc.html', img: '94c3527b5adb3d7d3fa5b350fbc6bf0d' },
+      tint: { name: 'Window Tint', href: 'Window-Tint.dc.html', img: 'ff337b18020fbfe00ff8e253a5bd0c84' },
+      banners: { name: 'Banners & Flags', href: 'Banners-Flags.dc.html', img: 'fc427f5d893bf746d512fca42018d298' },
+      interior: { name: 'Indoor Signs', href: 'Interior-ADA-Signs.dc.html', img: '1146554cde15943823eb9bb623460a23' },
+      tradeshow: { name: 'Trade Show Displays', href: 'Trade-Show-Displays.dc.html', img: '' }
+    };
+    var D = {
+      contractors: { name: 'Contractors & Home Services', short: 'contractors', file: 'Industry-Contractors.dc.html', hero: 'c2dc4bbda700701bfbd9882c5d8b35d0', photo: '',
+        intro: 'Roofers, plumbers, HVAC, landscapers, pool and pest pros: your truck is your best ad. We make sure every job site and every drive brings in calls.',
+        needs: [
+          { t: 'Look professional on the road', d: 'A clean, branded truck tells homeowners you are established before you knock on the door.' },
+          { t: 'Make it easy to call', d: 'Big phone numbers and simple messages people can read at a stoplight.' },
+          { t: 'Get seen at every job', d: 'Yard signs and fence banners keep your name in the neighborhood while you work.' }
+        ],
+        products: [
+          { k: 'wraps', why: 'Full or partial wraps and fleet lettering for trucks, vans and trailers.' },
+          { k: 'banners', why: 'Yard signs and job site banners that generate neighbor referrals.' },
+          { k: 'window', why: 'Rear window perf and door decals for an easy, low-cost upgrade.' },
+          { k: 'storefront', why: 'Shop or office signs so customers can find your location.' }
+        ],
+        work: ['73b4d815b67c3ebb0d2fcb545467d2e8', '6ccd33fa1f30a3d897309ab5a5c9c819', 'c2d9568f7668bdce618df80159a3a199', 'f14339cd7b2ff75b4c773f977705083b'],
+        faqs: [
+          { q: 'Can you match graphics across my whole fleet?', a: 'Yes. We keep your files on hand so every new truck or van gets the same look.' },
+          { q: 'Should I get a full wrap or lettering?', a: 'It depends on budget and goals. Lettering is affordable and clean; a full wrap gets the most attention. We can show you both on your vehicle.' },
+          { q: 'Do you do yard signs for job sites?', a: 'Yes. We print corrugated yard signs with stakes in any quantity.' }
+        ] },
+      restaurants: { name: 'Restaurants & Bars', short: 'restaurants', file: 'Industry-Restaurants.dc.html', hero: '1bb5e5a8dd3bfa305e0608f8c7c1f176', photo: '',
+        intro: 'Hungry people decide fast. We make signs that catch drivers, pull in walk-ins and help your brand stand out from the place next door.',
+        needs: [
+          { t: 'Be seen day and night', d: 'Lit signs keep you visible for dinner and late-night crowds.' },
+          { t: 'Promote specials', d: 'Window graphics and banners for happy hour, events and new menu items.' },
+          { t: 'Look good inside too', d: 'Menu boards and wall graphics that match your brand.' }
+        ],
+        products: [
+          { k: 'storefront', why: 'Channel letters and lightboxes that read clearly from the road.' },
+          { k: 'window', why: 'Hours, menus and promos on your glass, easy to update.' },
+          { k: 'banners', why: 'Grand openings, events and seasonal specials.' },
+          { k: 'interior', why: 'Menu boards, wall murals and restroom signs.' }
+        ],
+        work: ['eeaf84faba44af69ea94568046061e56', '94c3527b5adb3d7d3fa5b350fbc6bf0d', '9e472123707ac35f201017fc54bea9f0', 'fc427f5d893bf746d512fca42018d298'],
+        faqs: [
+          { q: 'Can you help with a grand opening?', a: 'Yes. We can do coming-soon banners, window graphics and your permanent sign as one package.' },
+          { q: 'Do you make menu boards?', a: 'Yes. Printed boards or panels you can update when prices change.' },
+          { q: 'Can you work with my plaza sign rules?', a: 'Yes. Send us your landlord sign criteria and we design to fit.' }
+        ] },
+      retail: { name: 'Retail Stores', short: 'retailers', file: 'Industry-Retail.dc.html', hero: '9e472123707ac35f201017fc54bea9f0', photo: '',
+        intro: 'From boutiques to smoke shops to showrooms, your storefront does the selling before anyone walks in.',
+        needs: [
+          { t: 'Stop people walking by', d: 'Bold storefront and window graphics that make people look twice.' },
+          { t: 'Change with the seasons', d: 'Swap promos and sales without replacing your main sign.' },
+          { t: 'Guide shoppers inside', d: 'Department signs, posters and floor graphics.' }
+        ],
+        products: [
+          { k: 'storefront', why: 'Building signs and lightboxes that make your shop easy to find.' },
+          { k: 'window', why: 'Full window displays, sale graphics and store hours.' },
+          { k: 'interior', why: 'Wall graphics, posters and floor decals inside the store.' },
+          { k: 'banners', why: 'Sale banners, feather flags and A-frames for the sidewalk.' }
+        ],
+        work: ['fc427f5d893bf746d512fca42018d298', '94c3527b5adb3d7d3fa5b350fbc6bf0d', 'ac6cac82d583332c286e5535e17ff041', 'dc777ba4e91984c69a4166c1cb2033e5'],
+        faqs: [
+          { q: 'Can window graphics be changed for each season?', a: 'Yes. Most window vinyl removes cleanly, so you can rotate promotions.' },
+          { q: 'Can you see out through window graphics?', a: 'With perforated film, customers see the graphic outside and you can still see out.' },
+          { q: 'Do you print posters and in-store signs?', a: 'Yes. Posters, frames, shelf signs and floor graphics.' }
+        ] },
+      medical: { name: 'Medical & Dental', short: 'medical offices', file: 'Industry-Medical.dc.html', hero: '', photo: '[PHOTO: medical or dental office sign]',
+        intro: 'Patients want to find you easily and feel confident when they walk in. We build clean, professional signs inside and out.',
+        needs: [
+          { t: 'Easy to find', d: 'Clear building and suite signs so patients don’t get lost.' },
+          { t: 'A calm, professional look', d: 'Lobby logos and wall graphics that build trust.' },
+          { t: 'Meet ADA rules', d: 'Room and restroom signs with tactile text and braille.' }
+        ],
+        products: [
+          { k: 'storefront', why: 'Building and suite signs that patients can spot from the parking lot.' },
+          { k: 'interior', why: 'Lobby logos, ADA room signs, wayfinding and privacy film.' },
+          { k: 'monument', why: 'Entrance monuments for stand-alone offices and medical parks.' },
+          { k: 'window', why: 'Hours, doctor names and frosted privacy glass.' }
+        ],
+        work: ['ef837f8ed683abd98a7a5f7ac74703d8', '1146554cde15943823eb9bb623460a23', 'c6310178ef29d7da1d0ce06bef15b96b', '2807b4e78f3ea61ae9b3495e42671a78'],
+        faqs: [
+          { q: 'Are your ADA signs compliant?', a: 'We build ADA signs to the current ADA Standards for tactile text, braille and mounting height.' },
+          { q: 'Can you add privacy to exam room windows?', a: 'Yes. Frosted or privacy film blocks views while letting light in.' },
+          { q: 'Can you update names when doctors change?', a: 'Yes. We can design directories and door signs with replaceable inserts.' }
+        ] },
+      realestate: { name: 'Real Estate', short: 'real estate pros', file: 'Industry-Real-Estate.dc.html', hero: '2807b4e78f3ea61ae9b3495e42671a78', photo: '',
+        intro: 'Agents, brokers, mortgage and title offices: we make the signs that get your listings and your name noticed.',
+        needs: [
+          { t: 'Signs for every listing', d: 'Yard signs, riders and open house signs ready when you need them.' },
+          { t: 'Brand your car', d: 'Door magnets or lettering so your car works for you between showings.' },
+          { t: 'A professional office', d: 'Office signs and lobby logos for your brokerage.' }
+        ],
+        products: [
+          { k: 'banners', why: 'Yard signs, riders, open house A-frames and directional signs.' },
+          { k: 'wraps', why: 'Car lettering, magnets and full wraps for agents and teams.' },
+          { k: 'storefront', why: 'Brokerage and office building signs.' },
+          { k: 'interior', why: 'Lobby logos and conference room graphics.' }
+        ],
+        work: ['a8a67f6f60fac1e8f10d5e0d40108971', 'fc427f5d893bf746d512fca42018d298', '4c0aa19c9bebcfd34adb0c78f5de56ff', 'c2dc4bbda700701bfbd9882c5d8b35d0'],
+        faqs: [
+          { q: 'Can you print yard signs in bulk?', a: 'Yes. We print any quantity and keep your design on file for reorders.' },
+          { q: 'Do you make open house signs?', a: 'Yes. A-frames, directional arrows and riders.' },
+          { q: 'Can you make magnets for my car?', a: 'Yes. Car door magnets are a popular low-cost option for agents.' }
+        ] },
+      automarine: { name: 'Auto & Marine', short: 'auto and marine businesses', file: 'Industry-Auto-Marine.dc.html', hero: 'd75f1cb608ccbcd93cb1a6386a7ef96b', photo: '',
+        intro: 'Dealers, repair shops, detailers, marinas and charters: we wrap, tint and sign the vehicles and buildings that keep you busy.',
+        needs: [
+          { t: 'Brand your shop', d: 'Building and bay signs that tell drivers what you do.' },
+          { t: 'Show your work', d: 'Wrapped shop trucks, trailers and boats that turn heads.' },
+          { t: 'Offer tint and wraps', d: 'Partner with us on tint, wraps and graphics for your customers.' }
+        ],
+        products: [
+          { k: 'tint', why: 'Automotive and commercial tint installed to Florida law.' },
+          { k: 'wraps', why: 'Car, truck, trailer and boat wraps and graphics.' },
+          { k: 'storefront', why: 'Shop, dealership and service bay signs.' },
+          { k: 'banners', why: 'Sale banners, feather flags and lot signs.' }
+        ],
+        work: ['ff337b18020fbfe00ff8e253a5bd0c84', '3eaf600ff7dcd137e019b98f40f0675a', '5840bb1fdb538070a975d608cf1bc3c3', 'b4d9508d604c229a21b06e82b4a2caf3'],
+        faqs: [
+          { q: 'Do you wrap boats?', a: 'Yes. We use marine-grade vinyl for hulls, consoles and boat names.' },
+          { q: 'Do you work with dealers and shops?', a: 'Yes. We can set up ongoing pricing for repeat tint and graphics work.' },
+          { q: 'Is your tint legal in Florida?', a: 'We install tint within Florida limits and will show you the legal options for each vehicle.' }
+        ] },
+      hoa: { name: 'HOAs & Communities', short: 'communities', file: 'Industry-HOAs.dc.html', hero: '', photo: '[PHOTO: community entrance monument]',
+        intro: 'Make a great first impression at the entrance and keep residents informed with signs that last.',
+        needs: [
+          { t: 'A strong entrance', d: 'Monument signs that set the tone for the whole community.' },
+          { t: 'Clear rules and directions', d: 'Pool, clubhouse, parking and rules signs.' },
+          { t: 'Built to last', d: 'Materials that stand up to Florida sun and storms.' }
+        ],
+        products: [
+          { k: 'monument', why: 'Foam and lit entrance monuments, including Royal Foam signs.' },
+          { k: 'interior', why: 'Clubhouse, pool and amenity signs.' },
+          { k: 'banners', why: 'Event banners and community announcements.' },
+          { k: 'storefront', why: 'Leasing and sales office signs.' }
+        ],
+        work: ['1bb5e5a8dd3bfa305e0608f8c7c1f176', 'a8a67f6f60fac1e8f10d5e0d40108971', '2807b4e78f3ea61ae9b3495e42671a78', 'c6310178ef29d7da1d0ce06bef15b96b'],
+        faqs: [
+          { q: 'Can you refresh our existing entrance sign?', a: 'Often, yes. We can replace letters, recoat or add lighting instead of starting over.' },
+          { q: 'Do you handle permits for monument signs?', a: 'Yes. We prepare drawings and handle the permit process.' },
+          { q: 'Can you match our community colors?', a: 'Yes. We match colors, fonts and logos to your community brand.' }
+        ] },
+      schools: { name: 'Schools & Churches', short: 'schools and churches', file: 'Industry-Schools-Churches.dc.html', hero: '', photo: '[PHOTO: school or church sign]',
+        intro: 'Welcome families and visitors with signs that make your campus easy to find and easy to navigate.',
+        needs: [
+          { t: 'Easy to find', d: 'Monument and building signs visible from the road.' },
+          { t: 'Promote events', d: 'Banners for services, fundraisers, enrollment and games.' },
+          { t: 'Help visitors navigate', d: 'Wayfinding, room signs and ADA signs across campus.' }
+        ],
+        products: [
+          { k: 'monument', why: 'Entrance and roadside monument signs.' },
+          { k: 'banners', why: 'Event, sports and enrollment banners.' },
+          { k: 'interior', why: 'Wayfinding, room signs, ADA signs and wall graphics.' },
+          { k: 'wraps', why: 'Van and bus graphics for your ministry or school.' }
+        ],
+        work: ['a8a67f6f60fac1e8f10d5e0d40108971', '1146554cde15943823eb9bb623460a23', 'ef837f8ed683abd98a7a5f7ac74703d8', '1bb5e5a8dd3bfa305e0608f8c7c1f176'],
+        faqs: [
+          { q: 'Can you make banners for sports and events?', a: 'Yes. Indoor and outdoor banners in any size, with fast turnaround.' },
+          { q: 'Do you do full campus wayfinding?', a: 'Yes. We can plan and quote every sign on your campus together.' },
+          { q: 'Can you wrap our van or bus?', a: 'Yes. We do lettering and full wraps for church and school vehicles.' }
+        ] },
+      government: { name: 'Government & Facilities', short: 'facilities', file: 'Industry-Government.dc.html', hero: '', photo: '[PHOTO: facility or fleet signage]',
+        intro: 'Clear, durable, compliant signs for public buildings, offices and fleets.',
+        needs: [
+          { t: 'Compliance', d: 'ADA signs built to current standards.' },
+          { t: 'Clear wayfinding', d: 'Directories and directional signs so visitors find the right office.' },
+          { t: 'Fleet identification', d: 'Consistent markings across vehicles and equipment.' }
+        ],
+        products: [
+          { k: 'interior', why: 'ADA room signs, directories and wayfinding.' },
+          { k: 'wraps', why: 'Fleet markings and vehicle graphics.' },
+          { k: 'monument', why: 'Building ID and entrance signs.' },
+          { k: 'window', why: 'Door hours, notices and privacy film.' }
+        ],
+        work: ['f14339cd7b2ff75b4c773f977705083b', '9f6398dfbe444c82ca4776a14f83a4d3', 'ef837f8ed683abd98a7a5f7ac74703d8', '1146554cde15943823eb9bb623460a23'],
+        faqs: [
+          { q: 'Can you work with purchase orders?', a: '[CONFIRM: payment terms you accept for public agencies]' },
+          { q: 'Can you do large sign packages?', a: 'Yes. We can survey a building and quote every sign at once.' },
+          { q: 'Do you mark fleet vehicles?', a: 'Yes. We apply consistent markings across cars, trucks and equipment.' }
+        ] }
+    };
+    var key = this.props.ind ?? 'contractors';
+    var d = D[key] || D.contractors;
+    var products = d.products.map(function (p) { var x = P[p.k]; return { name: x.name, href: x.href, why: p.why, img: x.img ? B + x.img : '', noImg: !x.img }; });
+    var faqs = d.faqs.map(function (f, i) {
+      var open = self.state.open === i;
+      return { q: f.q, a: f.a, open: open, expanded: open ? 'true' : 'false', icon: open ? '−' : '+', toggle: function () { self.setState({ open: open ? -1 : i }); } };
+    });
+    var others = Object.keys(D).filter(function (k) { return k !== key; }).map(function (k) { return { name: D[k].name, file: D[k].file }; });
+    return { d: d, hero: d.hero ? B + d.hero : '', hasHero: !!d.hero, noHero: !d.hero, products: products, work: d.work.map(function (id) { return B + id; }), faqs: faqs, others: others };
+  }
+}
+</script>
+</body>
+</html>

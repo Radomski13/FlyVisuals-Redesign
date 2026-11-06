@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Blog</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#0A0A0A}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="blog" hint-size="100%,132px"></dc-import>
+
+<section style="background: #111111; color: #FFFFFF; padding: 64px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><span>Blog</span></nav>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 54px); font-weight: 800">News &amp; sign tips</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4; max-width: 680px">Guides, project spotlights and advice for getting the most from your signs.</p>
+</div>
+</section>
+
+<section style="padding: 72px 24px 96px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div role="group" aria-label="Filter posts" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="4">
+<button type="button" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}" style="{{f.style}}">{{f.label}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px 28px">
+<sc-for list="{{posts}}" as="b" hint-placeholder-count="6">
+<article style="display: flex; flex-direction: column; gap: 12px">
+<img src="{{b.img}}" alt="" style="width: 100%; height: 220px; object-fit: cover; border-radius: 6px; display: block">
+<span style="font-size: 13px; font-weight: 700; color: #555555; text-transform: uppercase; letter-spacing: 0.08em">[DATE] · {{b.cat}}</span>
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 21px; font-weight: 700; color: #111111; line-height: 1.3">{{b.t}}</h2>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #555555">{{b.d}}</p>
+<a href="BlogPost.dc.html" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em">Read more</a>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2400}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { f: 'All' }; }
+  renderVals() {
+    var self = this;
+    var all = [
+      { cat: 'Signs', t: 'How to choose the right storefront sign for your building', d: 'Lit or non-lit, letters or a cabinet: what to think about before you buy.', img: '_blob/9e472123707ac35f201017fc54bea9f0' },
+      { cat: 'Wraps', t: 'Full wrap vs. partial wrap: what fits your budget', d: 'The pros and cons of each, and how to get the most impact for the money.', img: '_blob/73b4d815b67c3ebb0d2fcb545467d2e8' },
+      { cat: 'Tips', t: 'Pasco County sign permits: what to know before you order', d: 'A plain-English look at the permit process and how we handle it.', img: '_blob/c6310178ef29d7da1d0ce06bef15b96b' },
+      { cat: 'Signs', t: 'Why foam monument signs are a smart choice in Florida', d: 'How they compare to masonry on cost, weight and weather.', img: '_blob/1bb5e5a8dd3bfa305e0608f8c7c1f176' },
+      { cat: 'Tips', t: '5 ways to make your storefront windows work harder', d: 'Simple window graphics ideas that bring in walk-in traffic.', img: '_blob/94c3527b5adb3d7d3fa5b350fbc6bf0d' },
+      { cat: 'Wraps', t: 'How to keep your vehicle wrap looking new', d: 'Washing, parking and care tips to help your wrap last.', img: '_blob/360d2163283a523b70cce294a429afb4' }
+    ];
+    var cats = ['All', 'Signs', 'Wraps', 'Tips'];
+    return {
+      posts: all.filter(function (p) { return self.state.f === 'All' || p.cat === self.state.f; }),
+      filters: cats.map(function (c) {
+        var on = self.state.f === c;
+        return { label: c, pressed: on ? 'true' : 'false', pick: function () { self.setState({ f: c }); },
+          style: 'font: inherit; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 14px; padding: 10px 20px; min-height: 44px; border-radius: 999px; cursor: pointer; border: 1px solid #111111; background: ' + (on ? '#111111' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#111111') };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Locations</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#0A0A0A}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="locations" hint-size="100%,132px"></dc-import>
+
+<section style="background: #111111; color: #FFFFFF; padding: 64px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><span>Locations</span></nav>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 54px); font-weight: 800">Locations &amp; service areas</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4; max-width: 720px">Signs, wraps and tint for businesses across Pasco, Hernando, Pinellas and Hillsborough counties.</p>
+</div>
+</section>
+
+<section style="padding: 80px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Our locations</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 24px">
+<sc-for list="{{locations}}" as="l" hint-placeholder-count="1">
+<article style="border: 1px solid #E5E5E5; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column">
+<div style="height: 220px; background: repeating-linear-gradient(135deg, #EFEFEF 0 12px, #E7E7E7 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[MAP EMBED: {{l.name}}]</div>
+<div style="padding: 28px; display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #DC1A21">{{l.tag}}</span>
+<h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: #111111">{{l.name}}</h3>
+<span style="font-size: 16px">{{l.address}}</span>
+<span style="font-size: 16px">{{l.phone}} · {{l.hours}}</span>
+<span style="font-size: 15px; color: #555555">Serves: {{l.serves}}</span>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 8px">
+<a href="https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668" style="background: #111111; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Get Directions</a>
+<a href="{{l.page}}" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 10px 20px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Location Page</a>
+</div>
+</div>
+</article>
+</sc-for>
+<div style="border: 2px dashed #D0D0D0; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; justify-content: center; gap: 12px; min-height: 280px; box-sizing: border-box">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #555555">Coming soon</span>
+<h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: #111111">More Fly Visuals locations</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #555555">We're growing across Tampa Bay. Until a shop opens near you, our Port Richey crew comes to you for consults and installs.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background: #F4F4F4; padding: 80px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Cities we serve</h2>
+<p style="margin: 0; font-size: 17px; color: #555555">Pick your city to see services, nearby work and your closest location.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 24px">
+<sc-for list="{{counties}}" as="co" hint-placeholder-count="4">
+<div style="background: #FFFFFF; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 800; color: #111111">{{co.name}} County</h3>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{co.cities}}" as="ci" hint-placeholder-count="5">
+<li>
+<sc-if value="{{ci.page}}" hint-placeholder-val="{{false}}"><a href="{{ci.page}}" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; min-height: 44px; box-sizing: border-box; font-weight: 700; font-size: 16px; color: #111111; text-decoration: none; border-bottom: 1px solid #E5E5E5">{{ci.name}}<span aria-hidden="true" style="color: #DC1A21">→</span></a></sc-if>
+<sc-if value="{{ci.noPage}}" hint-placeholder-val="{{true}}"><span style="display: block; padding: 10px 0; font-size: 16px; color: #3A3A3A; border-bottom: 1px solid #E5E5E5">{{ci.name}}</span></sc-if>
+</li>
+</sc-for>
+</ul>
+</div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 14px; color: #555555">Don't see your town? <a href="Quote.dc.html">Ask us</a>. We often travel for larger projects.</p>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var locations = [
+      { name: 'Fly Visuals – Port Richey', tag: 'Headquarters', address: '8132 Cormel St, Port Richey, FL 34668', phone: '(727) 494-6162', hours: 'Mon–Fri 9 AM – 5 PM', serves: 'All of Pasco, Hernando, Pinellas and Hillsborough', page: 'City-Port-Richey.dc.html' }
+    ];
+    var P = { 'Port Richey': 'City-Port-Richey.dc.html', 'Wesley Chapel': 'City-Wesley-Chapel.dc.html', 'Clearwater': 'City-Clearwater.dc.html', 'St. Petersburg': 'City-St-Petersburg.dc.html', 'Tampa': 'City-Tampa.dc.html' };
+    var raw = [
+      { name: 'Pasco', cities: ['Port Richey', 'New Port Richey', 'Wesley Chapel', 'Land O’ Lakes', 'Hudson', 'Trinity', 'Zephyrhills'] },
+      { name: 'Hernando', cities: ['Spring Hill', 'Brooksville', 'Weeki Wachee'] },
+      { name: 'Pinellas', cities: ['Clearwater', 'St. Petersburg', 'Largo', 'Palm Harbor', 'Tarpon Springs', 'Dunedin', 'Pinellas Park'] },
+      { name: 'Hillsborough', cities: ['Tampa', 'Brandon', 'Lutz', 'Odessa', 'Riverview'] }
+    ];
+    return {
+      locations: locations,
+      counties: raw.map(function (c) { return { name: c.name, cities: c.cities.map(function (n) { return { name: n, page: P[n] || '', noPage: !P[n] }; }) }; })
+    };
+  }
+}
+</script>
+</body>
+</html>

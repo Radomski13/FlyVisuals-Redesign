@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Industries</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#0A0A0A}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="industries" hint-size="100%,132px"></dc-import>
+
+<section style="background: #111111; color: #FFFFFF; padding: 64px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><span>Industries</span></nav>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 54px); font-weight: 800">Signs for your industry</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4; max-width: 680px">Every business has different needs. Here's what we usually build for each type of customer.</p>
+</div>
+</section>
+
+<section style="padding: 80px 24px 96px">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 24px">
+<sc-for list="{{industries}}" as="i" hint-placeholder-count="9">
+<article style="border: 1px solid #E5E5E5; border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700"><a href="{{i.file}}" style="color: #111111; text-decoration: none">{{i.name}}</a></h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #555555">{{i.desc}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{i.links}}" as="l" hint-placeholder-count="3">
+<a href="{{l.href}}" style="background: #F4F4F4; color: #111111; text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 999px; min-height: 36px; box-sizing: border-box; display: inline-flex; align-items: center">{{l.name}}</a>
+</sc-for>
+</div>
+<a href="{{i.file}}" style="margin-top: auto; padding-top: 6px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; color: #DC1A21; text-decoration: none">Learn more →</a>
+</article>
+</sc-for>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var P = {
+      storefront: { name: 'Storefront Signs', href: 'Storefront-Signs.dc.html' },
+      wraps: { name: 'Commercial Vehicle Wraps', href: 'Commercial-Vehicle-Wraps.dc.html' },
+      monument: { name: 'Monument Signs', href: 'Monument-Signs.dc.html' },
+      window: { name: 'Window Graphics', href: 'Window-Graphics.dc.html' },
+      tint: { name: 'Window Tint', href: 'Window-Tint.dc.html' },
+      banners: { name: 'Banners & Flags', href: 'Banners-Flags.dc.html' },
+      interior: { name: 'Indoor Signs', href: 'Interior-ADA-Signs.dc.html' },
+      tradeshow: { name: 'Trade Show', href: 'Trade-Show-Displays.dc.html' }
+    };
+    var list = [
+      { name: 'Contractors & Home Services', desc: 'Wrapped trucks and vans, yard signs and job site banners that keep your name in front of homeowners.', k: ['wraps', 'banners', 'window'] },
+      { name: 'Restaurants & Bars', desc: 'Lit storefront signs, window menus and promo banners that bring in walk-in traffic.', k: ['storefront', 'window', 'banners'] },
+      { name: 'Retail Stores', desc: 'Building signs, window displays and in-store graphics for sales and seasons.', k: ['storefront', 'window', 'interior'] },
+      { name: 'Medical & Dental', desc: 'Clean exterior signs, lobby logos, wayfinding and ADA room signs.', k: ['storefront', 'interior', 'monument'] },
+      { name: 'Real Estate', desc: 'Yard signs, open house signs, vehicle graphics and office signs.', k: ['banners', 'wraps', 'storefront'] },
+      { name: 'Auto & Marine', desc: 'Dealer signs, tint, boat wraps and shop branding.', k: ['tint', 'wraps', 'storefront'] },
+      { name: 'HOAs & Communities', desc: 'Entrance monuments, amenity signs and community rules signs.', k: ['monument', 'interior', 'banners'] },
+      { name: 'Schools & Churches', desc: 'Monument signs, event banners, wayfinding and wall graphics.', k: ['monument', 'banners', 'interior'] },
+      { name: 'Government & Facilities', desc: 'ADA signs, wayfinding, building ID and fleet graphics.', k: ['interior', 'wraps', 'monument'] }
+    ];
+    var F = ['Industry-Contractors.dc.html', 'Industry-Restaurants.dc.html', 'Industry-Retail.dc.html', 'Industry-Medical.dc.html', 'Industry-Real-Estate.dc.html', 'Industry-Auto-Marine.dc.html', 'Industry-HOAs.dc.html', 'Industry-Schools-Churches.dc.html', 'Industry-Government.dc.html'];
+    return { industries: list.map(function (i, n) { return { name: i.name, desc: i.desc, file: F[n], links: i.k.map(function (k) { return P[k]; }) }; }) };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site Header</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.fv-nav{display:flex}
+.fv-cta{display:inline-flex}
+.fv-wide{display:inline}
+.fv-burger{display:none}
+@media (max-width: 960px){
+.fv-nav,.fv-cta{display:none !important}
+.fv-wide{display:none !important}
+.fv-burger{display:inline-flex !important}
+}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<div style="background: #111111; color: #FFFFFF; font-size: 14px">
+<div style="max-width: 1200px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px">
+<a href="ServiceArea.dc.html" class="fv-wide" style="color: #FFFFFF; text-decoration: none">Serving Pasco, Pinellas, Hernando &amp; Hillsborough</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px">
+<a href="About.dc.html" class="fv-wide" style="color: #FFFFFF; text-decoration: none">About Us</a>
+<span class="fv-wide">Mon–Fri 9 AM – 5 PM</span>
+<a href="tel:7274946162" style="color: #FFFFFF; font-weight: 700; text-decoration: none">Call (727) 494-6162</a>
+</div>
+</div>
+</div>
+<header style="background: #FFFFFF; border-bottom: 1px solid #E5E5E5">
+<div style="max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="text-decoration: none; display: flex; align-items: center">
+<img src="_blob/e485889e332fb609b654efc0b848b5b1" alt="Fly Visuals" style="height: 52px; width: auto; display: block">
+</a>
+<nav aria-label="Main" class="fv-nav" style="flex-wrap: wrap; gap: 6px 22px; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 15px">
+<sc-for list="{{links}}" as="l" hint-placeholder-count="8">
+<a href="{{l.href}}" style="{{l.style}}">{{l.label}}</a>
+</sc-for>
+</nav>
+<a href="Quote.dc.html" class="fv-cta" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 13px 24px; border-radius: 4px; min-height: 46px; box-sizing: border-box; align-items: center">Request a Quote</a>
+<button type="button" class="fv-burger" aria-label="{{menuLabel}}" aria-expanded="{{expanded}}" onClick="{{toggle}}" style="background: #111111; color: #FFFFFF; border: none; border-radius: 4px; width: 48px; height: 48px; align-items: center; justify-content: center; cursor: pointer">
+<sc-if value="{{closed}}" hint-placeholder-val="{{true}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></sc-if>
+<sc-if value="{{open}}" hint-placeholder-val="{{false}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></sc-if>
+</button>
+</div>
+<sc-if value="{{open}}" hint-placeholder-val="{{false}}">
+<nav aria-label="Mobile" style="border-top: 1px solid #E5E5E5; padding: 8px 24px 24px; display: flex; flex-direction: column; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 17px">
+<sc-for list="{{links}}" as="m" hint-placeholder-count="8">
+<a href="{{m.href}}" style="color: #111111; text-decoration: none; padding: 14px 0; border-bottom: 1px solid #EFEFEF; display: flex; justify-content: space-between; align-items: center; min-height: 48px; box-sizing: border-box">{{m.label}}<span aria-hidden="true" style="color: #DC1A21">→</span></a>
+</sc-for>
+<a href="Quote.dc.html" style="margin-top: 18px; background: #DC1A21; color: #FFFFFF; text-decoration: none; font-size: 16px; padding: 16px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: flex; align-items: center; justify-content: center">Request a Quote</a>
+<a href="tel:7274946162" style="margin-top: 10px; border: 2px solid #111111; color: #111111; text-decoration: none; font-size: 16px; padding: 14px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: flex; align-items: center; justify-content: center">Call (727) 494-6162</a>
+</nav>
+</sc-if>
+</header>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["home","products","shop","industries","locations","process","financing","gallery","blog","none"],"default":"none"},"$preview":{"width":1440,"height":132}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { open: false }; }
+  renderVals() {
+    var self = this;
+    var active = this.props.active ?? 'none';
+    var items = [
+      { key: 'products', label: 'Products', href: 'Products.dc.html' },
+      { key: 'shop', label: 'Shop', href: 'Shop.dc.html' },
+      { key: 'industries', label: 'Industries', href: 'Industries.dc.html' },
+      { key: 'locations', label: 'Locations', href: 'ServiceArea.dc.html' },
+      { key: 'process', label: 'Our Process', href: 'Process.dc.html' },
+      { key: 'financing', label: 'Financing', href: 'Financing.dc.html' },
+      { key: 'gallery', label: 'Gallery', href: 'Gallery.dc.html' },
+      { key: 'blog', label: 'Blog', href: 'Blog.dc.html' }
+    ];
+    var open = this.state.open;
+    return {
+      open: open, closed: !open, expanded: open ? 'true' : 'false', menuLabel: open ? 'Close menu' : 'Open menu',
+      toggle: function () { self.setState({ open: !self.state.open }); },
+      links: items.map(function (i) {
+        var on = i.key === active;
+        return { label: i.label, href: i.href, style: 'color: ' + (on ? '#DC1A21' : '#111111') + '; text-decoration: none; padding: 10px 0; border-bottom: 3px solid ' + (on ? '#DC1A21' : 'transparent') };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

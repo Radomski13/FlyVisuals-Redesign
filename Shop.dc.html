@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#0A0A0A}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="shop" hint-size="100%,132px"></dc-import>
+
+<section style="background: #111111; color: #FFFFFF; padding: 64px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><span>Shop</span></nav>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 54px); font-weight: 800">Shop signs, banners &amp; displays</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4; max-width: 720px">Priced upfront, no calls required. Order online and pick up free in Port Richey, or we ship it to you.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 10px 28px; padding-top: 6px; font-size: 15px; font-weight: 600">
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A8F" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Volume discounts</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A8F" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>10% price match guarantee</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A8F" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Free local pickup</span>
+<span style="display: inline-flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF8A8F" stroke-width="2.5" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>Ships to the lower 48</span>
+</div>
+</div>
+</section>
+
+<section style="background: #F4F4F4; padding: 56px 24px 88px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div role="group" aria-label="Filter by category" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="7">
+<button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.label}}</button>
+</sc-for>
+</div>
+<span style="font-size: 15px; color: #555555">{{countTxt}}</span>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 20px">
+<sc-for list="{{list}}" as="p" hint-placeholder-count="8">
+<a href="{{p.file}}" style="background: #FFFFFF; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,0.06)">
+<sc-if value="{{p.hasImg}}" hint-placeholder-val="{{false}}"><img src="{{p.img}}" alt="{{p.n}}" style="width: 100%; height: 200px; object-fit: cover; display: block"></sc-if>
+<sc-if value="{{p.noImg}}" hint-placeholder-val="{{true}}"><div style="height: 200px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PRODUCT PHOTO]</div></sc-if>
+<div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #555555">{{p.c}}</span>
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: #111111">{{p.n}}</h2>
+<p style="margin: 0; font-size: 14px; line-height: 1.5; color: #555555; flex-grow: 1">{{p.d}}</p>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; padding-top: 8px">
+<span style="font-size: 14px; color: #555555">From <strong style="font-family: 'Montserrat', sans-serif; font-size: 18px; color: #111111">{{p.from}}</strong></span>
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #DC1A21">Shop →</span>
+</div>
+</div>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="padding: 72px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(26px, 2.8vw, 34px); font-weight: 800; color: #111111">Need it installed, or something bigger?</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #555555">Storefront signs, wraps, monuments and tint are custom jobs. We measure, design and install them for you.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
+<a href="Products.dc.html" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">See Custom Products</a>
+</div>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4200}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { cat: 'All' }; }
+  renderVals() {
+    var self = this, B = '_blob/';
+    var P = [{"n":"Yard Signs","c":"Custom Signs","d":"Coroplast yard signs for real estate, contractors, and events. 2–3 day turnaround.","f":36.49,"file":"Shop-Yard-Signs.dc.html","i":"fc427f5d893bf746d512fca42018d298"},{"n":"Vinyl Banners","c":"Banners","d":"Full-color vinyl banners for grand openings, events, and promotions.","f":33.49,"file":"Shop-Vinyl-Banners.dc.html","i":"2c746e6c4ffeded5659bb31e300b7c67"},{"n":"Pole Banners","c":"Banners","d":"Custom printed banner made to hang from light poles and posts. Weather-resistant for street and campus use.","f":33.49,"file":"Shop-Pole-Banners.dc.html","i":""},{"n":"Outdoor Banners","c":"Banners","d":"Heavy-duty custom banner built for outdoor promotion. Weather-resistant with hemmed edges and grommets.","f":33.49,"file":"Shop-Outdoor-Banners.dc.html","i":"8ec6d01b8259744594432acd593b75f7"},{"n":"Fabric Banners","c":"Banners","d":"Polyester fabric banner with dye-sublimation print. Wrinkle-resistant, premium look for indoor displays and trade shows.","f":48.99,"file":"Shop-Fabric-Banners.dc.html","i":""},{"n":"Vinyl Mesh Banners","c":"Banners","d":"8 oz PVC mesh banner that lets wind pass through. Ideal for fences, construction sites and windy locations.","f":56.49,"file":"Shop-Vinyl-Mesh-Banners.dc.html","i":""},{"n":"Fence Banners","c":"Banners","d":"Custom banner for fences and barriers. Choose solid vinyl or mesh. Great for job sites, ball fields and events.","f":33.49,"file":"Shop-Fence-Banners.dc.html","i":""},{"n":"Roll Up Retractable Banner Stands","c":"Banner Stands","d":"Spring-loaded roll-up stand with aluminum base and printed graphic. Sets up in seconds. Carry bag included.","f":136.99,"file":"Shop-Roll-Up-Retractable-Banner-Stands.dc.html","i":""},{"n":"Steppy Retractable Banner Stands","c":"Banner Stands","d":"Taller retractable banner stand with aluminum hardware and UV-printed graphic. Carry bag included.","f":232.49,"file":"Shop-Steppy-Retractable-Banner-Stands.dc.html","i":""},{"n":"L-Style Banner Stands","c":"Banner Stands","d":"Lightweight L-frame banner stand with printed polypropylene graphic. Good for retail and lobbies.","f":106.49,"file":"Shop-L-Style-Banner-Stands.dc.html","i":""},{"n":"Korean Style X Banner Stands","c":"Banner Stands","d":"Lightweight X-frame stand with printed PVC graphic. Low-cost, portable promo display.","f":108.49,"file":"Shop-Korean-Style-X-Banner-Stands.dc.html","i":""},{"n":"Adjustable X-Frame Banner Stands","c":"Banner Stands","d":"Adjustable X-frame banner stand with 4-point tension. Portable single-sided display.","f":128.49,"file":"Shop-Adjustable-X-Frame-Banner-Stands.dc.html","i":""},{"n":"Non-Retractable Adjustable Banner Stands","c":"Banner Stands","d":"Telescopic aluminum frame with fabric graphic. Adjustable height and width. Single or double sided.","f":302.49,"file":"Shop-Non-Retractable-Adjustable-Banner-Stands.dc.html","i":""},{"n":"Premium EZ Extend Banner Stands","c":"Banner Stands","d":"Tubular aluminum frame with stretch fabric graphic. Single or double sided. Great for events and trade shows.","f":272.49,"file":"Shop-Premium-Ez-Extend-Banner-Stands.dc.html","i":""},{"n":"Big Head Cutouts","c":"Custom Signs","d":"Custom cut-to-shape face cutout sign. Fun for sports games, graduations and parties.","f":37.49,"file":"Shop-Big-Head-Cutouts.dc.html","i":""},{"n":"PVC Foam Board Signs","c":"Custom Signs","d":"Rigid PVC foam board sign printed in full color. Lightweight for indoor signage and displays.","f":12.99,"file":"Shop-Pvc-Foam-Board-Signs.dc.html","i":""},{"n":"Sintra Boards","c":"Custom Signs","d":"Durable Sintra PVC board sign. Smooth, rigid and good for indoor or covered outdoor use.","f":36.49,"file":"Shop-Sintra-Boards.dc.html","i":""},{"n":"Gator Boards","c":"Custom Signs","d":"Lightweight, warp-resistant foam board sign for presentations, displays and events.","f":38.49,"file":"Shop-Gator-Boards.dc.html","i":""},{"n":"Metal A-Frame Signs","c":"Custom Signs","d":"Steel A-frame sidewalk sign with printed inserts. Double sided, portable.","f":214.49,"file":"Shop-Metal-A-Frame-Signs.dc.html","i":""},{"n":"Plastic A-Frame Signs","c":"Custom Signs","d":"Weather-resistant plastic A-frame sidewalk sign with printed panels. Double sided.","f":227.49,"file":"Shop-Plastic-A-Frame-Signs.dc.html","i":""},{"n":"Poster Signs","c":"Custom Signs","d":"Full-color printed poster on premium paper. Standard or custom sizes for retail, office and events.","f":57.49,"file":"Shop-Poster-Signs.dc.html","i":""},{"n":"Table Runners","c":"Trade Show Displays","d":"Printed fabric table runner to brand any event table.","f":72.99,"file":"Shop-Table-Runners.dc.html","i":""},{"n":"Stretch Table Covers","c":"Trade Show Displays","d":"Fitted spandex-style stretch table cover with full-color print. Tight, modern look.","f":158.99,"file":"Shop-Stretch-Table-Covers.dc.html","i":""},{"n":"Premium Table Covers","c":"Trade Show Displays","d":"Draped polyester table cover with dye-sublimation print. Covers front and sides.","f":143.49,"file":"Shop-Premium-Table-Covers.dc.html","i":""},{"n":"Fitted Table Covers","c":"Trade Show Displays","d":"Tailored fitted table cover with printed logo. Clean, box-style fit.","f":162.49,"file":"Shop-Fitted-Table-Covers.dc.html","i":""},{"n":"Straight Pillow Case Backdrop Displays","c":"Trade Show Displays","d":"Straight tube-frame backdrop with zip-on pillowcase fabric graphic. Tool-free setup.","f":643.49,"file":"Shop-Straight-Pillow-Case-Backdrop-Displays.dc.html","i":""},{"n":"Curved Pillow Case Backdrop Displays","c":"Trade Show Displays","d":"Curved tube-frame backdrop with pillowcase fabric graphic for added depth.","f":536.49,"file":"Shop-Curved-Pillow-Case-Backdrop-Displays.dc.html","i":""},{"n":"Straight Pop Up Backdrop Displays","c":"Trade Show Displays","d":"Collapsible pop-up frame with fabric graphic. Fast setup for booths and events.","f":618.99,"file":"Shop-Straight-Pop-Up-Backdrop-Displays.dc.html","i":""},{"n":"Curved Pop Up Backdrop Displays","c":"Trade Show Displays","d":"Curved pop-up frame with printed fabric graphic. Quick setup, wraparound look.","f":625.99,"file":"Shop-Curved-Pop-Up-Backdrop-Displays.dc.html","i":""},{"n":"Straight Wall Box Backdrop Displays","c":"Trade Show Displays","d":"Box-style frame backdrop with deep sides for a structured booth wall.","f":1108.99,"file":"Shop-Straight-Wall-Box-Backdrop-Displays.dc.html","i":""},{"n":"Adjustable Backdrop Displays","c":"Trade Show Displays","d":"Telescopic adjustable backdrop with printed fabric. Change height and width per event.","f":293.49,"file":"Shop-Adjustable-Backdrop-Displays.dc.html","i":""},{"n":"Step & Repeat Straight Pop Up Displays","c":"Trade Show Displays","d":"Step and repeat backdrop on a pop-up frame. Repeated logo pattern for photo walls.","f":643.99,"file":"Shop-Step-Repeat-Straight-Pop-Up-Displays.dc.html","i":""},{"n":"Step & Repeat Curved Pop Up Displays","c":"Trade Show Displays","d":"Curved pop-up step and repeat backdrop for red-carpet and photo areas.","f":689.49,"file":"Shop-Step-Repeat-Curved-Pop-Up-Displays.dc.html","i":""},{"n":"Straight Pillow Case Step & Repeat Displays","c":"Trade Show Displays","d":"Straight tube-frame step and repeat with pillowcase fabric graphic.","f":545.49,"file":"Shop-Straight-Pillow-Case-Step-Repeat-Displays.dc.html","i":""},{"n":"Step & Repeat Curved Pillow Case Displays","c":"Trade Show Displays","d":"Curved tube-frame step and repeat with pillowcase fabric graphic.","f":512.49,"file":"Shop-Step-Repeat-Curved-Pillow-Case-Displays.dc.html","i":""},{"n":"Step & Repeat Straight Wall-Box Displays","c":"Trade Show Displays","d":"Wall-box frame step and repeat backdrop with structured sides.","f":810.49,"file":"Shop-Step-Repeat-Straight-Wall-Box-Displays.dc.html","i":""},{"n":"Step & Repeat Adjustable Straight Displays","c":"Trade Show Displays","d":"Adjustable telescopic step and repeat backdrop. Resize for any space.","f":293.49,"file":"Shop-Step-Repeat-Adjustable-Straight-Displays.dc.html","i":""},{"n":"Rectangle Flags","c":"Outdoor Displays","d":"Custom printed rectangle flag for poles, walls and events.","f":45.99,"file":"Shop-Rectangle-Flags.dc.html","i":""},{"n":"Personalized Flags","c":"Outdoor Displays","d":"Custom flag printed with your design, logo or photo.","f":31.99,"file":"Shop-Personalized-Flags.dc.html","i":""},{"n":"Feather Flags","c":"Outdoor Displays","d":"Feather-shaped advertising flag with pole and base. Single or double sided.","f":178.49,"file":"Shop-Feather-Flags.dc.html","i":""},{"n":"Blade Flags","c":"Outdoor Displays","d":"Blade-style advertising flag with pole and base options for grass or pavement.","f":171.49,"file":"Shop-Blade-Flags.dc.html","i":""},{"n":"Teardrop Flags","c":"Outdoor Displays","d":"Teardrop flag that keeps its shape in wind. Pole and base included.","f":169.49,"file":"Shop-Teardrop-Flags.dc.html","i":""},{"n":"Sail Flags","c":"Outdoor Displays","d":"Sail-shaped advertising flag with pole and base. Holds shape in wind.","f":165.49,"file":"Shop-Sail-Flags.dc.html","i":""},{"n":"Giant Flags","c":"Outdoor Displays","d":"Extra-tall advertising flag for roadside visibility.","f":596.99,"file":"Shop-Giant-Flags.dc.html","i":""},{"n":"6 Ft Canopy Tent","c":"Outdoor Displays","d":"6x6 pop-up canopy tent with custom printed top. Tool-free setup.","f":510.49,"file":"Shop-6-Ft-Canopy-Tent.dc.html","i":""},{"n":"10 Ft Canopy Tent","c":"Outdoor Displays","d":"10x10 pop-up canopy tent with full-color printed canopy. Quick-lock frame.","f":898.99,"file":"Shop-10-Ft-Canopy-Tent.dc.html","i":""},{"n":"Custom Canopy Tent 10 x 15","c":"Outdoor Displays","d":"10x15 pop-up canopy tent with custom print for larger booths.","f":912.99,"file":"Shop-Custom-Canopy-Tent-10-X-15.dc.html","i":""},{"n":"Custom Canopy Tent 10 x 20","c":"Outdoor Displays","d":"10x20 pop-up canopy tent with custom print for large event spaces.","f":1297.99,"file":"Shop-Custom-Canopy-Tent-10-X-20.dc.html","i":""},{"n":"Clear Window Clings","c":"Stickers and Decals","d":"Static cling on clear film. No adhesive, removable and reusable.","f":22.49,"file":"Shop-Clear-Window-Clings.dc.html","i":""},{"n":"Opaque Window Clings","c":"Stickers and Decals","d":"Static cling on white film for bold, full-color window graphics. Removable.","f":22.49,"file":"Shop-Opaque-Window-Clings.dc.html","i":""},{"n":"Perforated Window Decals","c":"Stickers and Decals","d":"One-way vision perforated window decal. Graphic outside, see-through from inside.","f":31.99,"file":"Shop-Perforated-Window-Decals.dc.html","i":"94c3527b5adb3d7d3fa5b350fbc6bf0d"},{"n":"Clear Window Decals","c":"Stickers and Decals","d":"Adhesive window decal on clear vinyl.","f":22.49,"file":"Shop-Clear-Window-Decals.dc.html","i":""},{"n":"Opaque Window Decals","c":"Stickers and Decals","d":"Adhesive window decal on white vinyl for solid, full-color graphics.","f":22.49,"file":"Shop-Opaque-Window-Decals.dc.html","i":""},{"n":"Frosted Window Decals","c":"Stickers and Decals","d":"Printed frosted window decal for privacy and branding on glass.","f":22.49,"file":"Shop-Frosted-Window-Decals.dc.html","i":""},{"n":"Wall Decals","c":"Stickers and Decals","d":"Adhesive vinyl wall decal for offices, stores and event spaces.","f":22.49,"file":"Shop-Wall-Decals.dc.html","i":""},{"n":"Floor Decals","c":"Stickers and Decals","d":"Textured, slip-resistant floor decal for directions, promos and social distancing.","f":22.49,"file":"Shop-Floor-Decals.dc.html","i":""},{"n":"Clear Vehicle Decals","c":"Stickers and Decals","d":"Clear vinyl vehicle decal for windows and paint.","f":22.49,"file":"Shop-Clear-Vehicle-Decals.dc.html","i":""},{"n":"Opaque Vehicle Decals","c":"Stickers and Decals","d":"White vinyl vehicle decal for bold full-color graphics on cars, vans and trucks.","f":22.49,"file":"Shop-Opaque-Vehicle-Decals.dc.html","i":"73b4d815b67c3ebb0d2fcb545467d2e8"}];
+    var CATS = ['All'].concat(["Banners", "Custom Signs", "Stickers and Decals", "Banner Stands", "Trade Show Displays", "Outdoor Displays"]);
+    function money(n) { return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+    var cur = this.state.cat;
+    var ON = "background: #111111; color: #FFFFFF; border: 2px solid #111111; border-radius: 999px; padding: 10px 18px; min-height: 44px; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer";
+    var OFF = "background: #FFFFFF; color: #111111; border: 2px solid #D0D0D0; border-radius: 999px; padding: 10px 18px; min-height: 44px; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer";
+    var list = P.filter(function (p) { return cur === 'All' || p.c === cur; }).map(function (p) { return Object.assign({}, p, { from: money(p.f), img: p.i ? B + p.i : '', hasImg: !!p.i, noImg: !p.i }); });
+    return {
+      cats: CATS.map(function (c) { var on = c === cur; return { label: c, pressed: on ? 'true' : 'false', style: on ? ON : OFF, pick: function () { self.setState({ cat: c }); } }; }),
+      list: list, countTxt: list.length + ' products'
+    };
+  }
+}
+</script>
+</body>
+</html>

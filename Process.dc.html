@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Our Process</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#0A0A0A}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="process" hint-size="100%,132px"></dc-import>
+
+<section style="background: #111111; color: #FFFFFF; padding: 64px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><span>Our Process</span></nav>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 54px); font-weight: 800">How we work</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4; max-width: 680px">One local team handles your project from the first call to the final install, so you always know who to talk to.</p>
+</div>
+</section>
+
+<section style="padding: 88px 24px">
+<ol style="list-style: none; margin: 0 auto; padding: 0; max-width: 1000px; display: flex; flex-direction: column; gap: 0">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<li style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 28px; padding: 36px 0; border-bottom: 1px solid #E5E5E5">
+<span style="width: 84px; height: 84px; border-radius: 50%; border: 3px solid #DC1A21; color: #111111; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800">{{s.n}}</span>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 800; color: #111111">{{s.t}}</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #555555">{{s.d}}</p>
+<ul style="margin: 0; padding-left: 20px; font-size: 16px; line-height: 1.7; color: #3A3A3A">
+<sc-for list="{{s.pts}}" as="pt" hint-placeholder-count="3"><li>{{pt}}</li></sc-for>
+</ul>
+</div>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<section style="background: #F4F4F4; padding: 88px 24px">
+<div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111; text-align: center">Frequently asked questions</h2>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="5">
+<div style="background: #FFFFFF; border-radius: 6px; border: 1px solid #E5E5E5">
+<button type="button" aria-expanded="{{f.expanded}}" onClick="{{f.toggle}}" style="width: 100%; background: none; border: none; font: inherit; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 17px; color: #111111; text-align: left; padding: 20px 22px; min-height: 60px; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer">
+<span>{{f.q}}</span><span aria-hidden="true" style="font-size: 22px; color: #DC1A21">{{f.icon}}</span>
+</button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{false}}">
+<p style="margin: 0; padding: 0 22px 22px; font-size: 16px; line-height: 1.6; color: #555555">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { open: 0 }; }
+  renderVals() {
+    var self = this;
+    var steps = [
+      { n: '1', t: 'Consultation', d: 'We start by learning about your business, your goals and your budget.', pts: ['Meet at your location or our Port Richey shop', 'Free site survey and measurements', 'Recommendations and a written quote'] },
+      { n: '2', t: 'Design & Production', d: 'Our designers turn your ideas into a proof you can review and revise.', pts: ['Digital proof showing your sign on your building or vehicle', 'Revisions until you approve', 'Printed and built in-house'] },
+      { n: '3', t: 'Project Management', d: 'You get one point of contact who keeps the project on schedule.', pts: ['Permit drawings and filing when needed', 'Landlord and HOA approvals', 'Updates at each step'] },
+      { n: '4', t: 'Installation', d: 'Our own crew installs your sign, or you can pick it up from the shop.', pts: ['Scheduled at a time that works for you', 'Clean, safe installation', 'Final walkthrough before we leave'] }
+    ];
+    var raw = [
+      { q: 'How much does a sign cost?', a: 'It depends on size, materials, lighting and installation. After a quick consult we give you a written quote with no surprises.' },
+      { q: 'How long does a project take?', a: 'Simple graphics can take days. Larger lit or permitted signs often take a few weeks, mostly waiting on permits. We give you a timeline with your quote.' },
+      { q: 'Do you handle permits?', a: 'Yes. We prepare drawings and work with the county or city for you.' },
+      { q: 'Can I use my own design?', a: 'Yes. Send us your files and we will check that they are print-ready.' },
+      { q: 'Do you offer financing?', a: 'Yes, business financing is available. See our Financing page for details.' }
+    ];
+    return {
+      steps: steps,
+      faqs: raw.map(function (f, i) {
+        var open = self.state.open === i;
+        return { q: f.q, a: f.a, open: open, expanded: open ? 'true' : 'false', icon: open ? '−' : '+', toggle: function () { self.setState({ open: open ? -1 : i }); } };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

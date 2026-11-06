@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reviews</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#0A0A0A}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="reviews" hint-size="100%,132px"></dc-import>
+
+<section style="background: #111111; color: #FFFFFF; padding: 64px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 680px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><span>Reviews</span></nav>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 54px); font-weight: 800">What our customers say</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">Real reviews from local businesses we've worked with.</p>
+</div>
+<div style="background: #FFFFFF; color: #111111; border-radius: 6px; padding: 22px 28px; display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 800">4.8</span>
+<span role="img" aria-label="Star rating" style="color: #DC1A21; font-size: 20px; letter-spacing: 3px">★★★★★</span>
+<span style="font-size: 14px; color: #555555">18 Google reviews</span>
+</div>
+</div>
+</section>
+
+<section style="padding: 80px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px">
+<sc-for list="{{reviews}}" as="r" hint-placeholder-count="9">
+<blockquote style="margin: 0; border: 1px solid #E5E5E5; border-radius: 6px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<span role="img" aria-label="5 out of 5 stars" style="color: #DC1A21; font-size: 18px; letter-spacing: 3px">★★★★★</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; font-style: italic">“[CUSTOMER REVIEW TEXT]”</p>
+<footer style="display: flex; flex-direction: column; gap: 2px"><strong style="font-family: 'Montserrat', sans-serif; color: #111111">[Customer name]</strong><span style="font-size: 14px; color: #555555">{{r}} customer</span></footer>
+</blockquote>
+</sc-for>
+</div>
+</section>
+
+<section style="background: #F4F4F4; padding: 64px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: #111111">Worked with us?</h2>
+<p style="margin: 0; font-size: 17px; color: #555555">We'd love to hear how it went.</p>
+</div>
+<a href="https://[GOOGLE-REVIEW-LINK]" style="background: #111111; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Leave a Google Review</a>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { reviews: ['Vehicle wrap', 'Storefront sign', 'Monument sign', 'Window graphics', 'Window tint', 'Banners', 'Lobby sign', 'Fleet graphics', 'Trade show'] };
+  }
+}
+</script>
+</body>
+</html>

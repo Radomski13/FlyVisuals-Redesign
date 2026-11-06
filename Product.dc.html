@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Product Page</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="products" hint-size="100%,132px"></dc-import>
+
+<section style="background: #F4F4F4; padding: 56px 24px 72px">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 48px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; color: #555555; display: flex; gap: 8px; flex-wrap: wrap">
+<a href="index.html" style="color: #555555">Home</a><span aria-hidden="true">/</span><sc-if value="{{noCity}}" hint-placeholder-val="{{true}}"><a href="Products.dc.html" style="color: #555555">Products</a><span aria-hidden="true">/</span></sc-if><sc-if value="{{hasCity}}" hint-placeholder-val="{{false}}"><a href="ServiceArea.dc.html" style="color: #555555">Locations</a><span aria-hidden="true">/</span><a href="{{city.file}}" style="color: #555555">{{city.name}}</a><span aria-hidden="true">/</span></sc-if><span style="color: #111111; font-weight: 600">{{p.name}}</span>
+</nav>
+<a href="https://[GOOGLE-REVIEWS-LINK]" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 999px; padding: 8px 16px; min-height: 44px; box-sizing: border-box; color: #111111; text-decoration: none; font-size: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06)"><span style="font-family: 'Montserrat', sans-serif; font-weight: 800">Google</span><span role="img" aria-label="4.8 out of 5 stars" style="color: #F5A300; letter-spacing: 2px; font-size: 15px">★★★★★</span><strong style="font-family: 'Montserrat', sans-serif">4.8</strong><span style="color: #555555">18 reviews</span></a>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.05; font-weight: 800; color: #111111">{{title}}</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #3A3A3A">{{intro}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
+<a href="tel:7274946162" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call (727) 494-6162</a>
+</div>
+</div>
+<sc-if value="{{hasHero}}" hint-placeholder-val="{{true}}"><img src="{{hero}}" alt="{{p.name}} by Fly Visuals" style="width: 100%; height: 420px; object-fit: cover; border-radius: 6px; display: block"></sc-if>
+<sc-if value="{{noHero}}" hint-placeholder-val="{{false}}"><div style="height: 420px; border-radius: 6px; background: repeating-linear-gradient(135deg, #E2E2E2 0 14px, #D9D9D9 14px 28px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600; padding: 16px; box-sizing: border-box; text-align: center">{{p.photo}}</div></sc-if>
+</div>
+</section>
+
+<section style="padding: 88px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Options we offer</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 22px">
+<sc-for list="{{p.types}}" as="t" hint-placeholder-count="4">
+<a href="{{t.href}}" style="border: 1px solid #E5E5E5; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: #1A1A1A">
+<sc-if value="{{t.img}}" hint-placeholder-val="{{true}}"><img src="{{t.img}}" alt="{{t.t}} by Fly Visuals" style="width: 100%; height: 160px; object-fit: cover; display: block"></sc-if>
+<sc-if value="{{t.noImg}}" hint-placeholder-val="{{false}}"><div style="height: 160px; background: repeating-linear-gradient(135deg, #EFEFEF 0 12px, #E7E7E7 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 12px; font-weight: 600">[PHOTO]</div></sc-if>
+<div style="padding: 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1">
+<h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: #111111">{{t.t}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; color: #555555; flex-grow: 1">{{t.d}}</p>
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #DC1A21">Learn more →</span>
+</div>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="background: #111111; color: #FFFFFF; padding: 80px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800">{{whyTitle}}</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #D4D4D4">{{whyLine}}</p>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px">
+<sc-for list="{{benefits}}" as="b" hint-placeholder-count="4">
+<li style="display: flex; gap: 14px; align-items: flex-start; font-size: 17px; line-height: 1.5">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M5 12l5 5L20 7"></path></svg>
+<span><strong style="font-family: 'Montserrat', sans-serif">{{b.t}}</strong> {{b.d}}</span>
+</li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+<sc-if value="{{hasCity}}" hint-placeholder-val="{{false}}">
+<section style="background: #F4F4F4; padding: 88px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 48px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 18px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #DC1A21">{{city.county}} County</span>
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Serving {{city.name}} businesses</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #555555">{{cityLine}}</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{city.areas}}" as="a" hint-placeholder-count="4">
+<li style="display: flex; gap: 12px; align-items: center; font-size: 17px; font-weight: 600"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DC1A21" stroke-width="2.5" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>{{a}}</li>
+</sc-for>
+</ul>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px">
+<span style="font-size: 14px; font-weight: 700; color: #111111; width: 100%">Also serving nearby</span>
+<sc-for list="{{city.nearby}}" as="n" hint-placeholder-count="4">
+<span style="background: #FFFFFF; border: 1px solid #D0D0D0; border-radius: 999px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #111111">{{n}}</span>
+</sc-for>
+</div>
+</div>
+<div style="background: #FFFFFF; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08)">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #555555">Your nearest location</span>
+<strong style="font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; color: #111111">{{shop.name}}</strong>
+<span style="font-size: 16px">{{shop.address}}</span>
+<span style="font-size: 16px">{{shop.hours}}</span>
+<span style="font-size: 16px; font-weight: 700; color: #111111">{{city.distance}}</span>
+<div style="height: 150px; border-radius: 6px; background: repeating-linear-gradient(135deg, #EFEFEF 0 12px, #E7E7E7 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[MAP: shop to {{city.name}}]</div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px">
+<a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Quote</a>
+<a href="{{city.file}}" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 10px 20px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">More in {{city.name}}</a>
+</div>
+</div>
+</div>
+</section>
+</sc-if>
+
+<section style="padding: 88px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Recent {{p.short}} projects</h2>
+<a href="Gallery.dc.html" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px">See our work →</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px">
+<sc-for list="{{gallery}}" as="g" hint-placeholder-count="3">
+<sc-if value="{{g.has}}" hint-placeholder-val="{{true}}"><img src="{{g.src}}" alt="Fly Visuals project photo" style="width: 100%; height: 260px; object-fit: cover; border-radius: 6px; display: block"></sc-if>
+<sc-if value="{{g.no}}" hint-placeholder-val="{{false}}"><div style="height: 260px; border-radius: 6px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PROJECT PHOTO]</div></sc-if>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="background: #F4F4F4; padding: 88px 24px">
+<div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111; text-align: center">Common questions</h2>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{faqs}}" as="f" hint-placeholder-count="3">
+<div style="background: #FFFFFF; border-radius: 6px; border: 1px solid #E5E5E5">
+<button type="button" aria-expanded="{{f.expanded}}" onClick="{{f.toggle}}" style="width: 100%; background: none; border: none; font: inherit; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 17px; color: #111111; text-align: left; padding: 20px 22px; min-height: 60px; display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer">
+<span>{{f.q}}</span><span aria-hidden="true" style="font-size: 22px; color: #DC1A21">{{f.icon}}</span>
+</button>
+<sc-if value="{{f.open}}" hint-placeholder-val="{{false}}">
+<p style="margin: 0; padding: 0 22px 22px; font-size: 16px; line-height: 1.6; color: #555555">{{f.a}}</p>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<sc-if value="{{noCity}}" hint-placeholder-val="{{true}}">
+<section style="background: #111111; color: #FFFFFF; padding: 56px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px">
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; margin-right: 8px">{{p.name}} near you:</span>
+<sc-for list="{{cityLinks}}" as="cl" hint-placeholder-count="5">
+<a href="{{cl.href}}" style="background: #FFFFFF; color: #111111; border-radius: 999px; padding: 10px 18px; font-weight: 700; font-size: 14px; text-decoration: none; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center">{{cl.name}}</a>
+</sc-for>
+<a href="ServiceArea.dc.html" style="color: #FFFFFF; font-weight: 700; font-size: 14px">All locations →</a>
+</div>
+</section>
+</sc-if>
+
+<section style="padding: 80px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; color: #111111">Related products</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px">
+<sc-for list="{{related}}" as="r" hint-placeholder-count="3">
+<a href="{{r.href}}" style="border: 1px solid #E5E5E5; border-radius: 6px; padding: 22px; text-decoration: none; color: #111111; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 18px; display: flex; justify-content: space-between; align-items: center; min-height: 72px; box-sizing: border-box">{{r.name}}<span aria-hidden="true" style="color: #DC1A21">→</span></a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["storefront","wraps","monument","window","tint","banners","interior","tradeshow"],"default":"storefront"},"city":{"editor":"enum","options":["none","port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"none"},"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { open: 0 }; }
+  renderVals() {
+    var self = this;
+    var D = {
+      storefront: { name: 'Storefront Signs', short: 'storefront sign', href: 'Storefront-Signs.dc.html', photo: '[PHOTO: lit channel letters on a storefront]',
+        intro: 'Your building sign works 24/7. We design, build and install exterior signs that are easy to read from the road and built for Florida sun and storms.',
+        types: [
+          { t: 'Channel Letters', d: 'Individual lit or non-lit letters mounted to your building or a raceway.' },
+          { t: 'Lightbox Cabinets', d: 'Backlit sign cabinets with replaceable faces, single or double sided.' },
+          { t: 'Dimensional Letters', d: 'Cut acrylic, PVC or metal letters for a clean, upscale look.' },
+          { t: 'Blade & Projecting Signs', d: 'Signs that stick out from the wall so foot traffic sees you.' },
+          { t: 'Pylon & Pole Signs', d: 'Tall roadside signs for plazas and stand-alone locations.' },
+          { t: 'Aluminum Panel Signs', d: 'Durable, budget-friendly flat signs for buildings and fences.' }
+        ],
+        faqs: [
+          { q: 'Do I need a permit for a storefront sign?', a: 'Most exterior signs in Pasco and nearby counties need a permit, and many plazas have landlord rules too. We prepare drawings and handle the permit process for you.' },
+          { q: 'How long does a storefront sign take?', a: 'Timing depends on the sign type and permit approval. Most projects take [X–X] weeks from approved proof to install.' },
+          { q: 'Can you fix or update my existing sign?', a: 'Yes. We can replace faces, convert lighting to LED, or repair damaged signs.' }
+        ], related: ['monument', 'window', 'interior'] },
+      wraps: { name: 'Commercial Vehicle Wraps', short: 'wrap', href: 'Commercial-Vehicle-Wraps.dc.html', photo: '[PHOTO: fully wrapped work van]',
+        intro: 'Turn your truck, van or trailer into an ad that drives all over town. Full wraps, partial wraps and lettering, printed and installed in our shop.',
+        types: [
+          { t: 'Full Wraps', d: 'Complete coverage for maximum impact and a total color change.' },
+          { t: 'Partial Wraps', d: 'Cover part of the vehicle and blend with the paint to save cost.' },
+          { t: 'Fleet Graphics', d: 'Consistent branding across every vehicle in your fleet.' },
+          { t: 'Cut Vinyl Lettering', d: 'Name, phone and DOT numbers for a simple, clean look.' },
+          { t: 'Trailer & Box Truck Wraps', d: 'Big, flat sides that make bold billboards.' },
+          { t: 'Boat Wraps', d: 'Marine-grade vinyl for hulls, consoles and names.' }
+        ],
+        faqs: [
+          { q: 'How long does a vehicle wrap last?', a: 'With quality cast vinyl and normal care, wraps typically last several years. We will go over care tips at pickup.' },
+          { q: 'Will a wrap damage my paint?', a: 'Wraps applied and removed properly protect factory paint. Aftermarket or damaged paint can be a risk, and we check before installing.' },
+          { q: 'How long will my vehicle be in the shop?', a: 'Most wraps take [X–X] days in the shop. We will schedule a drop-off time that fits your work.' }
+        ], related: ['banners', 'window', 'tradeshow'] },
+      monument: { name: 'Monument Signs', short: 'monument sign', href: 'Monument-Signs.dc.html', photo: '[PHOTO: monument sign at a business entrance]',
+        intro: 'A monument sign gives your property a solid, permanent look at the entrance. As an authorized Royal Foam dealer we offer foam monument signs that look like stone at a lower cost.',
+        types: [
+          { t: 'Foam Monument Signs', d: 'Lightweight coated foam that looks like stone or stucco.' },
+          { t: 'Lit Monument Signs', d: 'Internally lit cabinets or lit letters for night visibility.' },
+          { t: 'Community & HOA Entrances', d: 'Neighborhood entry signs and columns.' },
+          { t: 'Address & Tenant Signs', d: 'Signs that list multiple tenants in plazas and office parks.' }
+        ],
+        faqs: [
+          { q: 'What is a foam monument sign?', a: 'It is a high-density foam core with a hard protective coating, shaped and finished to look like stone, brick or stucco.' },
+          { q: 'Do monument signs need a permit?', a: 'Yes, almost always. We handle the drawings, permit and placement rules for your property.' },
+          { q: 'Can you match my building?', a: 'We can match colors and textures to your building and add your logo in dimensional letters.' }
+        ], related: ['storefront', 'interior', 'banners'] },
+      window: { name: 'Window Graphics', short: 'window graphics', href: 'Window-Graphics.dc.html', photo: '[PHOTO: storefront window graphics]',
+        intro: 'Use your windows to show hours, promotions and your brand. Vinyl window graphics are affordable, fast and easy to update.',
+        types: [
+          { t: 'Window Lettering', d: 'Hours, logos and contact info on glass doors and windows.' },
+          { t: 'Perforated Window Film', d: 'Full-color graphics outside while you can still see out.' },
+          { t: 'Frosted & Etched Film', d: 'Privacy and a clean decorative look for offices.' },
+          { t: 'Promotional Decals', d: 'Short-term graphics for sales and seasonal offers.' }
+        ],
+        faqs: [
+          { q: 'Can window graphics be removed later?', a: 'Yes. Most window vinyl removes cleanly, which makes it great for seasonal promotions.' },
+          { q: 'Will I still be able to see out?', a: 'With perforated film you can see out from inside while customers see a full graphic from outside.' },
+          { q: 'How fast can you install?', a: 'Simple window lettering can often be done within [X] days of proof approval.' }
+        ], related: ['tint', 'storefront', 'interior'] },
+      tint: { name: 'Window Tint', short: 'tint', href: 'Window-Tint.dc.html', photo: '[PHOTO: tinted commercial windows]',
+        intro: 'Cut heat, glare and UV for your car, home or business. We install quality tint films that help in Florida heat.',
+        types: [
+          { t: 'Automotive Tint', d: 'Cars, trucks and SUVs, installed to Florida tint law limits.' },
+          { t: 'Commercial Tint', d: 'Storefronts and offices to reduce heat and glare.' },
+          { t: 'Residential Tint', d: 'Home windows for comfort and UV protection.' },
+          { t: 'Security & Privacy Film', d: 'Added privacy and glass-holding film for safety.' }
+        ],
+        faqs: [
+          { q: 'What tint is legal in Florida?', a: 'Florida sets limits for front side, back side and rear windows. We will show you the legal options for your vehicle.' },
+          { q: 'Does tint really lower heat?', a: 'Quality films block a large share of solar heat and UV. We can show you how different films compare.' },
+          { q: 'How long does car tint take?', a: 'Most vehicles are done in [X] hours.' }
+        ], related: ['window', 'wraps', 'storefront'] },
+      banners: { name: 'Banners & Flags', short: 'banner', href: 'Banners-Flags.dc.html', photo: '[PHOTO: grand opening banner on a building]',
+        intro: 'Fast, affordable signs for grand openings, events and promotions. Printed in-house so you can get them quickly.',
+        types: [
+          { t: 'Vinyl Banners', d: 'Indoor and outdoor banners with grommets or pole pockets.' },
+          { t: 'Feather & Teardrop Flags', d: 'Eye-catching flags for roadside attention.' },
+          { t: 'Mesh Banners', d: 'Wind-friendly banners for fences and construction sites.' },
+          { t: 'A-Frames & Yard Signs', d: 'Sidewalk signs and coroplast yard signs.' }
+        ],
+        faqs: [
+          { q: 'How fast can I get a banner?', a: 'Standard banners are often ready in [X] business days, and rush options may be available.' },
+          { q: 'Can you design it for me?', a: 'Yes. Send your logo and info and our designers will create a proof.' },
+          { q: 'Will it hold up outside?', a: 'We use outdoor-rated materials and finishing. Lifespan depends on sun and wind exposure.' }
+        ], related: ['tradeshow', 'window', 'wraps'] },
+      interior: { name: 'Indoor Signs', short: 'indoor sign', href: 'Interior-ADA-Signs.dc.html', photo: '[PHOTO: lobby logo wall]',
+        intro: 'Make a strong first impression the moment customers walk in. Lobby logos, wall graphics, menu boards, ADA signs and everything in between.',
+        types: [
+          { t: 'Lobby & Logo Signs', d: 'Dimensional acrylic, metal or PVC logos for the wall behind your front desk.' },
+          { t: 'Wall Graphics & Murals', d: 'Printed wall vinyl for branding, decor and full-wall murals.' },
+          { t: 'Menu Boards', d: 'Printed or changeable menu and price boards for restaurants and shops.' },
+          { t: 'Acrylic & PVC Panel Signs', d: 'Office, door, desk and suite signs with a clean, modern finish.' },
+          { t: 'ADA Signs', d: 'Room ID and restroom signs with tactile text and braille.' },
+          { t: 'Wayfinding & Directories', d: 'Directional signs and building directories for offices, schools and medical buildings.' },
+          { t: 'Floor Graphics', d: 'Slip-resistant floor decals for branding, promotions and directions.' },
+          { t: 'Posters & Frames', d: 'Printed posters, snap frames and in-store promo displays.' }
+        ],
+        faqs: [
+          { q: 'Are your ADA signs compliant?', a: 'We build ADA signs to the current ADA Standards for tactile text, braille and mounting height.' },
+          { q: 'Can you install on any wall?', a: 'We install on drywall, block, glass and more, using the right hardware for each surface.' },
+          { q: 'Do you offer full office packages?', a: 'Yes. We can plan and quote every sign in a building at once.' }
+        ], related: ['storefront', 'window', 'monument'] },
+      tradeshow: { name: 'Trade Show Displays', short: 'display', href: 'Trade-Show-Displays.dc.html', photo: '[PHOTO: trade show booth setup]',
+        intro: 'Stand out at expos, fairs and events with portable displays that are easy to set up and travel with.',
+        types: [
+          { t: 'Retractable Banner Stands', d: 'Roll-up stands that set up in seconds.' },
+          { t: 'Backdrop Displays', d: 'Large fabric or pop-up walls for your booth.' },
+          { t: 'Table Covers & Runners', d: 'Printed covers that brand your table.' },
+          { t: 'Tents & Canopies', d: 'Custom printed tents for outdoor events.' }
+        ],
+        faqs: [
+          { q: 'Are displays easy to carry?', a: 'Most come with carry cases and fit in a car trunk.' },
+          { q: 'Can I reuse the hardware?', a: 'Yes. Many displays let you swap the printed graphic and keep the frame.' },
+          { q: 'How soon do I need to order?', a: 'Order at least [X] weeks before your event to leave time for proofs.' }
+        ], related: ['banners', 'wraps', 'interior'] }
+    };
+    var slug = this.props.slug ?? 'storefront';
+    var p = D[slug] || D.storefront;
+    var LOCATIONS = { 'port-richey': { name: 'Fly Visuals – Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM' } };
+    var CITIES = {
+      'port-richey': { name: 'Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-Port-Richey.dc.html', distance: 'Our shop is right here in town', areas: ['US-19 business corridor', 'Ridge Road', 'Downtown New Port Richey (Main Street)', 'SR 52'], nearby: ['New Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Odessa'] },
+      'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'port-richey', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Downtown and Central Avenue', '4th Street North', 'Tyrone area', 'Gateway / Carillon'], nearby: ['Pinellas Park', 'Largo', 'Seminole', 'Gulfport'] },
+      'clearwater': { name: 'Clearwater', county: 'Pinellas', shop: 'port-richey', file: 'City-Clearwater.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Downtown (Cleveland Street)', 'Gulf to Bay Boulevard', 'US-19', 'Clearwater Beach'], nearby: ['Largo', 'Dunedin', 'Safety Harbor', 'Palm Harbor'] },
+      'wesley-chapel': { name: 'Wesley Chapel', county: 'Pasco', shop: 'port-richey', file: 'City-Wesley-Chapel.dc.html', distance: 'About [XX] minutes from our shop', areas: ['SR 54 and SR 56', 'Wiregrass area', 'Bruce B. Downs Boulevard', 'Wesley Chapel Boulevard'], nearby: ['Land O’ Lakes', 'Lutz', 'Zephyrhills', 'New Tampa'] },
+      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'port-richey', file: 'City-Tampa.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'], nearby: ['Brandon', 'Lutz', 'Town ’n’ Country', 'Riverview'] }
+    };
+    var cityKey = this.props.city ?? 'none';
+    var city = CITIES[cityKey] || null;
+    var shop = city ? LOCATIONS[city.shop] : LOCATIONS['port-richey'];
+    var lower = p.name.toLowerCase();
+    var baseFaqs = city ? [{ q: 'Do you install ' + lower + ' in ' + city.name + '?', a: 'Yes. We serve businesses throughout ' + city.name + ' and the rest of ' + city.county + ' County from our ' + shop.name.replace('Fly Visuals – ', '') + ' shop, including a free on-site consultation.' }].concat(p.faqs) : p.faqs;
+    var faqs = baseFaqs.map(function (f, i) {
+      var open = self.state.open === i;
+      return { q: f.q, a: f.a, open: open, expanded: open ? 'true' : 'false', icon: open ? '−' : '+', toggle: function () { self.setState({ open: open ? -1 : i }); } };
+    });
+    var sfx = city ? city.file.slice(5, -8) : '';
+    var related = p.related.map(function (k) { return { name: city ? D[k].name + ' in ' + city.name : D[k].name, href: city ? D[k].href.replace('.dc.html', '-' + sfx + '.dc.html') : D[k].href }; });
+    var cityLinks = Object.keys(CITIES).map(function (k) { return { name: CITIES[k].name, href: p.href.replace('.dc.html', '-' + CITIES[k].file.slice(5, -8) + '.dc.html') }; });
+    var WHY = {"storefront": {"line": "We design, build and install your storefront sign with our own team, from the first measurement to the final install.","b": [{"t": "Built to your plaza's rules.","d": "We design to your landlord's sign criteria and local code."},{"t": "Permits handled.","d": "We prepare the drawings and file the paperwork."},{"t": "Bright, efficient LEDs.","d": "Our lit signs use LEDs that cost less to run and last longer."},{"t": "Installed by our crew.","d": "Our own team mounts your sign, with no subcontractors."}]},"wraps": {"line": "Your wrap is designed, printed and installed under one roof at our Port Richey shop.","b": [{"t": "Designed to sell.","d": "Layouts that read at a glance, with your phone and website easy to spot."},{"t": "Fit to your vehicle.","d": "We design around your exact make and model so graphics line up."},{"t": "Careful prep and install.","d": "We clean and prep every surface so the vinyl sticks and lasts."},{"t": "Fleet ready.","d": "We keep your files on hand so every new vehicle matches."}]},"monument": {"line": "We build monument signs that stand up to Florida sun, rain and storms, and look good doing it.","b": [{"t": "Made for Florida weather.","d": "Materials and finishes chosen for heat, UV and humidity."},{"t": "Site plans and permits.","d": "We handle setbacks, drawings and the permit process."},{"t": "Custom to your property.","d": "Shapes, colors and textures that match your building."},{"t": "Lighting options.","d": "Add lights so your sign works day and night."}]},"window": {"line": "Window graphics are one of the lowest-cost ways to get noticed, and we make the most of every pane.","b": [{"t": "Measured on site.","d": "We measure every window so graphics fit cleanly."},{"t": "Clean install.","d": "Bubble-free application with crisp, straight edges."},{"t": "Easy to update.","d": "Removable films make seasonal changes simple."},{"t": "Inside or outside.","d": "We pick the right film and side of the glass for your goal."}]},"tint": {"line": "We install quality tint that cuts heat and glare, put on by installers who do it every day.","b": [{"t": "Florida legal.","d": "We know the state's tint limits for cars and trucks."},{"t": "Quality film.","d": "Films that block heat and UV and resist fading."},{"t": "Precise install.","d": "Clean cuts and edges with no gaps or bubbles."},{"t": "Cars, homes and businesses.","d": "One shop for every kind of glass."}]},"banners": {"line": "Banners and flags that print fast, look sharp and hold up outside.","b": [{"t": "Quick turnaround.","d": "Good for last-minute events, sales and openings."},{"t": "Outdoor-ready materials.","d": "Heavy vinyl, mesh and fabric made to last outside."},{"t": "Ready to hang.","d": "Hems, grommets, pole pockets or bases as needed."},{"t": "Design help.","d": "We set up your artwork so it prints clearly."}]},"interior": {"line": "From the lobby to the restroom door, we make indoor signs that match your brand and meet code.","b": [{"t": "ADA know-how.","d": "Room and restroom signs built to the ADA Standards."},{"t": "One look throughout.","d": "Lobby, office and wayfinding signs that all match."},{"t": "Lots of materials.","d": "Acrylic, PVC, metal, vinyl and more."},{"t": "Installed for you.","d": "We mount everything level and secure."}]},"tradeshow": {"line": "Displays that make a small booth look big and pack up easily for the next show.","b": [{"t": "Light and portable.","d": "Stands and walls that fit in your car."},{"t": "Color-matched prints.","d": "Your logo and colors look right on every piece."},{"t": "Matching kits.","d": "Banners, backdrops and table covers that work together."},{"t": "Made to reuse.","d": "Durable hardware built for show after show."}]}};
+    var why = WHY[slug] || WHY.storefront;
+    var benefits = why.b;
+    var B = '_blob/';
+    var IMG = {
+      storefront: { hero: 'ac6cac82d583332c286e5535e17ff041', g: ['9e472123707ac35f201017fc54bea9f0', 'ef837f8ed683abd98a7a5f7ac74703d8', 'c6310178ef29d7da1d0ce06bef15b96b'] },
+      wraps: { hero: 'c2dc4bbda700701bfbd9882c5d8b35d0', g: ['eeaf84faba44af69ea94568046061e56', 'd75f1cb608ccbcd93cb1a6386a7ef96b', '3eaf600ff7dcd137e019b98f40f0675a'] },
+      monument: { hero: '1bb5e5a8dd3bfa305e0608f8c7c1f176', g: ['a8a67f6f60fac1e8f10d5e0d40108971', '2807b4e78f3ea61ae9b3495e42671a78', '1146554cde15943823eb9bb623460a23'] },
+      window: { hero: '94c3527b5adb3d7d3fa5b350fbc6bf0d', g: ['b4d9508d604c229a21b06e82b4a2caf3', 'c2d9568f7668bdce618df80159a3a199', 'dc777ba4e91984c69a4166c1cb2033e5'] },
+      tint: { hero: 'ff337b18020fbfe00ff8e253a5bd0c84', g: ['71de078c39a7e2c9d6a43057c038497e', 'e400ec2f27e5d4927f46d13659bd496b', 'df47d19ef7a9f7ffb8f2b85317705715'] },
+      banners: { hero: 'fc427f5d893bf746d512fca42018d298', g: ['4c0aa19c9bebcfd34adb0c78f5de56ff', 'a8a67f6f60fac1e8f10d5e0d40108971', '2807b4e78f3ea61ae9b3495e42671a78'] },
+      interior: { hero: '1146554cde15943823eb9bb623460a23', g: ['ef837f8ed683abd98a7a5f7ac74703d8', '2807b4e78f3ea61ae9b3495e42671a78', '9e472123707ac35f201017fc54bea9f0'] },
+      tradeshow: { hero: '', g: ['', '', ''] }
+    };
+    var im = IMG[slug] || IMG.storefront;
+    var gallery = im.g.map(function (id) { return { src: id ? B + id : '', has: !!id, no: !id }; });
+    var OIMG = { 'Channel Letters': 'ac6cac82d583332c286e5535e17ff041', 'Lightbox Cabinets': 'c6310178ef29d7da1d0ce06bef15b96b', 'Dimensional Letters': '9e472123707ac35f201017fc54bea9f0', 'Pylon & Pole Signs': 'a8a67f6f60fac1e8f10d5e0d40108971', 'Aluminum Panel Signs': '2807b4e78f3ea61ae9b3495e42671a78', 'Full Wraps': 'eeaf84faba44af69ea94568046061e56', 'Partial Wraps': '3eaf600ff7dcd137e019b98f40f0675a', 'Fleet Graphics': 'f14339cd7b2ff75b4c773f977705083b', 'Cut Vinyl Lettering': '73b4d815b67c3ebb0d2fcb545467d2e8', 'Trailer & Box Truck Wraps': '4c0aa19c9bebcfd34adb0c78f5de56ff', 'Boat Wraps': 'd75f1cb608ccbcd93cb1a6386a7ef96b', 'Foam Monument Signs': '1bb5e5a8dd3bfa305e0608f8c7c1f176', 'Perforated Window Film': '94c3527b5adb3d7d3fa5b350fbc6bf0d', 'Promotional Decals': 'dc777ba4e91984c69a4166c1cb2033e5', 'Automotive Tint': 'ff337b18020fbfe00ff8e253a5bd0c84', 'A-Frames & Yard Signs': 'fc427f5d893bf746d512fca42018d298', 'Lobby & Logo Signs': '1146554cde15943823eb9bb623460a23', 'Acrylic & PVC Panel Signs': 'ef837f8ed683abd98a7a5f7ac74703d8' };
+    var types = p.types.map(function (t) {
+      var f = 'Option-' + t.t.replace(/&/g, 'and').replace(/[^A-Za-z0-9]+/g, '-').replace(/-+$/, '') + '.dc.html';
+      var im = OIMG[t.t];
+      return { t: t.t, d: t.d, href: f, img: im ? B + im : '', noImg: !im };
+    });
+    return {
+      p: Object.assign({}, p, { types: types }), faqs: faqs, related: related, benefits: benefits, whyTitle: 'Why Fly Visuals for ' + lower, whyLine: why.line, hero: im.hero ? B + im.hero : '', hasHero: !!im.hero, noHero: !im.hero, gallery: gallery,
+      city: city || { name: '', county: '', file: 'ServiceArea.dc.html', areas: [], nearby: [], distance: '' },
+      hasCity: !!city, noCity: !city, shop: shop, cityLinks: cityLinks,
+      title: city ? p.name + ' in ' + city.name + ', FL' : p.name,
+      intro: city ? p.intro + ' Serving ' + city.name + ' and all of ' + city.county + ' County.' : p.intro,
+      cityLine: city ? 'We design, build and install ' + lower + ' for businesses all over ' + city.name + ', including:' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>

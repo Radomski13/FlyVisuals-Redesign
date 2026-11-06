@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Gallery</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#0A0A0A}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="gallery" hint-size="100%,132px"></dc-import>
+
+<section style="background: #111111; color: #FFFFFF; padding: 64px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><span>Gallery</span></nav>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 54px); font-weight: 800">Our work</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4; max-width: 720px">Real jobs from our Port Richey shop: wraps, boats, signs, window graphics and tint for businesses across Tampa Bay.</p>
+</div>
+</section>
+
+<section style="background: #F4F4F4; padding: 48px 24px 88px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px">
+<div role="group" aria-label="Filter by type" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{cats}}" as="c" hint-placeholder-count="6">
+<button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.label}}</button>
+</sc-for>
+</div>
+<span style="font-size: 15px; color: #555555">{{countTxt}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr)); gap: 16px">
+<sc-for list="{{list}}" as="g" hint-placeholder-count="12">
+<button type="button" onClick="{{g.open}}" aria-label="View larger: {{g.t}}" style="padding: 0; border: none; background: #FFFFFF; border-radius: 6px; overflow: hidden; cursor: pointer; text-align: left; font: inherit; display: flex; flex-direction: column">
+<img src="{{g.src}}" alt="{{g.t}}" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
+<span style="padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #DC1A21">{{g.c}}</span>
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; color: #111111">{{g.t}}</span>
+</span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<sc-if value="{{hasOpen}}" hint-placeholder-val="{{false}}">
+<div role="dialog" aria-modal="true" aria-label="{{cur.t}}" style="position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.92); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; box-sizing: border-box">
+<button type="button" onClick="{{close}}" aria-label="Close" style="position: absolute; top: 16px; right: 16px; width: 48px; height: 48px; border-radius: 50%; border: none; background: #FFFFFF; color: #111111; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<img src="{{cur.src}}" alt="{{cur.t}}" style="max-width: 100%; max-height: 74vh; object-fit: contain; border-radius: 6px; display: block">
+<div style="display: flex; align-items: center; gap: 16px; color: #FFFFFF">
+<button type="button" onClick="{{prev}}" aria-label="Previous photo" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #FFFFFF; background: none; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; text-align: center; min-width: 220px">{{cur.t}} <span style="color: #BDBDBD; font-weight: 600">· {{pos}}</span></span>
+<button type="button" onClick="{{next}}" aria-label="Next photo" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #FFFFFF; background: none; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+</div>
+</div>
+</sc-if>
+
+<section style="padding: 72px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(26px, 2.8vw, 34px); font-weight: 800; color: #111111">Like what you see?</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #555555">Tell us about your project and we'll set up a free consultation.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
+<a href="tel:7274946162" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call (727) 494-6162</a>
+</div>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { cat: 'All', open: -1 }; }
+  renderVals() {
+    var self = this, B = '_blob/';
+    var G = [{"i": "5840bb1fdb538070a975d608cf1bc3c3", "c": "Wraps", "t": "Bad Boy Customs truck wrap"}, {"i": "c2dc4bbda700701bfbd9882c5d8b35d0", "c": "Wraps", "t": "Van wrap with decals"}, {"i": "eeaf84faba44af69ea94568046061e56", "c": "Wraps", "t": "Andy's Ice Cream fleet wrap"}, {"i": "2ea15d84900f2c6dce4efeba699d3776", "c": "Wraps", "t": "Andy's Ice Cream van, Clearwater"}, {"i": "f14339cd7b2ff75b4c773f977705083b", "c": "Wraps", "t": "Clean Air van fleet wrap"}, {"i": "3eaf600ff7dcd137e019b98f40f0675a", "c": "Wraps", "t": "Tampa Bay Bucs partial SUV wrap"}, {"i": "6ccd33fa1f30a3d897309ab5a5c9c819", "c": "Wraps", "t": "Trimworks Tree Service truck wrap"}, {"i": "b54ba24037f55238978928762e8567b1", "c": "Wraps", "t": "Tree service fleet truck wrap"}, {"i": "4c0aa19c9bebcfd34adb0c78f5de56ff", "c": "Wraps", "t": "Top Gun trailer wrap"}, {"i": "c2d9568f7668bdce618df80159a3a199", "c": "Wraps", "t": "Truck tailgate wrap and window graphics"}, {"i": "73b4d815b67c3ebb0d2fcb545467d2e8", "c": "Wraps", "t": "Vehicle decal lettering"}, {"i": "360d2163283a523b70cce294a429afb4", "c": "Wraps", "t": "Kia Sorento color change wrap"}, {"i": "9f6398dfbe444c82ca4776a14f83a4d3", "c": "Wraps", "t": "Commercial van wrap"}, {"i": "b7dd7cfeab907461afc29989841a50c4", "c": "Wraps", "t": "Service van wrap"}, {"i": "eb1a3785f28a56e9990f66dff4fdaf67", "c": "Wraps", "t": "Race car graphics in our shop"}, {"i": "d75f1cb608ccbcd93cb1a6386a7ef96b", "c": "Boats", "t": "Octopus boat wrap"}, {"i": "be60f04d14957e31b6d0607ff2269cd0", "c": "Boats", "t": "Pontoon boat wrap"}, {"i": "653d5c533618ba385428442278f22b26", "c": "Boats", "t": "Custom boat wrap"}, {"i": "b4d9508d604c229a21b06e82b4a2caf3", "c": "Boats", "t": "Boat graphics"}, {"i": "ac6cac82d583332c286e5535e17ff041", "c": "Signs", "t": "Lit storefront sign"}, {"i": "9e472123707ac35f201017fc54bea9f0", "c": "Signs", "t": "Dimensional storefront letters"}, {"i": "c6310178ef29d7da1d0ce06bef15b96b", "c": "Signs", "t": "Sign installation"}, {"i": "1bb5e5a8dd3bfa305e0608f8c7c1f176", "c": "Signs", "t": "Foam monument sign"}, {"i": "a8a67f6f60fac1e8f10d5e0d40108971", "c": "Signs", "t": "Car wash pylon sign"}, {"i": "2807b4e78f3ea61ae9b3495e42671a78", "c": "Signs", "t": "Aluminum business sign"}, {"i": "1146554cde15943823eb9bb623460a23", "c": "Signs", "t": "Indoor logo sign"}, {"i": "ef837f8ed683abd98a7a5f7ac74703d8", "c": "Signs", "t": "Panel sign"}, {"i": "673913e843ecb52b23aa111d1b942df1", "c": "Signs", "t": "New Port Richey sign"}, {"i": "fc427f5d893bf746d512fca42018d298", "c": "Signs", "t": "Get Right Smoke Shop corrugated and yard signs"}, {"i": "2c746e6c4ffeded5659bb31e300b7c67", "c": "Signs", "t": "Harbor Point grand opening banner"}, {"i": "8ec6d01b8259744594432acd593b75f7", "c": "Signs", "t": "Harbor Point Auto Repair banner"}, {"i": "94c3527b5adb3d7d3fa5b350fbc6bf0d", "c": "Window Graphics", "t": "Storefront window perf graphics"}, {"i": "dc777ba4e91984c69a4166c1cb2033e5", "c": "Window Graphics", "t": "Window graphics"}, {"i": "ff337b18020fbfe00ff8e253a5bd0c84", "c": "Tint", "t": "Jaguar ceramic window tint"}, {"i": "71de078c39a7e2c9d6a43057c038497e", "c": "Tint", "t": "Toyota ceramic window tint"}, {"i": "e400ec2f27e5d4927f46d13659bd496b", "c": "Tint", "t": "Dodge ceramic window tint"}, {"i": "df47d19ef7a9f7ffb8f2b85317705715", "c": "Tint", "t": "Front windshield tint"}];
+    var CATS = ["All", "Wraps", "Boats", "Signs", "Window Graphics", "Tint"];
+    var ON = "background: #111111; color: #FFFFFF; border: 2px solid #111111; border-radius: 999px; padding: 10px 18px; min-height: 44px; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer";
+    var OFF = "background: #FFFFFF; color: #111111; border: 2px solid #D0D0D0; border-radius: 999px; padding: 10px 18px; min-height: 44px; font: inherit; font-weight: 700; font-size: 15px; cursor: pointer";
+    var cat = this.state.cat;
+    var shown = G.filter(function (g) { return cat === 'All' || g.c === cat; });
+    var o = this.state.open, n = shown.length;
+    var cur = o >= 0 && o < n ? shown[o] : null;
+    return {
+      cats: CATS.map(function (c) { var on = c === cat; return { label: c, pressed: on ? 'true' : 'false', style: on ? ON : OFF, pick: function () { self.setState({ cat: c, open: -1 }); } }; }),
+      list: shown.map(function (g, i) { return { t: g.t, c: g.c, src: B + g.i, open: function () { self.setState({ open: i }); } }; }),
+      countTxt: n + ' photos',
+      hasOpen: !!cur, cur: cur ? { t: cur.t, src: B + cur.i } : { t: '', src: '' }, pos: (o + 1) + ' of ' + n,
+      close: function () { self.setState({ open: -1 }); },
+      prev: function () { self.setState({ open: (o - 1 + n) % n }); },
+      next: function () { self.setState({ open: (o + 1) % n }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

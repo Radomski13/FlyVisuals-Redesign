@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Products</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#FFFFFF}
+a{color:#111111}a:hover{color:#0A0A0A}
+</style>
+</helmet>
+<div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
+<dc-import name="Header" active="products" hint-size="100%,132px"></dc-import>
+
+<section style="background: #111111; color: #FFFFFF; padding: 64px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px">
+<nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><span>Products</span></nav>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 54px); font-weight: 800">Signs &amp; graphics</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4; max-width: 680px">Everything we design, print and install. Pick a category to see options, or ask us and we'll recommend what fits.</p>
+</div>
+</section>
+
+<section style="padding: 72px 24px 96px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div role="group" aria-label="Filter by location" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="3">
+<button type="button" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}" style="{{f.style}}">{{f.label}}</button>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px">
+<sc-for list="{{items}}" as="p" hint-placeholder-count="8">
+<a href="{{p.href}}" style="border: 1px solid #E5E5E5; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column">
+<sc-if value="{{p.img}}" hint-placeholder-val="{{true}}"><img src="{{p.img}}" alt="{{p.name}} by Fly Visuals" style="width: 100%; height: 230px; object-fit: cover; display: block"></sc-if>
+<sc-if value="{{p.noImg}}" hint-placeholder-val="{{false}}"><div style="height: 230px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PHOTO]</div></sc-if>
+<div style="padding: 24px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #555555">{{p.where}}</span>
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; color: #111111">{{p.name}}</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #555555; flex-grow: 1">{{p.desc}}</p>
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; color: #DC1A21">View options →</span>
+</div>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section style="background: #F4F4F4; padding: 72px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px; max-width: 640px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; color: #111111">Not sure what you need?</h2>
+<p style="margin: 0; font-size: 17px; color: #555555">Tell us about your business and goals. We'll come measure and recommend the best options for your budget.</p>
+</div>
+<a href="Process.dc.html" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">See How It Works</a>
+</div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { f: 'All' }; }
+  renderVals() {
+    var self = this;
+    var all = [
+      { name: 'Storefront Signs', where: 'Outdoor', desc: 'Channel letters, lightboxes, dimensional letters and pylon signs.', href: 'Storefront-Signs.dc.html' },
+      { name: 'Commercial Vehicle Wraps', where: 'Vehicles', desc: 'Full and partial wraps, fleet graphics, lettering and boat wraps.', href: 'Commercial-Vehicle-Wraps.dc.html' },
+      { name: 'Monument Signs', where: 'Outdoor', desc: 'Foam and lit monument signs for entrances, plazas and HOAs.', href: 'Monument-Signs.dc.html' },
+      { name: 'Window Graphics', where: 'Outdoor', desc: 'Lettering, perforated film, frosted film and promo decals.', href: 'Window-Graphics.dc.html' },
+      { name: 'Window Tint', where: 'Vehicles', desc: 'Automotive, commercial and residential tint and security film.', href: 'Window-Tint.dc.html' },
+      { name: 'Banners & Flags', where: 'Events', desc: 'Vinyl and mesh banners, feather flags, A-frames and yard signs.', href: 'Banners-Flags.dc.html' },
+      { name: 'Indoor Signs', where: 'Indoor', desc: 'Lobby logos, wall graphics, menu boards, panel signs, wayfinding and ADA signs.', href: 'Interior-ADA-Signs.dc.html' },
+      { name: 'Trade Show Displays', where: 'Events', desc: 'Banner stands, backdrops, table covers and printed tents.', href: 'Trade-Show-Displays.dc.html' }
+    ];
+    var IM = { 'Storefront Signs': 'ac6cac82d583332c286e5535e17ff041', 'Commercial Vehicle Wraps': 'c2dc4bbda700701bfbd9882c5d8b35d0', 'Monument Signs': '1bb5e5a8dd3bfa305e0608f8c7c1f176', 'Window Graphics': '94c3527b5adb3d7d3fa5b350fbc6bf0d', 'Window Tint': 'ff337b18020fbfe00ff8e253a5bd0c84', 'Banners & Flags': 'fc427f5d893bf746d512fca42018d298', 'Indoor Signs': '1146554cde15943823eb9bb623460a23' };
+    all.forEach(function (p) { p.img = IM[p.name] ? '_blob/' + IM[p.name] : ''; p.noImg = !p.img; });
+    var cats = ['All', 'Outdoor', 'Indoor', 'Vehicles', 'Events'];
+    return {
+      items: all.filter(function (p) { return self.state.f === 'All' || p.where === self.state.f; }),
+      filters: cats.map(function (c) {
+        var on = self.state.f === c;
+        return { label: c, pressed: on ? 'true' : 'false', pick: function () { self.setState({ f: c }); },
+          style: 'font: inherit; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 14px; padding: 10px 20px; min-height: 44px; border-radius: 999px; cursor: pointer; border: 1px solid #111111; background: ' + (on ? '#111111' : '#FFFFFF') + '; color: ' + (on ? '#FFFFFF' : '#111111') };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>
