@@ -12,26 +12,43 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0}
+@media (max-width: 640px){
+.pv-hero{padding:14px 16px 28px !important}
+.pv-grid{gap:14px !important}
+.pv-img{order:-1;height:210px !important;border-radius:8px !important}
+.pv-text{gap:10px !important}
+.pv-crumb{display:none !important}
+.pv-eyebrow{font-size:12px !important}
+.pv-badge{min-height:34px !important;padding:5px 12px !important;font-size:13px !important;gap:8px !important}
+.pv-h1{font-size:30px !important;line-height:1.1 !important}
+.pv-intro{font-size:16px !important;line-height:1.5 !important;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pv-ctas{display:grid !important;grid-template-columns:1fr 1fr;gap:10px !important}
+.pv-ctas a{justify-content:center;padding:12px 8px !important;font-size:15px !important;min-height:50px !important;text-align:center}
+.sp-hero{padding:14px 16px 40px !important}
+.sp-img{aspect-ratio:auto !important;height:220px !important}
+.sp-trust{display:none !important}
+.sp-card{padding:20px !important;gap:18px !important}
+}
 </style>
 </helmet>
 <div style="font-family: 'Open Sans', system-ui, sans-serif; color: #1A1A1A; background: #FFFFFF">
 <dc-import name="Header" active="products" hint-size="100%,132px"></dc-import>
 
-<section style="background: #F4F4F4; padding: 56px 24px 72px">
-<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center">
-<div style="display: flex; flex-direction: column; gap: 18px">
-<nav aria-label="Breadcrumb" style="font-size: 14px; color: #555555; display: flex; gap: 8px; flex-wrap: wrap"><a href="index.html" style="color: #555555">Home</a><span aria-hidden="true">/</span><a href="Products.dc.html" style="color: #555555">Products</a><span aria-hidden="true">/</span><a href="{{prod.file}}" style="color: #555555">{{prod.name}}</a><span aria-hidden="true">/</span><span style="color: #111111; font-weight: 600">{{o.name}}</span></nav>
-<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #DC1A21">{{prod.name}}</span>
-<a href="https://[GOOGLE-REVIEWS-LINK]" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 999px; padding: 8px 16px; min-height: 44px; box-sizing: border-box; color: #111111; text-decoration: none; font-size: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06)"><span style="font-family: 'Montserrat', sans-serif; font-weight: 800">Google</span><span role="img" aria-label="4.8 out of 5 stars" style="color: #F5A300; letter-spacing: 2px; font-size: 15px">★★★★★</span><strong style="font-family: 'Montserrat', sans-serif">4.8</strong><span style="color: #555555">18 reviews</span></a>
-<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800; color: #111111">{{o.name}}</h1>
-<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #3A3A3A">{{o.intro}}</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<section class="pv-hero" style="background: #F4F4F4; padding: 56px 24px 72px">
+<div class="pv-grid" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center">
+<div class="pv-text" style="display: flex; flex-direction: column; gap: 18px">
+<nav aria-label="Breadcrumb" class="pv-crumb" style="font-size: 14px; color: #555555; display: flex; gap: 8px; flex-wrap: wrap"><a href="index.html" style="color: #555555">Home</a><span aria-hidden="true">/</span><a href="Products.dc.html" style="color: #555555">Products</a><span aria-hidden="true">/</span><a href="{{prod.file}}" style="color: #555555">{{prod.name}}</a><span aria-hidden="true">/</span><span style="color: #111111; font-weight: 600">{{o.name}}</span></nav>
+<span class="pv-eyebrow" style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #DC1A21">{{prod.name}}</span>
+<a href="https://[GOOGLE-REVIEWS-LINK]" class="pv-badge" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 999px; padding: 8px 16px; min-height: 44px; box-sizing: border-box; color: #111111; text-decoration: none; font-size: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06)"><span style="font-family: 'Montserrat', sans-serif; font-weight: 800">Google</span><span role="img" aria-label="4.8 out of 5 stars" style="color: #F5A300; letter-spacing: 2px; font-size: 15px">★★★★★</span><strong style="font-family: 'Montserrat', sans-serif">4.8</strong><span style="color: #555555">18 reviews</span></a>
+<h1 class="pv-h1" style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800; color: #111111">{{o.name}}</h1>
+<p class="pv-intro" style="margin: 0; font-size: 19px; line-height: 1.6; color: #3A3A3A">{{o.intro}}</p>
+<div class="pv-ctas" style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
 <a href="tel:7274946162" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call (727) 494-6162</a>
 </div>
 </div>
-<sc-if value="{{hasImg}}" hint-placeholder-val="{{true}}"><img src="{{img}}" alt="{{o.name}} by Fly Visuals" style="width: 100%; height: 400px; object-fit: cover; border-radius: 6px; display: block"></sc-if>
-<sc-if value="{{noImg}}" hint-placeholder-val="{{false}}"><div style="height: 400px; border-radius: 6px; background: repeating-linear-gradient(135deg, #E2E2E2 0 14px, #D9D9D9 14px 28px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600; text-align: center; padding: 16px; box-sizing: border-box">[PHOTO: {{o.name}}]</div></sc-if>
+<sc-if value="{{hasImg}}" hint-placeholder-val="{{true}}"><img src="{{img}}" alt="{{o.name}} by Fly Visuals" class="pv-img" style="width: 100%; height: 400px; object-fit: cover; border-radius: 6px; display: block"></sc-if>
+<sc-if value="{{noImg}}" hint-placeholder-val="{{false}}"><div class="pv-img" style="height: 400px; border-radius: 6px; background: repeating-linear-gradient(135deg, #E2E2E2 0 14px, #D9D9D9 14px 28px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600; text-align: center; padding: 16px; box-sizing: border-box">[PHOTO: {{o.name}}]</div></sc-if>
 </div>
 </section>
 
