@@ -75,13 +75,13 @@ class Component extends DCLogic {
       { name: 'Window Decals & Graphics', where: 'Outdoor', desc: 'Window decals, lettering, perforated film, decorative film and custom stickers.', href: 'Window-Graphics.dc.html' },
       { name: 'Window Tint', where: 'Vehicles', desc: 'Automotive, commercial and residential tint and security film.', href: 'Window-Tint.dc.html' },
       { name: 'Banners & Flags', where: 'Events', desc: 'Vinyl and mesh banners, feather flags, A-frames and yard signs.', href: 'Banners-Flags.dc.html' },
-      { name: 'Indoor Signs', where: 'Indoor', desc: 'Lobby logos, wall graphics, menu boards, panel signs, wayfinding and ADA signs.', href: 'Interior-ADA-Signs.dc.html' },
+      { name: 'Office & Indoor Signs', where: 'Indoor', desc: 'Lobby logos, wall graphics, menu boards, panel signs, wayfinding and ADA signs.', href: 'Interior-ADA-Signs.dc.html' },
       { name: 'Trade Show Displays', where: 'Events', desc: 'Banner stands, backdrops, table covers and printed tents.', href: 'Trade-Show-Displays.dc.html' },
       { name: 'Car Wraps', where: 'Vehicles', desc: 'Color change wraps, chrome delete, racing stripes and golf cart wraps.', href: 'Car-Wraps.dc.html' },
       { name: 'Paint Protection Film', where: 'Vehicles', desc: 'Partial front, full front, full body and matte PPF.', href: 'Paint-Protection-Film.dc.html' },
       { name: 'Neon & LED Signs', where: 'Indoor', desc: 'Custom LED neon, open signs and digital message signs.', href: 'Neon-LED-Signs.dc.html' }
     ];
-    var IM = { 'Storefront Signs': 'ac6cac82d583332c286e5535e17ff041', 'Commercial Vehicle Wraps': 'c2dc4bbda700701bfbd9882c5d8b35d0', 'Monument Signs': '1bb5e5a8dd3bfa305e0608f8c7c1f176', 'Window Decals & Graphics': '94c3527b5adb3d7d3fa5b350fbc6bf0d', 'Window Tint': 'ff337b18020fbfe00ff8e253a5bd0c84', 'Banners & Flags': 'fc427f5d893bf746d512fca42018d298', 'Indoor Signs': '1146554cde15943823eb9bb623460a23', 'Car Wraps': '360d2163283a523b70cce294a429afb4' };
+    var IM = { 'Storefront Signs': 'ac6cac82d583332c286e5535e17ff041', 'Commercial Vehicle Wraps': 'c2dc4bbda700701bfbd9882c5d8b35d0', 'Monument Signs': '1bb5e5a8dd3bfa305e0608f8c7c1f176', 'Window Decals & Graphics': '94c3527b5adb3d7d3fa5b350fbc6bf0d', 'Window Tint': 'ff337b18020fbfe00ff8e253a5bd0c84', 'Banners & Flags': 'fc427f5d893bf746d512fca42018d298', 'Office & Indoor Signs': '1146554cde15943823eb9bb623460a23', 'Car Wraps': '360d2163283a523b70cce294a429afb4' };
     all.forEach(function (p) { p.img = IM[p.name] ? '_blob/' + IM[p.name] : ''; p.noImg = !p.img; });
     var cats = ['All', 'Outdoor', 'Indoor', 'Vehicles', 'Events'];
     return {
