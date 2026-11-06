@@ -183,7 +183,7 @@ body{margin:0}
 <dc-import name="Footer" hint-size="100%,420px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["storefront","wraps","monument","window","tint","banners","interior","tradeshow"],"default":"storefront"},"city":{"editor":"enum","options":["none","port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"none"},"$preview":{"width":1440,"height":3000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["storefront","wraps","monument","window","tint","banners","interior","tradeshow","ppf","carwraps","neon"],"default":"storefront"},"city":{"editor":"enum","options":["none","port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"none"},"$preview":{"width":1440,"height":3000}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { open: 0 }; }
   renderVals() {
@@ -197,7 +197,10 @@ class Component extends DCLogic {
           { t: 'Dimensional Letters', d: 'Cut acrylic, PVC or metal letters for a clean, upscale look.' },
           { t: 'Blade & Projecting Signs', d: 'Signs that stick out from the wall so foot traffic sees you.' },
           { t: 'Pylon & Pole Signs', d: 'Tall roadside signs for plazas and stand-alone locations.' },
-          { t: 'Aluminum Panel Signs', d: 'Durable, budget-friendly flat signs for buildings and fences.' }
+          { t: 'Aluminum Panel Signs', d: 'Durable, budget-friendly flat signs for buildings and fences.' },
+          { t: "Safety & Parking Signs", d: "Parking, traffic, safety and construction signs for businesses, plazas and job sites." },
+          { t: "Custom Metal Signs", d: "Durable aluminum and metal signs for buildings, gates, fences and interiors." },
+          { t: "Sign Repair & Installation", d: "Sign repair, LED upgrades, new faces and installation for signs you already have." }
         ],
         faqs: [
           { q: 'Do I need a permit for a storefront sign?', a: 'Most exterior signs in Pasco and nearby counties need a permit, and many plazas have landlord rules too. We prepare drawings and handle the permit process for you.' },
@@ -205,14 +208,16 @@ class Component extends DCLogic {
           { q: 'Can you fix or update my existing sign?', a: 'Yes. We can replace faces, convert lighting to LED, or repair damaged signs.' }
         ], related: ['monument', 'window', 'interior'] },
       wraps: { name: 'Commercial Vehicle Wraps', short: 'wrap', href: 'Commercial-Vehicle-Wraps.dc.html', photo: '[PHOTO: fully wrapped work van]',
-        intro: 'Turn your truck, van or trailer into an ad that drives all over town. Full wraps, partial wraps and lettering, printed and installed in our shop.',
+        intro: 'Vehicle wraps that turn your trucks, vans and trailers into ads that drive all over town. Full wraps, partial wraps, fleet graphics and lettering, printed and installed in our shop.',
         types: [
           { t: 'Full Wraps', d: 'Complete coverage for maximum impact and a total color change.' },
           { t: 'Partial Wraps', d: 'Cover part of the vehicle and blend with the paint to save cost.' },
           { t: 'Fleet Graphics', d: 'Consistent branding across every vehicle in your fleet.' },
           { t: 'Cut Vinyl Lettering', d: 'Name, phone and DOT numbers for a simple, clean look.' },
           { t: 'Trailer & Box Truck Wraps', d: 'Big, flat sides that make bold billboards.' },
-          { t: 'Boat Wraps', d: 'Marine-grade vinyl for hulls, consoles and names.' }
+          { t: 'Boat Wraps', d: 'Marine-grade vinyl for hulls, consoles and names.' },
+          { t: "Food Truck Wraps", d: "Bold wraps that show your menu, brand and socials so your food truck gets noticed from across the lot." },
+          { t: "Magnetic Signs", d: "Removable magnetic signs for cars and trucks, perfect for vehicles you also drive personally." }
         ],
         faqs: [
           { q: 'How long does a vehicle wrap last?', a: 'With quality cast vinyl and normal care, wraps typically last several years. We will go over care tips at pickup.' },
@@ -232,13 +237,15 @@ class Component extends DCLogic {
           { q: 'Do monument signs need a permit?', a: 'Yes, almost always. We handle the drawings, permit and placement rules for your property.' },
           { q: 'Can you match my building?', a: 'We can match colors and textures to your building and add your logo in dimensional letters.' }
         ], related: ['storefront', 'interior', 'banners'] },
-      window: { name: 'Window Graphics', short: 'window graphics', href: 'Window-Graphics.dc.html', photo: '[PHOTO: storefront window graphics]',
+      window: { name: 'Window Decals & Graphics', short: 'window decals and graphics', href: 'Window-Graphics.dc.html', photo: '[PHOTO: storefront window graphics]',
         intro: 'Use your windows to show hours, promotions and your brand. Vinyl window graphics are affordable, fast and easy to update.',
         types: [
           { t: 'Window Lettering', d: 'Hours, logos and contact info on glass doors and windows.' },
           { t: 'Perforated Window Film', d: 'Full-color graphics outside while you can still see out.' },
           { t: 'Frosted & Etched Film', d: 'Privacy and a clean decorative look for offices.' },
-          { t: 'Promotional Decals', d: 'Short-term graphics for sales and seasonal offers.' }
+          { t: 'Promotional Decals', d: 'Short-term graphics for sales and seasonal offers.' },
+          { t: "Decorative Window Film", d: "Frosted, patterned and gradient films for privacy and style in offices, homes and storefronts." },
+          { t: "Custom Stickers & Decals", d: "Custom stickers, labels and die-cut decals for products, promos, vehicles and giveaways." }
         ],
         faqs: [
           { q: 'Can window graphics be removed later?', a: 'Yes. Most window vinyl removes cleanly, which makes it great for seasonal promotions.' },
@@ -249,9 +256,12 @@ class Component extends DCLogic {
         intro: 'Cut heat, glare and UV for your car, home or business. We install quality tint films that help in Florida heat.',
         types: [
           { t: 'Automotive Tint', d: 'Cars, trucks and SUVs, installed to Florida tint law limits.' },
+          { t: "Ceramic Tint", d: "Premium ceramic window film that blocks more heat and UV without looking dark or interfering with your phone or GPS." },
           { t: 'Commercial Tint', d: 'Storefronts and offices to reduce heat and glare.' },
           { t: 'Residential Tint', d: 'Home windows for comfort and UV protection.' },
-          { t: 'Security & Privacy Film', d: 'Added privacy and glass-holding film for safety.' }
+          { t: 'Security & Privacy Film', d: 'Added privacy and glass-holding film for safety.' },
+          { t: "Windshield & Headlight Tint", d: "Clear heat-blocking windshield film, sun strips and light smoked headlight and taillight film." },
+          { t: "Tint Removal", d: "Old, purple or bubbling tint removed cleanly, including rear defroster lines." }
         ],
         faqs: [
           { q: 'What tint is legal in Florida?', a: 'Florida sets limits for front side, back side and rear windows. We will show you the legal options for your vehicle.' },
@@ -264,7 +274,8 @@ class Component extends DCLogic {
           { t: 'Vinyl Banners', d: 'Indoor and outdoor banners with grommets or pole pockets.' },
           { t: 'Feather & Teardrop Flags', d: 'Eye-catching flags for roadside attention.' },
           { t: 'Mesh Banners', d: 'Wind-friendly banners for fences and construction sites.' },
-          { t: 'A-Frames & Yard Signs', d: 'Sidewalk signs and coroplast yard signs.' }
+          { t: 'A-Frames & Yard Signs', d: 'Sidewalk signs and coroplast yard signs.' },
+          { t: "Real Estate Signs", d: "Yard signs, riders, frames and open house signs for agents and brokerages." }
         ],
         faqs: [
           { q: 'How fast can I get a banner?', a: 'Standard banners are often ready in [X] business days, and rush options may be available.' },
@@ -300,7 +311,45 @@ class Component extends DCLogic {
           { q: 'Are displays easy to carry?', a: 'Most come with carry cases and fit in a car trunk.' },
           { q: 'Can I reuse the hardware?', a: 'Yes. Many displays let you swap the printed graphic and keep the frame.' },
           { q: 'How soon do I need to order?', a: 'Order at least [X] weeks before your event to leave time for proofs.' }
-        ], related: ['banners', 'wraps', 'interior'] }
+        ], related: ['banners', 'wraps', 'interior'] },
+      ppf: { name: "Paint Protection Film", short: "PPF", href: "Paint-Protection-Film.dc.html", photo: '[PHOTO]',
+        intro: "Clear, self-healing film that guards your paint from rock chips, bugs, scratches and Florida sun. Installed in our shop on cars, trucks and work vehicles.",
+        types: [
+          { t: "Partial Front PPF", d: "Bumper, front of the hood, fenders and mirrors, where most chips happen." },
+          { t: "Full Front PPF", d: "Full hood, fenders, bumper, mirrors and headlights for complete front coverage." },
+          { t: "Full Body PPF", d: "Every painted panel covered for maximum protection." },
+          { t: "Matte & Satin PPF", d: "Give gloss paint a satin finish while you protect it." }
+        ],
+        faqs: [
+          { q: "How long does PPF last?", a: "Quality film lasts for years with normal care. We will go over the film warranty when you pick a package." },
+          { q: "What is the difference between PPF and ceramic coating?", a: "PPF is a physical film that stops chips and scratches. A ceramic coating is a thin layer that makes washing easier but will not stop rock chips. Many owners do both." },
+          { q: "How long will my car be in the shop?", a: "Most PPF jobs take [X–X] days depending on coverage." }
+        ], related: ["carwraps", "tint", "wraps"] },
+      carwraps: { name: "Car Wraps", short: "car wrap", href: "Car-Wraps.dc.html", photo: '[PHOTO]',
+        intro: "Change your car color, black out the chrome or add custom accents without a permanent paint job. Wraps protect your factory paint and can be removed later.",
+        types: [
+          { t: "Color Change Wraps", d: "A whole new color or finish: gloss, satin, matte, metallic or color shift." },
+          { t: "Chrome Delete", d: "Black out window trim, badges and grilles for a cleaner look." },
+          { t: "Racing Stripes & Accents", d: "Hood, roof and stripe accents, plus custom decals." },
+          { t: "Golf Cart Wraps", d: "Custom colors and graphics for golf carts and LSVs." }
+        ],
+        faqs: [
+          { q: "Is a wrap cheaper than paint?", a: "A quality color change wrap usually costs less than a comparable paint job, and you can remove it later." },
+          { q: "How do I take care of a wrap?", a: "Hand wash when you can, avoid pressure washing the edges and park in shade when possible. We give you care tips at pickup." },
+          { q: "How long will my car be in the shop?", a: "Most color change wraps take [X–X] days. Chrome deletes and accents are often done in a day." }
+        ], related: ["ppf", "tint", "wraps"] },
+      neon: { name: "Neon & LED Signs", short: "LED sign", href: "Neon-LED-Signs.dc.html", photo: '[PHOTO]',
+        intro: "Bright LED neon signs, open signs and digital message signs that get noticed day and night.",
+        types: [
+          { t: "Custom LED Neon Signs", d: "Your logo or message in bright, energy-saving LED neon." },
+          { t: "LED Open Signs", d: "Simple, bright open signs for your window." },
+          { t: "Digital Message Signs", d: "Programmable LED signs you can update with new specials." }
+        ],
+        faqs: [
+          { q: "What is the difference between glass neon and LED neon?", a: "LED neon looks like classic neon but uses less power, runs cooler and is much less fragile." },
+          { q: "Do outdoor LED signs need a permit?", a: "Outdoor lit and digital signs usually do. We prepare the drawings and handle the permit." },
+          { q: "Can I change the message on a digital sign?", a: "Yes. Digital message signs can be updated with new text and specials. We will show you how it works." }
+        ], related: ["storefront", "window", "interior"] }
     };
     var slug = this.props.slug ?? 'storefront';
     var p = D[slug] || D.storefront;
@@ -316,7 +365,7 @@ class Component extends DCLogic {
     var city = CITIES[cityKey] || null;
     var shop = city ? LOCATIONS[city.shop] : LOCATIONS['port-richey'];
     var lower = p.name.toLowerCase();
-    var baseFaqs = city ? [{ q: 'Do you install ' + lower + ' in ' + city.name + '?', a: 'Yes. We serve businesses throughout ' + city.name + ' and the rest of ' + city.county + ' County from our ' + shop.name.replace('Fly Visuals – ', '') + ' shop, including a free on-site consultation.' }].concat(p.faqs) : p.faqs;
+    var baseFaqs = city ? [{ q: 'Do you install ' + lower + ' in ' + city.name + '?', a: 'Yes. We serve customers throughout ' + city.name + ' and the rest of ' + city.county + ' County from our ' + shop.name.replace('Fly Visuals – ', '') + ' shop, including a free on-site consultation.' }].concat(p.faqs) : p.faqs;
     var faqs = baseFaqs.map(function (f, i) {
       var open = self.state.open === i;
       return { q: f.q, a: f.a, open: open, expanded: open ? 'true' : 'false', icon: open ? '−' : '+', toggle: function () { self.setState({ open: open ? -1 : i }); } };
@@ -325,6 +374,9 @@ class Component extends DCLogic {
     var related = p.related.map(function (k) { return { name: city ? D[k].name + ' in ' + city.name : D[k].name, href: city ? D[k].href.replace('.dc.html', '-' + sfx + '.dc.html') : D[k].href }; });
     var cityLinks = Object.keys(CITIES).map(function (k) { return { name: CITIES[k].name, href: p.href.replace('.dc.html', '-' + CITIES[k].file.slice(5, -8) + '.dc.html') }; });
     var WHY = {"storefront": {"line": "We design, build and install your storefront sign with our own team, from the first measurement to the final install.","b": [{"t": "Built to your plaza's rules.","d": "We design to your landlord's sign criteria and local code."},{"t": "Permits handled.","d": "We prepare the drawings and file the paperwork."},{"t": "Bright, efficient LEDs.","d": "Our lit signs use LEDs that cost less to run and last longer."},{"t": "Installed by our crew.","d": "Our own team mounts your sign, with no subcontractors."}]},"wraps": {"line": "Your wrap is designed, printed and installed under one roof at our Port Richey shop.","b": [{"t": "Designed to sell.","d": "Layouts that read at a glance, with your phone and website easy to spot."},{"t": "Fit to your vehicle.","d": "We design around your exact make and model so graphics line up."},{"t": "Careful prep and install.","d": "We clean and prep every surface so the vinyl sticks and lasts."},{"t": "Fleet ready.","d": "We keep your files on hand so every new vehicle matches."}]},"monument": {"line": "We build monument signs that stand up to Florida sun, rain and storms, and look good doing it.","b": [{"t": "Made for Florida weather.","d": "Materials and finishes chosen for heat, UV and humidity."},{"t": "Site plans and permits.","d": "We handle setbacks, drawings and the permit process."},{"t": "Custom to your property.","d": "Shapes, colors and textures that match your building."},{"t": "Lighting options.","d": "Add lights so your sign works day and night."}]},"window": {"line": "Window graphics are one of the lowest-cost ways to get noticed, and we make the most of every pane.","b": [{"t": "Measured on site.","d": "We measure every window so graphics fit cleanly."},{"t": "Clean install.","d": "Bubble-free application with crisp, straight edges."},{"t": "Easy to update.","d": "Removable films make seasonal changes simple."},{"t": "Inside or outside.","d": "We pick the right film and side of the glass for your goal."}]},"tint": {"line": "We install quality tint that cuts heat and glare, put on by installers who do it every day.","b": [{"t": "Florida legal.","d": "We know the state's tint limits for cars and trucks."},{"t": "Quality film.","d": "Films that block heat and UV and resist fading."},{"t": "Precise install.","d": "Clean cuts and edges with no gaps or bubbles."},{"t": "Cars, homes and businesses.","d": "One shop for every kind of glass."}]},"banners": {"line": "Banners and flags that print fast, look sharp and hold up outside.","b": [{"t": "Quick turnaround.","d": "Good for last-minute events, sales and openings."},{"t": "Outdoor-ready materials.","d": "Heavy vinyl, mesh and fabric made to last outside."},{"t": "Ready to hang.","d": "Hems, grommets, pole pockets or bases as needed."},{"t": "Design help.","d": "We set up your artwork so it prints clearly."}]},"interior": {"line": "From the lobby to the restroom door, we make indoor signs that match your brand and meet code.","b": [{"t": "ADA know-how.","d": "Room and restroom signs built to the ADA Standards."},{"t": "One look throughout.","d": "Lobby, office and wayfinding signs that all match."},{"t": "Lots of materials.","d": "Acrylic, PVC, metal, vinyl and more."},{"t": "Installed for you.","d": "We mount everything level and secure."}]},"tradeshow": {"line": "Displays that make a small booth look big and pack up easily for the next show.","b": [{"t": "Light and portable.","d": "Stands and walls that fit in your car."},{"t": "Color-matched prints.","d": "Your logo and colors look right on every piece."},{"t": "Matching kits.","d": "Banners, backdrops and table covers that work together."},{"t": "Made to reuse.","d": "Durable hardware built for show after show."}]}};
+    WHY["ppf"] = {"line": "PPF is all about the details: clean edges, no lifting and film that is hard to see.", "b": [{"t": "Careful prep.", "d": "We clean and decontaminate the paint before any film goes on."}, {"t": "Clean edges.", "d": "Film is trimmed and wrapped so edges stay hidden."}, {"t": "Self-healing film.", "d": "Light swirls and scratches disappear with heat."}, {"t": "Pairs with tint and wraps.", "d": "Do PPF, tint and accents in one visit."}]};
+    WHY["carwraps"] = {"line": "Personal wraps live or die on the details, and we take our time on every panel.", "b": [{"t": "Premium cast vinyl.", "d": "We use 3M and Avery films made for curves and Florida heat."}, {"t": "Tucked edges.", "d": "Vinyl is wrapped into gaps so seams are hard to spot."}, {"t": "Lots of colors.", "d": "Pick from hundreds of colors and finishes."}, {"t": "Removable.", "d": "Your factory paint stays protected underneath."}]};
+    WHY["neon"] = {"line": "Lit signs need to look great and run reliably, and we handle both.", "b": [{"t": "Custom designs.", "d": "We turn your logo or idea into a sign that fits your space."}, {"t": "Energy-saving LEDs.", "d": "Bright light that costs less to run."}, {"t": "Installed for you.", "d": "Indoor or outdoor, we mount it and test it."}, {"t": "Permits handled.", "d": "We take care of paperwork for outdoor signs."}]};
     var why = WHY[slug] || WHY.storefront;
     var benefits = why.b;
     var B = '_blob/';
@@ -336,11 +388,15 @@ class Component extends DCLogic {
       tint: { hero: 'ff337b18020fbfe00ff8e253a5bd0c84', g: ['71de078c39a7e2c9d6a43057c038497e', 'e400ec2f27e5d4927f46d13659bd496b', 'df47d19ef7a9f7ffb8f2b85317705715'] },
       banners: { hero: 'fc427f5d893bf746d512fca42018d298', g: ['4c0aa19c9bebcfd34adb0c78f5de56ff', 'a8a67f6f60fac1e8f10d5e0d40108971', '2807b4e78f3ea61ae9b3495e42671a78'] },
       interior: { hero: '1146554cde15943823eb9bb623460a23', g: ['ef837f8ed683abd98a7a5f7ac74703d8', '2807b4e78f3ea61ae9b3495e42671a78', '9e472123707ac35f201017fc54bea9f0'] },
-      tradeshow: { hero: '', g: ['', '', ''] }
+      tradeshow: { hero: '', g: ['', '', ''] },
+      ppf: {"hero": "", "g": ["", "", ""]},
+      carwraps: {"hero": "360d2163283a523b70cce294a429afb4", "g": ["5840bb1fdb538070a975d608cf1bc3c3", "3eaf600ff7dcd137e019b98f40f0675a", "eb1a3785f28a56e9990f66dff4fdaf67"]},
+      neon: {"hero": "", "g": ["", "", ""]}
     };
     var im = IMG[slug] || IMG.storefront;
     var gallery = im.g.map(function (id) { return { src: id ? B + id : '', has: !!id, no: !id }; });
     var OIMG = { 'Channel Letters': 'ac6cac82d583332c286e5535e17ff041', 'Lightbox Cabinets': 'c6310178ef29d7da1d0ce06bef15b96b', 'Dimensional Letters': '9e472123707ac35f201017fc54bea9f0', 'Pylon & Pole Signs': 'a8a67f6f60fac1e8f10d5e0d40108971', 'Aluminum Panel Signs': '2807b4e78f3ea61ae9b3495e42671a78', 'Full Wraps': 'eeaf84faba44af69ea94568046061e56', 'Partial Wraps': '3eaf600ff7dcd137e019b98f40f0675a', 'Fleet Graphics': 'f14339cd7b2ff75b4c773f977705083b', 'Cut Vinyl Lettering': '73b4d815b67c3ebb0d2fcb545467d2e8', 'Trailer & Box Truck Wraps': '4c0aa19c9bebcfd34adb0c78f5de56ff', 'Boat Wraps': 'd75f1cb608ccbcd93cb1a6386a7ef96b', 'Foam Monument Signs': '1bb5e5a8dd3bfa305e0608f8c7c1f176', 'Perforated Window Film': '94c3527b5adb3d7d3fa5b350fbc6bf0d', 'Promotional Decals': 'dc777ba4e91984c69a4166c1cb2033e5', 'Automotive Tint': 'ff337b18020fbfe00ff8e253a5bd0c84', 'A-Frames & Yard Signs': 'fc427f5d893bf746d512fca42018d298', 'Lobby & Logo Signs': '1146554cde15943823eb9bb623460a23', 'Acrylic & PVC Panel Signs': 'ef837f8ed683abd98a7a5f7ac74703d8' };
+    Object.assign(OIMG, {"Color Change Wraps": "360d2163283a523b70cce294a429afb4", "Ceramic Tint": "71de078c39a7e2c9d6a43057c038497e", "Windshield & Headlight Tint": "df47d19ef7a9f7ffb8f2b85317705715", "Sign Repair & Installation": "c6310178ef29d7da1d0ce06bef15b96b"});
     var types = p.types.map(function (t) {
       var f = 'Option-' + t.t.replace(/&/g, 'and').replace(/[^A-Za-z0-9]+/g, '-').replace(/-+$/, '') + '.dc.html';
       var im = OIMG[t.t];

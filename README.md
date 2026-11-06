@@ -16,8 +16,8 @@ This is a working preview of the redesign. Every page, link, filter, the shop pr
 |---|---|
 | Home page | `index.html` |
 | Main pages | `Products`, `Shop`, `Industries`, `ServiceArea` (Locations), `Process`, `Financing`, `Gallery`, `Blog`, `About`, `Quote` |
-| Product pages | 8 products × (main page + 5 cities) = 48 pages, e.g. `Commercial-Vehicle-Wraps-Port-Richey.dc.html` |
-| Option pages | 40 pages, e.g. `Option-Channel-Letters.dc.html` |
+| Product pages | 11 products × (main page + 5 cities) = 66 pages, e.g. `Commercial-Vehicle-Wraps-Port-Richey.dc.html` |
+| Option pages | 62 pages, e.g. `Option-Ceramic-Tint.dc.html` |
 | Shop | `Shop.dc.html` + 58 product pages (`Shop-*.dc.html`) |
 | City pages | `City-*.dc.html` (Port Richey, St. Petersburg, Clearwater, Wesley Chapel, Tampa) |
 | Industry pages | `Industry-*.dc.html` (9) |
@@ -25,7 +25,7 @@ This is a working preview of the redesign. Every page, link, filter, the shop pr
 | Photos | `_blob/` |
 | Page engine | `support.js` |
 
-Pages are built from shared templates. Change the product template once and all 48 product pages update.
+Pages are built from shared templates. Change the product template once and all 66 product pages update.
 
 ## Still to fill in before launch
 
@@ -36,7 +36,8 @@ Pages are built from shared templates. Change the product template once and all 
 - Client logos: GoPasco, Andy's Ice Cream, Jiffy Lube
 - Drive times to each city (`[XX] minutes`)
 - License number (footer)
-- Product photos for items showing a placeholder
+- Product photos for items showing a placeholder (PPF, Neon & LED, chrome delete, golf carts and more)
+- Price ranges in the two cost guides (`[YOUR PRICE RANGE]`)
 - About page story and team photos
 
 ## Before going live

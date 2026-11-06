@@ -50,7 +50,7 @@ body{margin:0}
 <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #555555">Designed, printed and installed by our own crew, from one sign to a full fleet.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 22px">
-<sc-for list="{{services}}" as="s" hint-placeholder-count="8">
+<sc-for list="{{services}}" as="s" hint-placeholder-count="11">
 <a href="{{s.href}}" style="border: 1px solid #E5E5E5; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column">
 <sc-if value="{{s.img}}" hint-placeholder-val="{{true}}"><img src="{{s.img}}" alt="{{s.name}} by Fly Visuals" style="width: 100%; height: 170px; object-fit: cover; display: block"></sc-if>
 <sc-if value="{{s.noImg}}" hint-placeholder-val="{{false}}"><div style="height: 170px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PHOTO]</div></sc-if>
@@ -171,11 +171,14 @@ class Component extends DCLogic {
       { slug: 'storefront', name: 'Storefront Signs', file: 'Storefront-Signs.dc.html', img: 'ac6cac82d583332c286e5535e17ff041' },
       { slug: 'wraps', name: 'Commercial Vehicle Wraps', file: 'Commercial-Vehicle-Wraps.dc.html', img: 'c2dc4bbda700701bfbd9882c5d8b35d0' },
       { slug: 'monument', name: 'Monument Signs', file: 'Monument-Signs.dc.html', img: '1bb5e5a8dd3bfa305e0608f8c7c1f176' },
-      { slug: 'window', name: 'Window Graphics', file: 'Window-Graphics.dc.html', img: '94c3527b5adb3d7d3fa5b350fbc6bf0d' },
+      { slug: 'window', name: 'Window Decals & Graphics', file: 'Window-Graphics.dc.html', img: '94c3527b5adb3d7d3fa5b350fbc6bf0d' },
       { slug: 'tint', name: 'Window Tint', file: 'Window-Tint.dc.html', img: 'ff337b18020fbfe00ff8e253a5bd0c84' },
       { slug: 'banners', name: 'Banners & Flags', file: 'Banners-Flags.dc.html', img: 'fc427f5d893bf746d512fca42018d298' },
       { slug: 'interior', name: 'Indoor Signs', file: 'Interior-ADA-Signs.dc.html', img: '1146554cde15943823eb9bb623460a23' },
-      { slug: 'tradeshow', name: 'Trade Show Displays', file: 'Trade-Show-Displays.dc.html', img: '' }
+      { slug: 'tradeshow', name: 'Trade Show Displays', file: 'Trade-Show-Displays.dc.html', img: '' },
+      { slug: "ppf", name: "Paint Protection Film", file: "Paint-Protection-Film.dc.html", img: "" },
+      { slug: "carwraps", name: "Car Wraps", file: "Car-Wraps.dc.html", img: "360d2163283a523b70cce294a429afb4" },
+      { slug: "neon", name: "Neon & LED Signs", file: "Neon-LED-Signs.dc.html", img: "" }
     ];
     var LOCAL_PAGES = { 'wraps|clearwater': 'Commercial-Vehicle-Wraps-Clearwater.dc.html', 'storefront|tampa': 'Storefront-Signs-Tampa.dc.html', 'monument|wesley-chapel': 'Monument-Signs-Wesley-Chapel.dc.html' };
     var key = this.props.city ?? 'clearwater';
