@@ -17,7 +17,7 @@ This is a working preview of the redesign. Every page, link, filter, the shop pr
 | Home page | `index.html` |
 | Main pages | `Products`, `Shop`, `Industries`, `ServiceArea` (Locations), `Process`, `Financing`, `Gallery`, `Blog`, `About`, `Quote` |
 | Product pages | 11 products × (main page + 5 cities) = 66 pages, e.g. `Commercial-Vehicle-Wraps-Port-Richey.dc.html` |
-| Option pages | 62 pages, e.g. `Option-Ceramic-Tint.dc.html` |
+| Option pages | 61 pages, e.g. `Option-Channel-Letter-Signs.dc.html` |
 | Shop | `Shop.dc.html` + 58 product pages (`Shop-*.dc.html`) |
 | City pages | `City-*.dc.html` (Port Richey, St. Petersburg, Clearwater, Wesley Chapel, Tampa) |
 | Industry pages | `Industry-*.dc.html` (9) |
