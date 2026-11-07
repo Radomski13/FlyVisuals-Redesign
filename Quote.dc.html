@@ -88,7 +88,7 @@ class Component extends DCLogic {
   constructor(props) { super(props); this.state = { sent: false, picked: {} }; }
   renderVals() {
     var self = this;
-    var names = ['Storefront / Business Sign', 'Vehicle Wrap', 'Car Wrap', 'Paint Protection Film', 'Window Tint', 'Window Decals & Graphics', 'Monument Sign', 'Neon & LED Sign', 'Banners, Flags & Yard Signs', 'Office & Indoor Signs', 'Trade Show', 'Not sure yet'];
+    var names = ['Business / Storefront Sign', 'Vehicle Wrap', 'Car Wrap', 'Paint Protection Film', 'Window Tint', 'Window Decals & Graphics', 'Monument Sign', 'Neon & LED Sign', 'Banners, Flags & Yard Signs', 'Office & Indoor Signs', 'Trade Show', 'Not sure yet'];
     return {
       sent: this.state.sent,
       notSent: !this.state.sent,

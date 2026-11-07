@@ -168,7 +168,7 @@ class Component extends DCLogic {
         work: ['9e472123707ac35f201017fc54bea9f0', '5840bb1fdb538070a975d608cf1bc3c3', 'ef837f8ed683abd98a7a5f7ac74703d8', '4c0aa19c9bebcfd34adb0c78f5de56ff'] }
     };
     var SERV = [
-      { slug: 'storefront', name: 'Storefront Signs', file: 'Storefront-Signs.dc.html', img: 'ac6cac82d583332c286e5535e17ff041' },
+      { slug: 'storefront', name: 'Business Signs', file: 'Business-Signs.dc.html', img: 'ac6cac82d583332c286e5535e17ff041' },
       { slug: 'wraps', name: 'Commercial Vehicle Wraps', file: 'Commercial-Vehicle-Wraps.dc.html', img: 'c2dc4bbda700701bfbd9882c5d8b35d0' },
       { slug: 'monument', name: 'Monument Signs', file: 'Monument-Signs.dc.html', img: '1bb5e5a8dd3bfa305e0608f8c7c1f176' },
       { slug: 'window', name: 'Window Decals & Graphics', file: 'Window-Graphics.dc.html', img: '94c3527b5adb3d7d3fa5b350fbc6bf0d' },
@@ -180,7 +180,7 @@ class Component extends DCLogic {
       { slug: "carwraps", name: "Car Wraps", file: "Car-Wraps.dc.html", img: "360d2163283a523b70cce294a429afb4" },
       { slug: "neon", name: "Neon & LED Signs", file: "Neon-LED-Signs.dc.html", img: "" }
     ];
-    var LOCAL_PAGES = { 'wraps|clearwater': 'Commercial-Vehicle-Wraps-Clearwater.dc.html', 'storefront|tampa': 'Storefront-Signs-Tampa.dc.html', 'monument|wesley-chapel': 'Monument-Signs-Wesley-Chapel.dc.html' };
+    var LOCAL_PAGES = { 'wraps|clearwater': 'Commercial-Vehicle-Wraps-Clearwater.dc.html', 'storefront|tampa': 'Business-Signs-Tampa.dc.html', 'monument|wesley-chapel': 'Monument-Signs-Wesley-Chapel.dc.html' };
     var key = this.props.city ?? 'clearwater';
     var c0 = CITIES[key] || CITIES.clearwater;
     var c = Object.assign({}, c0, { upper: c0.name.toUpperCase(), work: c0.work.map(function (id) { return B + id; }) });
