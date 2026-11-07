@@ -131,7 +131,7 @@ body{margin:0}
 <dc-import name="Footer" hint-size="100%,420px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"city":{"editor":"enum","options":["port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"clearwater"},"$preview":{"width":1440,"height":3000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"city":{"editor":"enum","options":["new-port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"clearwater"},"$preview":{"width":1440,"height":3000}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { open: 0 }; }
   renderVals() {
@@ -141,11 +141,11 @@ class Component extends DCLogic {
       'port-richey': { name: 'Fly Visuals – Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM' }
     };
     var CITIES = {
-      'port-richey': { name: 'Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-Port-Richey.dc.html', distance: 'Our shop is right here in town',
-        intro: 'Our home base. Stop by the shop, see samples in person and talk to the people who will build your sign or wrap.',
-        areas: ['US-19 business corridor', 'Ridge Road', 'Downtown New Port Richey (Main Street)', 'SR 52'],
-        nearby: ['New Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Odessa'],
-        work: ['d75f1cb608ccbcd93cb1a6386a7ef96b', 'fc427f5d893bf746d512fca42018d298', 'c2dc4bbda700701bfbd9882c5d8b35d0', 'f14339cd7b2ff75b4c773f977705083b'] },
+      'new-port-richey': { name: 'New Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-New-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Right next door to our Port Richey shop',
+        intro: 'Our shop is right next door in Port Richey. Businesses in New Port Richey, Hudson, Holiday and Trinity can stop by, see samples and talk to the people who build their sign, wrap or tint.',
+        areas: ['Downtown New Port Richey (Main Street)', 'US-19 business corridor', 'Little Road', 'SR 54 and Trinity'],
+        nearby: ['Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Odessa'],
+        work: ['d75f1cb608ccbcd93cb1a6386a7ef96b', 'fc427f5d893bf746d512fca42018d298', 'c2dc4bbda700701bfbd9882c5d8b35d0', '673913e843ecb52b23aa111d1b942df1'] },
       'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'port-richey', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our shop',
         intro: 'From downtown storefronts to service fleets across the peninsula, we help St. Pete businesses get seen.',
         areas: ['Downtown and Central Avenue', '4th Street North', 'Tyrone area', 'Gateway / Carillon'],
@@ -186,7 +186,7 @@ class Component extends DCLogic {
     var c = Object.assign({}, c0, { upper: c0.name.toUpperCase(), work: c0.work.map(function (id) { return B + id; }) });
     var shop = LOCATIONS[c.shop];
     var services = SERV.map(function (s) {
-      return { name: s.name, label: s.name + ' in ' + c.name, href: s.file.replace('.dc.html', '-' + c0.file.slice(5, -8) + '.dc.html'), img: s.img ? B + s.img : '', noImg: !s.img };
+      return { name: s.name, label: s.name + ' in ' + c.name, href: s.file.replace('.dc.html', '-' + (c0.prodSfx || c0.file.slice(5, -8)) + '.dc.html'), img: s.img ? B + s.img : '', noImg: !s.img };
     });
     var raw = [
       { q: 'Are you a local sign company for ' + c.name + '?', a: 'Yes. Our crew installs signs, wraps and tint throughout ' + c.name + ' and nearby areas. Vehicles are wrapped at our shop.' },
