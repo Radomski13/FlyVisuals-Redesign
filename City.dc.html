@@ -23,7 +23,7 @@ body{margin:0}
 <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px; flex-wrap: wrap"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><a href="ServiceArea.dc.html" style="color: #D4D4D4">Locations</a><span aria-hidden="true">/</span><span>{{c.name}}, FL</span></nav>
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8A8F">{{c.county}} County · Signs &amp; Wraps</span>
 <h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800">Sign Company in {{c.name}}, FL</h1>
-<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">{{c.intro}}</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">{{c.introFull}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
 <a href="tel:7274946162" style="border: 2px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call (727) 494-6162</a>
@@ -142,9 +142,9 @@ class Component extends DCLogic {
     };
     var CITIES = {
       'new-port-richey': { name: 'New Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-New-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Right next door to our Port Richey shop',
-        intro: 'Our shop is right next door in Port Richey. Businesses in New Port Richey, Hudson, Holiday and Trinity can stop by, see samples and talk to the people who build their sign or wrap.',
+        intro: 'Our shop is right next door in Port Richey. Stop by, see samples and talk to the people who build your sign or wrap.',
         areas: ['Downtown New Port Richey (Main Street)', 'US-19 business corridor', 'Little Road', 'SR 54 and Trinity'],
-        nearby: ['Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Odessa'],
+        nearby: ['Port Richey', 'Hudson', 'Bayonet Point', 'Holiday', 'Trinity', 'Odessa'],
         work: ['d75f1cb608ccbcd93cb1a6386a7ef96b', 'fc427f5d893bf746d512fca42018d298', 'c2dc4bbda700701bfbd9882c5d8b35d0', '673913e843ecb52b23aa111d1b942df1'] },
       'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'port-richey', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our shop',
         intro: 'From downtown storefronts to service fleets across the peninsula, we help St. Pete businesses get seen.',
@@ -154,7 +154,7 @@ class Component extends DCLogic {
       'clearwater': { name: 'Clearwater', county: 'Pinellas', shop: 'port-richey', file: 'City-Clearwater.dc.html', distance: 'About [XX] minutes from our shop',
         intro: 'Building signs, fleet wraps and window graphics for Clearwater businesses, from the beach to US-19.',
         areas: ['Downtown (Cleveland Street)', 'Gulf to Bay Boulevard', 'US-19', 'Clearwater Beach'],
-        nearby: ['Largo', 'Dunedin', 'Safety Harbor', 'Palm Harbor'],
+        nearby: ['Tarpon Springs', 'Palm Harbor', 'Dunedin', 'Largo', 'Safety Harbor'],
         work: ['eeaf84faba44af69ea94568046061e56', 'ac6cac82d583332c286e5535e17ff041', '73b4d815b67c3ebb0d2fcb545467d2e8', 'b4d9508d604c229a21b06e82b4a2caf3'] },
       'wesley-chapel': { name: 'Wesley Chapel', county: 'Pasco', shop: 'port-richey', file: 'City-Wesley-Chapel.dc.html', distance: 'About [XX] minutes from our shop',
         intro: 'New plazas and businesses are opening all the time in Wesley Chapel. We help them launch with signs that stand out.',
@@ -164,33 +164,8 @@ class Component extends DCLogic {
       'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'port-richey', file: 'City-Tampa.dc.html', distance: 'About [XX] minutes from our shop',
         intro: 'Business signs, fleet wraps and window graphics for Tampa businesses, designed and installed by a local Tampa Bay crew.',
         areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'],
-        nearby: ['Brandon', 'Lutz', 'Town ’n’ Country', 'Riverview'],
-        work: ['9e472123707ac35f201017fc54bea9f0', '5840bb1fdb538070a975d608cf1bc3c3', 'ef837f8ed683abd98a7a5f7ac74703d8', '4c0aa19c9bebcfd34adb0c78f5de56ff'] },
-      "trinity": { name: "Trinity", county: "Pasco", shop: 'port-richey', file: "City-Trinity.dc.html", distance: 'About [XX] minutes from our shop',
-        intro: "Trinity is just minutes from our Port Richey shop. We make building signs, window graphics and vehicle wraps for offices, medical practices and shops along SR 54.",
-        areas: ["SR 54 corridor", "Little Road", "Trinity Boulevard", "Mitchell Ranch area"],
-        nearby: ["New Port Richey", "Odessa", "Holiday", "Land O’ Lakes"],
-        work: ["1146554cde15943823eb9bb623460a23", "ac6cac82d583332c286e5535e17ff041", "c2dc4bbda700701bfbd9882c5d8b35d0", "94c3527b5adb3d7d3fa5b350fbc6bf0d"] },
-      "hudson-bayonet-point": { name: "Hudson & Bayonet Point", county: "Pasco", shop: 'port-richey', file: "City-Hudson-Bayonet-Point.dc.html", distance: 'About [XX] minutes from our shop',
-        intro: "Just up US-19 from our Port Richey shop. We make building signs, window graphics, boat wraps and vehicle wraps for Hudson and Bayonet Point businesses.",
-        areas: ["US-19", "SR 52", "Hudson Avenue", "Bayonet Point and Regency Park"],
-        nearby: ["Port Richey", "Spring Hill", "Shady Hills", "Aripeka"],
-        work: ["a8a67f6f60fac1e8f10d5e0d40108971", "d75f1cb608ccbcd93cb1a6386a7ef96b", "94c3527b5adb3d7d3fa5b350fbc6bf0d", "c2dc4bbda700701bfbd9882c5d8b35d0"] },
-      "spring-hill": { name: "Spring Hill", county: "Hernando", shop: 'port-richey', file: "City-Spring-Hill.dc.html", distance: 'About [XX] minutes from our shop',
-        intro: "A short drive up US-19 from our shop. Spring Hill businesses get building signs, window graphics, yard signs and wrapped work trucks from one local crew.",
-        areas: ["US-19", "Spring Hill Drive", "Mariner Boulevard", "County Line Road"],
-        nearby: ["Brooksville", "Weeki Wachee", "Hudson", "Masaryktown"],
-        work: ["ac6cac82d583332c286e5535e17ff041", "b4d9508d604c229a21b06e82b4a2caf3", "fc427f5d893bf746d512fca42018d298", "eeaf84faba44af69ea94568046061e56"] },
-      "tarpon-springs": { name: "Tarpon Springs", county: "Pinellas", shop: 'port-richey', file: "City-Tarpon-Springs.dc.html", distance: 'About [XX] minutes from our shop',
-        intro: "From the Sponge Docks to US-19, we make building signs, window graphics, boat wraps and fleet graphics for Tarpon Springs businesses.",
-        areas: ["US-19", "Downtown and the Sponge Docks", "Tarpon Avenue", "Alternate 19"],
-        nearby: ["Holiday", "Palm Harbor", "East Lake", "Elfers"],
-        work: ["be60f04d14957e31b6d0607ff2269cd0", "ac6cac82d583332c286e5535e17ff041", "dc777ba4e91984c69a4166c1cb2033e5", "3eaf600ff7dcd137e019b98f40f0675a"] },
-      "odessa": { name: "Odessa", county: "Hillsborough", shop: 'port-richey', file: "City-Odessa.dc.html", distance: 'About [XX] minutes from our shop',
-        intro: "Odessa is a quick trip down SR 54 from our shop. We wrap work trucks, install PPF and make building signs and banners for Odessa businesses and drivers.",
-        areas: ["SR 54 and Gunn Highway", "Keystone", "Suncoast Parkway", "Lake Fern area"],
-        nearby: ["Trinity", "Lutz", "Land O’ Lakes", "Citrus Park"],
-        work: ["360d2163283a523b70cce294a429afb4", "c2dc4bbda700701bfbd9882c5d8b35d0", "ac6cac82d583332c286e5535e17ff041", "4c0aa19c9bebcfd34adb0c78f5de56ff"] }
+        nearby: ['Odessa', 'Lutz', 'Town ’n’ Country', 'Brandon'],
+        work: ['9e472123707ac35f201017fc54bea9f0', '5840bb1fdb538070a975d608cf1bc3c3', 'ef837f8ed683abd98a7a5f7ac74703d8', '4c0aa19c9bebcfd34adb0c78f5de56ff'] }
     };
     var SERV = [
       { slug: 'storefront', name: 'Business Signs', file: 'Business-Signs.dc.html', img: 'ac6cac82d583332c286e5535e17ff041' },
@@ -213,8 +188,11 @@ class Component extends DCLogic {
     var services = SERV.map(function (s) {
       return { name: s.name, label: s.name + ' in ' + c.name, href: s.file.replace('.dc.html', '-' + (c0.prodSfx || c0.file.slice(5, -8)) + '.dc.html'), img: s.img ? B + s.img : '', noImg: !s.img };
     });
+    var nb = c0.nearby.slice(0, 3);
+    var near3 = nb.slice(0, -1).join(', ') + ' and ' + nb[nb.length - 1];
+    c.introFull = c0.intro + ' We also serve nearby ' + near3 + '.';
     var raw = [
-      { q: 'Are you a local sign company for ' + c.name + '?', a: 'Yes. Our crew installs signs and wraps throughout ' + c.name + ' and nearby areas. Vehicles are wrapped at our shop.' },
+      { q: 'Are you a local sign company for ' + c.name + '?', a: 'Yes. Our crew installs signs and wraps throughout ' + c.name + ' and nearby ' + near3 + '. Vehicles are wrapped at our Port Richey shop.' },
       { q: 'Do you handle ' + c.county + ' County sign permits?', a: 'Yes. We prepare the drawings and file with the city or county, depending on where your business is located.' },
       { q: 'Can you come measure my location?', a: 'Yes. We offer a free on-site consultation and measure for ' + c.name + ' businesses.' }
     ];
