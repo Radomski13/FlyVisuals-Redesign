@@ -184,7 +184,7 @@ body{margin:0}
 <dc-import name="Footer" hint-size="100%,420px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["storefront","wraps","monument","window","banners","interior","tradeshow","ppf","carwraps","neon"],"default":"storefront"},"city":{"editor":"enum","options":["none","port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"none"},"$preview":{"width":1440,"height":3000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["storefront","wraps","monument","window","banners","interior","tradeshow","ppf","carwraps","neon","boats"],"default":"storefront"},"city":{"editor":"enum","options":["none","port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"none"},"$preview":{"width":1440,"height":3000}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { open: 0 }; }
   renderVals() {
@@ -199,7 +199,9 @@ class Component extends DCLogic {
           { t: "Pylon & Pole Signs", d: "Tall roadside signs for plazas and stand-alone locations." },
           { t: "Safety, Parking & Construction Signs", d: "Parking, traffic, safety and construction signs for businesses, plazas and job sites." },
           { t: "Metal & Aluminum Signs", d: "Durable metal and aluminum signs for buildings, gates, fences, parking lots and interiors, including printe..." },
-          { t: "Sign Repair & Installation", d: "Sign repair, LED upgrades, new faces and installation for signs you already have." }
+          { t: "Sign Repair & Installation", d: "Sign repair, LED upgrades, new faces and installation for signs you already have." },
+          { t: "Vinyl Signs", d: "Custom vinyl signs and lettering for walls, doors, windows, boards and vehicles." },
+          { t: "Logo & Graphic Design", d: "Logo design and graphic design for your signs, vehicle wraps, banners and print, from a local Port Richey team." }
         ],
         faqs: [
           { q: 'Do I need a permit for a storefront sign?', a: 'Most exterior signs in Pasco and nearby counties need a permit, and many plazas have landlord rules too. We prepare drawings and handle the permit process for you.' },
@@ -207,7 +209,7 @@ class Component extends DCLogic {
           { q: 'Can you fix or update my existing sign?', a: 'Yes. We can replace faces, convert lighting to LED, or repair damaged signs.' }
         ], related: ['monument', 'window', 'interior'] },
       wraps: { name: 'Commercial Vehicle Wraps', h1: 'Vehicle Wrapping Services', tag: 'Commercial · Fleet · Trucks · Vans · Trailers', short: 'wrap', href: 'Commercial-Vehicle-Wraps.dc.html', photo: '[PHOTO: fully wrapped work van]',
-        intro: 'Fly Visuals offers vehicle wrapping services for business cars, trucks, vans and fleets. Full wraps, partial wraps, fleet graphics and lettering that turn every drive into an ad, printed and installed in our shop.',
+        intro: 'Fly Visuals offers vehicle wrapping services for business cars, trucks, vans and fleets. Full wraps, partial wraps, vehicle graphics, fleet graphics and lettering that turn every drive into an ad, printed and installed in our shop.',
         types: [
           { t: "Full Vehicle Wraps", d: "Complete coverage for maximum impact and a total color change." },
           { t: "Partial Vehicle Wraps", d: "Cover part of the vehicle and blend with the paint to save cost." },
@@ -215,7 +217,7 @@ class Component extends DCLogic {
           { t: "Fleet Wraps & Graphics", d: "Consistent branding across every vehicle in your fleet." },
           { t: "Truck & Vehicle Lettering", d: "Name, phone and DOT numbers for a simple, clean look." },
           { t: "Trailer & Box Truck Wraps", d: "Big, flat sides that make bold billboards." },
-          { t: "Boat Wraps", d: "Marine-grade vinyl for hulls, consoles and names." },
+          { t: "Truck Wraps", d: "Full and partial truck wraps that turn work trucks and pickups into rolling ads." },
           { t: "Food Truck Wraps", d: "Bold wraps that show your menu, brand and socials so your food truck gets noticed from across the lot." },
           { t: "Car Magnets & Magnetic Signs", d: "Removable magnetic signs for cars and trucks, perfect for vehicles you also drive personally." }
         ],
@@ -297,7 +299,7 @@ class Component extends DCLogic {
           { q: 'How soon do I need to order?', a: 'Order at least [X] weeks before your event to leave time for proofs.' }
         ], related: ['banners', 'wraps', 'interior'] },
       ppf: { name: "Paint Protection Film", short: "PPF", href: "Paint-Protection-Film.dc.html", photo: '[PHOTO]',
-        intro: "Clear, self-healing film that guards your paint from rock chips, bugs, scratches and Florida sun. Installed in our shop on cars, trucks and work vehicles.",
+        intro: "Clear, self-healing paint protection film (also called clear bra) that guards your paint from rock chips, bugs, scratches and Florida sun. Installed in our shop on cars, trucks and work vehicles.",
         types: [
           { t: "Front-End PPF", d: "Front-end PPF in two levels: partial front (bumper, front of hood, mirrors) or full front (full hood, fende..." },
           { t: "Full Body PPF", d: "Every painted panel covered for maximum protection." },
@@ -320,7 +322,8 @@ class Component extends DCLogic {
         faqs: [
           { q: "Is a wrap cheaper than paint?", a: "A quality color change wrap usually costs less than a comparable paint job, and you can remove it later." },
           { q: "How do I take care of a wrap?", a: "Hand wash when you can, avoid pressure washing the edges and park in shade when possible. We give you care tips at pickup." },
-          { q: "How long will my car be in the shop?", a: "Most color change wraps take [X–X] days. Chrome deletes and accents are often done in a day." }
+          { q: "How long will my car be in the shop?", a: "Most color change wraps take [X–X] days. Chrome deletes and accents are often done in a day." },
+          { q: "Are your vinyl wrap installers certified?", a: "Yes. Our vinyl wrap installers are 3M and Avery certified, and every car is wrapped inside our Port Richey shop." }
         ], related: ["ppf", "wraps", "window"] },
       neon: { name: "Neon & LED Signs", short: "LED sign", href: "Neon-LED-Signs.dc.html", photo: '[PHOTO]',
         intro: "Bright LED neon signs, open signs and digital message signs that get noticed day and night.",
@@ -333,7 +336,21 @@ class Component extends DCLogic {
           { q: "What is the difference between glass neon and LED neon?", a: "LED neon looks like classic neon but uses less power, runs cooler and is much less fragile." },
           { q: "Do outdoor LED signs need a permit?", a: "Outdoor lit and digital signs usually do. We prepare the drawings and handle the permit." },
           { q: "Can I change the message on a digital sign?", a: "Yes. Digital message signs can be updated with new text and specials. We will show you how it works." }
-        ], related: ["storefront", "window", "interior"] }
+        ], related: ["storefront", "window", "interior"] },
+      boats: { name: "Boat Wraps & Marine Graphics", short: "boat wrap", href: "Boat-Wraps.dc.html", photo: '[PHOTO]',
+        intro: "Boat wraps, marine graphics, lettering and registration numbers made for Florida water and sun. Fishing boats, pontoons, center consoles and jet skis, wrapped in our Port Richey shop.",
+        types: [
+          { t: "Boat Wraps", d: "Full and partial hull wraps in marine-grade vinyl." },
+          { t: "Boat Graphics & Decals", d: "Custom marine graphics, stripes and logos for hulls, consoles and T-tops." },
+          { t: "Boat Lettering & Registration Numbers", d: "Boat names, hailing ports and FL registration numbers, sized to the rules." },
+          { t: "Pontoon Boat Wraps", d: "Pontoon log wraps and graphics in any color or design." },
+          { t: "Jet Ski Wraps", d: "Custom graphics kits and wraps for jet skis and PWCs." }
+        ],
+        faqs: [
+          { q: "Will a boat wrap hold up to salt water?", a: "Yes. We use marine-grade vinyl and laminate made for salt, sun and spray. Rinse with fresh water after trips and it will last for years." },
+          { q: "Can you wrap my boat in the water?", a: "No. Boats are wrapped in our shop, out of the water, so the surface is clean and dry. Bring it on the trailer." },
+          { q: "How long does a boat wrap take?", a: "Most boat wraps take [X–X] days. Lettering and registration numbers are often done the same day." }
+        ], related: ["wraps", "carwraps", "window"] }
     };
     var slug = this.props.slug ?? 'storefront';
     var p = D[slug] || D.storefront;
@@ -343,7 +360,12 @@ class Component extends DCLogic {
       'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'port-richey', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Downtown and Central Avenue', '4th Street North', 'Tyrone area', 'Gateway / Carillon'], nearby: ['Pinellas Park', 'Largo', 'Seminole', 'Gulfport'] },
       'clearwater': { name: 'Clearwater', county: 'Pinellas', shop: 'port-richey', file: 'City-Clearwater.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Downtown (Cleveland Street)', 'Gulf to Bay Boulevard', 'US-19', 'Clearwater Beach'], nearby: ['Largo', 'Dunedin', 'Safety Harbor', 'Palm Harbor'] },
       'wesley-chapel': { name: 'Wesley Chapel', county: 'Pasco', shop: 'port-richey', file: 'City-Wesley-Chapel.dc.html', distance: 'About [XX] minutes from our shop', areas: ['SR 54 and SR 56', 'Wiregrass area', 'Bruce B. Downs Boulevard', 'Wesley Chapel Boulevard'], nearby: ['Land O’ Lakes', 'Lutz', 'Zephyrhills', 'New Tampa'] },
-      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'port-richey', file: 'City-Tampa.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'], nearby: ['Brandon', 'Lutz', 'Town ’n’ Country', 'Riverview'] }
+      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'port-richey', file: 'City-Tampa.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'], nearby: ['Brandon', 'Lutz', 'Town ’n’ Country', 'Riverview'] },
+      "trinity": { name: "Trinity", county: "Pasco", shop: 'port-richey', file: "City-Trinity.dc.html", distance: 'About [XX] minutes from our shop', areas: ["SR 54 corridor", "Little Road", "Trinity Boulevard", "Mitchell Ranch area"], nearby: ["New Port Richey", "Odessa", "Holiday", "Land O’ Lakes"] },
+      "hudson-bayonet-point": { name: "Hudson & Bayonet Point", county: "Pasco", shop: 'port-richey', file: "City-Hudson-Bayonet-Point.dc.html", distance: 'About [XX] minutes from our shop', areas: ["US-19", "SR 52", "Hudson Avenue", "Bayonet Point and Regency Park"], nearby: ["Port Richey", "Spring Hill", "Shady Hills", "Aripeka"] },
+      "spring-hill": { name: "Spring Hill", county: "Hernando", shop: 'port-richey', file: "City-Spring-Hill.dc.html", distance: 'About [XX] minutes from our shop', areas: ["US-19", "Spring Hill Drive", "Mariner Boulevard", "County Line Road"], nearby: ["Brooksville", "Weeki Wachee", "Hudson", "Masaryktown"] },
+      "tarpon-springs": { name: "Tarpon Springs", county: "Pinellas", shop: 'port-richey', file: "City-Tarpon-Springs.dc.html", distance: 'About [XX] minutes from our shop', areas: ["US-19", "Downtown and the Sponge Docks", "Tarpon Avenue", "Alternate 19"], nearby: ["Holiday", "Palm Harbor", "East Lake", "Elfers"] },
+      "odessa": { name: "Odessa", county: "Hillsborough", shop: 'port-richey', file: "City-Odessa.dc.html", distance: 'About [XX] minutes from our shop', areas: ["SR 54 and Gunn Highway", "Keystone", "Suncoast Parkway", "Lake Fern area"], nearby: ["Trinity", "Lutz", "Land O’ Lakes", "Citrus Park"] }
     };
     var cityKey = this.props.city ?? 'none';
     var city = CITIES[cityKey] || null;
@@ -361,6 +383,7 @@ class Component extends DCLogic {
     WHY["ppf"] = {"line": "PPF is all about the details: clean edges, no lifting and film that is hard to see.", "b": [{"t": "Careful prep.", "d": "We clean and decontaminate the paint before any film goes on."}, {"t": "Clean edges.", "d": "Film is trimmed and wrapped so edges stay hidden."}, {"t": "Self-healing film.", "d": "Light swirls and scratches disappear with heat."}, {"t": "Pairs with wraps.", "d": "Do PPF, wraps and accents in one visit."}]};
     WHY["carwraps"] = {"line": "Personal wraps live or die on the details, and we take our time on every panel.", "b": [{"t": "Premium cast vinyl.", "d": "We use 3M and Avery films made for curves and Florida heat."}, {"t": "Tucked edges.", "d": "Vinyl is wrapped into gaps so seams are hard to spot."}, {"t": "Lots of colors.", "d": "Pick from hundreds of colors and finishes."}, {"t": "Removable.", "d": "Your factory paint stays protected underneath."}]};
     WHY["neon"] = {"line": "Lit signs need to look great and run reliably, and we handle both.", "b": [{"t": "Custom designs.", "d": "We turn your logo or idea into a sign that fits your space."}, {"t": "Energy-saving LEDs.", "d": "Bright light that costs less to run."}, {"t": "Installed for you.", "d": "Indoor or outdoor, we mount it and test it."}, {"t": "Permits handled.", "d": "We take care of paperwork for outdoor signs."}]};
+    WHY["boats"] = {"line": "Boats take a beating from salt and sun, so we use materials and methods built for the water.", "b": [{"t": "Marine-grade vinyl.", "d": "Films and laminate rated for salt water and Florida UV."}, {"t": "Clean prep.", "d": "Hulls are cleaned and dewaxed so the vinyl bonds."}, {"t": "Rules-ready lettering.", "d": "Registration numbers sized and placed to Florida requirements."}, {"t": "Local shop.", "d": "Trailer it to Port Richey and we take it from there."}]};
     var why = WHY[slug] || WHY.storefront;
     var benefits = why.b;
     var B = '_blob/';
@@ -374,11 +397,12 @@ class Component extends DCLogic {
       tradeshow: { hero: '', g: ['', '', ''] },
       ppf: {"hero": "", "g": ["", "", ""]},
       carwraps: {"hero": "360d2163283a523b70cce294a429afb4", "g": ["5840bb1fdb538070a975d608cf1bc3c3", "3eaf600ff7dcd137e019b98f40f0675a", "eb1a3785f28a56e9990f66dff4fdaf67"]},
-      neon: {"hero": "", "g": ["", "", ""]}
+      neon: {"hero": "", "g": ["", "", ""]},
+      boats: {"hero": "d75f1cb608ccbcd93cb1a6386a7ef96b", "g": ["be60f04d14957e31b6d0607ff2269cd0", "653d5c533618ba385428442278f22b26", "b4d9508d604c229a21b06e82b4a2caf3"]}
     };
     var im = IMG[slug] || IMG.storefront;
     var gallery = im.g.map(function (id) { return { src: id ? B + id : '', has: !!id, no: !id }; });
-    var OIMG = {"Channel Letter Signs":"ac6cac82d583332c286e5535e17ff041","Lightbox Signs":"c6310178ef29d7da1d0ce06bef15b96b","Pylon & Pole Signs":"a8a67f6f60fac1e8f10d5e0d40108971","Full Vehicle Wraps":"eeaf84faba44af69ea94568046061e56","Partial Vehicle Wraps":"3eaf600ff7dcd137e019b98f40f0675a","Fleet Wraps & Graphics":"f14339cd7b2ff75b4c773f977705083b","Truck & Vehicle Lettering":"73b4d815b67c3ebb0d2fcb545467d2e8","Trailer & Box Truck Wraps":"4c0aa19c9bebcfd34adb0c78f5de56ff","Boat Wraps":"d75f1cb608ccbcd93cb1a6386a7ef96b","Foam Monument Signs":"1bb5e5a8dd3bfa305e0608f8c7c1f176","Perforated Window Graphics":"94c3527b5adb3d7d3fa5b350fbc6bf0d","Window Decals & Clings":"dc777ba4e91984c69a4166c1cb2033e5","Yard Signs":"fc427f5d893bf746d512fca42018d298","Lobby & Logo Signs":"1146554cde15943823eb9bb623460a23","Acrylic Signs":"ef837f8ed683abd98a7a5f7ac74703d8","Color Change Wraps":"360d2163283a523b70cce294a429afb4","Sign Repair & Installation":"c6310178ef29d7da1d0ce06bef15b96b","Van Wraps":"c2dc4bbda700701bfbd9882c5d8b35d0","Car & Truck Decals":"73b4d815b67c3ebb0d2fcb545467d2e8"};
+    var OIMG = {"Boat Graphics & Decals": "b4d9508d604c229a21b06e82b4a2caf3", "Pontoon Boat Wraps": "be60f04d14957e31b6d0607ff2269cd0", "Truck Wraps": "c2dc4bbda700701bfbd9882c5d8b35d0", "Boat Wraps": "d75f1cb608ccbcd93cb1a6386a7ef96b","Channel Letter Signs":"ac6cac82d583332c286e5535e17ff041","Lightbox Signs":"c6310178ef29d7da1d0ce06bef15b96b","Pylon & Pole Signs":"a8a67f6f60fac1e8f10d5e0d40108971","Full Vehicle Wraps":"eeaf84faba44af69ea94568046061e56","Partial Vehicle Wraps":"3eaf600ff7dcd137e019b98f40f0675a","Fleet Wraps & Graphics":"f14339cd7b2ff75b4c773f977705083b","Truck & Vehicle Lettering":"73b4d815b67c3ebb0d2fcb545467d2e8","Trailer & Box Truck Wraps":"4c0aa19c9bebcfd34adb0c78f5de56ff","Boat Wraps":"d75f1cb608ccbcd93cb1a6386a7ef96b","Foam Monument Signs":"1bb5e5a8dd3bfa305e0608f8c7c1f176","Perforated Window Graphics":"94c3527b5adb3d7d3fa5b350fbc6bf0d","Window Decals & Clings":"dc777ba4e91984c69a4166c1cb2033e5","Yard Signs":"fc427f5d893bf746d512fca42018d298","Lobby & Logo Signs":"1146554cde15943823eb9bb623460a23","Acrylic Signs":"ef837f8ed683abd98a7a5f7ac74703d8","Color Change Wraps":"360d2163283a523b70cce294a429afb4","Sign Repair & Installation":"c6310178ef29d7da1d0ce06bef15b96b","Van Wraps":"c2dc4bbda700701bfbd9882c5d8b35d0","Car & Truck Decals":"73b4d815b67c3ebb0d2fcb545467d2e8"};
     var types = p.types.map(function (t) {
       var f = 'Option-' + t.t.replace(/&/g, 'and').replace(/[^A-Za-z0-9]+/g, '-').replace(/-+$/, '') + '.dc.html';
       var im = OIMG[t.t];
