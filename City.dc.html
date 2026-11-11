@@ -21,7 +21,7 @@ body{margin:0}
 <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 18px">
 <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px; flex-wrap: wrap"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><a href="ServiceArea.dc.html" style="color: #D4D4D4">Locations</a><span aria-hidden="true">/</span><span>{{c.name}}, FL</span></nav>
-<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8A8F">{{c.county}} County · Signs, Wraps &amp; Tint</span>
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8A8F">{{c.county}} County · Signs &amp; Wraps</span>
 <h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800">Sign Company in {{c.name}}, FL</h1>
 <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">{{c.intro}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
@@ -142,7 +142,7 @@ class Component extends DCLogic {
     };
     var CITIES = {
       'new-port-richey': { name: 'New Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-New-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Right next door to our Port Richey shop',
-        intro: 'Our shop is right next door in Port Richey. Businesses in New Port Richey, Hudson, Holiday and Trinity can stop by, see samples and talk to the people who build their sign, wrap or tint.',
+        intro: 'Our shop is right next door in Port Richey. Businesses in New Port Richey, Hudson, Holiday and Trinity can stop by, see samples and talk to the people who build their sign or wrap.',
         areas: ['Downtown New Port Richey (Main Street)', 'US-19 business corridor', 'Little Road', 'SR 54 and Trinity'],
         nearby: ['Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Odessa'],
         work: ['d75f1cb608ccbcd93cb1a6386a7ef96b', 'fc427f5d893bf746d512fca42018d298', 'c2dc4bbda700701bfbd9882c5d8b35d0', '673913e843ecb52b23aa111d1b942df1'] },
@@ -150,7 +150,7 @@ class Component extends DCLogic {
         intro: 'From downtown storefronts to service fleets across the peninsula, we help St. Pete businesses get seen.',
         areas: ['Downtown and Central Avenue', '4th Street North', 'Tyrone area', 'Gateway / Carillon'],
         nearby: ['Pinellas Park', 'Largo', 'Seminole', 'Gulfport'],
-        work: ['1146554cde15943823eb9bb623460a23', 'ff337b18020fbfe00ff8e253a5bd0c84', '3eaf600ff7dcd137e019b98f40f0675a', '94c3527b5adb3d7d3fa5b350fbc6bf0d'] },
+        work: ['1146554cde15943823eb9bb623460a23', '360d2163283a523b70cce294a429afb4', '3eaf600ff7dcd137e019b98f40f0675a', '94c3527b5adb3d7d3fa5b350fbc6bf0d'] },
       'clearwater': { name: 'Clearwater', county: 'Pinellas', shop: 'port-richey', file: 'City-Clearwater.dc.html', distance: 'About [XX] minutes from our shop',
         intro: 'Building signs, fleet wraps and window graphics for Clearwater businesses, from the beach to US-19.',
         areas: ['Downtown (Cleveland Street)', 'Gulf to Bay Boulevard', 'US-19', 'Clearwater Beach'],
@@ -162,7 +162,7 @@ class Component extends DCLogic {
         nearby: ['Land O’ Lakes', 'Lutz', 'Zephyrhills', 'New Tampa'],
         work: ['1bb5e5a8dd3bfa305e0608f8c7c1f176', 'a8a67f6f60fac1e8f10d5e0d40108971', '6ccd33fa1f30a3d897309ab5a5c9c819', 'c2d9568f7668bdce618df80159a3a199'] },
       'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'port-richey', file: 'City-Tampa.dc.html', distance: 'About [XX] minutes from our shop',
-        intro: 'Business signs, fleet wraps and window tint for Tampa businesses, designed and installed by a local Tampa Bay crew.',
+        intro: 'Business signs, fleet wraps and window graphics for Tampa businesses, designed and installed by a local Tampa Bay crew.',
         areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'],
         nearby: ['Brandon', 'Lutz', 'Town ’n’ Country', 'Riverview'],
         work: ['9e472123707ac35f201017fc54bea9f0', '5840bb1fdb538070a975d608cf1bc3c3', 'ef837f8ed683abd98a7a5f7ac74703d8', '4c0aa19c9bebcfd34adb0c78f5de56ff'] }
@@ -172,7 +172,6 @@ class Component extends DCLogic {
       { slug: 'wraps', name: 'Commercial Vehicle Wraps', file: 'Commercial-Vehicle-Wraps.dc.html', img: 'c2dc4bbda700701bfbd9882c5d8b35d0' },
       { slug: 'monument', name: 'Monument Signs', file: 'Monument-Signs.dc.html', img: '1bb5e5a8dd3bfa305e0608f8c7c1f176' },
       { slug: 'window', name: 'Window Decals & Graphics', file: 'Window-Graphics.dc.html', img: '94c3527b5adb3d7d3fa5b350fbc6bf0d' },
-      { slug: 'tint', name: 'Window Tint', file: 'Window-Tint.dc.html', img: 'ff337b18020fbfe00ff8e253a5bd0c84' },
       { slug: 'banners', name: 'Banners, Flags & Yard Signs', file: 'Banners-Flags.dc.html', img: 'fc427f5d893bf746d512fca42018d298' },
       { slug: 'interior', name: 'Office & Indoor Signs', file: 'Interior-ADA-Signs.dc.html', img: '1146554cde15943823eb9bb623460a23' },
       { slug: 'tradeshow', name: 'Trade Show Displays', file: 'Trade-Show-Displays.dc.html', img: '' },
@@ -189,7 +188,7 @@ class Component extends DCLogic {
       return { name: s.name, label: s.name + ' in ' + c.name, href: s.file.replace('.dc.html', '-' + (c0.prodSfx || c0.file.slice(5, -8)) + '.dc.html'), img: s.img ? B + s.img : '', noImg: !s.img };
     });
     var raw = [
-      { q: 'Are you a local sign company for ' + c.name + '?', a: 'Yes. Our crew installs signs, wraps and tint throughout ' + c.name + ' and nearby areas. Vehicles are wrapped at our shop.' },
+      { q: 'Are you a local sign company for ' + c.name + '?', a: 'Yes. Our crew installs signs and wraps throughout ' + c.name + ' and nearby areas. Vehicles are wrapped at our shop.' },
       { q: 'Do you handle ' + c.county + ' County sign permits?', a: 'Yes. We prepare the drawings and file with the city or county, depending on where your business is located.' },
       { q: 'Can you come measure my location?', a: 'Yes. We offer a free on-site consultation and measure for ' + c.name + ' businesses.' }
     ];

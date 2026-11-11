@@ -57,7 +57,6 @@ class Component extends DCLogic {
     var self = this;
     var all = [
       { cat: 'Wraps', t: 'How much does it cost to wrap a car in Tampa Bay?', d: 'What goes into the price of a color change, chrome delete or business wrap.', img: '_blob/360d2163283a523b70cce294a429afb4', href: 'Blog-Car-Wrap-Cost.dc.html' },
-      { cat: 'Tint', t: 'How much does window tint cost in Tampa Bay?', d: 'Standard vs. ceramic tint, windshields, removal and Florida tint law.', img: '_blob/71de078c39a7e2c9d6a43057c038497e', href: 'Blog-Window-Tint-Cost.dc.html' },
       { cat: 'Signs', t: 'How to choose the right storefront sign for your building', d: 'Lit or non-lit, letters or a cabinet: what to think about before you buy.', img: '_blob/9e472123707ac35f201017fc54bea9f0' },
       { cat: 'Wraps', t: 'Full wrap vs. partial wrap: what fits your budget', d: 'The pros and cons of each, and how to get the most impact for the money.', img: '_blob/73b4d815b67c3ebb0d2fcb545467d2e8' },
       { cat: 'Tips', t: 'Pasco County sign permits: what to know before you order', d: 'A plain-English look at the permit process and how we handle it.', img: '_blob/c6310178ef29d7da1d0ce06bef15b96b' },
@@ -65,7 +64,7 @@ class Component extends DCLogic {
       { cat: 'Tips', t: '5 ways to make your storefront windows work harder', d: 'Simple window graphics ideas that bring in walk-in traffic.', img: '_blob/94c3527b5adb3d7d3fa5b350fbc6bf0d' },
       { cat: 'Wraps', t: 'How to keep your vehicle wrap looking new', d: 'Washing, parking and care tips to help your wrap last.', img: '_blob/360d2163283a523b70cce294a429afb4' }
     ];
-    var cats = ['All', 'Signs', 'Wraps', 'Tint', 'Tips'];
+    var cats = ['All', 'Signs', 'Wraps', 'Tips'];
     return {
       posts: all.filter(function (p) { return self.state.f === 'All' || p.cat === self.state.f; }).map(function (p) { return Object.assign({ href: 'BlogPost.dc.html' }, p); }),
       filters: cats.map(function (c) {
