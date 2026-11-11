@@ -144,7 +144,7 @@ class Component extends DCLogic {
       'new-port-richey': { name: 'New Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-New-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Right next door to our Port Richey shop',
         intro: 'Our shop is right next door in Port Richey. Stop by, see samples and talk to the people who build your sign or wrap.',
         areas: ['Downtown New Port Richey (Main Street)', 'US-19 business corridor', 'Little Road', 'SR 54 and Trinity'],
-        nearby: ['Port Richey', 'Hudson', 'Bayonet Point', 'Holiday', 'Trinity', 'Odessa'],
+        nearby: ['Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Odessa'],
         work: ['d75f1cb608ccbcd93cb1a6386a7ef96b', 'fc427f5d893bf746d512fca42018d298', 'c2dc4bbda700701bfbd9882c5d8b35d0', '673913e843ecb52b23aa111d1b942df1'] },
       'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'port-richey', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our shop',
         intro: 'From downtown storefronts to service fleets across the peninsula, we help St. Pete businesses get seen.',
@@ -188,7 +188,7 @@ class Component extends DCLogic {
     var services = SERV.map(function (s) {
       return { name: s.name, label: s.name + ' in ' + c.name, href: s.file.replace('.dc.html', '-' + (c0.prodSfx || c0.file.slice(5, -8)) + '.dc.html'), img: s.img ? B + s.img : '', noImg: !s.img };
     });
-    var nb = c0.nearby.slice(0, 3);
+    var nb = c0.nearby.slice(0, 4);
     var near3 = nb.slice(0, -1).join(', ') + ' and ' + nb[nb.length - 1];
     c.introFull = c0.intro + ' We also serve nearby ' + near3 + '.';
     var raw = [
