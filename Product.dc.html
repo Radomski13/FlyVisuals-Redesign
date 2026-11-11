@@ -41,6 +41,7 @@ body{margin:0}
 <a href="index.html" style="color: #555555">Home</a><span aria-hidden="true">/</span><sc-if value="{{noCity}}" hint-placeholder-val="{{true}}"><a href="Products.dc.html" style="color: #555555">Products</a><span aria-hidden="true">/</span></sc-if><sc-if value="{{hasCity}}" hint-placeholder-val="{{false}}"><a href="ServiceArea.dc.html" style="color: #555555">Locations</a><span aria-hidden="true">/</span><a href="{{city.file}}" style="color: #555555">{{city.name}}</a><span aria-hidden="true">/</span></sc-if><span style="color: #111111; font-weight: 600">{{p.name}}</span>
 </nav>
 <a href="https://[GOOGLE-REVIEWS-LINK]" class="pv-badge" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 999px; padding: 8px 16px; min-height: 44px; box-sizing: border-box; color: #111111; text-decoration: none; font-size: 14px; box-shadow: 0 1px 4px rgba(0,0,0,0.06)"><span style="font-family: 'Montserrat', sans-serif; font-weight: 800">Google</span><span role="img" aria-label="4.8 out of 5 stars" style="color: #F5A300; letter-spacing: 2px; font-size: 15px">★★★★★</span><strong style="font-family: 'Montserrat', sans-serif">4.8</strong><span style="color: #555555">18 reviews</span></a>
+<sc-if value="{{hasTag}}" hint-placeholder-val="{{false}}"><span class="pv-eyebrow" style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #DC1A21">{{tag}}</span></sc-if>
 <h1 class="pv-h1" style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.05; font-weight: 800; color: #111111">{{title}}</h1>
 <p class="pv-intro" style="margin: 0; font-size: 19px; line-height: 1.6; color: #3A3A3A">{{intro}}</p>
 <div class="pv-ctas" style="display: flex; flex-wrap: wrap; gap: 12px">
@@ -205,8 +206,8 @@ class Component extends DCLogic {
           { q: 'How long does a storefront sign take?', a: 'Timing depends on the sign type and permit approval. Most projects take [X–X] weeks from approved proof to install.' },
           { q: 'Can you fix or update my existing sign?', a: 'Yes. We can replace faces, convert lighting to LED, or repair damaged signs.' }
         ], related: ['monument', 'window', 'interior'] },
-      wraps: { name: 'Commercial Vehicle Wraps', short: 'wrap', href: 'Commercial-Vehicle-Wraps.dc.html', photo: '[PHOTO: fully wrapped work van]',
-        intro: 'Vehicle wraps that turn your trucks, vans and trailers into ads that drive all over town. Full wraps, partial wraps, fleet graphics and lettering, printed and installed in our shop.',
+      wraps: { name: 'Commercial Vehicle Wraps', h1: 'Vehicle Wrapping Services', tag: 'Commercial · Fleet · Trucks · Vans · Trailers', short: 'wrap', href: 'Commercial-Vehicle-Wraps.dc.html', photo: '[PHOTO: fully wrapped work van]',
+        intro: 'Fly Visuals offers vehicle wrapping services for business cars, trucks, vans and fleets. Full wraps, partial wraps, fleet graphics and lettering that turn every drive into an ad, printed and installed in our shop.',
         types: [
           { t: "Full Vehicle Wraps", d: "Complete coverage for maximum impact and a total color change." },
           { t: "Partial Vehicle Wraps", d: "Cover part of the vehicle and blend with the paint to save cost." },
@@ -387,7 +388,8 @@ class Component extends DCLogic {
       p: Object.assign({}, p, { types: types }), faqs: faqs, related: related, benefits: benefits, whyTitle: 'Why Fly Visuals for ' + lower, whyLine: why.line, hero: im.hero ? B + im.hero : '', hasHero: !!im.hero, noHero: !im.hero, gallery: gallery,
       city: city || { name: '', county: '', file: 'ServiceArea.dc.html', areas: [], nearby: [], distance: '' },
       hasCity: !!city, noCity: !city, shop: shop, cityLinks: cityLinks,
-      title: city ? p.name + ' in ' + city.name + ', FL' : p.name,
+      title: city ? (p.h1 || p.name) + ' in ' + city.name + ', FL' : (p.h1 || p.name),
+      tag: p.tag || '', hasTag: !!p.tag,
       intro: city ? p.intro + ' Serving ' + city.name + ' and all of ' + city.county + ' County.' : p.intro,
       cityLine: city ? 'We design, build and install ' + lower + ' for businesses all over ' + city.name + ', including:' : ''
     };
