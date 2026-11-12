@@ -142,15 +142,10 @@ class Component extends DCLogic {
       'tampa': { name: 'Fly Visuals – Tampa', short: 'Tampa', address: '[TAMPA SHOP ADDRESS]', hours: '[TAMPA HOURS]', phone: '[TAMPA PHONE]', tel: '7274946162', page: 'City-Tampa.dc.html' } };
     var CITIES = {
       'port-richey': { name: 'Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Our Port Richey shop is right here in town',
-        intro: 'Our Port Richey shop at 8132 Cormel St is where we design, print and install signs and wraps. Stop by, see samples and talk to the people who build your sign or wrap.',
+        intro: 'Our Port Richey shop at 8132 Cormel St, minutes from New Port Richey, is where we design, print and install signs and wraps. Stop by, see samples and talk to the people who build your sign or wrap.',
         areas: ['US-19 business corridor', 'Ridge Road', 'Downtown Port Richey', 'Grand Boulevard'],
         nearby: ['New Port Richey', 'Hudson', 'Holiday', 'Trinity'],
         work: ['ac6cac82d583332c286e5535e17ff041', 'c2dc4bbda700701bfbd9882c5d8b35d0', 'd75f1cb608ccbcd93cb1a6386a7ef96b', '94c3527b5adb3d7d3fa5b350fbc6bf0d'] },
-      'new-port-richey': { name: 'New Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-New-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Right next door to our Port Richey shop',
-        intro: 'Our shop is right next door in Port Richey. Stop by, see samples and talk to the people who build your sign or wrap.',
-        areas: ['Downtown New Port Richey (Main Street)', 'US-19 business corridor', 'Little Road', 'SR 54 and Trinity'],
-        nearby: ['Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Odessa'],
-        work: ['d75f1cb608ccbcd93cb1a6386a7ef96b', 'fc427f5d893bf746d512fca42018d298', 'c2dc4bbda700701bfbd9882c5d8b35d0', '673913e843ecb52b23aa111d1b942df1'] },
       'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'tampa', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our shop',
         intro: 'From downtown storefronts to service fleets across the peninsula, we help St. Pete businesses get seen.',
         areas: ['Downtown and Central Avenue', '4th Street North', 'Tyrone area', 'Gateway / Carillon'],
@@ -201,11 +196,13 @@ class Component extends DCLogic {
     var nb = c0.nearby.slice(0, 4);
     var near3 = nb.slice(0, -1).join(', ') + ' and ' + nb[nb.length - 1];
     c.introFull = c0.intro + ' We also serve nearby ' + near3 + '.';
-    var raw = [
+    var raw0 = [
       { q: 'Are you a local sign company for ' + c.name + '?', a: 'Yes. Our crew installs signs and wraps throughout ' + c.name + ' and nearby ' + near3 + '. Vehicles are wrapped at our ' + shop.short + ' shop.' },
       { q: 'Do you handle ' + c.county + ' County sign permits?', a: 'Yes. We prepare the drawings and file with the city or county, depending on where your business is located.' },
+      c0.file === 'City-Port-Richey.dc.html' ? { q: 'Do you serve New Port Richey?', a: 'Yes. Our Port Richey shop is minutes from New Port Richey, and we install signs and wraps for businesses all over New Port Richey, Holiday and Trinity.' } : null,
       { q: 'Can you come measure my location?', a: 'Yes. We offer a free on-site consultation and measure for ' + c.name + ' businesses.' }
     ];
+    var raw = raw0.filter(Boolean);
     var faqs = raw.map(function (f, i) {
       var open = self.state.open === i;
       return { q: f.q, a: f.a, open: open, expanded: open ? 'true' : 'false', icon: open ? '−' : '+', toggle: function () { self.setState({ open: open ? -1 : i }); } };

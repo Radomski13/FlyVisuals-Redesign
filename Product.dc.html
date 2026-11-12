@@ -368,7 +368,7 @@ class Component extends DCLogic {
     var city = CITIES[cityKey] || null;
     var shop = city ? LOCATIONS[city.shop] : LOCATIONS['port-richey'];
     var lower = p.name.toLowerCase();
-    var baseFaqs = city ? [{ q: 'Do you install ' + lower + ' in ' + city.name + '?', a: 'Yes. We serve customers throughout ' + city.name + ' and the rest of ' + city.county + ' County from our ' + shop.name.replace('Fly Visuals – ', '') + ' shop, including a free on-site consultation.' }].concat(p.faqs) : p.faqs;
+    var baseFaqs = city ? [{ q: 'Do you install ' + lower + ' in ' + city.name + '?', a: 'Yes. We serve customers throughout ' + city.name + ' and the rest of ' + city.county + ' County from our ' + shop.name.replace('Fly Visuals – ', '') + ' shop, including a free on-site consultation.' }].concat(city.name === 'Port Richey' ? [{ q: 'Do you serve New Port Richey?', a: 'Yes. Our Port Richey shop is minutes from New Port Richey, and we install ' + lower + ' throughout New Port Richey, Holiday and Trinity.' }] : []).concat(p.faqs) : p.faqs;
     var faqs = baseFaqs.map(function (f, i) {
       var open = self.state.open === i;
       return { q: f.q, a: f.a, open: open, expanded: open ? 'true' : 'false', icon: open ? '−' : '+', toggle: function () { self.setState({ open: open ? -1 : i }); } };
