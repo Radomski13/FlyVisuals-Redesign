@@ -159,7 +159,7 @@ body{margin:0}
 </div>
 </section>
 
-<sc-if value="{{noCity}}" hint-placeholder-val="{{true}}">
+<sc-if value="{{showCityLinks}}" hint-placeholder-val="{{true}}">
 <section style="background: #111111; color: #FFFFFF; padding: 56px 24px">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px">
 <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; margin-right: 8px">{{p.name}} near you:</span>
@@ -185,7 +185,7 @@ body{margin:0}
 <dc-import name="Footer" hint-size="100%,420px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["storefront","wraps","monument","window","banners","interior","tradeshow","ppf","carwraps","neon","boats"],"default":"storefront"},"city":{"editor":"enum","options":["none","port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"none"},"$preview":{"width":1440,"height":3000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["storefront","wraps","monument","window","banners","interior","tradeshow","ppf","carwraps","neon","boats","stickers"],"default":"storefront"},"city":{"editor":"enum","options":["none","port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"none"},"$preview":{"width":1440,"height":3000}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { open: 0 }; }
   renderVals() {
@@ -246,8 +246,7 @@ class Component extends DCLogic {
           { t: "Window Lettering", d: "Hours, logos and contact info on glass doors and windows." },
           { t: "Perforated Window Graphics", d: "Full-color graphics outside while you can still see out." },
           { t: "Frosted & Decorative Film", d: "Frosted, etched and decorative window film for privacy and style in offices, homes and storefronts." },
-          { t: "Window Decals & Clings", d: "Window decals and static clings for hours, sales, seasons and promos." },
-          { t: "Custom Stickers & Decals", d: "Custom stickers, labels and die-cut decals for products, promos, vehicles and giveaways." }
+          { t: "Window Decals & Clings", d: "Window decals and static clings for hours, sales, seasons and promos." }
         ],
         faqs: [
           { q: 'Can window graphics be removed later?', a: 'Yes. Most window vinyl removes cleanly, which makes it great for seasonal promotions.' },
@@ -351,7 +350,22 @@ class Component extends DCLogic {
           { q: "Will a boat wrap hold up to salt water?", a: "Yes. We use marine-grade vinyl and laminate made for salt, sun and spray. Rinse with fresh water after trips and it will last for years." },
           { q: "Can you wrap my boat in the water?", a: "No. Boats are wrapped in our shop, out of the water, so the surface is clean and dry. Bring it on the trailer." },
           { q: "How long does a boat wrap take?", a: "Most boat wraps take [X–X] days. Lettering and registration numbers are often done the same day." }
-        ], related: ["wraps", "carwraps", "window"] }
+        ], related: ["wraps", "carwraps", "window"] },
+      stickers: { name: 'Custom Stickers & Decals', short: 'sticker', href: 'Custom-Stickers-Decals.dc.html', photo: '[PHOTO]', noCity: true,
+        intro: 'Custom stickers, decals and labels in any shape, size or quantity. Die-cut stickers, bumper stickers, vinyl decals and product labels, printed in our Port Richey shop. Pick up or we ship.',
+        types: [
+          { t: "Die-Cut Stickers", d: "Custom die-cut stickers cut to the exact shape of your logo or design, for products, promos and giveaways." },
+          { t: "Bumper Stickers", d: "Custom bumper stickers for businesses, campaigns, events and promotions." },
+          { t: "Vinyl Decals", d: "Cut vinyl decals and lettering with no background, for windows, walls, vehicles, boats and equipment." },
+          { t: "Labels & Product Stickers", d: "Custom labels and product stickers for packaging, bottles, jars and boxes." },
+          { t: "Hard Hat Stickers", d: "Custom hard hat stickers and equipment decals for crews, safety programs and company branding." },
+          { t: "Car & Truck Decals", d: "Custom car and truck decals: logos, lettering, stripes and graphics." }
+        ],
+        faqs: [
+          { q: 'What is the minimum order?', a: 'Small runs are fine. Larger runs get a lower price per sticker.' },
+          { q: 'Are your stickers waterproof?', a: 'Yes. Our outdoor vinyl stickers are laminated to handle sun, water and scratches.' },
+          { q: 'Do you ship stickers?', a: 'Yes. Pick up free at our shop or we ship anywhere in the lower 48.' }
+        ], related: ['carwraps', 'window', 'banners'] }
     };
     var slug = this.props.slug ?? 'storefront';
     var p = D[slug] || D.storefront;
@@ -381,6 +395,7 @@ class Component extends DCLogic {
     WHY["carwraps"] = {"line": "Personal wraps live or die on the details, and we take our time on every panel.", "b": [{"t": "Premium cast vinyl.", "d": "We use 3M and Avery films made for curves and Florida heat."}, {"t": "Tucked edges.", "d": "Vinyl is wrapped into gaps so seams are hard to spot."}, {"t": "Lots of colors.", "d": "Pick from hundreds of colors and finishes."}, {"t": "Removable.", "d": "Your factory paint stays protected underneath."}]};
     WHY["neon"] = {"line": "Lit signs need to look great and run reliably, and we handle both.", "b": [{"t": "Custom designs.", "d": "We turn your logo or idea into a sign that fits your space."}, {"t": "Energy-saving LEDs.", "d": "Bright light that costs less to run."}, {"t": "Installed for you.", "d": "Indoor or outdoor, we mount it and test it."}, {"t": "Permits handled.", "d": "We take care of paperwork for outdoor signs."}]};
     WHY["boats"] = {"line": "Boats take a beating from salt and sun, so we use materials and methods built for the water.", "b": [{"t": "Marine-grade vinyl.", "d": "Films and laminate rated for salt water and Florida UV."}, {"t": "Clean prep.", "d": "Hulls are cleaned and dewaxed so the vinyl bonds."}, {"t": "Rules-ready lettering.", "d": "Registration numbers sized and placed to Florida requirements."}, {"t": "Local shop.", "d": "Trailer it to Port Richey and we take it from there."}]};
+    WHY["stickers"] = {"line": "Stickers and decals printed in our own shop, checked by a real person.", "b": [{"t": "Any shape or size.", "d": "Die-cut to your logo or a standard size."}, {"t": "Built to last.", "d": "Laminated vinyl that handles sun and water."}, {"t": "Short or bulk runs.", "d": "Order a few or a few thousand."}, {"t": "Pickup or shipping.", "d": "Free pickup in Port Richey or we ship."}]};
     var why = WHY[slug] || WHY.storefront;
     var benefits = why.b;
     var B = '_blob/';
@@ -395,6 +410,7 @@ class Component extends DCLogic {
       ppf: {"hero": "", "g": ["", "", ""]},
       carwraps: {"hero": "360d2163283a523b70cce294a429afb4", "g": ["5840bb1fdb538070a975d608cf1bc3c3", "3eaf600ff7dcd137e019b98f40f0675a", "eb1a3785f28a56e9990f66dff4fdaf67"]},
       neon: {"hero": "", "g": ["", "", ""]},
+      stickers: {"hero": "", "g": ["", "", ""]},
       boats: {"hero": "d75f1cb608ccbcd93cb1a6386a7ef96b", "g": ["be60f04d14957e31b6d0607ff2269cd0", "653d5c533618ba385428442278f22b26", "b4d9508d604c229a21b06e82b4a2caf3"]}
     };
     var im = IMG[slug] || IMG.storefront;
@@ -408,7 +424,7 @@ class Component extends DCLogic {
     return {
       p: Object.assign({}, p, { types: types }), faqs: faqs, related: related, benefits: benefits, whyTitle: 'Why Fly Visuals for ' + lower, whyLine: why.line, hero: im.hero ? B + im.hero : '', hasHero: !!im.hero, noHero: !im.hero, gallery: gallery,
       city: city || { name: '', county: '', file: 'ServiceArea.dc.html', areas: [], nearby: [], distance: '' },
-      hasCity: !!city, noCity: !city, shop: shop, cityLinks: cityLinks,
+      hasCity: !!city, noCity: !city, showCityLinks: !city && !p.noCity, shop: shop, cityLinks: cityLinks,
       title: city ? (p.h1 || p.name) + ' in ' + city.name + ', FL' : (p.h1 || p.name),
       tag: p.tag || '', hasTag: !!p.tag,
       intro: city ? p.intro + ' Serving ' + city.name + ' and all of ' + city.county + ' County.' : p.intro,
