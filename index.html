@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Fly Visuals is a sign company in Port Richey, FL: business signs, vehicle wraps, PPF, window graphics and banners for Tampa Bay. Free quotes and local install.">
-<title>Sign Company &amp; Wrap Shop in Port Richey, FL | Fly Visuals</title>
+<meta name="description" content="Fly Visuals is a sign company and wrap shop with locations in Port Richey and Tampa: business signs, vehicle wraps, PPF, window graphics and banners for Tampa Bay.">
+<title>Sign Company &amp; Wrap Shop in Tampa Bay | Fly Visuals</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -29,8 +29,8 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <div style="display: flex; flex-wrap: wrap; gap: 10px">
 <a href="https://[GOOGLE-REVIEWS-LINK]" style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.28); border-radius: 999px; padding: 8px 16px; min-height: 44px; box-sizing: border-box; color: #FFFFFF; text-decoration: none; font-size: 14px"><span style="font-family: 'Montserrat', sans-serif; font-weight: 800">Google</span><span role="img" aria-label="4.8 out of 5 stars" style="color: #FBBC04; letter-spacing: 2px; font-size: 15px">★★★★★</span><strong style="font-family: 'Montserrat', sans-serif">4.8</strong><span style="color: #D4D4D4">18 reviews</span></a>
 </div>
-<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; font-weight: 800">Sign Company &amp; Wrap Shop in Port Richey, FL</h1>
-<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #E8E8E8">Make the first impression your best one. We design and install business signs, vehicle wraps and window graphics at our Port Richey shop, serving all of Tampa Bay.</p>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(40px, 5vw, 64px); line-height: 1.05; font-weight: 800">Sign Company &amp; Wrap Shop in Tampa Bay</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #E8E8E8">Make the first impression your best one. We design and install business signs, vehicle wraps and window graphics from our shops in Port Richey and Tampa, serving all of Tampa Bay.</p>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 17px; font-weight: 600">
 <li style="display: flex; align-items: center; gap: 10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF8A8F" stroke-width="2.5" aria-hidden="true" style="flex-shrink: 0"><path d="M5 12l5 5L20 7"></path></svg>3M &amp; Avery certified installers</li>
 <li style="display: flex; align-items: center; gap: 10px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF8A8F" stroke-width="2.5" aria-hidden="true" style="flex-shrink: 0"><path d="M5 12l5 5L20 7"></path></svg>Price match guarantee</li>
@@ -53,6 +53,29 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <div style="height: 64px; border-radius: 6px; background: #F4F4F4; display: flex; align-items: center; justify-content: center; padding: 0 8px; box-sizing: border-box; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(13px, 1.6vw, 20px); color: #555555; text-align: center">Jiffy Lube</div>
 </div>
 <a href="Gallery.dc.html" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; flex: 0 0 auto">See our work →</a>
+</div>
+</section>
+
+<section aria-labelledby="loc-h" style="background: #FFFFFF; padding: 72px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 id="loc-h" style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Our locations</h2>
+<p style="margin: 0; font-size: 17px; color: #555555">Two shops, one team. Visit either one to see samples and talk through your project.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 20px">
+<sc-for list="{{shops}}" as="sh" hint-placeholder-count="2">
+<div style="border: 1px solid #E5E5E5; border-radius: 8px; padding: 26px; display: flex; flex-direction: column; gap: 10px; background: #FFFFFF">
+<strong style="font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; color: #111111">{{sh.name}}</strong>
+<span style="font-size: 16px; line-height: 1.5; color: #333333">{{sh.address}}</span>
+<span style="font-size: 16px; color: #333333">{{sh.hours}}</span>
+<a href="tel:{{sh.tel}}" style="font-size: 17px; font-weight: 700; color: #111111; text-decoration: none">{{sh.phone}}</a>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px">
+<a href="{{sh.page}}" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 20px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">View location</a>
+<a href="{{sh.maps}}" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 10px 18px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Directions</a>
+</div>
+</div>
+</sc-for>
+</div>
 </div>
 </section>
 
@@ -172,7 +195,12 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#DC1A21","options":["#DC1A21","#B3141A","#111111","#555555"]},"$preview":{"width":1440,"height":4400}}'>
 class Component extends DCLogic {
   renderVals() {
+    var shops = [
+      { name: 'Fly Visuals – Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', page: 'City-Port-Richey.dc.html', maps: 'https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668' },
+      { name: 'Fly Visuals – Tampa', address: '[TAMPA SHOP ADDRESS]', hours: '[TAMPA HOURS]', phone: '[TAMPA PHONE]', tel: '7274946162', page: 'City-Tampa.dc.html', maps: 'https://maps.google.com/?q=Fly+Visuals+Tampa' }
+    ];
     return {
+      shops: shops,
       accent: this.props.accent ?? '#DC1A21',
       products: [
         { name: "Car Wraps", desc: "Color change wraps, chrome delete, racing stripes and car decals.", href: "Car-Wraps.dc.html", img: "_blob/360d2163283a523b70cce294a429afb4" },

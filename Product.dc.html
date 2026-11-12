@@ -114,6 +114,7 @@ body{margin:0}
 <strong style="font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 800; color: #111111">{{shop.name}}</strong>
 <span style="font-size: 16px">{{shop.address}}</span>
 <span style="font-size: 16px">{{shop.hours}}</span>
+<a href="tel:{{shop.tel}}" style="font-size: 16px; font-weight: 700; color: #111111; text-decoration: none">{{shop.phone}}</a>
 <span style="font-size: 16px; font-weight: 700; color: #111111">{{city.distance}}</span>
 <div style="height: 150px; border-radius: 6px; background: repeating-linear-gradient(135deg, #EFEFEF 0 12px, #E7E7E7 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[MAP: shop to {{city.name}}]</div>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px">
@@ -323,7 +324,7 @@ class Component extends DCLogic {
           { q: "Is a wrap cheaper than paint?", a: "A quality color change wrap usually costs less than a comparable paint job, and you can remove it later." },
           { q: "How do I take care of a wrap?", a: "Hand wash when you can, avoid pressure washing the edges and park in shade when possible. We give you care tips at pickup." },
           { q: "How long will my car be in the shop?", a: "Most color change wraps take [X–X] days. Chrome deletes and accents are often done in a day." },
-          { q: "Are your vinyl wrap installers certified?", a: "Yes. Our vinyl wrap installers are 3M and Avery certified, and every car is wrapped inside our Port Richey shop." }
+          { q: "Are your vinyl wrap installers certified?", a: "Yes. Our vinyl wrap installers are 3M and Avery certified, and every car is wrapped inside our shop." }
         ], related: ["ppf", "wraps", "window"] },
       neon: { name: "Neon & LED Signs", short: "LED sign", href: "Neon-LED-Signs.dc.html", photo: '[PHOTO]',
         intro: "Bright LED neon signs, open signs and digital message signs that get noticed day and night.",
@@ -338,7 +339,7 @@ class Component extends DCLogic {
           { q: "Can I change the message on a digital sign?", a: "Yes. Digital message signs can be updated with new text and specials. We will show you how it works." }
         ], related: ["storefront", "window", "interior"] },
       boats: { name: "Boat Wraps & Marine Graphics", short: "boat wrap", href: "Boat-Wraps.dc.html", photo: '[PHOTO]',
-        intro: "Boat wraps, marine graphics, lettering and registration numbers made for Florida water and sun. Fishing boats, pontoons, center consoles and jet skis, wrapped in our Port Richey shop.",
+        intro: "Boat wraps, marine graphics, lettering and registration numbers made for Florida water and sun. Fishing boats, pontoons, center consoles and jet skis, wrapped in our shop.",
         types: [
           { t: "Boat Wraps", d: "Full and partial hull wraps in marine-grade vinyl." },
           { t: "Boat Graphics & Decals", d: "Custom marine graphics, stripes and logos for hulls, consoles and T-tops." },
@@ -354,13 +355,14 @@ class Component extends DCLogic {
     };
     var slug = this.props.slug ?? 'storefront';
     var p = D[slug] || D.storefront;
-    var LOCATIONS = { 'port-richey': { name: 'Fly Visuals – Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM' } };
+    var LOCATIONS = { 'port-richey': { name: 'Fly Visuals – Port Richey', short: 'Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', page: 'City-Port-Richey.dc.html' },
+      'tampa': { name: 'Fly Visuals – Tampa', short: 'Tampa', address: '[TAMPA SHOP ADDRESS]', hours: '[TAMPA HOURS]', phone: '[TAMPA PHONE]', tel: '7274946162', page: 'City-Tampa.dc.html' } };
     var CITIES = {
-      'port-richey': { name: 'Port Richey', county: 'Pasco', shop: 'port-richey', file: 'index.html', distance: 'Our shop is right here in town', areas: ['US-19 business corridor', 'Ridge Road', 'Downtown New Port Richey (Main Street)', 'SR 52'], nearby: ['New Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Spring Hill'] },
-      'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'port-richey', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Downtown and Central Avenue', '4th Street North', 'Tyrone area', 'Gateway / Carillon'], nearby: ['Pinellas Park', 'Largo', 'Seminole', 'Gulfport'] },
+      'port-richey': { name: 'Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-Port-Richey.dc.html', distance: 'Our shop is right here in town', areas: ['US-19 business corridor', 'Ridge Road', 'Downtown New Port Richey (Main Street)', 'SR 52'], nearby: ['New Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Spring Hill'] },
+      'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'tampa', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our Tampa shop', areas: ['Downtown and Central Avenue', '4th Street North', 'Tyrone area', 'Gateway / Carillon'], nearby: ['Pinellas Park', 'Largo', 'Seminole', 'Gulfport'] },
       'clearwater': { name: 'Clearwater', county: 'Pinellas', shop: 'port-richey', file: 'City-Clearwater.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Downtown (Cleveland Street)', 'Gulf to Bay Boulevard', 'US-19', 'Clearwater Beach'], nearby: ['Tarpon Springs', 'Palm Harbor', 'Dunedin', 'Largo', 'Safety Harbor'] },
       'wesley-chapel': { name: 'Wesley Chapel', county: 'Pasco', shop: 'port-richey', file: 'City-Wesley-Chapel.dc.html', distance: 'About [XX] minutes from our shop', areas: ['SR 54 and SR 56', 'Wiregrass area', 'Bruce B. Downs Boulevard', 'Wesley Chapel Boulevard'], nearby: ['Land O’ Lakes', 'Lutz', 'Zephyrhills', 'New Tampa'] },
-      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'port-richey', file: 'City-Tampa.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'], nearby: ['Odessa', 'Lutz', 'Town ’n’ Country', 'Brandon'] }
+      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'tampa', file: 'City-Tampa.dc.html', distance: 'Our Tampa shop is right here in town', areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'], nearby: ['Odessa', 'Lutz', 'Town ’n’ Country', 'Brandon'] }
     };
     var cityKey = this.props.city ?? 'none';
     var city = CITIES[cityKey] || null;

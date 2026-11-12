@@ -26,7 +26,7 @@ body{margin:0}
 <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">{{c.introFull}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
-<a href="tel:7274946162" style="border: 2px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call (727) 494-6162</a>
+<a href="tel:{{shop.tel}}" style="border: 2px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call {{shop.phone}}</a>
 </div>
 </div>
 <div style="background: #FFFFFF; color: #1A1A1A; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
@@ -35,9 +35,10 @@ body{margin:0}
 <div style="display: flex; flex-direction: column; gap: 8px; font-size: 16px; line-height: 1.5">
 <span>{{shop.address}}</span>
 <span>{{shop.hours}}</span>
+<a href="tel:{{shop.tel}}" style="font-weight: 700; color: #111111; text-decoration: none">{{shop.phone}}</a>
 <span style="font-weight: 700; color: #111111">{{c.distance}}</span>
 </div>
-<div style="height: 160px; border-radius: 6px; background: repeating-linear-gradient(135deg, #EFEFEF 0 12px, #E7E7E7 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[MAP: shop to {{c.name}}]</div>
+<div style="height: 160px; border-radius: 6px; background: repeating-linear-gradient(135deg, #EFEFEF 0 12px, #E7E7E7 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[MAP: {{shop.name}}]</div>
 <a href="ServiceArea.dc.html" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px">All locations →</a>
 </div>
 </div>
@@ -137,16 +138,20 @@ class Component extends DCLogic {
   renderVals() {
     var self = this;
     var B = '_blob/';
-    var LOCATIONS = {
-      'port-richey': { name: 'Fly Visuals – Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM' }
-    };
+    var LOCATIONS = { 'port-richey': { name: 'Fly Visuals – Port Richey', short: 'Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', page: 'City-Port-Richey.dc.html' },
+      'tampa': { name: 'Fly Visuals – Tampa', short: 'Tampa', address: '[TAMPA SHOP ADDRESS]', hours: '[TAMPA HOURS]', phone: '[TAMPA PHONE]', tel: '7274946162', page: 'City-Tampa.dc.html' } };
     var CITIES = {
+      'port-richey': { name: 'Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Our Port Richey shop is right here in town',
+        intro: 'Our Port Richey shop at 8132 Cormel St is where we design, print and install signs and wraps. Stop by, see samples and talk to the people who build your sign or wrap.',
+        areas: ['US-19 business corridor', 'Ridge Road', 'Downtown Port Richey', 'Grand Boulevard'],
+        nearby: ['New Port Richey', 'Hudson', 'Holiday', 'Trinity'],
+        work: ['ac6cac82d583332c286e5535e17ff041', 'c2dc4bbda700701bfbd9882c5d8b35d0', 'd75f1cb608ccbcd93cb1a6386a7ef96b', '94c3527b5adb3d7d3fa5b350fbc6bf0d'] },
       'new-port-richey': { name: 'New Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-New-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Right next door to our Port Richey shop',
         intro: 'Our shop is right next door in Port Richey. Stop by, see samples and talk to the people who build your sign or wrap.',
         areas: ['Downtown New Port Richey (Main Street)', 'US-19 business corridor', 'Little Road', 'SR 54 and Trinity'],
         nearby: ['Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Odessa'],
         work: ['d75f1cb608ccbcd93cb1a6386a7ef96b', 'fc427f5d893bf746d512fca42018d298', 'c2dc4bbda700701bfbd9882c5d8b35d0', '673913e843ecb52b23aa111d1b942df1'] },
-      'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'port-richey', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our shop',
+      'st-petersburg': { name: 'St. Petersburg', county: 'Pinellas', shop: 'tampa', file: 'City-St-Petersburg.dc.html', distance: 'About [XX] minutes from our shop',
         intro: 'From downtown storefronts to service fleets across the peninsula, we help St. Pete businesses get seen.',
         areas: ['Downtown and Central Avenue', '4th Street North', 'Tyrone area', 'Gateway / Carillon'],
         nearby: ['Pinellas Park', 'Largo', 'Seminole', 'Gulfport'],
@@ -161,8 +166,8 @@ class Component extends DCLogic {
         areas: ['SR 54 and SR 56', 'Wiregrass area', 'Bruce B. Downs Boulevard', 'Wesley Chapel Boulevard'],
         nearby: ['Land O’ Lakes', 'Lutz', 'Zephyrhills', 'New Tampa'],
         work: ['1bb5e5a8dd3bfa305e0608f8c7c1f176', 'a8a67f6f60fac1e8f10d5e0d40108971', '6ccd33fa1f30a3d897309ab5a5c9c819', 'c2d9568f7668bdce618df80159a3a199'] },
-      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'port-richey', file: 'City-Tampa.dc.html', distance: 'About [XX] minutes from our shop',
-        intro: 'Business signs, fleet wraps and window graphics for Tampa businesses, designed and installed by a local Tampa Bay crew.',
+      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'tampa', file: 'City-Tampa.dc.html', distance: 'Our Tampa shop is right here in town',
+        intro: 'Our Tampa shop makes business signs, fleet wraps and window graphics for Tampa businesses, from Westshore offices to restaurants in Ybor City and shops on Dale Mabry. Stop by to see samples and talk through your project.',
         areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'],
         nearby: ['Odessa', 'Lutz', 'Town ’n’ Country', 'Brandon'],
         work: ['9e472123707ac35f201017fc54bea9f0', '5840bb1fdb538070a975d608cf1bc3c3', 'ef837f8ed683abd98a7a5f7ac74703d8', '4c0aa19c9bebcfd34adb0c78f5de56ff'] },
@@ -197,7 +202,7 @@ class Component extends DCLogic {
     var near3 = nb.slice(0, -1).join(', ') + ' and ' + nb[nb.length - 1];
     c.introFull = c0.intro + ' We also serve nearby ' + near3 + '.';
     var raw = [
-      { q: 'Are you a local sign company for ' + c.name + '?', a: 'Yes. Our crew installs signs and wraps throughout ' + c.name + ' and nearby ' + near3 + '. Vehicles are wrapped at our Port Richey shop.' },
+      { q: 'Are you a local sign company for ' + c.name + '?', a: 'Yes. Our crew installs signs and wraps throughout ' + c.name + ' and nearby ' + near3 + '. Vehicles are wrapped at our ' + shop.short + ' shop.' },
       { q: 'Do you handle ' + c.county + ' County sign permits?', a: 'Yes. We prepare the drawings and file with the city or county, depending on where your business is located.' },
       { q: 'Can you come measure my location?', a: 'Yes. We offer a free on-site consultation and measure for ' + c.name + ' businesses.' }
     ];
