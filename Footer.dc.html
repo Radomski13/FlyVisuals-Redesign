@@ -73,9 +73,10 @@ body{margin:0}
 <a href="City-Tampa.dc.html" style="color: #BDBDBD; text-decoration: none">Tampa</a>
 <a href="ServiceArea.dc.html" style="color: #FFFFFF; text-decoration: none; font-weight: 600">All locations →</a>
 </div>
-<form style="display: flex; flex-direction: column; gap: 10px">
-<label style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #FFFFFF; display: flex; flex-direction: column; gap: 8px">Get sign tips by email<input type="email" style="font: inherit; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 15px; padding: 12px; border: 1px solid #3A3A3A; border-radius: 4px; background: #111111; color: #FFFFFF; min-height: 46px; box-sizing: border-box"></label>
-<button type="button" style="background: #DC1A21; color: #FFFFFF; border: none; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; min-height: 46px; cursor: pointer">Subscribe</button>
+<form name="newsletter" method="POST" action="/thanks/" data-netlify="true" style="display: flex; flex-direction: column; gap: 10px">
+<input type="hidden" name="form-name" value="newsletter">
+<label style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #FFFFFF; display: flex; flex-direction: column; gap: 8px">Get sign tips by email<input type="email" name="email" required style="font: inherit; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 15px; padding: 12px; border: 1px solid #3A3A3A; border-radius: 4px; background: #111111; color: #FFFFFF; min-height: 46px; box-sizing: border-box"></label>
+<button type="submit" style="background: #DC1A21; color: #FFFFFF; border: none; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; min-height: 46px; cursor: pointer">Subscribe</button>
 </form>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px; align-items: center">
