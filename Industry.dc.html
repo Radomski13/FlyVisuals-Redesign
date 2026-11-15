@@ -22,7 +22,7 @@ body{margin:0}
 <div style="display: flex; flex-direction: column; gap: 18px">
 <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px; flex-wrap: wrap"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><a href="Industries.dc.html" style="color: #D4D4D4">Industries</a><span aria-hidden="true">/</span><span>{{d.name}}</span></nav>
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8A8F">Signs &amp; graphics for</span>
-<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800">{{d.name}}</h1>
+<h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800">{{d.h1}}</h1>
 <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">{{d.intro}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
@@ -65,6 +65,16 @@ body{margin:0}
 <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #DC1A21">View options →</span>
 </div>
 </a>
+</sc-for>
+</div>
+</div>
+</section>
+<section style="background: #FFFFFF; padding: 56px 24px 0">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 2.6vw, 30px); font-weight: 800; color: #111111">Popular signs for {{d.short}}</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{d.popular}}" as="pp" hint-placeholder-count="8">
+<a href="{{pp.href}}" style="border: 1px solid #E5E5E5; border-radius: 999px; padding: 10px 18px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; font-weight: 600; font-size: 15px; color: #111111; text-decoration: none; background: #F4F4F4">{{pp.t}}</a>
 </sc-for>
 </div>
 </div>
@@ -132,8 +142,8 @@ class Component extends DCLogic {
       tradeshow: { name: 'Trade Show Displays', href: 'Trade-Show-Displays.dc.html', img: '' }
     };
     var D = {
-      contractors: { name: 'Contractors & Home Services', short: 'contractors', file: 'Industry-Contractors.dc.html', hero: 'c2dc4bbda700701bfbd9882c5d8b35d0', photo: '',
-        intro: 'Roofers, plumbers, HVAC, landscapers, pool and pest pros: your truck is your best ad. We make sure every job site and every drive brings in calls.',
+      contractors: { name: 'Contractors & Home Services', h1: "Construction Signs & Contractor Truck Wraps", short: 'contractors', file: 'Industry-Contractors.dc.html', hero: 'c2dc4bbda700701bfbd9882c5d8b35d0', photo: '',
+        intro: "Construction signs, job site banners and truck wraps for roofers, plumbers, HVAC, landscapers, pool and pest pros. Your truck and your job sites are your best ads. We make sure they bring in calls.",
         needs: [
           { t: 'Look professional on the road', d: 'A clean, branded truck tells homeowners you are established before you knock on the door.' },
           { t: 'Make it easy to call', d: 'Big phone numbers and simple messages people can read at a stoplight.' },
@@ -146,13 +156,14 @@ class Component extends DCLogic {
           { k: 'storefront', why: 'Shop or office signs so customers can find your location.' }
         ],
         work: ['73b4d815b67c3ebb0d2fcb545467d2e8', '6ccd33fa1f30a3d897309ab5a5c9c819', 'c2d9568f7668bdce618df80159a3a199', 'f14339cd7b2ff75b4c773f977705083b'],
+        popular: [{"t": "Construction Site Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "Contractor Yard Signs", "href": "Option-Yard-Signs.dc.html"}, {"t": "Construction Banners", "href": "Option-Vinyl-and-Mesh-Banners.dc.html"}, {"t": "Fence Banners", "href": "Shop-Fence-Banners.dc.html"}, {"t": "DOT Number Decals", "href": "Option-Truck-and-Vehicle-Lettering.dc.html"}, {"t": "HVAC & Plumbing Van Wraps", "href": "Option-Van-Wraps.dc.html"}, {"t": "Work Truck Wraps", "href": "Option-Truck-Wraps.dc.html"}, {"t": "Box Truck Wraps", "href": "Option-Trailer-and-Box-Truck-Wraps.dc.html"}, {"t": "Fleet Graphics", "href": "Option-Fleet-Wraps-and-Graphics.dc.html"}, {"t": "Hard Hat Stickers", "href": "Option-Hard-Hat-Stickers.dc.html"}],
         faqs: [
           { q: 'Can you match graphics across my whole fleet?', a: 'Yes. We keep your files on hand so every new truck or van gets the same look.' },
           { q: 'Should I get a full wrap or lettering?', a: 'It depends on budget and goals. Lettering is affordable and clean; a full wrap gets the most attention. We can show you both on your vehicle.' },
           { q: 'Do you do yard signs for job sites?', a: 'Yes. We print corrugated yard signs with stakes in any quantity.' }
         ] },
-      restaurants: { name: 'Restaurants & Bars', short: 'restaurants', file: 'Industry-Restaurants.dc.html', hero: '1bb5e5a8dd3bfa305e0608f8c7c1f176', photo: '',
-        intro: 'Hungry people decide fast. We make signs that catch drivers, pull in walk-ins and help your brand stand out from the place next door.',
+      restaurants: { name: 'Restaurants & Bars', h1: "Restaurant Signs & Signage", short: 'restaurants', file: 'Industry-Restaurants.dc.html', hero: '1bb5e5a8dd3bfa305e0608f8c7c1f176', photo: '',
+        intro: "Restaurant signs and signage that get hungry people through the door: storefront signs, menu boards, window decals, banners and food truck wraps for restaurants, bars and coffee shops.",
         needs: [
           { t: 'Be seen day and night', d: 'Lit signs keep you visible for dinner and late-night crowds.' },
           { t: 'Promote specials', d: 'Window graphics and banners for happy hour, events and new menu items.' },
@@ -165,13 +176,14 @@ class Component extends DCLogic {
           { k: 'interior', why: 'Menu boards, wall murals and restroom signs.' }
         ],
         work: ['eeaf84faba44af69ea94568046061e56', '94c3527b5adb3d7d3fa5b350fbc6bf0d', '9e472123707ac35f201017fc54bea9f0', 'fc427f5d893bf746d512fca42018d298'],
+        popular: [{"t": "Restaurant Menu Boards", "href": "Option-Menu-Boards.dc.html"}, {"t": "Drive-Thru & Outdoor Menu Boards", "href": "Option-Menu-Boards.dc.html"}, {"t": "Custom Bar Signs", "href": "Option-Custom-LED-Neon-Signs.dc.html"}, {"t": "LED Open Signs", "href": "Option-LED-Open-Signs.dc.html"}, {"t": "Food Truck Wraps", "href": "Option-Food-Truck-Wraps.dc.html"}, {"t": "Restaurant Window Decals", "href": "Option-Window-Decals-and-Clings.dc.html"}, {"t": "Restaurant Banners", "href": "Option-Vinyl-and-Mesh-Banners.dc.html"}, {"t": "A-Frame Sidewalk Signs", "href": "Option-A-Frame-Signs.dc.html"}, {"t": "Channel Letter Signs", "href": "Option-Channel-Letter-Signs.dc.html"}],
         faqs: [
           { q: 'Can you help with a grand opening?', a: 'Yes. We can do coming-soon banners, window graphics and your permanent sign as one package.' },
           { q: 'Do you make menu boards?', a: 'Yes. Printed boards or panels you can update when prices change.' },
           { q: 'Can you work with my plaza sign rules?', a: 'Yes. Send us your landlord sign criteria and we design to fit.' }
         ] },
-      retail: { name: 'Retail Stores', short: 'retailers', file: 'Industry-Retail.dc.html', hero: '9e472123707ac35f201017fc54bea9f0', photo: '',
-        intro: 'From boutiques to smoke shops to showrooms, your storefront does the selling before anyone walks in.',
+      retail: { name: 'Retail Stores', h1: "Store Signs & Retail Signage", short: 'retailers', file: 'Industry-Retail.dc.html', hero: '9e472123707ac35f201017fc54bea9f0', photo: '',
+        intro: "Store signs and retail signage that pull shoppers in from the street: storefront signs, business window decals, now hiring signs and in-store graphics for boutiques, shops and showrooms.",
         needs: [
           { t: 'Stop people walking by', d: 'Bold storefront and window graphics that make people look twice.' },
           { t: 'Change with the seasons', d: 'Swap promos and sales without replacing your main sign.' },
@@ -184,13 +196,14 @@ class Component extends DCLogic {
           { k: 'banners', why: 'Sale banners, feather flags and A-frames for the sidewalk.' }
         ],
         work: ['fc427f5d893bf746d512fca42018d298', '94c3527b5adb3d7d3fa5b350fbc6bf0d', 'ac6cac82d583332c286e5535e17ff041', 'dc777ba4e91984c69a4166c1cb2033e5'],
+        popular: [{"t": "Storefront Signs", "href": "Option-Channel-Letter-Signs.dc.html"}, {"t": "Business Window Decals", "href": "Option-Window-Decals-and-Clings.dc.html"}, {"t": "Window Lettering", "href": "Option-Window-Lettering.dc.html"}, {"t": "Now Hiring Signs & Banners", "href": "Option-Vinyl-and-Mesh-Banners.dc.html"}, {"t": "Shop Signs", "href": "Option-Lightbox-Signs.dc.html"}, {"t": "Blade & Projecting Signs", "href": "Option-Blade-and-Projecting-Signs.dc.html"}, {"t": "Floor Decals", "href": "Option-Floor-Decals-and-Graphics.dc.html"}, {"t": "Point of Purchase Displays", "href": "Option-Retractable-Banner-Stands.dc.html"}, {"t": "Wall Graphics", "href": "Option-Wall-Murals-and-Graphics.dc.html"}],
         faqs: [
           { q: 'Can window graphics be changed for each season?', a: 'Yes. Most window vinyl removes cleanly, so you can rotate promotions.' },
           { q: 'Can you see out through window graphics?', a: 'With perforated film, customers see the graphic outside and you can still see out.' },
           { q: 'Do you print posters and in-store signs?', a: 'Yes. Posters, frames, shelf signs and floor graphics.' }
         ] },
-      medical: { name: 'Medical & Dental', short: 'medical offices', file: 'Industry-Medical.dc.html', hero: '', photo: '[PHOTO: medical or dental office sign]',
-        intro: 'Patients want to find you easily and feel confident when they walk in. We build clean, professional signs inside and out.',
+      medical: { name: 'Medical & Dental', h1: "Medical Office Signs & Healthcare Signage", short: 'medical offices', file: 'Industry-Medical.dc.html', hero: '', photo: '[PHOTO: medical or dental office sign]',
+        intro: "Medical office signs and healthcare signage that help patients find you and feel at ease: building signs, ADA signs, wayfinding and lobby graphics for clinics, dental offices, pharmacies and vet clinics.",
         needs: [
           { t: 'Easy to find', d: 'Clear building and suite signs so patients don’t get lost.' },
           { t: 'A calm, professional look', d: 'Lobby logos and wall graphics that build trust.' },
@@ -203,13 +216,14 @@ class Component extends DCLogic {
           { k: 'window', why: 'Hours, doctor names and frosted privacy glass.' }
         ],
         work: ['ef837f8ed683abd98a7a5f7ac74703d8', '1146554cde15943823eb9bb623460a23', 'c6310178ef29d7da1d0ce06bef15b96b', '2807b4e78f3ea61ae9b3495e42671a78'],
+        popular: [{"t": "ADA & Restroom Signs", "href": "Option-ADA-and-Restroom-Signs.dc.html"}, {"t": "Clinic & Building Signs", "href": "Option-Channel-Letter-Signs.dc.html"}, {"t": "Dental Office Signs", "href": "Option-Lobby-and-Logo-Signs.dc.html"}, {"t": "Wayfinding & Directories", "href": "Option-Wayfinding-and-Directories.dc.html"}, {"t": "Office & Door Signs", "href": "Option-Office-and-Door-Signs.dc.html"}, {"t": "Pharmacy Signs", "href": "Option-Lightbox-Signs.dc.html"}, {"t": "Monument Signs", "href": "Option-Lit-Monument-Signs.dc.html"}, {"t": "Privacy Window Film", "href": "Option-Frosted-and-Decorative-Film.dc.html"}],
         faqs: [
           { q: 'Are your ADA signs compliant?', a: 'We build ADA signs to the current ADA Standards for tactile text, braille and mounting height.' },
           { q: 'Can you add privacy to exam room windows?', a: 'Yes. Frosted or privacy film blocks views while letting light in.' },
           { q: 'Can you update names when doctors change?', a: 'Yes. We can design directories and door signs with replaceable inserts.' }
         ] },
-      realestate: { name: 'Real Estate', short: 'real estate pros', file: 'Industry-Real-Estate.dc.html', hero: '2807b4e78f3ea61ae9b3495e42671a78', photo: '',
-        intro: 'Agents, brokers, mortgage and title offices: we make the signs that get your listings and your name noticed.',
+      realestate: { name: 'Real Estate', h1: "Real Estate Signs & Realtor Signs", short: 'real estate pros', file: 'Industry-Real-Estate.dc.html', hero: '2807b4e78f3ea61ae9b3495e42671a78', photo: '',
+        intro: "Real estate signs and realtor signs that sell listings: for sale signs, open house signs, sign posts, riders and car magnets for agents, brokers, property managers and title offices.",
         needs: [
           { t: 'Signs for every listing', d: 'Yard signs, riders and open house signs ready when you need them.' },
           { t: 'Brand your car', d: 'Door magnets or lettering so your car works for you between showings.' },
@@ -222,13 +236,14 @@ class Component extends DCLogic {
           { k: 'interior', why: 'Lobby logos and conference room graphics.' }
         ],
         work: ['a8a67f6f60fac1e8f10d5e0d40108971', 'fc427f5d893bf746d512fca42018d298', '4c0aa19c9bebcfd34adb0c78f5de56ff', 'c2dc4bbda700701bfbd9882c5d8b35d0'],
+        popular: [{"t": "For Sale Signs", "href": "Option-Real-Estate-Signs.dc.html"}, {"t": "Open House Signs", "href": "Option-Real-Estate-Signs.dc.html"}, {"t": "Real Estate Sign Posts & Frames", "href": "Option-Real-Estate-Signs.dc.html"}, {"t": "Sign Riders", "href": "Option-Real-Estate-Signs.dc.html"}, {"t": "For Lease Signs", "href": "Option-Real-Estate-Signs.dc.html"}, {"t": "Realtor Car Magnets", "href": "Option-Car-Magnets-and-Magnetic-Signs.dc.html"}, {"t": "Yard Signs", "href": "Shop-Yard-Signs.dc.html"}, {"t": "Office Signs", "href": "Option-Lobby-and-Logo-Signs.dc.html"}],
         faqs: [
           { q: 'Can you print yard signs in bulk?', a: 'Yes. We print any quantity and keep your design on file for reorders.' },
           { q: 'Do you make open house signs?', a: 'Yes. A-frames, directional arrows and riders.' },
           { q: 'Can you make magnets for my car?', a: 'Yes. Car door magnets are a popular low-cost option for agents.' }
         ] },
-      automarine: { name: 'Auto & Marine', short: 'auto and marine businesses', file: 'Industry-Auto-Marine.dc.html', hero: 'd75f1cb608ccbcd93cb1a6386a7ef96b', photo: '',
-        intro: 'Dealers, repair shops, detailers, marinas and charters: we wrap and sign the vehicles and buildings that keep you busy.',
+      automarine: { name: 'Auto & Marine', h1: "Dealership, Auto Shop & Marine Signs", short: 'auto and marine businesses', file: 'Industry-Auto-Marine.dc.html', hero: 'd75f1cb608ccbcd93cb1a6386a7ef96b', photo: '',
+        intro: "Car dealership signs, car lot signs and auto shop signs, plus boat lettering and marine graphics for dealers, repair shops, car washes, gas stations and marinas.",
         needs: [
           { t: 'Brand your shop', d: 'Building and bay signs that tell drivers what you do.' },
           { t: 'Show your work', d: 'Wrapped shop trucks, trailers and boats that turn heads.' },
@@ -242,13 +257,14 @@ class Component extends DCLogic {
           { k: 'banners', why: 'Sale banners, feather flags and lot signs.' }
         ],
         work: ['360d2163283a523b70cce294a429afb4', '3eaf600ff7dcd137e019b98f40f0675a', '5840bb1fdb538070a975d608cf1bc3c3', 'b4d9508d604c229a21b06e82b4a2caf3'],
+        popular: [{"t": "Car Lot & Dealership Signs", "href": "Option-Pylon-and-Pole-Signs.dc.html"}, {"t": "Dealership Banners & Flags", "href": "Option-Feather-and-Teardrop-Flags.dc.html"}, {"t": "Dealership Window Stickers", "href": "Option-Window-Decals-and-Clings.dc.html"}, {"t": "Auto Repair Shop Signs", "href": "Option-Channel-Letter-Signs.dc.html"}, {"t": "Car Wash & Gas Station Signs", "href": "Option-Lightbox-Signs.dc.html"}, {"t": "Boat Lettering & Registration Numbers", "href": "Option-Boat-Lettering-and-Registration-Numbers.dc.html"}, {"t": "Boat Name Decals", "href": "Option-Boat-Graphics-and-Decals.dc.html"}, {"t": "Boat Wraps", "href": "Option-Boat-Wraps.dc.html"}],
         faqs: [
           { q: 'Do you wrap boats?', a: 'Yes. We use marine-grade vinyl for hulls, consoles and boat names.' },
           { q: 'Do you work with dealers and shops?', a: 'Yes. We can set up ongoing pricing for repeat wrap and graphics work.' },
           { q: 'Do you install paint protection film?', a: 'Yes. We install PPF on new and used vehicles, from front-end kits to full body.' }
         ] },
-      hoa: { name: 'HOAs & Communities', short: 'communities', file: 'Industry-HOAs.dc.html', hero: '', photo: '[PHOTO: community entrance monument]',
-        intro: 'Make a great first impression at the entrance and keep residents informed with signs that last.',
+      hoa: { name: 'HOAs & Communities', h1: "HOA & Neighborhood Entrance Signs", short: 'communities', file: 'Industry-HOAs.dc.html', hero: '', photo: '[PHOTO: community entrance monument]',
+        intro: "HOA signs, neighborhood entrance signs and community signs that make a great first impression: entrance monuments, custom street signs, pool and amenity signs and reserved parking signs.",
         needs: [
           { t: 'A strong entrance', d: 'Monument signs that set the tone for the whole community.' },
           { t: 'Clear rules and directions', d: 'Pool, clubhouse, parking and rules signs.' },
@@ -261,13 +277,14 @@ class Component extends DCLogic {
           { k: 'storefront', why: 'Leasing and sales office signs.' }
         ],
         work: ['1bb5e5a8dd3bfa305e0608f8c7c1f176', 'a8a67f6f60fac1e8f10d5e0d40108971', '2807b4e78f3ea61ae9b3495e42671a78', 'c6310178ef29d7da1d0ce06bef15b96b'],
+        popular: [{"t": "Neighborhood Entrance Monuments", "href": "Option-Foam-Monument-Signs.dc.html"}, {"t": "Custom Street Signs", "href": "Option-Metal-and-Aluminum-Signs.dc.html"}, {"t": "Community & HOA Signs", "href": "Option-HOA-Church-and-Community-Signs.dc.html"}, {"t": "Reserved Parking Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "Pool & Amenity Signs", "href": "Option-Metal-and-Aluminum-Signs.dc.html"}, {"t": "Lit Monument Signs", "href": "Option-Lit-Monument-Signs.dc.html"}, {"t": "Event Banners", "href": "Option-Vinyl-and-Mesh-Banners.dc.html"}],
         faqs: [
           { q: 'Can you refresh our existing entrance sign?', a: 'Often, yes. We can replace letters, recoat or add lighting instead of starting over.' },
           { q: 'Do you handle permits for monument signs?', a: 'Yes. We prepare drawings and handle the permit process.' },
           { q: 'Can you match our community colors?', a: 'Yes. We match colors, fonts and logos to your community brand.' }
         ] },
-      schools: { name: 'Schools & Churches', short: 'schools and churches', file: 'Industry-Schools-Churches.dc.html', hero: '', photo: '[PHOTO: school or church sign]',
-        intro: 'Welcome families and visitors with signs that make your campus easy to find and easy to navigate.',
+      schools: { name: 'Schools & Churches', h1: "Church Signs, Banners & School Signs", short: 'schools and churches', file: 'Industry-Schools-Churches.dc.html', hero: '', photo: '[PHOTO: school or church sign]',
+        intro: "Church signs, church banners and school signs that welcome families and visitors: outdoor church signs, LED message signs, directional signs, graduation yard signs and team banners.",
         needs: [
           { t: 'Easy to find', d: 'Monument and building signs visible from the road.' },
           { t: 'Promote events', d: 'Banners for services, fundraisers, enrollment and games.' },
@@ -280,13 +297,14 @@ class Component extends DCLogic {
           { k: 'wraps', why: 'Van and bus graphics for your ministry or school.' }
         ],
         work: ['a8a67f6f60fac1e8f10d5e0d40108971', '1146554cde15943823eb9bb623460a23', 'ef837f8ed683abd98a7a5f7ac74703d8', '1bb5e5a8dd3bfa305e0608f8c7c1f176'],
+        popular: [{"t": "Outdoor Church Signs", "href": "Option-HOA-Church-and-Community-Signs.dc.html"}, {"t": "LED Church Signs", "href": "Option-Digital-Signs-and-Message-Centers.dc.html"}, {"t": "Church Banners", "href": "Option-Vinyl-and-Mesh-Banners.dc.html"}, {"t": "Church Directional Signs", "href": "Option-Wayfinding-and-Directories.dc.html"}, {"t": "Graduation Yard Signs", "href": "Shop-Yard-Signs.dc.html"}, {"t": "Sports & Team Banners", "href": "Shop-Vinyl-Banners.dc.html"}, {"t": "Monument Signs", "href": "Option-Foam-Monument-Signs.dc.html"}, {"t": "Feather Flags", "href": "Shop-Feather-Flags.dc.html"}],
         faqs: [
           { q: 'Can you make banners for sports and events?', a: 'Yes. Indoor and outdoor banners in any size, with fast turnaround.' },
           { q: 'Do you do full campus wayfinding?', a: 'Yes. We can plan and quote every sign on your campus together.' },
           { q: 'Can you wrap our van or bus?', a: 'Yes. We do lettering and full wraps for church and school vehicles.' }
         ] },
-      government: { name: 'Government & Facilities', short: 'facilities', file: 'Industry-Government.dc.html', hero: '', photo: '[PHOTO: facility or fleet signage]',
-        intro: 'Clear, durable, compliant signs for public buildings, offices and fleets.',
+      government: { name: 'Government & Facilities', h1: "Parking, ADA & Facility Signs", short: 'facilities', file: 'Industry-Government.dc.html', hero: '', photo: '[PHOTO: facility or fleet signage]',
+        intro: "Custom parking signs, handicap parking signs, ADA signage and facility signs for government buildings, parks, warehouses and property managers. Clear, durable and code-compliant.",
         needs: [
           { t: 'Compliance', d: 'ADA signs built to current standards.' },
           { t: 'Clear wayfinding', d: 'Directories and directional signs so visitors find the right office.' },
@@ -299,6 +317,7 @@ class Component extends DCLogic {
           { k: 'window', why: 'Door hours, notices and privacy film.' }
         ],
         work: ['f14339cd7b2ff75b4c773f977705083b', '9f6398dfbe444c82ca4776a14f83a4d3', 'ef837f8ed683abd98a7a5f7ac74703d8', '1146554cde15943823eb9bb623460a23'],
+        popular: [{"t": "Custom Parking Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "Handicap Parking Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "Reserved Parking Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "ADA Signage", "href": "Option-ADA-and-Restroom-Signs.dc.html"}, {"t": "Custom Traffic Signs", "href": "Option-Metal-and-Aluminum-Signs.dc.html"}, {"t": "Workplace Safety Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "Wayfinding Signs", "href": "Option-Wayfinding-and-Directories.dc.html"}, {"t": "Fleet Vehicle Graphics", "href": "Option-Fleet-Wraps-and-Graphics.dc.html"}],
         faqs: [
           { q: 'Can you work with purchase orders?', a: '[CONFIRM: payment terms you accept for public agencies]' },
           { q: 'Can you do large sign packages?', a: 'Yes. We can survey a building and quote every sign at once.' },
