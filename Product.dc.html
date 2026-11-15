@@ -73,6 +73,30 @@ body{margin:0}
 </div>
 </section>
 
+<sc-if value="{{hasVehicles}}" hint-placeholder-val="{{true}}">
+<section style="background: #F4F4F4; padding: 72px 24px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(26px, 2.8vw, 34px); font-weight: 800; color: #111111">Wraps by vehicle</h2>
+<p style="margin: 0; font-size: 17px; color: #555555">Pick your vehicle to see photos, options and FAQs.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 14px">
+<sc-for list="{{vehicles}}" as="v" hint-placeholder-count="5">
+<a href="{{v.href}}" style="background: #FFFFFF; border: 1px solid #E5E5E5; border-radius: 8px; overflow: hidden; display: flex; align-items: center; gap: 16px; text-decoration: none; color: #1A1A1A; min-height: 96px">
+<sc-if value="{{v.img}}" hint-placeholder-val="{{true}}"><img src="{{v.img}}" alt="{{v.t}} by Fly Visuals" style="width: 112px; height: 96px; object-fit: cover; display: block; flex-shrink: 0"></sc-if>
+<sc-if value="{{v.noImg}}" hint-placeholder-val="{{false}}"><div style="width: 112px; height: 96px; flex-shrink: 0; background: repeating-linear-gradient(135deg, #EFEFEF 0 10px, #E7E7E7 10px 20px)"></div></sc-if>
+<div style="display: flex; flex-direction: column; gap: 4px; flex-grow: 1; padding: 12px 0">
+<h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 17px; font-weight: 700; color: #111111">{{v.t}}</h3>
+<span style="font-size: 14px; line-height: 1.45; color: #555555">{{v.d}}</span>
+</div>
+<span aria-hidden="true" style="padding-right: 18px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; color: #DC1A21">→</span>
+</a>
+</sc-for>
+</div>
+</div>
+</section>
+</sc-if>
+
 <section style="background: #111111; color: #FFFFFF; padding: 80px 24px">
 <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 14px">
@@ -210,20 +234,22 @@ class Component extends DCLogic {
           { q: 'Can you fix or update my existing sign?', a: 'Yes. We can replace faces, convert lighting to LED, or repair damaged signs.' }
         ], related: ['monument', 'window', 'interior'] },
       wraps: { name: 'Commercial Vehicle Graphics & Wraps', tag: 'Commercial · Fleet · Trucks · Vans · Trailers', short: 'wrap', href: 'Commercial-Vehicle-Wraps.dc.html', photo: '[PHOTO: fully wrapped work van]',
-        intro: 'Fly Visuals offers vehicle wrapping services for business cars, trucks, vans and fleets. Full wraps, partial wraps, vehicle graphics, fleet graphics and lettering that turn every drive into an ad, printed and installed in our shop.',
+        intro: 'Fly Visuals offers vehicle wrapping services for business cars, trucks, vans and fleets. Full wraps, partial wraps, vehicle graphics and lettering that turn every drive into an ad, printed and installed in our shop. One vehicle or a whole fleet, we keep your branding the same on every one.',
         types: [
           { t: "Full Vehicle Wraps", d: "Complete coverage for maximum impact and a total color change." },
           { t: "Partial Vehicle Wraps", d: "Cover part of the vehicle and blend with the paint to save cost." },
-          { t: "Van Wraps", d: "Cargo and sprinter van wraps that turn your work van into a rolling billboard." },
-          { t: "Bus & Shuttle Wraps", d: "Bus and shuttle wraps for churches, schools, hotels and tour companies." },
-          { t: "Fleet Wraps & Graphics", d: "Consistent branding across every vehicle in your fleet." },
           { t: "Truck & Vehicle Lettering", d: "Name, phone and DOT numbers for a simple, clean look." },
-          { t: "Trailer & Box Truck Wraps", d: "Big, flat sides that make bold billboards." },
-          { t: "Truck Wraps", d: "Full and partial truck wraps that turn work trucks and pickups into rolling ads." },
-          { t: "Food Truck Wraps", d: "Bold wraps that show your menu, brand and socials so your food truck gets noticed from across the lot." },
           { t: "Car Magnets & Magnetic Signs", d: "Removable magnetic signs for cars and trucks, perfect for vehicles you also drive personally." }
         ],
+        vehicles: [
+          { t: "Truck Wraps", d: "Pickups, work trucks and service bodies." },
+          { t: "Van Wraps", d: "Cargo, sprinter and transit vans." },
+          { t: "Trailer & Box Truck Wraps", d: "Box trucks, enclosed and cargo trailers." },
+          { t: "Food Truck Wraps", d: "Food trucks and food trailers." },
+          { t: "Bus & Shuttle Wraps", d: "Church, school, hotel and tour buses." }
+        ],
         faqs: [
+          { q: 'Can you wrap our whole fleet?', a: 'Yes. From 2 vehicles to 200, we use the same design on every one and keep your files on hand for new vehicles. We can install in batches so your fleet stays on the road.' },
           { q: 'How long does a vehicle wrap last?', a: 'With quality cast vinyl and normal care, wraps typically last several years. We will go over care tips at pickup.' },
           { q: 'Will a wrap damage my paint?', a: 'Wraps applied and removed properly protect factory paint. Aftermarket or damaged paint can be a risk, and we check before installing.' },
           { q: 'How long will my vehicle be in the shop?', a: 'Most wraps take [X–X] days in the shop. We will schedule a drop-off time that fits your work.' }
@@ -422,8 +448,13 @@ class Component extends DCLogic {
       var im = OIMG[t.t];
       return { t: t.t, d: t.d, href: f, img: im ? B + im : '', noImg: !im };
     });
+    var vehicles = (p.vehicles || []).map(function (t) {
+      var f = 'Option-' + t.t.replace(/&/g, 'and').replace(/[^A-Za-z0-9]+/g, '-').replace(/-+$/, '') + '.dc.html';
+      var im = OIMG[t.t];
+      return { t: t.t, d: t.d, href: f, img: im ? B + im : '', noImg: !im };
+    });
     return {
-      p: Object.assign({}, p, { types: types }), faqs: faqs, related: related, benefits: benefits, whyTitle: 'Why Fly Visuals for ' + lower, whyLine: why.line, hero: im.hero ? B + im.hero : '', hasHero: !!im.hero, noHero: !im.hero, gallery: gallery,
+      p: Object.assign({}, p, { types: types }), vehicles: vehicles, hasVehicles: vehicles.length > 0, faqs: faqs, related: related, benefits: benefits, whyTitle: 'Why Fly Visuals for ' + lower, whyLine: why.line, hero: im.hero ? B + im.hero : '', hasHero: !!im.hero, noHero: !im.hero, gallery: gallery,
       city: city || { name: '', county: '', file: 'ServiceArea.dc.html', areas: [], nearby: [], distance: '' },
       hasCity: !!city, noCity: !city, showCityLinks: !city && !p.noCity, shop: shop, cityLinks: cityLinks,
       title: city ? (p.h1 || p.name) + ' in ' + city.name + ', FL' : (p.h1 || p.name),
