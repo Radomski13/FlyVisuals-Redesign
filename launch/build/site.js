@@ -24,5 +24,16 @@
         hidden.value = [].filter.call(chips, function (x) { return x.getAttribute('aria-pressed') === 'true'; }).map(function (x) { return x.textContent.trim(); }).join(', ');
       }); });
     }
+    // product category tabs
+    var tabs = document.querySelector('[data-fv-tabs]');
+    if (tabs) {
+      var tb = tabs.querySelectorAll('button'), onS = '', offS = '';
+      tb.forEach(function (b) { if (b.getAttribute('aria-pressed') === 'true') onS = b.getAttribute('style'); else if (!offS) offS = b.getAttribute('style'); });
+      tb.forEach(function (b) { b.addEventListener('click', function () {
+        var c = b.textContent.trim();
+        tb.forEach(function (x) { var on = x === b; x.setAttribute('aria-pressed', on ? 'true' : 'false'); x.setAttribute('style', on ? onS : offS); });
+        document.querySelectorAll('[data-cats]').forEach(function (a) { a.style.display = (c === 'All' || (' ' + a.getAttribute('data-cats') + ' ').indexOf(' ' + c + ' ') > -1) ? '' : 'none'; });
+      }); });
+    }
   });
 })();

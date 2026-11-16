@@ -64,7 +64,7 @@ for i,r in enumerate(plan):
     extra=''
     if f in ('Classic.dc.html','City-Port-Richey.dc.html'):
         extra='<script type="application/ld+json">%s</script>'%json.dumps(schema_home())
-    if f in ('Products.dc.html','Blog.dc.html'):
+    if f=='Blog.dc.html':
         h=re.sub(r'<div role="group" aria-label="Filter[^"]*"[^>]*>.*?</div>','',h,count=1,flags=re.S)
     if f=='Quote.dc.html':
         h=h.replace('<form style=','<form name="quote" method="POST" action="/thanks/" data-netlify="true" netlify-honeypot="bot-field" style=',1)

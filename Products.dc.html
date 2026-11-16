@@ -28,14 +28,14 @@ a{color:#111111}a:hover{color:#0A0A0A}
 
 <section style="padding: 72px 24px 96px">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
-<div role="group" aria-label="Filter by location" style="display: flex; flex-wrap: wrap; gap: 10px">
+<div role="group" aria-label="Filter by category" data-fv-tabs="1" style="display: flex; flex-wrap: wrap; gap: 10px">
 <sc-for list="{{filters}}" as="f" hint-placeholder-count="3">
 <button type="button" aria-pressed="{{f.pressed}}" onClick="{{f.pick}}" style="{{f.style}}">{{f.label}}</button>
 </sc-for>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px">
 <sc-for list="{{items}}" as="p" hint-placeholder-count="8">
-<a href="{{p.href}}" style="border: 1px solid #E5E5E5; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column">
+<a href="{{p.href}}" data-cats="{{p.catStr}}" style="border: 1px solid #E5E5E5; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column">
 <sc-if value="{{p.img}}" hint-placeholder-val="{{true}}"><img src="{{p.img}}" alt="{{p.name}} by Fly Visuals" style="width: 100%; height: 230px; object-fit: cover; display: block"></sc-if>
 <sc-if value="{{p.noImg}}" hint-placeholder-val="{{false}}"><div style="height: 230px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PHOTO]</div></sc-if>
 <div style="padding: 24px; display: flex; flex-direction: column; gap: 10px; flex-grow: 1">
@@ -69,25 +69,25 @@ class Component extends DCLogic {
   renderVals() {
     var self = this;
     var all = [
-      { name: 'Business Signs', where: 'Outdoor', desc: 'Channel letters, lightboxes, dimensional letters and pylon signs.', href: 'Business-Signs.dc.html' },
-      { name: 'Commercial Vehicle Graphics & Wraps', where: 'Vehicles', desc: 'Full and partial wraps, fleet graphics, lettering and boat wraps.', href: 'Commercial-Vehicle-Wraps.dc.html' },
-      { name: 'Monument Signs', where: 'Outdoor', desc: 'Foam and lit monument signs for entrances, plazas and HOAs.', href: 'Monument-Signs.dc.html' },
-      { name: 'Window Decals & Graphics', where: 'Outdoor', desc: 'Window decals, lettering, perforated film, decorative film and custom stickers.', href: 'Window-Graphics.dc.html' },
-      { name: 'Banners, Flags & Yard Signs', where: 'Events', desc: 'Vinyl and mesh banners, feather flags, A-frames and yard signs.', href: 'Banners-Flags.dc.html' },
-      { name: 'Office & Indoor Signs', where: 'Indoor', desc: 'Lobby logos, wall graphics, menu boards, panel signs, wayfinding and ADA signs.', href: 'Interior-ADA-Signs.dc.html' },
-      { name: 'Trade Show Displays', where: 'Events', desc: 'Banner stands, backdrops, table covers and printed tents.', href: 'Trade-Show-Displays.dc.html' },
-      { name: 'Car Wraps', where: 'Vehicles', desc: 'Color change wraps, chrome delete, racing stripes and golf cart wraps.', href: 'Car-Wraps.dc.html' },
-      { name: 'Large Format Printing', where: 'Print', desc: 'Banners, posters, wall murals, floor and window graphics and vinyl signs.', href: 'Large-Format-Printing.dc.html' },
-      { name: 'Custom Stickers & Decals', where: 'Print', desc: 'Die-cut stickers, bumper stickers, vinyl decals, labels and hard hat stickers.', href: 'Custom-Stickers-Decals.dc.html' },
-      { name: 'Boat Wraps & Marine Graphics', where: 'Vehicles', desc: 'Boat wraps, marine graphics, lettering, registration numbers, pontoons and jet skis.', href: 'Boat-Wraps.dc.html' },
-      { name: 'Paint Protection Film', where: 'Vehicles', desc: 'Partial front, full front, full body and matte PPF.', href: 'Paint-Protection-Film.dc.html' },
-      { name: 'Neon & LED Signs', where: 'Indoor', desc: 'Custom LED neon, open signs and digital message signs.', href: 'Neon-LED-Signs.dc.html' }
+      { name: 'Banners, Flags & Yard Signs', where: 'Printing', cats: ['Printing', 'Events'], desc: 'Vinyl and mesh banners, feather flags, A-frames and yard signs.', href: 'Banners-Flags.dc.html' },
+      { name: 'Car Wraps', where: 'Wraps', cats: ['Wraps'], desc: 'Color change wraps, chrome delete, racing stripes and golf cart wraps.', href: 'Car-Wraps.dc.html' },
+      { name: 'Custom Stickers & Decals', where: 'Printing', cats: ['Printing'], desc: 'Die-cut stickers, bumper stickers, vinyl decals, labels and hard hat stickers.', href: 'Custom-Stickers-Decals.dc.html' },
+      { name: 'Paint Protection Film', where: 'Wraps', cats: ['Wraps'], desc: 'Partial front, full front, full body and matte PPF.', href: 'Paint-Protection-Film.dc.html' },
+      { name: 'Neon & LED Signs', where: 'Signs', cats: ['Signs'], desc: 'Custom LED neon, open signs and digital message signs.', href: 'Neon-LED-Signs.dc.html' },
+      { name: 'Commercial Vehicle Graphics & Wraps', where: 'Wraps', cats: ['Wraps'], desc: 'Full and partial wraps, fleet graphics, lettering and car magnets.', href: 'Commercial-Vehicle-Wraps.dc.html' },
+      { name: 'Business Signs', where: 'Signs', cats: ['Signs'], desc: 'Channel letters, lightboxes, dimensional letters and pylon signs.', href: 'Business-Signs.dc.html' },
+      { name: 'Trade Show Displays', where: 'Events', cats: ['Events'], desc: 'Banner stands, backdrops, table covers and printed tents.', href: 'Trade-Show-Displays.dc.html' },
+      { name: 'Window Decals & Graphics', where: 'Printing', cats: ['Printing', 'Signs'], desc: 'Window decals, lettering, perforated film and decorative film.', href: 'Window-Graphics.dc.html' },
+      { name: 'Boat Wraps & Marine Graphics', where: 'Wraps', cats: ['Wraps'], desc: 'Boat wraps, marine graphics, lettering, registration numbers, pontoons and jet skis.', href: 'Boat-Wraps.dc.html' },
+      { name: 'Large Format Printing', where: 'Printing', cats: ['Printing', 'Events'], desc: 'Banners, posters, wall murals, floor and window graphics and vinyl signs.', href: 'Large-Format-Printing.dc.html' },
+      { name: 'Office & Indoor Signs', where: 'Signs', cats: ['Signs'], desc: 'Lobby logos, wall graphics, menu boards, panel signs, wayfinding and ADA signs.', href: 'Interior-ADA-Signs.dc.html' },
+      { name: 'Monument Signs', where: 'Signs', cats: ['Signs'], desc: 'Foam and lit monument signs for entrances, plazas and HOAs.', href: 'Monument-Signs.dc.html' }
     ];
     var IM = { 'Business Signs': 'ac6cac82d583332c286e5535e17ff041', 'Commercial Vehicle Graphics & Wraps': 'c2dc4bbda700701bfbd9882c5d8b35d0', 'Monument Signs': '1bb5e5a8dd3bfa305e0608f8c7c1f176', 'Window Decals & Graphics': '94c3527b5adb3d7d3fa5b350fbc6bf0d', 'Banners, Flags & Yard Signs': 'fc427f5d893bf746d512fca42018d298', 'Office & Indoor Signs': '1146554cde15943823eb9bb623460a23', 'Car Wraps': '360d2163283a523b70cce294a429afb4', 'Large Format Printing': 'fc427f5d893bf746d512fca42018d298', 'Boat Wraps & Marine Graphics': 'd75f1cb608ccbcd93cb1a6386a7ef96b' };
-    all.forEach(function (p) { p.img = IM[p.name] ? '_blob/' + IM[p.name] : ''; p.noImg = !p.img; });
-    var cats = ['All', 'Outdoor', 'Indoor', 'Vehicles', 'Events'];
+    all.forEach(function (p) { p.catStr = p.cats.join(' '); p.img = IM[p.name] ? '_blob/' + IM[p.name] : ''; p.noImg = !p.img; });
+    var cats = ['All', 'Signs', 'Wraps', 'Printing', 'Events'];
     return {
-      items: all.filter(function (p) { return self.state.f === 'All' || p.where === self.state.f; }),
+      items: all.filter(function (p) { return self.state.f === 'All' || p.cats.indexOf(self.state.f) > -1; }),
       filters: cats.map(function (c) {
         var on = self.state.f === c;
         return { label: c, pressed: on ? 'true' : 'false', pick: function () { self.setState({ f: c }); },
