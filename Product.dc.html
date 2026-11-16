@@ -209,7 +209,7 @@ body{margin:0}
 <dc-import name="Footer" hint-size="100%,420px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["storefront","wraps","monument","window","banners","interior","tradeshow","ppf","carwraps","neon","boats","stickers"],"default":"storefront"},"city":{"editor":"enum","options":["none","port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"none"},"$preview":{"width":1440,"height":3000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["storefront","wraps","monument","window","banners","interior","tradeshow","ppf","carwraps","neon","boats","stickers","printing"],"default":"storefront"},"city":{"editor":"enum","options":["none","port-richey","st-petersburg","clearwater","wesley-chapel","tampa"],"default":"none"},"$preview":{"width":1440,"height":3000}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { open: 0 }; }
   renderVals() {
@@ -392,7 +392,25 @@ class Component extends DCLogic {
           { q: 'What is the minimum order?', a: 'Small runs are fine. Larger runs get a lower price per sticker.' },
           { q: 'Are your stickers waterproof?', a: 'Yes. Our outdoor vinyl stickers are laminated to handle sun, water and scratches.' },
           { q: 'Do you ship stickers?', a: 'Yes. Pick up free at our shop or we ship anywhere in the lower 48.' }
-        ], related: ['carwraps', 'window', 'banners'] }
+        ], related: ['carwraps', 'window', 'banners'] },
+      printing: { name: 'Large Format Printing', h1: 'Large Format Printing Services', tag: 'Banners · Posters · Wall Graphics · Vinyl · Displays', short: 'large format print', href: 'Large-Format-Printing.dc.html', photo: '[PHOTO: large format printer in the shop]', noCity: true,
+        intro: 'Large format printing services for businesses, events and job sites. We print banners, posters, wall murals, floor and window graphics, vinyl signs and trade show displays on our own wide format printers, then laminate, cut and install them in house.',
+        types: [
+          { t: "Vinyl & Mesh Banners", d: "Indoor and outdoor banners in any size, with hems and grommets." },
+          { t: "Poster Printing", d: "Large posters for stores, events, offices and presentations." },
+          { t: "Wall Murals & Graphics", d: "Printed wall wraps and murals for lobbies, offices and stores." },
+          { t: "Floor Decals & Graphics", d: "Non-slip floor graphics for directions, promos and branding." },
+          { t: "Window Decals & Clings", d: "Printed window decals and static clings for storefronts." },
+          { t: "Vinyl Signs", d: "Printed vinyl on rigid boards like coroplast and aluminum." },
+          { t: "Retractable Banner Stands", d: "Pull-up banners for trade shows, lobbies and events." },
+          { t: "Step & Repeat Backdrops", d: "Printed backdrops for events, photo walls and press." }
+        ],
+        faqs: [
+          { q: 'What is large format printing?', a: 'It is printing bigger than a normal office printer can handle, like banners, posters, wall graphics and vehicle wraps. We print on wide format printers made for vinyl and banner material.' },
+          { q: 'What materials can you print on?', a: 'Banner vinyl, mesh, adhesive vinyl, perforated window film, floor vinyl, poster paper, coroplast and aluminum. Tell us where it is going and we will pick the right material.' },
+          { q: 'How fast can I get my prints?', a: 'Most large format prints are ready in [X–X] days. Rush orders are often possible, so just ask.' },
+          { q: 'Do you install what you print?', a: 'Yes. We install wall, window and floor graphics, and we can hang banners and signs too.' }
+        ], related: ['banners', 'tradeshow', 'window'] }
     };
     var slug = this.props.slug ?? 'storefront';
     var p = D[slug] || D.storefront;
@@ -423,6 +441,7 @@ class Component extends DCLogic {
     WHY["neon"] = {"line": "Lit signs need to look great and run reliably, and we handle both.", "b": [{"t": "Custom designs.", "d": "We turn your logo or idea into a sign that fits your space."}, {"t": "Energy-saving LEDs.", "d": "Bright light that costs less to run."}, {"t": "Installed for you.", "d": "Indoor or outdoor, we mount it and test it."}, {"t": "Permits handled.", "d": "We take care of paperwork for outdoor signs."}]};
     WHY["boats"] = {"line": "Boats take a beating from salt and sun, so we use materials and methods built for the water.", "b": [{"t": "Marine-grade vinyl.", "d": "Films and laminate rated for salt water and Florida UV."}, {"t": "Clean prep.", "d": "Hulls are cleaned and dewaxed so the vinyl bonds."}, {"t": "Rules-ready lettering.", "d": "Registration numbers sized and placed to Florida requirements."}, {"t": "Local shop.", "d": "Trailer it to Port Richey and we take it from there."}]};
     WHY["stickers"] = {"line": "Stickers and decals printed in our own shop, checked by a real person.", "b": [{"t": "Any shape or size.", "d": "Die-cut to your logo or a standard size."}, {"t": "Built to last.", "d": "Laminated vinyl that handles sun and water."}, {"t": "Short or bulk runs.", "d": "Order a few or a few thousand."}, {"t": "Pickup or shipping.", "d": "Free pickup in Port Richey or we ship."}]};
+    WHY["printing"] = {"line": "Large format printing done in our own shop, from file check to install.", "b": [{"t": "Any size.", "d": "From a single poster to a full wall."}, {"t": "Built for Florida.", "d": "UV inks and laminate that hold up to sun and rain."}, {"t": "Print and install.", "d": "We print it and put it up, so you deal with one shop."}, {"t": "Free file check.", "d": "We check your art before we print so it comes out sharp."}]};
     var why = WHY[slug] || WHY.storefront;
     var benefits = why.b;
     var B = '_blob/';
@@ -438,6 +457,7 @@ class Component extends DCLogic {
       carwraps: {"hero": "360d2163283a523b70cce294a429afb4", "g": ["5840bb1fdb538070a975d608cf1bc3c3", "3eaf600ff7dcd137e019b98f40f0675a", "eb1a3785f28a56e9990f66dff4fdaf67"]},
       neon: {"hero": "", "g": ["", "", ""]},
       stickers: {"hero": "", "g": ["", "", ""]},
+      printing: {"hero": "fc427f5d893bf746d512fca42018d298", "g": ["ef837f8ed683abd98a7a5f7ac74703d8", "4c0aa19c9bebcfd34adb0c78f5de56ff", "94c3527b5adb3d7d3fa5b350fbc6bf0d"]},
       boats: {"hero": "d75f1cb608ccbcd93cb1a6386a7ef96b", "g": ["be60f04d14957e31b6d0607ff2269cd0", "653d5c533618ba385428442278f22b26", "b4d9508d604c229a21b06e82b4a2caf3"]}
     };
     var im = IMG[slug] || IMG.storefront;
