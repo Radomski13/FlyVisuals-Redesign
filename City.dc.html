@@ -27,6 +27,7 @@ body{margin:0}
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
 <a href="tel:{{shop.tel}}" style="border: 2px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call {{shop.phone}}</a>
+<a href="{{shop.maps}}" style="border: 2px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get Directions</a>
 </div>
 </div>
 <div style="background: #FFFFFF; color: #1A1A1A; border-radius: 8px; padding: 28px; display: flex; flex-direction: column; gap: 14px">
@@ -39,6 +40,7 @@ body{margin:0}
 <span style="font-weight: 700; color: #111111">{{c.distance}}</span>
 </div>
 <div style="height: 160px; border-radius: 6px; background: repeating-linear-gradient(135deg, #EFEFEF 0 12px, #E7E7E7 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[MAP: {{shop.name}}]</div>
+<a href="{{shop.maps}}" style="align-self: flex-start; background: #111111; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Get Directions</a>
 <a href="ServiceArea.dc.html" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px">All locations →</a>
 </div>
 </div>
@@ -138,8 +140,8 @@ class Component extends DCLogic {
   renderVals() {
     var self = this;
     var B = '_blob/';
-    var LOCATIONS = { 'port-richey': { name: 'Fly Visuals – Port Richey', short: 'Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', page: 'City-Port-Richey.dc.html' },
-      'tampa': { name: 'Fly Visuals – Tampa', short: 'Tampa', address: '[TAMPA SHOP ADDRESS]', hours: '[TAMPA HOURS]', phone: '[TAMPA PHONE]', tel: '7274946162', page: 'City-Tampa.dc.html' } };
+    var LOCATIONS = { 'port-richey': { name: 'Fly Visuals – Port Richey', short: 'Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', maps: 'https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', page: 'City-Port-Richey.dc.html' },
+      'tampa': { name: 'Fly Visuals – Tampa', short: 'Tampa', address: '[TAMPA SHOP ADDRESS]', maps: 'https://maps.google.com/?q=Fly+Visuals+Tampa+FL', hours: '[TAMPA HOURS]', phone: '[TAMPA PHONE]', tel: '7274946162', page: 'City-Tampa.dc.html' } };
     var CITIES = {
       'port-richey': { name: 'Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Our Port Richey shop is right here in town',
         intro: 'Our Port Richey shop at 8132 Cormel St, minutes from New Port Richey, is where we design, print and install signs and wraps. Stop by, see samples and talk to the people who build your sign or wrap.',

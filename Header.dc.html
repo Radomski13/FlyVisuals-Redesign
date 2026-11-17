@@ -17,12 +17,14 @@ body{margin:0}
 .fv-wide{display:inline}
 .fv-burger{display:none}
 .fv-callm{display:none}
+.fv-mwrap{display:none}
 @media (max-width: 960px){
 .fv-nav,.fv-cta{display:none !important}
 .fv-wide{display:none !important}
 .fv-burger{display:inline-flex !important}
 .fv-callm{display:inline-flex !important}
 .fv-topbar{display:none !important}
+.fv-mwrap{display:flex !important}
 }
 @media (max-width: 640px){
 section[style*="padding: 4"],section[style*="padding: 5"],section[style*="padding: 6"],section[style*="padding: 7"],section[style*="padding: 8"],section[style*="padding: 9"]{padding-top:40px !important;padding-bottom:44px !important}
@@ -53,7 +55,7 @@ footer[style*="padding: 56px"]{padding-top:40px !important}
 </sc-for>
 </nav>
 <a href="Quote.dc.html" class="fv-cta" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 13px 24px; border-radius: 4px; min-height: 46px; box-sizing: border-box; align-items: center">Request a Quote</a>
-<div style="display: flex; align-items: center; gap: 10px">
+<div class="fv-mwrap" style="align-items: center; gap: 10px">
 <a href="tel:7274946162" class="fv-callm" aria-label="Call (727) 494-6162" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; border-radius: 4px; height: 48px; padding: 0 16px; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; box-sizing: border-box"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>Call</a>
 <button type="button" class="fv-burger" aria-label="{{menuLabel}}" aria-expanded="{{expanded}}" onClick="{{toggle}}" style="background: #111111; color: #FFFFFF; border: none; border-radius: 4px; width: 48px; height: 48px; align-items: center; justify-content: center; cursor: pointer">
 <sc-if value="{{closed}}" hint-placeholder-val="{{true}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></sc-if>
