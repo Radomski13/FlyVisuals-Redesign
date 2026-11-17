@@ -110,3 +110,19 @@ open(OUT+'robots.txt','w').write(('User-agent: *\nDisallow: /\n' if STAGING else
 sm=['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']+['<url><loc>%s%s</loc></url>'%(DOMAIN,u) for u in sorted(set(written)) if u!='/thanks/']+['</urlset>']
 open(OUT+'sitemap.xml','w').write('\n'.join(sm))
 print('pages',len(written),'unknown links',sorted(unknown))
+
+# one photo folder: /images/<keyword-name>.jpg (replaces /_blob/<id>)
+NAMES=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'photo_names.json')))
+os.makedirs(OUT+'images',exist_ok=True); EXT={}
+for k,v in NAMES.items():
+    b=open(OUT+'_blob/'+k,'rb').read(); ext='.png' if b[:4]==b'\x89PNG' else '.jpg'
+    EXT[k]=v['name']+ext; open(OUT+'images/'+EXT[k],'wb').write(b)
+pat=re.compile('|'.join(EXT))
+for root,_,fs in os.walk(OUT):
+    for f in fs:
+        if not f.endswith(('.html','.js','.xml')): continue
+        p=os.path.join(root,f); t=open(p,encoding='utf-8').read()
+        n=pat.sub(lambda m:EXT[m.group(0)],t).replace('_blob/','images/')
+        if n!=t: open(p,'w',encoding='utf-8').write(n)
+shutil.rmtree(OUT+'_blob')
+print('images',len(EXT))
