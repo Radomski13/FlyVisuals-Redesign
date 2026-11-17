@@ -124,7 +124,7 @@ body{margin:0}
 <dc-import name="Footer" hint-size="100%,420px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"ind":{"editor":"enum","options":["contractors","restaurants","retail","medical","realestate","automarine","hoa","schools","government"],"default":"contractors"},"$preview":{"width":1440,"height":3200}}'>
+<script type="text/x-dc" data-dc-script data-props='{"ind":{"editor":"enum","options":["contractors","restaurants","retail","medical","realestate","automarine","hoa","schools","government","franchise"],"default":"contractors"},"$preview":{"width":1440,"height":3200}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { open: 0 }; }
   renderVals() {
@@ -322,6 +322,28 @@ class Component extends DCLogic {
           { q: 'Can you work with purchase orders?', a: '[CONFIRM: payment terms you accept for public agencies]' },
           { q: 'Can you do large sign packages?', a: 'Yes. We can survey a building and quote every sign at once.' },
           { q: 'Do you mark fleet vehicles?', a: 'Yes. We apply consistent markings across cars, trucks and equipment.' }
+        ] },
+      franchise: { name: 'Franchises & Multi-Location Brands', h1: "Franchise Signs & Storefront Graphics", short: 'franchises', file: 'Industry-Franchises.dc.html', hero: 'ac6cac82d583332c286e5535e17ff041', photo: '',
+        intro: "Franchise signs, storefront window graphics, wall graphics and fleet wraps for franchise owners and multi-location brands across Tampa Bay. We print in-house in Port Richey and install with our own 3M and Avery Dennison certified crew. National sign programs: we install for you too.",
+        needs: [
+          { t: 'Match brand standards', d: 'Every location has to look the same. We build to your brand guide, colors and approved files.' },
+          { t: 'Open on schedule', d: 'Grand opening dates don’t move. Most jobs are done in 3–5 days, and we can work nights so you stay open.' },
+          { t: 'One shop for every location', d: 'One contact for windows, walls, signs and vehicles across Pasco, Pinellas and Hillsborough.' }
+        ],
+        products: [
+          { k: 'window', why: 'Storefront window graphics, perforated film, promos and store hours, swapped out for each campaign.' },
+          { k: 'interior', why: 'Wall murals, menu boards, floor decals and lobby logos built to brand specs.' },
+          { k: 'wraps', why: 'Matching fleet graphics for delivery, service and catering vehicles.' },
+          { k: 'storefront', why: 'Building signs, blade signs and grand opening banners for new locations.' }
+        ],
+        work: ['fc427f5d893bf746d512fca42018d298', '94c3527b5adb3d7d3fa5b350fbc6bf0d', 'c2dc4bbda700701bfbd9882c5d8b35d0', 'dc777ba4e91984c69a4166c1cb2033e5'],
+        popular: [{"t": "Storefront Window Graphics", "href": "Option-Window-Decals-and-Clings.dc.html"}, {"t": "Perforated Window Graphics", "href": "Option-Perforated-Window-Graphics.dc.html"}, {"t": "Wall Murals & Graphics", "href": "Option-Wall-Murals-and-Graphics.dc.html"}, {"t": "Floor Decals", "href": "Option-Floor-Decals-and-Graphics.dc.html"}, {"t": "Menu Boards", "href": "Option-Menu-Boards.dc.html"}, {"t": "Fleet Lettering", "href": "Option-Truck-and-Vehicle-Lettering.dc.html"}, {"t": "Grand Opening Banners", "href": "Option-Vinyl-and-Mesh-Banners.dc.html"}, {"t": "Channel Letter Signs", "href": "Option-Channel-Letter-Signs.dc.html"}],
+        faqs: [
+          { q: 'Can you work from our corporate brand files?', a: 'Yes. Send your brand guide and approved artwork. We match colors and specs, and send a proof before anything prints.' },
+          { q: 'We’re a national sign company. Will you install for us in Tampa Bay?', a: 'Yes. Ship the printed graphics to our Port Richey shop or straight to the site and our certified crew installs them. We send photos when the job is done.' },
+          { q: 'Can you handle several locations at once?', a: 'Yes. We schedule the locations together and give you one quote and one point of contact.' },
+          { q: 'Can you work after hours?', a: 'Yes. We can install before opening or after close so you don’t lose sales.' },
+          { q: 'Do you carry insurance for commercial installs?', a: '[CONFIRM: liability coverage, and that you can send a certificate of insurance (COI) on request]' }
         ] }
     };
     var key = this.props.ind ?? 'contractors';

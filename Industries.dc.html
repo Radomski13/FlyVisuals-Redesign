@@ -69,9 +69,10 @@ class Component extends DCLogic {
       { name: 'Auto & Marine', desc: 'Dealer signs, boat wraps, PPF and shop branding.', k: ['boats', 'carwraps', 'storefront'] },
       { name: 'HOAs & Communities', desc: 'Entrance monuments, amenity signs and community rules signs.', k: ['monument', 'interior', 'banners'] },
       { name: 'Schools & Churches', desc: 'Monument signs, event banners, wayfinding and wall graphics.', k: ['monument', 'banners', 'interior'] },
-      { name: 'Government & Facilities', desc: 'ADA signs, wayfinding, building ID and fleet graphics.', k: ['interior', 'wraps', 'monument'] }
+      { name: 'Government & Facilities', desc: 'ADA signs, wayfinding, building ID and fleet graphics.', k: ['interior', 'wraps', 'monument'] },
+      { name: 'Franchises & Multi-Location', desc: 'Brand-standard window, wall and fleet graphics for every location. Install partner for national sign programs.', k: ['window', 'interior', 'wraps'] }
     ];
-    var F = ['Industry-Contractors.dc.html', 'Industry-Restaurants.dc.html', 'Industry-Retail.dc.html', 'Industry-Medical.dc.html', 'Industry-Real-Estate.dc.html', 'Industry-Auto-Marine.dc.html', 'Industry-HOAs.dc.html', 'Industry-Schools-Churches.dc.html', 'Industry-Government.dc.html'];
+    var F = ['Industry-Contractors.dc.html', 'Industry-Restaurants.dc.html', 'Industry-Retail.dc.html', 'Industry-Medical.dc.html', 'Industry-Real-Estate.dc.html', 'Industry-Auto-Marine.dc.html', 'Industry-HOAs.dc.html', 'Industry-Schools-Churches.dc.html', 'Industry-Government.dc.html', 'Industry-Franchises.dc.html'];
     return { industries: list.map(function (i, n) { return { name: i.name, desc: i.desc, file: F[n], links: i.k.map(function (k) { return P[k]; }) }; }) };
   }
 }
