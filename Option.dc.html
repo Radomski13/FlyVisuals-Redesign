@@ -46,6 +46,16 @@ body{margin:0}
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
 <a href="tel:7274946162" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call (727) 494-6162</a>
 </div>
+<sc-if value="{{hasShop}}" hint-placeholder-val="{{false}}">
+<div class="pv-shop" style="display: flex; flex-direction: column; gap: 10px; padding-top: 6px">
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; color: #111111">Know what you need? Order online:</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{shop}}" as="sh" hint-placeholder-count="2">
+<a href="{{sh.file}}" style="background: #F4F4F4; border: 1px solid #E5E5E5; color: #111111; text-decoration: none; font-size: 14px; font-weight: 700; padding: 9px 14px; border-radius: 999px; min-height: 40px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px">{{sh.n}} <span aria-hidden="true" style="color: #DC1A21">→</span></a>
+</sc-for>
+</div>
+</div>
+</sc-if>
 </div>
 <sc-if value="{{hasImg}}" hint-placeholder-val="{{true}}"><img src="{{img}}" alt="{{o.name}} by Fly Visuals" class="pv-img" style="width: 100%; height: 400px; object-fit: cover; border-radius: 6px; display: block"></sc-if>
 <sc-if value="{{noImg}}" hint-placeholder-val="{{false}}"><div class="pv-img" style="height: 400px; border-radius: 6px; background: repeating-linear-gradient(135deg, #E2E2E2 0 14px, #D9D9D9 14px 28px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600; text-align: center; padding: 16px; box-sizing: border-box">[PHOTO: {{o.name}}]</div></sc-if>
@@ -239,6 +249,8 @@ class Component extends DCLogic {
     var why = WHY[o.name] || { line: '', pts: [] };
     var prod = Object.assign({}, PROD[o.p], { lower: PROD[o.p].name.toLowerCase() });
     function file(n) { return 'Option-' + n.replace(/&/g, 'and').replace(/[^A-Za-z0-9]+/g, '-').replace(/-+$/, '') + '.dc.html'; }
+    var SHOPL = {"Yard Signs": [["Yard Signs", "Shop-Yard-Signs.dc.html"]], "Vinyl & Mesh Banners": [["Vinyl Banners", "Shop-Vinyl-Banners.dc.html"], ["Vinyl Mesh Banners", "Shop-Vinyl-Mesh-Banners.dc.html"], ["Outdoor Banners", "Shop-Outdoor-Banners.dc.html"]], "Feather & Teardrop Flags": [["Feather Flags", "Shop-Feather-Flags.dc.html"], ["Teardrop Flags", "Shop-Teardrop-Flags.dc.html"]], "Floor Decals & Graphics": [["Floor Decals", "Shop-Floor-Decals.dc.html"]], "Perforated Window Graphics": [["Perforated Window Decals", "Shop-Perforated-Window-Decals.dc.html"]], "A-Frame Signs": [["Metal A-Frame Signs", "Shop-Metal-A-Frame-Signs.dc.html"], ["Plastic A-Frame Signs", "Shop-Plastic-A-Frame-Signs.dc.html"]], "Retractable Banner Stands": [["Roll Up Retractable Banner Stands", "Shop-Roll-Up-Retractable-Banner-Stands.dc.html"], ["Steppy Retractable Banner Stands", "Shop-Steppy-Retractable-Banner-Stands.dc.html"], ["L-Style Banner Stands", "Shop-L-Style-Banner-Stands.dc.html"], ["Korean Style X Banner Stands", "Shop-Korean-Style-X-Banner-Stands.dc.html"], ["Adjustable X-Frame Banner Stands", "Shop-Adjustable-X-Frame-Banner-Stands.dc.html"], ["Non-Retractable Adjustable Banner Stands", "Shop-Non-Retractable-Adjustable-Banner-Stands.dc.html"], ["Premium EZ Extend Banner Stands", "Shop-Premium-Ez-Extend-Banner-Stands.dc.html"]], "Step & Repeat Backdrops": [["Step & Repeat Straight Pop Up Displays", "Shop-Step-Repeat-Straight-Pop-Up-Displays.dc.html"], ["Step & Repeat Curved Pop Up Displays", "Shop-Step-Repeat-Curved-Pop-Up-Displays.dc.html"], ["Straight Pillow Case Step & Repeat Displays", "Shop-Straight-Pillow-Case-Step-Repeat-Displays.dc.html"], ["Step & Repeat Curved Pillow Case Displays", "Shop-Step-Repeat-Curved-Pillow-Case-Displays.dc.html"], ["Step & Repeat Straight Wall-Box Displays", "Shop-Step-Repeat-Straight-Wall-Box-Displays.dc.html"], ["Step & Repeat Adjustable Straight Displays", "Shop-Step-Repeat-Adjustable-Straight-Displays.dc.html"]], "Custom Table Covers": [["Stretch Table Covers", "Shop-Stretch-Table-Covers.dc.html"], ["Fitted Table Covers", "Shop-Fitted-Table-Covers.dc.html"], ["Premium Table Covers", "Shop-Premium-Table-Covers.dc.html"], ["Table Runners", "Shop-Table-Runners.dc.html"]], "Custom Tents & Canopies": [["10 Ft Canopy Tent", "Shop-10-Ft-Canopy-Tent.dc.html"], ["6 Ft Canopy Tent", "Shop-6-Ft-Canopy-Tent.dc.html"], ["Custom Canopy Tent 10 x 20", "Shop-Custom-Canopy-Tent-10-X-20.dc.html"], ["Custom Canopy Tent 10 x 15", "Shop-Custom-Canopy-Tent-10-X-15.dc.html"]], "Window Decals & Clings": [["Clear Window Clings", "Shop-Clear-Window-Clings.dc.html"], ["Opaque Window Clings", "Shop-Opaque-Window-Clings.dc.html"], ["Clear Window Decals", "Shop-Clear-Window-Decals.dc.html"], ["Opaque Window Decals", "Shop-Opaque-Window-Decals.dc.html"]], "Frosted & Decorative Film": [["Frosted Window Decals", "Shop-Frosted-Window-Decals.dc.html"]], "Wall Murals & Graphics": [["Wall Decals", "Shop-Wall-Decals.dc.html"]], "Car & Truck Decals": [["Clear Vehicle Decals", "Shop-Clear-Vehicle-Decals.dc.html"], ["Opaque Vehicle Decals", "Shop-Opaque-Vehicle-Decals.dc.html"]], "Poster Printing": [["Poster Signs", "Shop-Poster-Signs.dc.html"]]};
+    var shop = (SHOPL[o.name] || []).map(function (x) { return { n: x[0], file: x[1] }; });
     var siblings = O.filter(function (x) { return x.p === o.p && x.name !== o.name; }).map(function (x) { return { name: x.name, file: file(x.name) }; });
     var faqs = o.faqs.map(function (f, i) {
       var open = self.state.open === i;
@@ -250,7 +262,7 @@ class Component extends DCLogic {
       { n: '3', t: 'Build', d: 'We produce everything in our Port Richey shop.' },
       { n: '4', t: 'Install', d: 'Our own crew installs it, or you pick it up.' }
     ];
-    return { o: Object.assign({}, o, { lower: o.name.toLowerCase() }), prod: prod, img: o.img ? B + o.img : '', hasImg: !!o.img, noImg: !o.img, siblings: siblings, faqs: faqs, steps: steps, why: why, hasWhy: why.pts.length > 0 };
+    return { shop: shop, hasShop: shop.length > 0, o: Object.assign({}, o, { lower: o.name.toLowerCase() }), prod: prod, img: o.img ? B + o.img : '', hasImg: !!o.img, noImg: !o.img, siblings: siblings, faqs: faqs, steps: steps, why: why, hasWhy: why.pts.length > 0 };
   }
 }
 </script>

@@ -56,7 +56,10 @@ for i,r in enumerate(plan):
         if f.startswith('Shop-'):
             meta=json.load(open(RAW+str(i)+'.json'))
             t=html.escape(meta['h1']); d=html.escape(meta['d'][:300])
-            s=re.sub(r'<title>.*?</title>','<title>%s | Order Online | Fly Visuals</title>\n<meta name="description" content="%s">'%(t,d),s,1)
+            if 'SHOPD' not in globals():
+                globals()['SHOPD']={v['file']:v for v in json.loads(re.search(r'var D = (\{.*?\});\n',open(SRC+'ShopProduct.dc.html').read()).group(1)).values()}
+            sp=SHOPD.get(f); pr=(' | From $%.2f'%sp['f']) if sp else ''
+            s=re.sub(r'<title>.*?</title>','<title>Order %s Online%s | Fly Visuals</title>\n<meta name="description" content="%s">'%(t,pr,d),s,1)
         s=fixlinks(s)
         s=s.replace('</head>','<link rel="canonical" href="%s%s"></head>'%(DOMAIN,url),1)
         write(url,s); continue
