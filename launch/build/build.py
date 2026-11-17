@@ -31,6 +31,13 @@ def mapurl(m):
 def fixlinks(s):
     s=re.sub(r'(["\'])(?:\./)?([A-Za-z0-9-]+\.dc\.html)(#[^"\']*)?(?=["\'])',lambda m:m.group(1)+(URL.get(m.group(2)) or (unknown.add(m.group(2)) or m.group(2)))+(m.group(3) or ''),s)
     s=re.sub(r'(["\(]|&quot;)(?:\./)?_blob/',r'\1/_blob/',s)
+    if 'ALT' not in globals(): globals()['ALT']=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'photo_alt.json')))
+    def _alt(m):
+        tag=m.group(0); mm=re.search(r'/_blob/([0-9a-f]{32})',tag)
+        if not mm or mm.group(1) not in ALT: return tag
+        alt=ALT[mm.group(1)].replace('&','&amp;').replace('"','&quot;')
+        return re.sub(r'\salt="[^"]*"',' alt="%s"'%alt,tag) if ' alt="' in tag else tag[:-1]+' alt="%s">'%alt
+    s=re.sub(r'<img\b[^>]*>',_alt,s)
     s=re.sub(r'href=(["\'])(?:\./)?index\.html\1',r'href=\1/\1',s)
     return s
 def schema_home():
