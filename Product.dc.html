@@ -66,13 +66,51 @@ body{margin:0}
 <div style="padding: 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1">
 <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: #111111">{{t.t}}</h3>
 <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #555555; flex-grow: 1">{{t.d}}</p>
-<span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #DC1A21">Learn more →</span>
+<span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #DC1A21">{{t.cta}}</span>
 </div>
 </a>
 </sc-for>
 </div>
 </div>
 </section>
+
+<sc-if value="{{hasPricing}}" hint-placeholder-val="{{false}}">
+<section id="wrap-pricing" style="padding: 0 24px 88px; scroll-margin-top: 120px">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Full &amp; partial vehicle wrap pricing</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #555555; max-width: 760px">Price depends on vehicle size, how much you cover and your design. Here is where most jobs start.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 22px">
+<sc-for list="{{pricing.plans}}" as="pl" hint-placeholder-count="2">
+<article style="border: 2px solid #111111; border-radius: 8px; padding: 30px; display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: #111111">{{pl.t}}</h3>
+<span style="font-family: 'Montserrat', sans-serif; font-size: 30px; font-weight: 800; color: #DC1A21">{{pl.price}}</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #555555">{{pl.d}}</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{pl.inc}}" as="x" hint-placeholder-count="4">
+<li style="display: flex; gap: 10px; font-size: 16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DC1A21" stroke-width="2.5" aria-hidden="true" style="flex-shrink: 0"><path d="M5 12l5 5L20 7"></path></svg>{{x}}</li>
+</sc-for>
+</ul>
+<p style="margin: 0; font-size: 14px; color: #555555"><strong style="color: #111111">Best for:</strong> {{pl.best}}</p>
+<a href="Quote.dc.html" style="margin-top: auto; align-self: flex-start; background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 24px; border-radius: 4px; min-height: 48px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
+</article>
+</sc-for>
+</div>
+<div style="overflow-x: auto; border: 1px solid #E5E5E5; border-radius: 8px">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px">
+<thead><tr style="background: #111111; color: #FFFFFF; font-family: 'Montserrat', sans-serif; text-align: left"><th scope="col" style="padding: 14px 12px">Vehicle</th><th scope="col" style="padding: 14px 12px">Partial wrap from</th><th scope="col" style="padding: 14px 12px">Full wrap from</th></tr></thead>
+<tbody>
+<sc-for list="{{pricing.rows}}" as="r" hint-placeholder-count="4">
+<tr style="border-top: 1px solid #E5E5E5"><th scope="row" style="padding: 14px 12px; text-align: left; font-weight: 600; color: #111111">{{r.v}}</th><td style="padding: 14px 12px">{{r.p}}</td><td style="padding: 14px 12px">{{r.f}}</td></tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+<p style="margin: 0; font-size: 15px; color: #555555">Pay over time with Snap Finance: up to 12 months, interest free. <a href="Financing.dc.html" style="font-weight: 700; color: #111111">See financing</a></p>
+</div>
+</section>
+</sc-if>
 
 <sc-if value="{{hasVehicles}}" hint-placeholder-val="{{true}}">
 <section style="background: #F4F4F4; padding: 72px 24px">
@@ -238,8 +276,8 @@ class Component extends DCLogic {
         intro: 'Fly Visuals offers vehicle wrapping services for business cars, trucks, vans and fleets. Full wraps, partial wraps, vehicle graphics and lettering that turn every drive into an ad, printed and installed in our shop. One vehicle or a whole fleet, we keep your branding the same on every one.',
         types: [
           { t: "Car Magnets & Magnetic Signs", d: "Removable magnetic signs for cars and trucks, perfect for vehicles you also drive personally." },
-          { t: "Full Vehicle Wraps", d: "Complete coverage for maximum impact and a total color change." },
-          { t: "Partial Vehicle Wraps", d: "Cover part of the vehicle and blend with the paint to save cost." },
+          { t: "Full Vehicle Wraps", d: "Complete coverage for maximum impact and a total color change.", href: "#wrap-pricing", cta: "See pricing ↓" },
+          { t: "Partial Vehicle Wraps", d: "Cover part of the vehicle and blend with the paint to save cost.", href: "#wrap-pricing", cta: "See pricing ↓" },
           { t: "Truck & Vehicle Lettering", d: "Name, phone and DOT numbers for a simple, clean look." }
 
         ],
@@ -251,10 +289,23 @@ class Component extends DCLogic {
           { t: "Bus & Shuttle Wraps", d: "Church, school, hotel and tour buses." }
 
         ],
+        pricing: {
+          plans: [
+            { t: "Full Vehicle Wraps", price: "From $[PRICE]", d: "Your whole vehicle covered in your design. The most eye-catching way to advertise on the road.", inc: ["Custom design and proof", "Premium cast vinyl with laminate", "Covers and protects the paint", "Installed in our shop"], best: "Vans, box trucks, food trucks and brand launches" },
+            { t: "Partial Vehicle Wraps", price: "From $[PRICE]", d: "Cover part of your vehicle and blend into the paint. Big impact for less money.", inc: ["Half, quarter or rear wraps", "Matched to your paint color", "Logo and contact info", "Upgrade to a full wrap later"], best: "Pickup trucks, company cars and tighter budgets" }
+          ],
+          rows: [
+            { v: "Car or small SUV", p: "$[PRICE]", f: "$[PRICE]" },
+            { v: "Pickup truck", p: "$[PRICE]", f: "$[PRICE]" },
+            { v: "Cargo or sprinter van", p: "$[PRICE]", f: "$[PRICE]" },
+            { v: "Box truck or trailer", p: "$[PRICE]", f: "$[PRICE]" }
+          ]
+        },
         faqs: [
           { q: 'Can you wrap our whole fleet?', a: 'Yes. From 2 vehicles to 200, we use the same design on every one and keep your files on hand for new vehicles. We can install in batches so your fleet stays on the road.' },
           { q: 'How long does a vehicle wrap last?', a: 'With quality cast vinyl and normal care, wraps typically last several years. We will go over care tips at pickup.' },
           { q: 'Will a wrap damage my paint?', a: 'Wraps applied and removed properly protect factory paint. Aftermarket or damaged paint can be a risk, and we check before installing.' },
+          { q: 'How much does a full or partial vehicle wrap cost?', a: 'It depends on the vehicle size, how much you cover and the design. See the price table above for starting prices, then send us your vehicle for an exact quote.' },
           { q: 'How long will my vehicle be in the shop?', a: 'Most wraps take [X–X] days in the shop. We will schedule a drop-off time that fits your work.' }
         ], related: ['banners', 'window', 'tradeshow'] },
       monument: { name: 'Monument Signs', short: 'monument sign', href: 'Monument-Signs.dc.html', photo: '[PHOTO: monument sign at a business entrance]',
@@ -477,7 +528,7 @@ class Component extends DCLogic {
     var types = p.types.map(function (t) {
       var f = 'Option-' + t.t.replace(/&/g, 'and').replace(/[^A-Za-z0-9]+/g, '-').replace(/-+$/, '') + '.dc.html';
       var im = OIMG[t.t];
-      return { t: t.t, d: t.d, href: f, img: im ? B + im : '', noImg: !im };
+      return { t: t.t, d: t.d, href: t.href || f, cta: t.cta || 'Learn more →', img: im ? B + im : '', noImg: !im };
     });
     var vehicles = (p.vehicles || []).map(function (t) {
       var f = 'Option-' + t.t.replace(/&/g, 'and').replace(/[^A-Za-z0-9]+/g, '-').replace(/-+$/, '') + '.dc.html';
@@ -485,7 +536,7 @@ class Component extends DCLogic {
       return { t: t.t, d: t.d, href: f, img: im ? B + im : '', noImg: !im };
     });
     return {
-      p: Object.assign({}, p, { types: types }), vehicles: vehicles, hasVehicles: vehicles.length > 0, faqs: faqs, related: related, benefits: benefits, whyTitle: 'Why Fly Visuals for ' + lower, whyLine: why.line, hero: im.hero ? B + im.hero : '', hasHero: !!im.hero, noHero: !im.hero, gallery: gallery,
+      p: Object.assign({}, p, { types: types }), vehicles: vehicles, hasVehicles: vehicles.length > 0, hasPricing: !!p.pricing, pricing: p.pricing || { plans: [], rows: [] }, faqs: faqs, related: related, benefits: benefits, whyTitle: 'Why Fly Visuals for ' + lower, whyLine: why.line, hero: im.hero ? B + im.hero : '', hasHero: !!im.hero, noHero: !im.hero, gallery: gallery,
       city: city || { name: '', county: '', file: 'ServiceArea.dc.html', areas: [], nearby: [], distance: '' },
       hasCity: !!city, noCity: !city, showCityLinks: !city && !p.noCity, shop: shop, cityLinks: cityLinks,
       title: city ? (p.h1 || p.name) + ' in ' + city.name + ', FL' : (p.h1 || p.name),
