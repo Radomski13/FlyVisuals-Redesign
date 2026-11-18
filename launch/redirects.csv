@@ -205,7 +205,12 @@ Old URL,Redirect to (301)
 /outdoor-signs/trinity/,/locations/port-richey/
 /outdoor-signs/wesley-chapel/,/business-signs/wesley-chapel/
 /outdoor-signs/zephyrhills/,/business-signs/wesley-chapel/
+/paint-protection-film/,/car-wraps/
+/paint-protection-film/clearwater/,/car-wraps/clearwater/
 /paint-protection-film/odessa/,/car-wraps/tampa/
+/paint-protection-film/port-richey/,/car-wraps/port-richey/
+/paint-protection-film/tampa/,/car-wraps/tampa/
+/paint-protection-film/wesley-chapel/,/car-wraps/wesley-chapel/
 /partial-vehicle-wraps/,/vehicle-wraps/
 /products.html,/products/
 /products/yard-signs-with-stakes/,/products/yard-signs/
@@ -344,8 +349,3 @@ Old URL,Redirect to (301)
 /yard-signs/trinity/,/locations/port-richey/
 /yard-signs/wesley-chapel/,/yard-signs/
 /yard-signs/zephyrhills/,/yard-signs/
-/paint-protection-film/,/car-wraps/
-/paint-protection-film/clearwater/,/car-wraps/clearwater/
-/paint-protection-film/port-richey/,/car-wraps/port-richey/
-/paint-protection-film/tampa/,/car-wraps/tampa/
-/paint-protection-film/wesley-chapel/,/car-wraps/wesley-chapel/

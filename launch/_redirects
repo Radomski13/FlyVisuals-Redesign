@@ -206,7 +206,12 @@
 /outdoor-signs/trinity/                                 /locations/port-richey/                       301
 /outdoor-signs/wesley-chapel/                           /business-signs/wesley-chapel/                301
 /outdoor-signs/zephyrhills/                             /business-signs/wesley-chapel/                301
+/paint-protection-film/                                 /car-wraps/                                   301
+/paint-protection-film/clearwater/                      /car-wraps/clearwater/                        301
 /paint-protection-film/odessa/                          /car-wraps/tampa/                             301
+/paint-protection-film/port-richey/                     /car-wraps/port-richey/                       301
+/paint-protection-film/tampa/                           /car-wraps/tampa/                             301
+/paint-protection-film/wesley-chapel/                   /car-wraps/wesley-chapel/                     301
 /partial-vehicle-wraps/                                 /vehicle-wraps/                               301
 /products.html                                          /products/                                    301
 /products/yard-signs-with-stakes/                       /products/yard-signs/                         301
@@ -345,12 +350,3 @@
 /yard-signs/trinity/                                    /locations/port-richey/                       301
 /yard-signs/wesley-chapel/                              /yard-signs/                                  301
 /yard-signs/zephyrhills/                                /yard-signs/                                  301
-# Paint protection film removed (Nov 2026)
-/paint-protection-film/                                 /car-wraps/                                   301
-/paint-protection-film/clearwater/                      /car-wraps/clearwater/                        301
-/paint-protection-film/port-richey/                     /car-wraps/port-richey/                       301
-/paint-protection-film/tampa/                           /car-wraps/tampa/                             301
-/paint-protection-film/wesley-chapel/                   /car-wraps/wesley-chapel/                     301
-/front-end-ppf/                                         /car-wraps/                                   301
-/full-body-ppf/                                         /car-wraps/                                   301
-/matte-and-satin-ppf/                                   /car-wraps/                                   301
