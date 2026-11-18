@@ -79,7 +79,7 @@ body{margin:0}
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 8px">
 <h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Full &amp; partial vehicle wrap pricing</h2>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #555555; max-width: 760px">Price depends on vehicle size, how much you cover and your design. Here is where most jobs start.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: #555555; max-width: 760px">Our price is $12 per square foot, installed, with material and design included. Your total depends on vehicle size and how much you cover. A partial wrap covers about half the vehicle.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 22px">
 <sc-for list="{{pricing.plans}}" as="pl" hint-placeholder-count="2">
@@ -99,7 +99,7 @@ body{margin:0}
 </div>
 <div style="overflow-x: auto; border: 1px solid #E5E5E5; border-radius: 8px">
 <table style="width: 100%; border-collapse: collapse; font-size: 15px">
-<thead><tr style="background: #111111; color: #FFFFFF; font-family: 'Montserrat', sans-serif; text-align: left"><th scope="col" style="padding: 14px 12px">Vehicle</th><th scope="col" style="padding: 14px 12px">Partial wrap from</th><th scope="col" style="padding: 14px 12px">Full wrap from</th></tr></thead>
+<thead><tr style="background: #111111; color: #FFFFFF; font-family: 'Montserrat', sans-serif; text-align: left"><th scope="col" style="padding: 14px 12px">Vehicle</th><th scope="col" style="padding: 14px 12px">Partial wrap</th><th scope="col" style="padding: 14px 12px">Full wrap</th></tr></thead>
 <tbody>
 <sc-for list="{{pricing.rows}}" as="r" hint-placeholder-count="4">
 <tr style="border-top: 1px solid #E5E5E5"><th scope="row" style="padding: 14px 12px; text-align: left; font-weight: 600; color: #111111">{{r.v}}</th><td style="padding: 14px 12px">{{r.p}}</td><td style="padding: 14px 12px">{{r.f}}</td></tr>
@@ -291,21 +291,21 @@ class Component extends DCLogic {
         ],
         pricing: {
           plans: [
-            { t: "Full Vehicle Wraps", price: "From $[PRICE]", d: "Your whole vehicle covered in your design. The most eye-catching way to advertise on the road.", inc: ["Custom design and proof", "Premium cast vinyl with laminate", "Covers and protects the paint", "Installed in our shop"], best: "Vans, box trucks, food trucks and brand launches" },
-            { t: "Partial Vehicle Wraps", price: "From $[PRICE]", d: "Cover part of your vehicle and blend into the paint. Big impact for less money.", inc: ["Half, quarter or rear wraps", "Matched to your paint color", "Logo and contact info", "Upgrade to a full wrap later"], best: "Pickup trucks, company cars and tighter budgets" }
+            { t: "Full Vehicle Wraps", price: "From $2,400", d: "Your whole vehicle covered in your design. The most eye-catching way to advertise on the road.", inc: ["Custom design and proof", "Premium cast vinyl with laminate", "Covers and protects the paint", "Installed in our shop"], best: "Vans, box trucks, food trucks and brand launches" },
+            { t: "Partial Vehicle Wraps", price: "From $1,200", d: "Cover part of your vehicle and blend into the paint. Big impact for less money.", inc: ["Half, quarter or rear wraps", "Matched to your paint color", "Logo and contact info", "Upgrade to a full wrap later"], best: "Pickup trucks, company cars and tighter budgets" }
           ],
           rows: [
-            { v: "Car or small SUV", p: "$[PRICE]", f: "$[PRICE]" },
-            { v: "Pickup truck", p: "$[PRICE]", f: "$[PRICE]" },
-            { v: "Cargo or sprinter van", p: "$[PRICE]", f: "$[PRICE]" },
-            { v: "Box truck or trailer", p: "$[PRICE]", f: "$[PRICE]" }
+            { v: "Car or small SUV", p: "$1,200 – $1,800", f: "$2,400 – $3,600" },
+            { v: "Pickup truck", p: "$1,500 – $2,100", f: "$3,000 – $4,200" },
+            { v: "Cargo or sprinter van", p: "$2,100 – $2,700", f: "$4,200 – $5,400" },
+            { v: "Box truck or trailer", p: "$3,000 – $4,800", f: "$6,000 – $9,600" }
           ]
         },
         faqs: [
           { q: 'Can you wrap our whole fleet?', a: 'Yes. From 2 vehicles to 200, we use the same design on every one and keep your files on hand for new vehicles. We can install in batches so your fleet stays on the road.' },
           { q: 'How long does a vehicle wrap last?', a: 'With quality cast vinyl and normal care, wraps typically last several years. We will go over care tips at pickup.' },
           { q: 'Will a wrap damage my paint?', a: 'Wraps applied and removed properly protect factory paint. Aftermarket or damaged paint can be a risk, and we check before installing.' },
-          { q: 'How much does a full or partial vehicle wrap cost?', a: 'It depends on the vehicle size, how much you cover and the design. See the price table above for starting prices, then send us your vehicle for an exact quote.' },
+          { q: 'How much does a full or partial vehicle wrap cost?', a: 'We charge $12 per square foot, installed, with material and design included. Full wraps start around $2,400 for a car and partial wraps around $1,200. Send us your vehicle for an exact quote.' },
           { q: 'How long will my vehicle be in the shop?', a: 'Most wraps take [X–X] days in the shop. We will schedule a drop-off time that fits your work.' }
         ], related: ['banners', 'window', 'tradeshow'] },
       monument: { name: 'Monument Signs', short: 'monument sign', href: 'Monument-Signs.dc.html', photo: '[PHOTO: monument sign at a business entrance]',
