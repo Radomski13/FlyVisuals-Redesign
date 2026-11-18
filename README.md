@@ -15,7 +15,7 @@ This is a working preview of the redesign. Every page, link, filter, the shop pr
 | What | Files |
 |---|---|
 | Home page | `index.html` |
-| Main pages | `Products`, `Shop`, `Industries`, `ServiceArea` (Locations), `Process`, `Financing`, `Gallery`, `Blog`, `About`, `Quote` |
+| Main pages | `Products`, `Services`, `Shop`, `Industries`, `ServiceArea` (Locations), `Process`, `Financing`, `Gallery`, `Blog`, `About`, `Quote` |
 | Product pages | 11 products × (main page + 5 cities) = 66 pages, e.g. `Commercial-Vehicle-Wraps-Port-Richey.dc.html` |
 | Option pages | 61 pages, e.g. `Option-Channel-Letter-Signs.dc.html` |
 | Shop | `Shop.dc.html` + 58 product pages (`Shop-*.dc.html`) |
@@ -36,7 +36,7 @@ Pages are built from shared templates. Change the product template once and all 
 - Client logos: GoPasco, Andy's Ice Cream, Jiffy Lube
 - Drive times to each city (`[XX] minutes`)
 - License number (footer)
-- Product photos for items showing a placeholder (PPF, Neon & LED, chrome delete, golf carts and more)
+- Product photos for items showing a placeholder (Neon & LED, chrome delete, golf carts and more)
 - Price ranges in the two cost guides (`[YOUR PRICE RANGE]`)
 - About page story and team photos
 

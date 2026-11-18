@@ -75,7 +75,7 @@ footer[style*="padding: 56px"]{padding-top:40px !important}
 </header>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["home","products","shop","industries","locations","process","financing","gallery","blog","none"],"default":"none"},"$preview":{"width":1440,"height":132}}'>
+<script type="text/x-dc" data-dc-script data-props='{"active":{"editor":"enum","options":["home","products","services","shop","industries","locations","process","financing","gallery","blog","none"],"default":"none"},"$preview":{"width":1440,"height":132}}'>
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { open: false }; }
   renderVals() {
@@ -83,6 +83,7 @@ class Component extends DCLogic {
     var active = this.props.active ?? 'none';
     var items = [
       { key: 'products', label: 'Products', href: 'Products.dc.html' },
+      { key: 'services', label: 'Services', href: 'Services.dc.html' },
       { key: 'industries', label: 'Industries', href: 'Industries.dc.html' },
       { key: 'locations', label: 'Locations', href: 'ServiceArea.dc.html' },
       { key: 'financing', label: 'Financing', href: 'Financing.dc.html' },
