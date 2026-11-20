@@ -73,7 +73,7 @@ class Component extends DCLogic {
       { name: 'Car Wraps', where: 'Wraps', cats: ['Wraps'], desc: 'Color change wraps, chrome delete, racing stripes and golf cart wraps.', href: 'Car-Wraps.dc.html' },
       { name: 'Custom Stickers & Decals', where: 'Printing', cats: ['Printing'], desc: 'Die-cut stickers, bumper stickers, vinyl decals, labels and hard hat stickers.', href: 'Custom-Stickers-Decals.dc.html' },
       { name: 'Neon & LED Signs', where: 'Signs', cats: ['Signs'], desc: 'Custom LED neon, open signs and digital message signs.', href: 'Neon-LED-Signs.dc.html' },
-      { name: 'Commercial Vehicle Graphics & Wraps', where: 'Wraps', cats: ['Wraps'], desc: 'Full and partial wraps, fleet graphics, lettering and car magnets.', href: 'Commercial-Vehicle-Wraps.dc.html' },
+      { name: 'Vehicle Graphics & Fleet Wraps', where: 'Wraps', cats: ['Wraps'], desc: 'Full and partial wraps, fleet graphics, lettering and car magnets.', href: 'Commercial-Vehicle-Wraps.dc.html' },
       { name: 'Business Signs', where: 'Signs', cats: ['Signs'], desc: 'Channel letters, lightboxes, dimensional letters and pylon signs.', href: 'Business-Signs.dc.html' },
       { name: 'Trade Show Displays', where: 'Events', cats: ['Events'], desc: 'Banner stands, backdrops, table covers and printed tents.', href: 'Trade-Show-Displays.dc.html' },
       { name: 'Window Decals & Graphics', where: 'Printing', cats: ['Printing', 'Signs'], desc: 'Window decals, lettering, perforated film and decorative film.', href: 'Window-Graphics.dc.html' },
@@ -81,7 +81,7 @@ class Component extends DCLogic {
       { name: 'Office & Indoor Signs', where: 'Signs', cats: ['Signs'], desc: 'Lobby logos, wall graphics, menu boards, panel signs, wayfinding and ADA signs.', href: 'Interior-ADA-Signs.dc.html' },
       { name: 'Monument Signs', where: 'Signs', cats: ['Signs'], desc: 'Foam and lit monument signs for entrances, plazas and HOAs.', href: 'Monument-Signs.dc.html' }
     ];
-    var IM = { 'Business Signs': 'ac6cac82d583332c286e5535e17ff041', 'Commercial Vehicle Graphics & Wraps': 'ca882b36f6d20e5252cd80a759326895', 'Monument Signs': '1bb5e5a8dd3bfa305e0608f8c7c1f176', 'Window Decals & Graphics': 'd7b017a18c5f35fc465080b7dda8b1b0', 'Banners, Flags & Yard Signs': '0379af1112497d904ec5f576ce4e6e96', 'Office & Indoor Signs': 'ef837f8ed683abd98a7a5f7ac74703d8', 'Car Wraps': '70196593ca83f865c6e738b052d385db', 'Boat Wraps & Marine Graphics': '5e07ae783f8ec039738438867d231755', 'Custom Stickers & Decals': '32ccf0e95ff43c73be44b4e5b57d5f51' };
+    var IM = { 'Business Signs': 'ac6cac82d583332c286e5535e17ff041', 'Vehicle Graphics & Fleet Wraps': 'ca882b36f6d20e5252cd80a759326895', 'Monument Signs': '1bb5e5a8dd3bfa305e0608f8c7c1f176', 'Window Decals & Graphics': 'd7b017a18c5f35fc465080b7dda8b1b0', 'Banners, Flags & Yard Signs': '0379af1112497d904ec5f576ce4e6e96', 'Office & Indoor Signs': 'ef837f8ed683abd98a7a5f7ac74703d8', 'Car Wraps': '70196593ca83f865c6e738b052d385db', 'Boat Wraps & Marine Graphics': '5e07ae783f8ec039738438867d231755', 'Custom Stickers & Decals': '32ccf0e95ff43c73be44b4e5b57d5f51' };
     all.forEach(function (p) { p.catStr = p.cats.join(' '); p.img = IM[p.name] ? '_blob/' + IM[p.name] : ''; p.noImg = !p.img; });
     var cats = ['All', 'Signs', 'Wraps', 'Printing', 'Events'];
     return {
