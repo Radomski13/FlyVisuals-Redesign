@@ -91,8 +91,38 @@ def schema(s,url):
         q=txt(re.sub(r'<span aria-hidden="true">.*?</span></span>','',m.group(1))); q=re.sub(r'\s*[−+]$','',q)
         qa.append({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":txt(m.group(2))}})
     if qa: out.append({"@context":"https://schema.org","@type":"FAQPage","mainEntity":qa})
-    return ''.join('<script type="application/ld+json">%s</script>'%json.dumps(o,ensure_ascii=False) for o in out)
+    return ''.join('<script type="application/ld+json" data-fv-seo>%s</script>'%json.dumps(o,ensure_ascii=False) for o in out)
+
+def layoutfix(s):
+    # start with mobile menu closed and FAQs (except first) closed, so nothing jumps when site.js runs
+    s=re.sub(r'(<nav aria-label="Mobile" data-fv-menu=""[^>]*style="[^"]*?)display: flex;',r'\1display: none;',s,count=1)
+    m=re.search(r'<button type="button" class="fv-burger"[^>]*>',s)
+    if m:
+        tag=m.group(0); ci=re.search(r'data-fv-closed-icon="([^"]*)"',tag)
+        new=tag.replace('aria-expanded="true"','aria-expanded="false"').replace('aria-label="Close menu"','aria-label="Open menu"')
+        e=s.index(tag)+len(tag); end=s.index('</button>',e)
+        s=s[:s.index(tag)]+new+(html.unescape(ci.group(1)) if ci else s[e:end])+s[end:]
+    n=[0]
+    def faq(m):
+        n[0]+=1
+        if n[0]==1: return m.group(0)
+        b=m.group(1).replace('aria-expanded="true"','aria-expanded="false"').replace('<span class="sc-interp">−</span>','<span class="sc-interp">+</span>')
+        return b+m.group(2)+'style="display: none; '+m.group(3)
+    s=re.sub(r'(<button[^>]*data-fv-faq[^>]*>.*?</button>)(\s*<p\b[^>]*?)style="([^"]*)"',faq,s,flags=re.S)
+    # main landmark
+    if '<main' not in s:
+        a=s.find('</header></div></div>'); b=s.find('<div class="sc-host" data-sc-name="Footer"')
+        if a>0 and b>a:
+            a+=len('</header></div></div>'); s=s[:a]+'<main id="main">'+s[a:b]+'</main>'+s[b:]
+    # non-blocking fonts
+    s=s.replace('<link href="https://fonts.googleapis.com/css2?','<link media="print" onload="this.media=\'all\'" href="https://fonts.googleapis.com/css2?')
+    s=s.replace('src="/images/fly-visuals-logo.png"','src="/images/fly-visuals-logo-sm.png" width="243" height="104"')
+    return s
 stats={'pages':0,'srcset':0}
+LG=IMG+'fly-visuals-logo.png'
+if os.path.exists(LG):
+    im=Image.open(LG); w,h=im.size; im.resize((round(w*104/h),104),Image.LANCZOS).save(IMG+'fly-visuals-logo-sm.png',optimize=True)
+
 for root,_,fs in os.walk(OUT):
     for f in fs:
         if f!='index.html': continue
@@ -106,9 +136,12 @@ for root,_,fs in os.walk(OUT):
             tag='<meta name="description" content="%s">'%html.escape(nd)
             s=s.replace(dm.group(0),tag,1) if dm else s.replace('</title>','</title>'+tag,1)
         if not runtime:
+            s=layoutfix(s)
             s=imgfix(s)
+            s=re.sub(r'<script type="application/ld\+json" data-fv-seo>.*?</script>','',s,flags=re.S)
             sc=schema(s,url)
             if sc: s=s.replace('</head>',sc+'</head>',1)
-            s=re.sub(r'(<table\b)',r'<div style="overflow-x:auto;-webkit-overflow-scrolling:touch">\1',s); s=s.replace('</table>','</table></div>')
+            if 'data-fv-tw' not in s:
+                s=re.sub(r'(<table\b)',r'<div data-fv-tw style="overflow-x:auto;-webkit-overflow-scrolling:touch">\1',s); s=s.replace('</table>','</table></div>')
         if s!=s0: open(p,'w',encoding='utf-8').write(s); stats['pages']+=1
 print('polished',stats,'small images',sum(1 for v in SMALL.values() if v[0]))
