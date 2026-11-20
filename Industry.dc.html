@@ -30,7 +30,6 @@ body{margin:0}
 </div>
 </div>
 <sc-if value="{{hasHero}}" hint-placeholder-val="{{true}}"><img src="{{hero}}" alt="Fly Visuals work for {{d.name}}" style="width: 100%; height: 400px; object-fit: cover; border-radius: 6px; display: block"></sc-if>
-<sc-if value="{{noHero}}" hint-placeholder-val="{{false}}"><div style="height: 400px; border-radius: 6px; background: repeating-linear-gradient(135deg, #1C1C1C 0 14px, #242424 14px 28px); display: flex; align-items: center; justify-content: center; color: #9E9E9E; font-size: 13px; font-weight: 600; text-align: center; padding: 16px; box-sizing: border-box">{{d.photo}}</div></sc-if>
 </div>
 </section>
 
@@ -58,7 +57,6 @@ body{margin:0}
 <sc-for list="{{products}}" as="p" hint-placeholder-count="4">
 <a href="{{p.href}}" style="background: #FFFFFF; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,0.06)">
 <sc-if value="{{p.img}}" hint-placeholder-val="{{true}}"><img src="{{p.img}}" alt="{{p.name}} by Fly Visuals" style="width: 100%; height: 170px; object-fit: cover; display: block"></sc-if>
-<sc-if value="{{p.noImg}}" hint-placeholder-val="{{false}}"><div style="height: 170px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PHOTO]</div></sc-if>
 <div style="padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1">
 <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 19px; font-weight: 700; color: #111111">{{p.name}}</h3>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #555555; flex-grow: 1">{{p.why}}</p>
@@ -317,8 +315,7 @@ class Component extends DCLogic {
         ],
         work: ['7051db27cf1387cf9eef44f3dcb14236', '1a86466f9a435b95f6e5f81af817674a', '25e9e209d90fe6426555765411d92235', '9525f057bf8e2e90ed05141afa6869bd'],
         popular: [{"t": "Custom Parking Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "Handicap Parking Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "Reserved Parking Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "ADA Signage", "href": "Option-ADA-and-Restroom-Signs.dc.html"}, {"t": "Custom Traffic Signs", "href": "Option-Metal-and-Aluminum-Signs.dc.html"}, {"t": "Workplace Safety Signs", "href": "Option-Safety-Parking-and-Construction-Signs.dc.html"}, {"t": "Wayfinding Signs", "href": "Option-Wayfinding-and-Directories.dc.html"}, {"t": "Fleet Vehicle Graphics", "href": "Commercial-Vehicle-Wraps.dc.html"}, {"t": "Police & Fire Vehicle Graphics", "href": "Commercial-Vehicle-Wraps.dc.html"}],
-        faqs: [
-          { q: 'Can you work with purchase orders?', a: '[CONFIRM: payment terms you accept for public agencies]' },
+        faqs: [,
           { q: 'Can you do large sign packages?', a: 'Yes. We can survey a building and quote every sign at once.' },
           { q: 'Do you mark fleet vehicles?', a: 'Yes. We apply consistent markings across cars, trucks and equipment.' }
         ] },

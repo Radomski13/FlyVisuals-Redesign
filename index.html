@@ -89,7 +89,6 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <sc-for list="{{products}}" as="p" hint-placeholder-count="11">
 <a href="{{p.href}}" style="background: #FFFFFF; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,0.08)">
 <sc-if value="{{p.img}}" hint-placeholder-val="{{true}}"><img src="{{p.img}}" alt="{{p.name}} by Fly Visuals" style="width: 100%; height: 190px; object-fit: cover; display: block"></sc-if>
-<sc-if value="{{p.noImg}}" hint-placeholder-val="{{false}}"><div style="height: 190px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PHOTO]</div></sc-if>
 <div style="padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 8px">
 <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 19px; font-weight: 700; color: #111111">{{p.name}}</h3>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #555555">{{p.desc}}</p>
@@ -160,8 +159,8 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <sc-for list="{{reviews}}" as="r" hint-placeholder-count="3">
 <blockquote style="margin: 0; background: #FFFFFF; border-radius: 6px; padding: 32px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08)">
 <span role="img" aria-label="5 out of 5 stars" style="color: {{accent}}; font-size: 20px; letter-spacing: 3px">★★★★★</span>
-<p style="margin: 0; font-size: 17px; line-height: 1.6; font-style: italic">“[CUSTOMER REVIEW TEXT]”</p>
-<footer style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; color: #111111">[Customer name], [Business]</footer>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; font-style: italic">“{{r.t}}”</p>
+<footer style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; color: #111111">{{r.n}}</footer>
 </blockquote>
 </sc-for>
 </div>
@@ -179,7 +178,7 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <sc-for list="{{posts}}" as="b" hint-placeholder-count="3">
 <article style="display: flex; flex-direction: column; gap: 12px">
 <img src="{{b.img}}" alt="" style="width: 100%; height: 210px; object-fit: cover; border-radius: 6px; display: block">
-<span style="font-size: 13px; font-weight: 700; color: #555555; text-transform: uppercase; letter-spacing: 0.08em">[DATE] · {{b.cat}}</span>
+<span style="font-size: 13px; font-weight: 700; color: #555555; text-transform: uppercase; letter-spacing: 0.08em">{{b.cat}}</span>
 <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: #111111; line-height: 1.3">{{b.t}}</h3>
 <a href="BlogPost.dc.html" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em">Read more</a>
 </article>
@@ -196,8 +195,7 @@ a{color:#111111}a:hover{color:#0A0A0A}
 class Component extends DCLogic {
   renderVals() {
     var shops = [
-      { name: 'Fly Visuals – Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', label: 'Port Richey sign shop', page: 'City-Port-Richey.dc.html', maps: 'https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668' },
-      { name: 'Fly Visuals – Tampa', address: '[TAMPA SHOP ADDRESS]', hours: '[TAMPA HOURS]', phone: '[TAMPA PHONE]', tel: '7274946162', label: 'Tampa sign shop', page: 'City-Tampa.dc.html', maps: 'https://maps.google.com/?q=Fly+Visuals+Tampa' }
+      { name: 'Fly Visuals – Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', label: 'Port Richey sign shop', page: 'City-Port-Richey.dc.html', maps: 'https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668' }
     ];
     return {
       shops: shops,
@@ -232,7 +230,7 @@ class Component extends DCLogic {
         { name: 'Schools & Churches', file: 'Industry-Schools-Churches.dc.html' },
         { name: 'Government', file: 'Industry-Government.dc.html' }
       ],
-      reviews: [1, 2, 3],
+      reviews: [{"t": "Fly Visuals is my go to for all my commercial designs, signs, stickers and more! I recommend Fly to anyone looking for a fast turnaround and great professional work.", "n": "Rey Reyes, Glass Top Concrete Coatings"}, {"t": "I recently had a vehicle wrap done for our insurance company in Tampa and the experience was excellent from start to finish. The team was professional and easy to work with.", "n": "Nick Caban, Tampa"}, {"t": "Exceptionally well priced vinyl wrap shop. Was literally $1,200 cheaper than another shop I got quoted from. The quality of the work was top notch.", "n": "Alex Maxfield"}],
       posts: [
         { cat: 'Signs', t: 'How to choose the right storefront sign for your building', img: '_blob/9e472123707ac35f201017fc54bea9f0' },
         { cat: 'Wraps', t: 'Full wrap vs. partial wrap: what fits your budget', img: '_blob/2bc59a3657b701bbb1cbc0b087066e51' },

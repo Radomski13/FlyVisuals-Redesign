@@ -105,7 +105,7 @@ open(OUT+'404.html','w').write(four)
 red=['# old site → new site (301)']+[l.rstrip() for l in open(SRC+'launch/_redirects') if l.strip() and not l.startswith('#')]
 red+=['# design file names → clean URLs']+['/%s  %s  301'%(f,u) for f,u in URL.items() if f.endswith('.dc.html') and f not in ('Header.dc.html','Footer.dc.html','ShopProduct.dc.html')]
 open(OUT+'_redirects','w').write('\n'.join(red)+'\n')
-hd=open(SRC+'_headers').read()
+hd='/images/*\n  Cache-Control: public, max-age=31536000, immutable\n/site.js\n  Cache-Control: public, max-age=86400\n/support.js\n  Cache-Control: public, max-age=86400\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n'
 if STAGING: hd='/*\n  X-Robots-Tag: noindex\n'+hd
 open(OUT+'_headers','w').write(hd)
 open(OUT+'robots.txt','w').write(('User-agent: *\nDisallow: /\n' if STAGING else 'User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n'%DOMAIN))
@@ -128,3 +128,15 @@ for root,_,fs in os.walk(OUT):
         if n!=t: open(p,'w',encoding='utf-8').write(n)
 shutil.rmtree(OUT+'_blob')
 print('images',len(EXT))
+
+# SEO + performance polish
+import subprocess
+subprocess.run([sys.executable,os.path.join(os.path.dirname(os.path.abspath(__file__)),'polish.py'),OUT],check=True)
+# pre-render runtime (shop/gallery) pages for crawlers
+_srv=subprocess.Popen([sys.executable,'-m','http.server','8791'],cwd=OUT,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+try:
+    import time; time.sleep(1)
+    subprocess.run(['node',os.path.join(os.path.dirname(os.path.abspath(__file__)),'ssr.js'),OUT,'http://localhost:8791'],check=True,cwd='/home/claude')
+finally:
+    _srv.terminate()
+subprocess.run([sys.executable,os.path.join(os.path.dirname(os.path.abspath(__file__)),'ssr_insert.py'),OUT],check=True)

@@ -44,7 +44,6 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <sc-for list="{{list}}" as="p" hint-placeholder-count="8">
 <a href="{{p.file}}" style="background: #FFFFFF; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column; box-shadow: 0 2px 8px rgba(0,0,0,0.06)">
 <sc-if value="{{p.hasImg}}" hint-placeholder-val="{{false}}"><img src="{{p.img}}" alt="{{p.n}}" style="width: 100%; height: 200px; object-fit: cover; display: block"></sc-if>
-<sc-if value="{{p.noImg}}" hint-placeholder-val="{{true}}"><div style="height: 200px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PRODUCT PHOTO]</div></sc-if>
 <div style="padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 6px; flex-grow: 1">
 <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #555555">{{p.c}}</span>
 <h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: #111111">{{p.n}}</h2>

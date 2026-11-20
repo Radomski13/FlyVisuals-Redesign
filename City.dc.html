@@ -26,7 +26,7 @@ body{margin:0}
 <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">{{c.introFull}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
-<a href="tel:{{shop.tel}}" style="border: 2px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Call {{shop.phone}}</a>
+<a href="tel:{{shop.tel}}" style="border: 2px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center"><span>Call {{shop.phone}}</span></a>
 <a href="{{shop.maps}}" style="border: 2px solid #FFFFFF; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 14px 26px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get Directions</a>
 </div>
 </div>
@@ -56,7 +56,6 @@ body{margin:0}
 <sc-for list="{{services}}" as="s" hint-placeholder-count="11">
 <a href="{{s.href}}" style="border: 1px solid #E5E5E5; border-radius: 6px; overflow: hidden; text-decoration: none; color: #1A1A1A; display: flex; flex-direction: column">
 <sc-if value="{{s.img}}" hint-placeholder-val="{{true}}"><img src="{{s.img}}" alt="{{s.name}} by Fly Visuals" style="width: 100%; height: 170px; object-fit: cover; display: block"></sc-if>
-<sc-if value="{{s.noImg}}" hint-placeholder-val="{{false}}"><div style="height: 170px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[PHOTO]</div></sc-if>
 <div style="padding: 20px; display: flex; flex-direction: column; gap: 6px">
 <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; color: #111111">{{s.label}}</h3>
 <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: #DC1A21">View →</span>
@@ -102,8 +101,8 @@ body{margin:0}
 <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 48px; align-items: start">
 <blockquote style="margin: 0; border: 1px solid #E5E5E5; border-radius: 6px; padding: 32px; display: flex; flex-direction: column; gap: 14px">
 <span role="img" aria-label="5 out of 5 stars" style="color: #DC1A21; font-size: 20px; letter-spacing: 3px">★★★★★</span>
-<p style="margin: 0; font-size: 18px; line-height: 1.6; font-style: italic">“[REVIEW FROM A {{c.upper}} CUSTOMER]”</p>
-<footer style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #111111">[Customer name], [Business], {{c.name}}</footer>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; font-style: italic">“{{c.rt}}”</p>
+<footer style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #111111">{{c.rn}}</footer>
 </blockquote>
 <div style="display: flex; flex-direction: column; gap: 12px">
 <h2 style="margin: 0 0 8px; font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 2.6vw, 30px); font-weight: 800; color: #111111">{{c.name}} FAQs</h2>
@@ -141,7 +140,7 @@ class Component extends DCLogic {
     var self = this;
     var B = '_blob/';
     var LOCATIONS = { 'port-richey': { name: 'Fly Visuals – Port Richey', short: 'Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', maps: 'https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', page: 'City-Port-Richey.dc.html' },
-      'tampa': { name: 'Fly Visuals – Tampa', short: 'Tampa', address: '[TAMPA SHOP ADDRESS]', maps: 'https://maps.google.com/?q=Fly+Visuals+Tampa+FL', hours: '[TAMPA HOURS]', phone: '[TAMPA PHONE]', tel: '7274946162', page: 'City-Tampa.dc.html' } };
+      'tampa': { name: 'Fly Visuals – Port Richey', short: 'Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', maps: 'https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', page: 'City-Port-Richey.dc.html' } };
     var CITIES = {
       'port-richey': { name: 'Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-Port-Richey.dc.html', prodSfx: 'Port-Richey', distance: 'Our Port Richey shop is right here in town',
         intro: 'Our Port Richey shop at 8132 Cormel St, minutes from New Port Richey, is where we design, print and install signs and wraps. Stop by, see samples and talk to the people who build your sign or wrap.',
@@ -177,7 +176,9 @@ class Component extends DCLogic {
     var LOCAL_PAGES = { 'wraps|clearwater': 'Commercial-Vehicle-Wraps-Clearwater.dc.html', 'storefront|tampa': 'Business-Signs-Tampa.dc.html' };
     var key = this.props.city ?? 'clearwater';
     var c0 = CITIES[key] || CITIES.clearwater;
-    var c = Object.assign({}, c0, { upper: c0.name.toUpperCase(), work: c0.work.map(function (id) { return B + id; }) });
+    var REV = {"port-richey": ["Fly Visuals is my go to for all my commercial designs, signs, stickers and more! I recommend Fly to anyone looking for a fast turnaround and great professional work.", "Rey Reyes, Glass Top Concrete Coatings"], "tampa": ["I recently had a vehicle wrap done for our insurance company in Tampa and the experience was excellent from start to finish. The team was professional and easy to work with.", "Nick Caban, Tampa"], "clearwater": ["Exceptionally well priced vinyl wrap shop. Was literally $1,200 cheaper than another shop I got quoted from. The quality of the work was top notch.", "Alex Maxfield"], "wesley-chapel": ["Fast, sharp, clean. I have a small business and I needed 3 decals quick. These guys are amazing to work with and the graphics are very clean!", "Matt Holm, small business owner"]};
+    var rv = REV[key] || REV['port-richey'];
+    var c = Object.assign({}, c0, { rt: rv[0], rn: rv[1], upper: c0.name.toUpperCase(), work: c0.work.map(function (id) { return B + id; }) });
     var shop = LOCATIONS[c.shop];
     var services = SERV.map(function (s) {
       return { name: s.name, label: s.name + ' in ' + c.name, href: s.file.replace('.dc.html', '-' + (c0.prodSfx || c0.file.slice(5, -8)) + '.dc.html'), img: s.img ? B + s.img : '', noImg: !s.img };

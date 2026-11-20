@@ -31,7 +31,7 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <img src="_blob/eb1a3785f28a56e9990f66dff4fdaf67" alt="Inside the Fly Visuals shop" style="width: 100%; height: 420px; object-fit: cover; border-radius: 6px; display: block">
 <div style="display: flex; flex-direction: column; gap: 18px">
 <h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Our story</h2>
-<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A3A3A">[YOUR STORY: when you started, why, and what makes the shop different.]</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A3A3A">Fly Visuals was started in 2026 by Brian Radomski, Christopher Cassel and Eric Bradford with one goal: give Tampa Bay business owners better branding at a fair price. Eric brings 10 years of design, production and install experience, and we're a 3M certified installer.</p>
 <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #3A3A3A">Today we handle everything in-house: design, printing, fabrication and installation. That means one team, one point of contact and no finger-pointing between vendors.</p>
 </div>
 </div>
@@ -55,9 +55,8 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 24px">
 <sc-for list="{{team}}" as="t" hint-placeholder-count="4">
 <div style="display: flex; flex-direction: column; gap: 10px">
-<div style="height: 260px; border-radius: 6px; background: repeating-linear-gradient(135deg, #E2E2E2 0 12px, #D9D9D9 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[HEADSHOT]</div>
-<strong style="font-family: 'Montserrat', sans-serif; font-size: 18px; color: #111111">[Name]</strong>
-<span style="font-size: 15px; color: #555555">{{t}}</span>
+<strong style="font-family: 'Montserrat', sans-serif; font-size: 18px; color: #111111">{{t.n}}</strong>
+<span style="font-size: 15px; color: #555555">{{t.r}}</span>
 </div>
 </sc-for>
 </div>
@@ -71,7 +70,7 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <p style="margin: 0; font-size: 17px; line-height: 1.7; color: #D4D4D4">8132 Cormel St<br>Port Richey, FL 34668<br>Mon–Fri 9 AM – 5 PM</p>
 <a href="ServiceArea.dc.html" style="color: #FFFFFF; font-weight: 700">See our service area →</a>
 </div>
-<div style="height: 260px; border-radius: 6px; background: repeating-linear-gradient(135deg, #1C1C1C 0 14px, #242424 14px 28px); display: flex; align-items: center; justify-content: center; color: #9E9E9E; font-size: 13px; font-weight: 600">[MAP EMBED]</div>
+<iframe title="Map of Fly Visuals, 8132 Cormel St, Port Richey, FL" src="https://www.google.com/maps?q=8132+Cormel+St,+Port+Richey,+FL+34668&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width: 100%; height: 240px; border: 0; border-radius: 8px; display: block"></iframe>
 </div>
 </section>
 
@@ -80,7 +79,7 @@ a{color:#111111}a:hover{color:#0A0A0A}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2800}}'>
 class Component extends DCLogic {
-  renderVals() { return { team: ['Owner', 'Lead Designer', 'Install Lead', 'Project Manager'] }; }
+  renderVals() { return { team: [{ n: 'Brian Radomski', r: 'Co-owner' }, { n: 'Christopher Cassel', r: 'Co-owner' }, { n: 'Eric Bradford', r: 'Co-owner · 10 years in install, design and production' }] }; }
 }
 </script>
 </body>
