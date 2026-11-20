@@ -40,9 +40,11 @@ def fit_desc(d,url):
     if url in DESC: return DESC[url]
     d=re.sub(r'\s+',' ',html.unescape(d or '')).strip()
     seg=[x for x in url.split('/') if x]
-    if len(seg)==2 and seg[1] in CITY and not url.startswith('/locations') and len(d)>160:
+    if len(seg)==2 and seg[1] in CITY and not url.startswith('/locations') and (len(d)>160 or CITY[seg[1]] not in d):
+        d=re.sub(r'\s*Fly Visuals, Port Richey, FL\.$','',d)
         tail=' Serving %s, FL.'%CITY[seg[1]]; room=160-len(tail)
         cut=d[:room]; k=max(cut.rfind('. '),cut.rfind('! '),cut.rfind('? '))
+        if len(d)+len(tail)<=160: return d+tail
         return (cut[:k+1] if k>=60 else cut[:cut.rfind(' ')].rstrip(',;:')+'…')+tail
     if len(d)>160:
         cut=d[:160]; k=max(cut.rfind('. '),cut.rfind('! '),cut.rfind('? '))

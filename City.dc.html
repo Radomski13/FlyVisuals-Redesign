@@ -39,7 +39,7 @@ body{margin:0}
 <a href="tel:{{shop.tel}}" style="font-weight: 700; color: #111111; text-decoration: none">{{shop.phone}}</a>
 <span style="font-weight: 700; color: #111111">{{c.distance}}</span>
 </div>
-<div style="height: 160px; border-radius: 6px; background: repeating-linear-gradient(135deg, #EFEFEF 0 12px, #E7E7E7 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[MAP: {{shop.name}}]</div>
+<iframe title="Map of Fly Visuals, 8132 Cormel St, Port Richey, FL" src="https://www.google.com/maps?q=8132+Cormel+St,+Port+Richey,+FL+34668&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width: 100%; height: 160px; border: 0; border-radius: 6px; display: block"></iframe>
 <a href="{{shop.maps}}" style="align-self: flex-start; background: #111111; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Get Directions</a>
 <a href="ServiceArea.dc.html" style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px">All locations →</a>
 </div>
@@ -92,7 +92,6 @@ body{margin:0}
 <img src="{{w}}" alt="Fly Visuals project" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px; display: block">
 </sc-for>
 </div>
-<p style="margin: 0; font-size: 14px; color: #555555">[Swap in photos of {{c.name}} jobs as you complete them.]</p>
 </div>
 </div>
 </section>
@@ -147,17 +146,17 @@ class Component extends DCLogic {
         areas: ['US-19 business corridor', 'Ridge Road', 'Downtown Port Richey', 'Grand Boulevard'],
         nearby: ['New Port Richey', 'Hudson', 'Holiday', 'Trinity'],
         work: ['ca882b36f6d20e5252cd80a759326895', '7051db27cf1387cf9eef44f3dcb14236', '0379af1112497d904ec5f576ce4e6e96', '75dbb44a7fead5f130cba2a22e75cbca'] },
-      'clearwater': { name: 'Clearwater', county: 'Pinellas', shop: 'port-richey', file: 'City-Clearwater.dc.html', distance: 'About [XX] minutes from our shop',
+      'clearwater': { name: 'Clearwater', county: 'Pinellas', shop: 'port-richey', file: 'City-Clearwater.dc.html', distance: 'About 40 minutes from our shop',
         intro: 'Building signs, fleet wraps and window graphics for Clearwater businesses, from the beach to US-19.',
         areas: ['Downtown (Cleveland Street)', 'Gulf to Bay Boulevard', 'US-19', 'Clearwater Beach'],
         nearby: ['Tarpon Springs', 'Palm Harbor', 'Dunedin', 'Largo', 'Safety Harbor'],
         work: ['d7b017a18c5f35fc465080b7dda8b1b0', 'eeaf84faba44af69ea94568046061e56', 'b7dd7cfeab907461afc29989841a50c4', '6ccd33fa1f30a3d897309ab5a5c9c819'] },
-      'wesley-chapel': { name: 'Wesley Chapel', county: 'Pasco', shop: 'port-richey', file: 'City-Wesley-Chapel.dc.html', distance: 'About [XX] minutes from our shop',
+      'wesley-chapel': { name: 'Wesley Chapel', county: 'Pasco', shop: 'port-richey', file: 'City-Wesley-Chapel.dc.html', distance: 'About 40 minutes from our shop',
         intro: 'New plazas and businesses are opening all the time in Wesley Chapel. We help them launch with signs that stand out.',
         areas: ['SR 54 and SR 56', 'Wiregrass area', 'Bruce B. Downs Boulevard', 'Wesley Chapel Boulevard'],
         nearby: ['Land O’ Lakes', 'Lutz', 'Zephyrhills', 'New Tampa'],
         work: ['1bb5e5a8dd3bfa305e0608f8c7c1f176', 'a8a67f6f60fac1e8f10d5e0d40108971', '6ccd33fa1f30a3d897309ab5a5c9c819', 'b6841dd49343e897cbe612f8cc2dc86e'] },
-      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'tampa', file: 'City-Tampa.dc.html', distance: 'Our Tampa shop is right here in town',
+      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'tampa', file: 'City-Tampa.dc.html', distance: 'About 45 minutes from our shop',
         intro: 'Our Tampa shop makes business signs, fleet wraps and window graphics for Tampa businesses, from Westshore offices to restaurants in Ybor City and shops on Dale Mabry. Stop by to see samples and talk through your project.',
         areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'],
         nearby: ['Odessa', 'Lutz', 'Town ’n’ Country', 'Brandon'],
@@ -171,7 +170,10 @@ class Component extends DCLogic {
       { slug: 'tradeshow', name: 'Trade Show Displays', file: 'Trade-Show-Displays.dc.html', img: '' },
       { slug: 'window', name: 'Window Decals & Graphics', file: 'Window-Graphics.dc.html', img: 'd7b017a18c5f35fc465080b7dda8b1b0' },
       { slug: "boats", name: "Boat Wraps & Marine Graphics", file: "Boat-Wraps.dc.html", img: "5e07ae783f8ec039738438867d231755" },
-      { slug: 'interior', name: 'Office & Indoor Signs', file: 'Interior-ADA-Signs.dc.html', img: 'ef837f8ed683abd98a7a5f7ac74703d8' }
+      { slug: 'interior', name: 'Office & Indoor Signs', file: 'Interior-ADA-Signs.dc.html', img: 'ef837f8ed683abd98a7a5f7ac74703d8' },
+      { slug: 'printing', name: 'Large Format Printing', file: 'Large-Format-Printing.dc.html', img: '9525f057bf8e2e90ed05141afa6869bd' },
+      { slug: 'logo', name: 'Logo & Graphic Design', file: 'Option-Logo-and-Graphic-Design.dc.html', img: '06b61233a80a909a40ad71c93fb7f386' },
+      { slug: 'repair', name: 'Sign Repair & Installation', file: 'Option-Sign-Repair-and-Installation.dc.html', img: 'c6310178ef29d7da1d0ce06bef15b96b' }
     ];
     var LOCAL_PAGES = { 'wraps|clearwater': 'Commercial-Vehicle-Wraps-Clearwater.dc.html', 'storefront|tampa': 'Business-Signs-Tampa.dc.html' };
     var key = this.props.city ?? 'clearwater';

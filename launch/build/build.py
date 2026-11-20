@@ -87,7 +87,7 @@ for i,r in enumerate(plan):
         h=re.sub(r'<button type="button"([^>]*)>Get My Free Quote</button>',r'<button type="submit"\1>Get My Free Quote</button>',h,1)
         assert 'name="phone"' in h and 'type="submit"' in h and 'data-fv-chip' in h
     if f.startswith('Option-'):
-        h=re.sub(r'<title>([^<|]*)</title>',lambda m:'<title>%s in Tampa Bay | Fly Visuals</title>'%m.group(1).strip(),h,1)
+        h=re.sub(r'<title>([^<|]*)</title>',lambda m:'<title>%s%s | Fly Visuals</title>'%(m.group(1).strip(),'' if ' in ' in m.group(1) else ' in Tampa Bay'),h,1)
     write(url,finish_static(h,url,extra))
 # thanks page
 h=open(RAW+'thanks.html').read()

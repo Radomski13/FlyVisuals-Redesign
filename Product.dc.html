@@ -175,7 +175,7 @@ body{margin:0}
 <span style="font-size: 16px">{{shop.hours}}</span>
 <a href="tel:{{shop.tel}}" style="font-size: 16px; font-weight: 700; color: #111111; text-decoration: none">{{shop.phone}}</a>
 <span style="font-size: 16px; font-weight: 700; color: #111111">{{city.distance}}</span>
-<div style="height: 150px; border-radius: 6px; background: repeating-linear-gradient(135deg, #EFEFEF 0 12px, #E7E7E7 12px 24px); display: flex; align-items: center; justify-content: center; color: #666666; font-size: 13px; font-weight: 600">[MAP: shop to {{city.name}}]</div>
+<iframe title="Map of Fly Visuals, 8132 Cormel St, Port Richey, FL" src="https://www.google.com/maps?q=8132+Cormel+St,+Port+Richey,+FL+34668&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width: 100%; height: 150px; border: 0; border-radius: 6px; display: block"></iframe>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px">
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Quote</a>
 <a href="{{city.file}}" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 10px 20px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center"><span>More in {{city.name}}</span></a>
@@ -273,7 +273,7 @@ class Component extends DCLogic {
         ],
         faqs: [
           { q: 'Do I need a permit for a storefront sign?', a: 'Most exterior signs in Pasco and nearby counties need a permit, and many plazas have landlord rules too. We prepare drawings and handle the permit process for you.' },
-          { q: 'How long does a storefront sign take?', a: 'Timing depends on the sign type and permit approval. Most projects take [X–X] weeks from approved proof to install.' },
+          { q: 'How long does a storefront sign take?', a: 'Timing depends on the sign type and permit approval. Most projects take 1–2 weeks from approved proof to install, plus permit time when one is needed.' },
           { q: 'Can you fix or update my existing sign?', a: 'Yes. We can replace faces, convert lighting to LED, or repair damaged signs.' }
         ], related: ['window', 'interior', 'banners'] },
       wraps: { name: 'Vehicle Graphics & Fleet Wraps', tag: 'Commercial · Fleet · Trucks · Vans · Trailers', short: 'wrap', href: 'Commercial-Vehicle-Wraps.dc.html', photo: '[PHOTO: fully wrapped work van]',
@@ -310,7 +310,7 @@ class Component extends DCLogic {
           { q: 'How long does a vehicle wrap last?', a: 'With quality cast vinyl and normal care, wraps typically last several years. We will go over care tips at pickup.' },
           { q: 'Will a wrap damage my paint?', a: 'Wraps applied and removed properly protect factory paint. Aftermarket or damaged paint can be a risk, and we check before installing.' },
           { q: 'How much does a full or partial vehicle wrap cost?', a: 'We charge $12 per square foot, installed, with material and design included. Full wraps start around $2,400 for a car and partial wraps around $1,200. Send us your vehicle for an exact quote.' },
-          { q: 'How long will my vehicle be in the shop?', a: 'Most wraps take [X–X] days in the shop. We will schedule a drop-off time that fits your work.' }
+          { q: 'How long will my vehicle be in the shop?', a: 'Most wraps take 2–3 days in the shop. 24-hour rush service is available for an added fee. We will schedule a drop-off time that fits your work.' }
         ], related: ['banners', 'window', 'tradeshow'] },
       window: { name: 'Window Decals & Graphics', short: 'window decals and graphics', href: 'Window-Graphics.dc.html', photo: '[PHOTO: storefront window graphics]',
         intro: 'Use your windows to show hours, promotions and your brand. Vinyl window graphics are affordable, fast and easy to update.',
@@ -324,7 +324,7 @@ class Component extends DCLogic {
         faqs: [
           { q: 'Can window graphics be removed later?', a: 'Yes. Most window vinyl removes cleanly, which makes it great for seasonal promotions.' },
           { q: 'Will I still be able to see out?', a: 'With perforated film you can see out from inside while customers see a full graphic from outside.' },
-          { q: 'How fast can you install?', a: 'Simple window lettering can often be done within [X] days of proof approval.' }
+          { q: 'How fast can you install?', a: 'Simple window lettering can often be done within 1–3 business days of proof approval.' }
         ], related: ['storefront', 'interior', 'banners'] },
       banners: { name: 'Banners, Flags & Yard Signs', short: 'banner', href: 'Banners-Flags.dc.html', photo: '[PHOTO: grand opening banner on a building]',
         intro: 'Fast, affordable signs for grand openings, events and promotions. Printed in-house so you can get them quickly.',
@@ -337,7 +337,7 @@ class Component extends DCLogic {
 
         ],
         faqs: [
-          { q: 'How fast can I get a banner?', a: 'Standard banners are often ready in [X] business days, and rush options may be available.' },
+          { q: 'How fast can I get a banner?', a: 'Most banners are ready in 1–3 business days, and rush options may be available.' },
           { q: 'Can you design it for me?', a: 'Yes. Send your logo and info and our designers will create a proof.' },
           { q: 'Will it hold up outside?', a: 'We use outdoor-rated materials and finishing. Lifespan depends on sun and wind exposure.' }
         ], related: ['tradeshow', 'window', 'wraps'] },
@@ -372,7 +372,7 @@ class Component extends DCLogic {
         faqs: [
           { q: 'Are displays easy to carry?', a: 'Most come with carry cases and fit in a car trunk.' },
           { q: 'Can I reuse the hardware?', a: 'Yes. Many displays let you swap the printed graphic and keep the frame.' },
-          { q: 'How soon do I need to order?', a: 'Order at least [X] weeks before your event to leave time for proofs.' }
+          { q: 'How soon do I need to order?', a: 'Order at least 2 weeks before your event to leave time for proofs and shipping.' }
         ], related: ['banners', 'wraps', 'interior'] },
       carwraps: { name: "Car Wraps", tag: "Color Change · Matte & Satin · Chrome Delete · Accents", short: "car wrap", href: "Car-Wraps.dc.html", photo: '[PHOTO]',
         intro: "Vinyl car wraps that change your color, black out the chrome or add custom accents, without a permanent paint job. Wraps protect your factory paint and come off cleanly later.",
@@ -386,7 +386,7 @@ class Component extends DCLogic {
         faqs: [
           { q: "Is a wrap cheaper than paint?", a: "A quality color change wrap usually costs less than a comparable paint job, and you can remove it later." },
           { q: "How do I take care of a wrap?", a: "Hand wash when you can, avoid pressure washing the edges and park in shade when possible. We give you care tips at pickup." },
-          { q: "How long will my car be in the shop?", a: "Most color change wraps take [X–X] days. Chrome deletes and accents are often done in a day." },
+          { q: "How long will my car be in the shop?", a: "Most color change wraps take 2–3 days. 24-hour rush service is available for an added fee. Chrome deletes and accents are often done in a day." },
           { q: "Are your vinyl wrap installers certified?", a: "Yes. Our vinyl wrap installers are 3M and Avery certified, and every car is wrapped inside our shop." }
         ], related: ["wraps", "window", "boats"] },
       boats: { name: "Boat Wraps & Marine Graphics", short: "boat wrap", href: "Boat-Wraps.dc.html", photo: '[PHOTO]',
@@ -401,7 +401,7 @@ class Component extends DCLogic {
         faqs: [
           { q: "Will a boat wrap hold up to salt water?", a: "Yes. We use marine-grade vinyl and laminate made for salt, sun and spray. Rinse with fresh water after trips and it will last for years." },
           { q: "Can you wrap my boat in the water?", a: "No. Boats are wrapped in our shop, out of the water, so the surface is clean and dry. Bring it on the trailer." },
-          { q: "How long does a boat wrap take?", a: "Most boat wraps take [X–X] days. Lettering and registration numbers are often done the same day." }
+          { q: "How long does a boat wrap take?", a: "Most boat wraps take 2–3 days. Larger boats can take longer. Lettering and registration numbers are often done the same day." }
         ], related: ["wraps", "carwraps", "window"] },
       stickers: { name: 'Custom Stickers & Decals', short: 'sticker', href: 'Custom-Stickers-Decals.dc.html', photo: '[PHOTO]', noCity: true,
         intro: 'Custom stickers, decals and labels in any shape, size or quantity. Die-cut stickers, bumper stickers, vinyl decals and product labels, printed in our Port Richey shop. Pick up or we ship.',
@@ -419,7 +419,7 @@ class Component extends DCLogic {
           { q: 'Are your stickers waterproof?', a: 'Yes. Our outdoor vinyl stickers are laminated to handle sun, water and scratches.' },
           { q: 'Do you ship stickers?', a: 'Yes. Pick up free at our shop or we ship anywhere in the lower 48.' }
         ], related: ['carwraps', 'window', 'banners'] },
-      printing: { name: 'Large Format Printing', h1: 'Large Format Printing Services', tag: 'Banners · Posters · Wall Graphics · Vinyl · Displays', short: 'large format print', href: 'Large-Format-Printing.dc.html', photo: '[PHOTO: large format printer in the shop]', noCity: true, service: true,
+      printing: { name: 'Large Format Printing', h1: 'Large Format Printing Services', tag: 'Banners · Posters · Wall Graphics · Vinyl · Displays', short: 'large format print', href: 'Large-Format-Printing.dc.html', photo: '[PHOTO: large format printer in the shop]', service: true,
         intro: 'Large format printing services for businesses, events and job sites. We print banners, posters, wall murals, floor and window graphics, vinyl signs and trade show displays on our own wide format printers, then laminate, cut and install them in house.',
         types: [
           { t: "Poster Printing", d: "Large posters for stores, events, offices and presentations." },
@@ -435,7 +435,7 @@ class Component extends DCLogic {
         faqs: [
           { q: 'What is large format printing?', a: 'It is printing bigger than a normal office printer can handle, like banners, posters, wall graphics and vehicle wraps. We print on wide format printers made for vinyl and banner material.' },
           { q: 'What materials can you print on?', a: 'Banner vinyl, mesh, adhesive vinyl, perforated window film, floor vinyl, poster paper, coroplast and aluminum. Tell us where it is going and we will pick the right material.' },
-          { q: 'How fast can I get my prints?', a: 'Most large format prints are ready in [X–X] days. Rush orders are often possible, so just ask.' },
+          { q: 'How fast can I get my prints?', a: 'Most large format prints are ready in 1–3 business days. Rush orders are often possible, so just ask.' },
           { q: 'Do you install what you print?', a: 'Yes. We install wall, window and floor graphics, and we can hang banners and signs too.' }
         ], related: ['banners', 'tradeshow', 'window'] }
     };
@@ -445,9 +445,9 @@ class Component extends DCLogic {
       'tampa': { name: 'Fly Visuals – Port Richey', short: 'Port Richey', address: '8132 Cormel St, Port Richey, FL 34668', maps: 'https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668', hours: 'Mon–Fri 9 AM – 5 PM', phone: '(727) 494-6162', tel: '7274946162', page: 'City-Port-Richey.dc.html' } };
     var CITIES = {
       'port-richey': { name: 'Port Richey', county: 'Pasco', shop: 'port-richey', file: 'City-Port-Richey.dc.html', distance: 'Our shop is right here in town', areas: ['US-19 business corridor', 'Ridge Road', 'Downtown New Port Richey (Main Street)', 'SR 52'], nearby: ['New Port Richey', 'Hudson', 'Holiday', 'Trinity', 'Spring Hill'] },
-      'clearwater': { name: 'Clearwater', county: 'Pinellas', shop: 'port-richey', file: 'City-Clearwater.dc.html', distance: 'About [XX] minutes from our shop', areas: ['Downtown (Cleveland Street)', 'Gulf to Bay Boulevard', 'US-19', 'Clearwater Beach'], nearby: ['Tarpon Springs', 'Palm Harbor', 'Dunedin', 'Largo', 'Safety Harbor'] },
-      'wesley-chapel': { name: 'Wesley Chapel', county: 'Pasco', shop: 'port-richey', file: 'City-Wesley-Chapel.dc.html', distance: 'About [XX] minutes from our shop', areas: ['SR 54 and SR 56', 'Wiregrass area', 'Bruce B. Downs Boulevard', 'Wesley Chapel Boulevard'], nearby: ['Land O’ Lakes', 'Lutz', 'Zephyrhills', 'New Tampa'] },
-      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'tampa', file: 'City-Tampa.dc.html', distance: 'Our Tampa shop is right here in town', areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'], nearby: ['Odessa', 'Lutz', 'Town ’n’ Country', 'Brandon'] }
+      'clearwater': { name: 'Clearwater', county: 'Pinellas', shop: 'port-richey', file: 'City-Clearwater.dc.html', distance: 'About 40 minutes from our shop', areas: ['Downtown (Cleveland Street)', 'Gulf to Bay Boulevard', 'US-19', 'Clearwater Beach'], nearby: ['Tarpon Springs', 'Palm Harbor', 'Dunedin', 'Largo', 'Safety Harbor'] },
+      'wesley-chapel': { name: 'Wesley Chapel', county: 'Pasco', shop: 'port-richey', file: 'City-Wesley-Chapel.dc.html', distance: 'About 40 minutes from our shop', areas: ['SR 54 and SR 56', 'Wiregrass area', 'Bruce B. Downs Boulevard', 'Wesley Chapel Boulevard'], nearby: ['Land O’ Lakes', 'Lutz', 'Zephyrhills', 'New Tampa'] },
+      'tampa': { name: 'Tampa', county: 'Hillsborough', shop: 'tampa', file: 'City-Tampa.dc.html', distance: 'About 45 minutes from our shop', areas: ['Westshore', 'Downtown and Channel District', 'Dale Mabry Highway', 'Ybor City'], nearby: ['Odessa', 'Lutz', 'Town ’n’ Country', 'Brandon'] }
     };
     var cityKey = this.props.city ?? 'none';
     var city = CITIES[cityKey] || null;
