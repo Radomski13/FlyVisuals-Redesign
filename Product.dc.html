@@ -260,6 +260,10 @@ class Component extends DCLogic {
           { t: "Logo & Graphic Design", d: "Logo design and graphic design for your signs, vehicle wraps, banners and print, from a local Port Richey team." },
           { t: "Metal & Aluminum Signs", d: "Durable metal and aluminum signs for buildings, gates, fences, parking lots and interiors, including printe..." },
           { t: "Safety, Parking & Construction Signs", d: "Parking, traffic, safety and construction signs for businesses, plazas and job sites." },
+          { t: "Monument Signs", d: "Foam and lit entrance signs, including Royal Foam monuments." },
+          { t: "Foam Monument Signs", d: "Royal Foam signs that look like stone or stucco for less than masonry." },
+          { t: "Address & Tenant Signs", d: "Monument and pylon signs that list every business in a plaza." },
+          { t: "HOA, Church & Community Signs", d: "Entrance signs for neighborhoods, churches and schools." },
           { t: "Pylon & Pole Signs", d: "Tall roadside signs for plazas and stand-alone locations." },
           { t: "Vinyl Signs", d: "Custom vinyl signs and lettering for walls, doors, windows, boards and vehicles." },
           { t: "Blade & Projecting Signs", d: "Signs that stick out from the wall so foot traffic sees you." },
@@ -270,7 +274,7 @@ class Component extends DCLogic {
           { q: 'Do I need a permit for a storefront sign?', a: 'Most exterior signs in Pasco and nearby counties need a permit, and many plazas have landlord rules too. We prepare drawings and handle the permit process for you.' },
           { q: 'How long does a storefront sign take?', a: 'Timing depends on the sign type and permit approval. Most projects take [X–X] weeks from approved proof to install.' },
           { q: 'Can you fix or update my existing sign?', a: 'Yes. We can replace faces, convert lighting to LED, or repair damaged signs.' }
-        ], related: ['monument', 'window', 'interior'] },
+        ], related: ['window', 'interior', 'neon'] },
       wraps: { name: 'Vehicle Graphics & Fleet Wraps', tag: 'Commercial · Fleet · Trucks · Vans · Trailers', short: 'wrap', href: 'Commercial-Vehicle-Wraps.dc.html', photo: '[PHOTO: fully wrapped work van]',
         intro: 'Fly Visuals offers vehicle wrapping services for business cars, trucks, vans and fleets. Full wraps, partial wraps, vehicle graphics and lettering that turn every drive into an ad, printed and installed in our shop. One vehicle or a whole fleet, we keep your branding the same on every one.',
         types: [
@@ -307,20 +311,6 @@ class Component extends DCLogic {
           { q: 'How much does a full or partial vehicle wrap cost?', a: 'We charge $12 per square foot, installed, with material and design included. Full wraps start around $2,400 for a car and partial wraps around $1,200. Send us your vehicle for an exact quote.' },
           { q: 'How long will my vehicle be in the shop?', a: 'Most wraps take [X–X] days in the shop. We will schedule a drop-off time that fits your work.' }
         ], related: ['banners', 'window', 'tradeshow'] },
-      monument: { name: 'Monument Signs', short: 'monument sign', href: 'Monument-Signs.dc.html', photo: '[PHOTO: monument sign at a business entrance]',
-        intro: 'A monument sign gives your property a solid, permanent look at the entrance. As an authorized Royal Foam dealer we offer foam monument signs that look like stone at a lower cost.',
-        types: [
-          { t: "HOA, Church & Community Signs", d: "Neighborhood entry signs and columns." },
-          { t: "Address & Tenant Signs", d: "Signs that list multiple tenants in plazas and office parks." },
-          { t: "Foam Monument Signs", d: "Lightweight coated foam that looks like stone or stucco." },
-          { t: "Lit Monument Signs", d: "Internally lit cabinets or lit letters for night visibility." }
-
-        ],
-        faqs: [
-          { q: 'What is a foam monument sign?', a: 'It is a high-density foam core with a hard protective coating, shaped and finished to look like stone, brick or stucco.' },
-          { q: 'Do monument signs need a permit?', a: 'Yes, almost always. We handle the drawings, permit and placement rules for your property.' },
-          { q: 'Can you match my building?', a: 'We can match colors and textures to your building and add your logo in dimensional letters.' }
-        ], related: ['storefront', 'interior', 'banners'] },
       window: { name: 'Window Decals & Graphics', short: 'window decals and graphics', href: 'Window-Graphics.dc.html', photo: '[PHOTO: storefront window graphics]',
         intro: 'Use your windows to show hours, promotions and your brand. Vinyl window graphics are affordable, fast and easy to update.',
         types: [
@@ -368,7 +358,7 @@ class Component extends DCLogic {
           { q: 'Are your ADA signs compliant?', a: 'We build ADA signs to the current ADA Standards for tactile text, braille and mounting height.' },
           { q: 'Can you install on any wall?', a: 'We install on drywall, block, glass and more, using the right hardware for each surface.' },
           { q: 'Do you offer full office packages?', a: 'Yes. We can plan and quote every sign in a building at once.' }
-        ], related: ['storefront', 'window', 'monument'] },
+        ], related: ['storefront', 'window', 'interior'] },
       tradeshow: { name: 'Trade Show Displays', short: 'display', href: 'Trade-Show-Displays.dc.html', photo: '[PHOTO: trade show booth setup]',
         intro: 'Stand out at expos, fairs and events with portable displays that are easy to set up and travel with.',
         types: [
@@ -495,7 +485,6 @@ class Component extends DCLogic {
     var IMG = {
       storefront: {"hero": "ac6cac82d583332c286e5535e17ff041", "g": ["9e472123707ac35f201017fc54bea9f0", "c6310178ef29d7da1d0ce06bef15b96b", "be60f04d14957e31b6d0607ff2269cd0"]},
       wraps: {"hero": "ca882b36f6d20e5252cd80a759326895", "g": ["c6649eaea9e843e40a6b67ef7fc0b9d4", "1a50adfc2dea210acb9e8fe5f60e2c6a", "aac65a0cf9ee229893a9262c630aa944"]},
-      monument: {"hero": "1bb5e5a8dd3bfa305e0608f8c7c1f176", "g": ["2ea15d84900f2c6dce4efeba699d3776", "", ""]},
       window: {"hero": "d7b017a18c5f35fc465080b7dda8b1b0", "g": ["331a8db8745212714afde77c6b9cd526", "9d0a5067aa0fad787b6824ada8718776", "a8a67f6f60fac1e8f10d5e0d40108971"]},
       banners: {"hero": "0379af1112497d904ec5f576ce4e6e96", "g": ["8ec6d01b8259744594432acd593b75f7", "2c746e6c4ffeded5659bb31e300b7c67", "2807b4e78f3ea61ae9b3495e42671a78"]},
       interior: {"hero": "ef837f8ed683abd98a7a5f7ac74703d8", "g": ["", "", ""]},

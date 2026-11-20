@@ -171,6 +171,7 @@ Old URL,Redirect to (301)
 /indoor-signs/tarpon-springs/,/indoor-signs/clearwater/
 /indoor-signs/trinity/,/locations/port-richey/
 /indoor-signs/zephyrhills/,/indoor-signs/wesley-chapel/
+/lit-monument-signs/,/monument-signs/
 /logo-design/holiday/,/logo-design/
 /logo-design/hudson-bayonet-point/,/logo-design/
 /logo-design/land-o-lakes/,/logo-design/
@@ -193,6 +194,10 @@ Old URL,Redirect to (301)
 /magnets/trinity/,/locations/port-richey/
 /magnets/wesley-chapel/,/magnets/
 /magnets/zephyrhills/,/magnets/
+/monument-signs/clearwater/,/monument-signs/
+/monument-signs/port-richey/,/monument-signs/
+/monument-signs/tampa/,/monument-signs/
+/monument-signs/wesley-chapel/,/monument-signs/
 /outdoor-signs/,/business-signs/
 /outdoor-signs/holiday/,/business-signs/port-richey/
 /outdoor-signs/hudson-bayonet-point/,/business-signs/port-richey/

@@ -173,10 +173,9 @@ class Component extends DCLogic {
       { slug: 'tradeshow', name: 'Trade Show Displays', file: 'Trade-Show-Displays.dc.html', img: '' },
       { slug: 'window', name: 'Window Decals & Graphics', file: 'Window-Graphics.dc.html', img: 'd7b017a18c5f35fc465080b7dda8b1b0' },
       { slug: "boats", name: "Boat Wraps & Marine Graphics", file: "Boat-Wraps.dc.html", img: "5e07ae783f8ec039738438867d231755" },
-      { slug: 'monument', name: 'Monument Signs', file: 'Monument-Signs.dc.html', img: '1bb5e5a8dd3bfa305e0608f8c7c1f176' },
       { slug: 'interior', name: 'Office & Indoor Signs', file: 'Interior-ADA-Signs.dc.html', img: 'ef837f8ed683abd98a7a5f7ac74703d8' }
     ];
-    var LOCAL_PAGES = { 'wraps|clearwater': 'Commercial-Vehicle-Wraps-Clearwater.dc.html', 'storefront|tampa': 'Business-Signs-Tampa.dc.html', 'monument|wesley-chapel': 'Monument-Signs-Wesley-Chapel.dc.html' };
+    var LOCAL_PAGES = { 'wraps|clearwater': 'Commercial-Vehicle-Wraps-Clearwater.dc.html', 'storefront|tampa': 'Business-Signs-Tampa.dc.html' };
     var key = this.props.city ?? 'clearwater';
     var c0 = CITIES[key] || CITIES.clearwater;
     var c = Object.assign({}, c0, { upper: c0.name.toUpperCase(), work: c0.work.map(function (id) { return B + id; }) });
