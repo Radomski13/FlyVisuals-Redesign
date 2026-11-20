@@ -199,6 +199,11 @@
 /monument-signs/port-richey/                            /monument-signs/                              301
 /monument-signs/tampa/                                  /monument-signs/                              301
 /monument-signs/wesley-chapel/                          /monument-signs/                              301
+/neon-led-signs/                                        /custom-led-neon-signs/                       301
+/neon-led-signs/clearwater/                             /custom-led-neon-signs/                       301
+/neon-led-signs/port-richey/                            /custom-led-neon-signs/                       301
+/neon-led-signs/tampa/                                  /custom-led-neon-signs/                       301
+/neon-led-signs/wesley-chapel/                          /custom-led-neon-signs/                       301
 /outdoor-signs/                                         /business-signs/                              301
 /outdoor-signs/holiday/                                 /business-signs/port-richey/                  301
 /outdoor-signs/hudson-bayonet-point/                    /business-signs/port-richey/                  301
