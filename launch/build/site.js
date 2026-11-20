@@ -37,3 +37,11 @@
     }
   });
 })();
+(function () {
+  // prefill the quote form from a shop order (?order=...) and the artwork form (?order=FV-...)
+  document.addEventListener('DOMContentLoaded', function () {
+    var q = new URLSearchParams(location.search).get('order'); if (!q) return;
+    var d = document.querySelector('textarea[name="details"]'); if (d && !d.value) d.value = q;
+    var o = document.querySelector('input[name="order"]'); if (o) o.value = q;
+  });
+})();

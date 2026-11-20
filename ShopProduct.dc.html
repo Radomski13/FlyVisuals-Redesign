@@ -127,7 +127,8 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <span style="font-size: 14px; color: #555555">{{eachLine}}</span>
 <sc-if value="{{err}}" hint-placeholder-val="{{false}}"><span role="alert" style="font-size: 14px; font-weight: 700; color: #B3141A">{{err}}</span></sc-if>
 </div>
-<a href="#" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 17px; padding: 16px 24px; border-radius: 999px; min-height: 56px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 10px">Order now</a>
+<button type="button" onClick="{{order}}" disabled="{{busy}}" style="background: #DC1A21; color: #FFFFFF; border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 17px; padding: 16px 24px; border-radius: 999px; min-height: 56px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%">{{orderLabel}}</button>
+<sc-if value="{{msg}}" hint-placeholder-val="{{false}}"><span role="status" style="font-size: 14px; font-weight: 600; color: #111111; text-align: center">{{msg}}</span></sc-if>
 <span style="text-align: center; font-size: 14px; color: #555555">Next: secure checkout, then send your artwork →</span>
 <sc-if value="{{hasOpt}}" hint-placeholder-val="{{false}}"><a href="{{optFile}}" style="text-align: center; font-size: 15px; font-weight: 700; color: #111111">Need design or install? See our {{optName}} service →</a></sc-if>
 <div style="background: #F4F4F4; border-radius: 6px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333333"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#DC1A21" stroke-width="2" aria-hidden="true" style="flex-shrink: 0"><path d="M1 4h14v12H1zM15 9h4l3 3v4h-7z"></path><circle cx="5.5" cy="18.5" r="2"></circle><circle cx="18.5" cy="18.5" r="2"></circle></svg><span>{{fulfillNote}}</span></div>
@@ -183,7 +184,7 @@ a{color:#111111}a:hover{color:#0A0A0A}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"slug":{"editor":"enum","options":["yard-signs", "vinyl-banners", "pole-banners", "outdoor-banners", "fabric-banners", "vinyl-mesh-banners", "fence-banners", "roll-up-retractable-banner-stands", "steppy-retractable-banner-stands", "l-style-banner-stands", "korean-style-x-banner-stands", "adjustable-x-frame-banner-stands", "non-retractable-adjustable-banner-stands", "premium-ez-extend-banner-stands", "big-head-cutouts", "pvc-foam-board-signs", "sintra-boards", "gator-boards", "metal-a-frame-signs", "plastic-a-frame-signs", "poster-signs", "table-runners", "stretch-table-covers", "premium-table-covers", "fitted-table-covers", "straight-pillow-case-backdrop-displays", "curved-pillow-case-backdrop-displays", "straight-pop-up-backdrop-displays", "curved-pop-up-backdrop-displays", "straight-wall-box-backdrop-displays", "adjustable-backdrop-displays", "step-repeat-straight-pop-up-displays", "step-repeat-curved-pop-up-displays", "straight-pillow-case-step-repeat-displays", "step-repeat-curved-pillow-case-displays", "step-repeat-straight-wall-box-displays", "step-repeat-adjustable-straight-displays", "rectangle-flags", "personalized-flags", "feather-flags", "blade-flags", "teardrop-flags", "sail-flags", "giant-flags", "6-ft-canopy-tent", "10-ft-canopy-tent", "custom-canopy-tent-10-x-15", "custom-canopy-tent-10-x-20", "clear-window-clings", "opaque-window-clings", "perforated-window-decals", "clear-window-decals", "opaque-window-decals", "frosted-window-decals", "wall-decals", "floor-decals", "clear-vehicle-decals", "opaque-vehicle-decals"],"default":"vinyl-banners"},"$preview":{"width":1440,"height":2600}}'>
 class Component extends DCLogic {
-  constructor(props) { super(props); this.state = { size: 0, custom: false, cw: 3, ch: 2, pkg: 0, opts: {}, qty: 1, qc: false, ship: false, open: {} }; }
+  constructor(props) { super(props); this.state = { size: 0, custom: false, cw: 3, ch: 2, pkg: 0, opts: {}, qty: 1, qc: false, ship: false, open: {}, busy: false, msg: '' }; }
   componentDidUpdate(prev) { if (prev.slug !== this.props.slug) this.setState({ size: 0, custom: false, pkg: 0, opts: {}, qty: 1, qc: false, open: {} }); }
   renderVals() {
     var self = this, st = this.state, B = '_blob/';
@@ -277,7 +278,23 @@ class Component extends DCLogic {
       fulfillNote: st.ship ? 'Ships in 2–3 business days, then 1–5 days in transit. We email your shipping cost to approve first.' : 'Free pickup at 8132 Cormel St, Port Richey · Mon–Fri 9 AM – 5 PM',
       totalTxt: err ? '—' : money(total), err: err,
       eachLine: err ? '' : money(each) + ' each · ' + qty + ' ' + (qty === 1 ? 'item' : 'items') + (pct ? ' · ' + pct + '% volume discount' : ''),
-      catLower: p.c.toLowerCase(), related: related
+      catLower: p.c.toLowerCase(), related: related,
+      busy: st.busy, msg: st.msg, orderLabel: st.busy ? 'Starting checkout…' : 'Order now',
+      order: function () {
+        if (err || self.state.busy) return;
+        var payload = { slug: slug, size: st.size, custom: custom, cw: st.cw, ch: st.ch, pkg: st.pkg, opts: st.opts, qty: qty, ship: st.ship };
+        self.setState({ busy: true, msg: '' });
+        fetch('/.netlify/functions/shop-checkout', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+          .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+          .then(function (res) {
+            if (res.ok && res.j.url) { window.location.href = res.j.url; return; }
+            var q = res.j.quote;
+            if (!q) { self.setState({ busy: false, msg: (res.j.error ? 'Please check your choices: ' + res.j.error : 'Checkout is unavailable right now.') + ' Call (727) 494-6162 to order.' }); return; }
+            var summary = 'Online order: ' + q.name + ' — ' + [q.sizeText].concat(q.optText).join('; ') + ' — Qty ' + q.qty + ' — ' + money(q.total) + ' — ' + (st.ship ? 'Ship to me' : 'Free pickup');
+            window.location.href = '/contact/?order=' + encodeURIComponent(summary);
+          })
+          .catch(function () { self.setState({ busy: false, msg: 'Checkout is unavailable right now. Call (727) 494-6162 to order.' }); });
+      }
     };
   }
 }

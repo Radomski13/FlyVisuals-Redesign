@@ -135,6 +135,10 @@ for root,_,fs in os.walk(OUT):
         if nd:
             tag='<meta name="description" content="%s">'%html.escape(nd)
             s=s.replace(dm.group(0),tag,1) if dm else s.replace('</title>','</title>'+tag,1)
+        if '<link rel="icon"' not in s:
+            s=s.replace('</head>','<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#111111"></head>',1)
+        if url=='/order-complete/' and 'noindex' not in s:
+            s=s.replace('<title>','<meta name="robots" content="noindex"><title>',1)
         if not runtime:
             s=layoutfix(s)
             s=imgfix(s)

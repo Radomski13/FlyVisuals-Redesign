@@ -109,7 +109,7 @@ hd='/images/*\n  Cache-Control: public, max-age=31536000, immutable\n/site.js\n 
 if STAGING: hd='/*\n  X-Robots-Tag: noindex\n'+hd
 open(OUT+'_headers','w').write(hd)
 open(OUT+'robots.txt','w').write(('User-agent: *\nDisallow: /\n' if STAGING else 'User-agent: *\nAllow: /\nSitemap: %s/sitemap.xml\n'%DOMAIN))
-sm=['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']+['<url><loc>%s%s</loc></url>'%(DOMAIN,u) for u in sorted(set(written)) if u!='/thanks/']+['</urlset>']
+sm=['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']+['<url><loc>%s%s</loc></url>'%(DOMAIN,u) for u in sorted(set(written)) if u not in ('/thanks/','/order-complete/')]+['</urlset>']
 open(OUT+'sitemap.xml','w').write('\n'.join(sm))
 print('pages',len(written),'unknown links',sorted(unknown))
 
@@ -129,6 +129,19 @@ for root,_,fs in os.walk(OUT):
 shutil.rmtree(OUT+'_blob')
 print('images',len(EXT))
 
+# carried over from the old site: Merchant Center files, product photos, icons, /logan/, functions
+LS=SRC+'launch/static/'
+for root,dirs,fs in os.walk(LS):
+    if '_oldpolicy' in root: continue
+    for f in fs:
+        src=os.path.join(root,f); dst=os.path.join(OUT,os.path.relpath(src,LS)); os.makedirs(os.path.dirname(dst),exist_ok=True); shutil.copy2(src,dst)
+FD=OUT+'netlify/functions/'
+if os.path.exists(OUT+'netlify'): shutil.rmtree(OUT+'netlify')
+shutil.copytree(SRC+'launch/functions',FD)
+json.dump(json.loads(re.search(r'var D = (\{.*?\});\n',open(SRC+'ShopProduct.dc.html').read()).group(1)),open(FD+'data/shop-data.json','w'))
+open(OUT+'netlify.toml','w').write('[build]\n  publish = "."\n  command = ""\n\n[functions]\n  directory = "netlify/functions"\n  node_bundler = "esbuild"\n  included_files = ["netlify/functions/data/**"]\n')
+with open(OUT+'_redirects','a') as fr: fr.write('\n/netlify/*  /404.html  404!\n')
+with open(OUT+'_headers','a') as fh: fh.write('/logan/*\n  X-Robots-Tag: noindex, nofollow\n/logan\n  X-Robots-Tag: noindex, nofollow\n/order-complete/*\n  X-Robots-Tag: noindex\n/google-merchant-feed.xml\n  Cache-Control: public, max-age=3600\n')
 # SEO + performance polish
 import subprocess
 subprocess.run([sys.executable,os.path.join(os.path.dirname(os.path.abspath(__file__)),'polish.py'),OUT],check=True)
