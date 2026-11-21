@@ -30,9 +30,9 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px">
 <h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(28px, 3vw, 38px); font-weight: 800; color: #111111">Our locations</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 24px">
-<sc-for list="{{locations}}" as="l" hint-placeholder-count="1">
+<sc-for list="{{locations}}" as="l" hint-placeholder-count="2">
 <article style="border: 1px solid #E5E5E5; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column">
-<iframe title="Google map of Fly Visuals - Signs &amp; Wraps, 8132 Cormel St, Port Richey, FL" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3513.7517763958563!2d-82.7219229!3d28.275542599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2918663bfe46f%3A0xdbd952e789382adc!2sFly%20Visuals%20-%20Signs%20%26%20Wraps!5e0!3m2!1sen!2sus!4v1795210986565!5m2!1sen!2sus" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="width: 100%; height: 260px; border: 0; border-radius: 0px; display: block"></iframe>
+<iframe title="Google map of {{l.name}}" src="{{l.embed}}" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin" style="width: 100%; height: 260px; border: 0; border-radius: 0px; display: block"></iframe>
 <div style="padding: 28px; display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #DC1A21">{{l.tag}}</span>
 <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: #111111">{{l.name}}</h3>
@@ -40,7 +40,7 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <span style="font-size: 16px">{{l.phone}} · {{l.hours}}</span>
 <span style="font-size: 15px; color: #555555">Serves: {{l.serves}}</span>
 <div style="display: flex; flex-wrap: wrap; gap: 10px; padding-top: 8px">
-<a href="https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668" style="background: #111111; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Get Directions</a>
+<a href="{{l.maps}}" style="background: #111111; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Get Directions</a>
 <a href="{{l.page}}" style="border: 2px solid #111111; color: #111111; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; padding: 10px 20px; border-radius: 4px; min-height: 46px; box-sizing: border-box; display: inline-flex; align-items: center">Location Page</a>
 </div>
 </div>
@@ -49,7 +49,7 @@ a{color:#111111}a:hover{color:#0A0A0A}
 <div style="border: 2px dashed #D0D0D0; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; justify-content: center; gap: 12px; min-height: 280px; box-sizing: border-box">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #555555">Coming soon</span>
 <h3 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: #111111">More Fly Visuals locations</h3>
-<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #555555">We're growing across Tampa Bay. Until a shop opens near you, our Port Richey crew comes to you for consults and installs.</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #555555">We're growing across Tampa Bay. Until a shop opens near you, our crew comes to you for consults and installs.</p>
 </div>
 </div>
 </div>
@@ -87,7 +87,8 @@ a{color:#111111}a:hover{color:#0A0A0A}
 class Component extends DCLogic {
   renderVals() {
     var locations = [
-      { name: 'Fly Visuals – Port Richey', tag: 'Headquarters', address: '8132 Cormel St, Port Richey, FL 34668', phone: '(727) 494-6162', hours: 'Mon–Fri 9 AM – 5 PM', serves: 'All of Pasco, Hernando, Pinellas and Hillsborough', page: 'index.html' }
+      { name: 'Fly Visuals – Port Richey', tag: 'Headquarters', address: '8132 Cormel St, Port Richey, FL 34668', phone: '(727) 494-6162', hours: 'Mon–Fri 9 AM – 5 PM', serves: 'Port Richey, New Port Richey, Hudson, Clearwater and all of Pasco, Hernando and Pinellas', page: 'City-Port-Richey.dc.html', maps: 'https://maps.google.com/?q=8132+Cormel+St,+Port+Richey,+FL+34668', embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3513.7517763958563!2d-82.7219229!3d28.275542599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2918663bfe46f%3A0xdbd952e789382adc!2sFly%20Visuals%20-%20Signs%20%26%20Wraps!5e0!3m2!1sen!2sus!4v1795210986565!5m2!1sen!2sus' },
+      { name: 'Fly Visuals – Tampa', tag: 'Tampa shop', address: '3903 Northdale Blvd, Tampa, FL 33624', phone: '(727) 494-6162', hours: 'Mon–Fri 9 AM – 5 PM', serves: 'Tampa, Carrollwood, Lutz, Wesley Chapel and all of Hillsborough', page: 'City-Tampa.dc.html', maps: 'https://maps.google.com/?q=3903+Northdale+Blvd,+Tampa,+FL+33624', embed: 'https://www.google.com/maps?q=3903+Northdale+Blvd,+Tampa,+FL+33624&output=embed' }
     ];
     var P = { 'Port Richey': 'City-Port-Richey.dc.html', 'New Port Richey': 'City-Port-Richey.dc.html', 'Wesley Chapel': 'City-Wesley-Chapel.dc.html', 'Clearwater': 'City-Clearwater.dc.html', 'Tampa': 'City-Tampa.dc.html' };
     var raw = [

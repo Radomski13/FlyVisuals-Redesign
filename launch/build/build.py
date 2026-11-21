@@ -41,9 +41,13 @@ def fixlinks(s):
     s=re.sub(r'href=(["\'])(?:\./)?index\.html\1',r'href=\1/\1',s)
     return s
 def schema_home():
-    return {"@context":"https://schema.org","@type":"LocalBusiness","@id":DOMAIN+"/#port-richey","name":"Fly Visuals","url":DOMAIN+"/","telephone":"+1-727-494-6162","email":"flyvisualsfl@gmail.com",
+    pr={"@context":"https://schema.org","@type":"LocalBusiness","@id":DOMAIN+"/#port-richey","name":"Fly Visuals","url":DOMAIN+"/","telephone":"+1-727-494-6162","email":"flyvisualsfl@gmail.com",
             "address":{"@type":"PostalAddress","streetAddress":"8132 Cormel St","addressLocality":"Port Richey","addressRegion":"FL","postalCode":"34668","addressCountry":"US"},
             "openingHours":"Mo-Fr 09:00-17:00","areaServed":["Pasco County, FL","Pinellas County, FL","Hillsborough County, FL","Hernando County, FL"],"priceRange":"$$"}
+    tp={"@context":"https://schema.org","@type":"LocalBusiness","@id":DOMAIN+"/#tampa","name":"Fly Visuals – Tampa","url":DOMAIN+"/locations/tampa/","telephone":"+1-727-494-6162","email":"flyvisualsfl@gmail.com",
+        "address":{"@type":"PostalAddress","streetAddress":"3903 Northdale Blvd","addressLocality":"Tampa","addressRegion":"FL","postalCode":"33624","addressCountry":"US"},
+        "openingHours":"Mo-Fr 09:00-17:00","areaServed":["Hillsborough County, FL","Pasco County, FL"],"priceRange":"$$","parentOrganization":{"@id":DOMAIN+"/#port-richey"}}
+    return [pr,tp]
 def finish_static(h,url,extra_head=''):
     h=re.sub(r'<script src="[^"]*support\.js"></script>','',h)
     h=re.sub(r'<script type="text/x-dc"[^>]*>.*?</script>','',h,flags=re.S)

@@ -16,7 +16,7 @@ DESC={'/about/':'Fly Visuals is a local sign and wrap shop in Port Richey, FL. W
 '/guides/vehicle-wraps-complete-guide/':'Vehicle wrap costs, cast vs. calendered vinyl, how long wraps last in Florida, and full vs. partial wraps. A guide from Fly Visuals.',
 '/blog/car-wrap-cost/':'What a car wrap costs in Tampa Bay, what changes the price, and our $12 per square foot installed pricing for cars, trucks and vans.',
 '/industries/':'Signs, wraps and graphics for contractors, restaurants, retail, medical offices, HOAs, schools, churches and more across Tampa Bay.',
-'/locations/':'Fly Visuals serves Pasco, Pinellas, Hernando and Hillsborough from our Port Richey sign shop, including Tampa, Clearwater and Wesley Chapel.',
+'/locations/':'Fly Visuals serves Pasco, Pinellas, Hernando and Hillsborough from our sign shops in Port Richey and Tampa, including Clearwater and Wesley Chapel.',
 '/our-process/':'How a Fly Visuals sign or wrap project works, from free quote and design proof to printing, fabrication and installation.',
 '/products/':'Order yard signs, banners, stickers, flags and displays online. Ships across the US or pick up free at our Port Richey, FL shop.',
 '/signs-and-graphics/':'Every sign, wrap and graphic we make: business signs, vehicle wraps, banners, window graphics, stickers, trade show displays and more.',
