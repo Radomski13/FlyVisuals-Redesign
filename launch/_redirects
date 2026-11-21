@@ -161,7 +161,7 @@
 /floor-graphics/wesley-chapel/                          /floor-graphics/                              301
 /floor-graphics/zephyrhills/                            /floor-graphics/                              301
 /full-vehicle-wraps/                                    /vehicle-wraps/                               301
-/graphics/                                              /signs-and-graphics/                          301
+/graphics/                                              /                                             301
 /guides/                                                /blog/                                        301
 /guides/ceramic-vs-dyed-window-tint/                    /blog/                                        301
 /guides/sign-materials-guide/                           /blog/                                        301
@@ -239,7 +239,9 @@
 /residential-tinting/trinity/                           /frosted-and-decorative-film/                 301
 /residential-tinting/wesley-chapel/                     /frosted-and-decorative-film/                 301
 /residential-tinting/zephyrhills/                       /frosted-and-decorative-film/                 301
-/signs/                                                 /signs-and-graphics/                          301
+/services/                                              /                                             301
+/signs-and-graphics/                                    /                                             301
+/signs/                                                 /                                             301
 /tinting/                                               /                                             301
 /trailer-wraps/holiday/                                 /trailer-wraps/                               301
 /trailer-wraps/hudson-bayonet-point/                    /trailer-wraps/                               301
@@ -351,7 +353,7 @@
 /window-graphics/trinity/                               /window-graphics/port-richey/                 301
 /window-graphics/zephyrhills/                           /window-graphics/wesley-chapel/               301
 /wrap-visualizer/                                       /car-wraps/                                   301
-/wraps/                                                 /signs-and-graphics/                          301
+/wraps/                                                 /                                             301
 /yamaha-jet-boat-22sd-wrap.JPG                          /images/flats-boat-wrap-blue-lightning-tampa-fl-2.jpg 301
 /yard-signs/holiday/                                    /yard-signs/                                  301
 /yard-signs/hudson-bayonet-point/                       /yard-signs/                                  301

@@ -160,7 +160,7 @@ Old URL,Redirect to (301)
 /floor-graphics/wesley-chapel/,/floor-graphics/
 /floor-graphics/zephyrhills/,/floor-graphics/
 /full-vehicle-wraps/,/vehicle-wraps/
-/graphics/,/signs-and-graphics/
+/graphics/,/
 /guides/,/blog/
 /guides/ceramic-vs-dyed-window-tint/,/blog/
 /guides/sign-materials-guide/,/blog/
@@ -238,7 +238,9 @@ Old URL,Redirect to (301)
 /residential-tinting/trinity/,/frosted-and-decorative-film/
 /residential-tinting/wesley-chapel/,/frosted-and-decorative-film/
 /residential-tinting/zephyrhills/,/frosted-and-decorative-film/
-/signs/,/signs-and-graphics/
+/services/,/
+/signs-and-graphics/,/
+/signs/,/
 /tinting/,/
 /trailer-wraps/holiday/,/trailer-wraps/
 /trailer-wraps/hudson-bayonet-point/,/trailer-wraps/
@@ -350,7 +352,7 @@ Old URL,Redirect to (301)
 /window-graphics/trinity/,/window-graphics/port-richey/
 /window-graphics/zephyrhills/,/window-graphics/wesley-chapel/
 /wrap-visualizer/,/car-wraps/
-/wraps/,/signs-and-graphics/
+/wraps/,/
 /yamaha-jet-boat-22sd-wrap.JPG,/images/flats-boat-wrap-blue-lightning-tampa-fl-2.jpg
 /yard-signs/holiday/,/yard-signs/
 /yard-signs/hudson-bayonet-point/,/yard-signs/
