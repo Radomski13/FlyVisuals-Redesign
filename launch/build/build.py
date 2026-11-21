@@ -1,5 +1,5 @@
 import csv, json, os, re, shutil, subprocess, html, sys
-SRC='/home/claude/flyvisuals-redesign/'; OUT='/home/claude/flyvisuals-live/'; RAW='/tmp/claude-0/-home-claude/a8013e0b-8655-5c58-81c7-1543d506ab10/scratchpad/build/raw/'
+SRC='/home/claude/flyvisuals-redesign/'; OUT='/home/claude/flyvisuals-live/'; RAW='/home/claude/fvwork/build/raw/'
 DOMAIN='https://flyvisualsfl.com'; STAGING = '--prod' not in sys.argv
 plan=[r for r in csv.DictReader(open(SRC+'launch/url-plan.csv'))]
 URL={r['Design page']:r['Production URL'] for r in plan}
@@ -13,7 +13,7 @@ if '--skip-render' not in sys.argv:
         items.append({'id':str(i),'file':f2,'mode':'runtime-meta' if RUNTIME(f) and f!='Shop.dc.html' and f!='Gallery.dc.html' else ('skip' if RUNTIME(f) else 'static')})
     items.append({'id':'thanks','file':'Quote.dc.html','mode':'thanks'})
     json.dump([x for x in items if x['mode']!='skip'],open(RAW+'plan.json','w'))
-    PS='/tmp/claude-0/-home-claude/a8013e0b-8655-5c58-81c7-1543d506ab10/scratchpad/build/psrc/'
+    PS='/home/claude/fvwork/build/psrc/'
     shutil.rmtree(PS,ignore_errors=True); shutil.copytree(SRC,PS,ignore=shutil.ignore_patterns('.git'))
     for t in ['Product','Option','City','Industry','Process']:
         fp=PS+t+'.dc.html'; x=open(fp).read(); assert 'var open = self.state.open === i;' in x; open(fp,'w').write(x.replace('var open = self.state.open === i;','var open = true;'))
