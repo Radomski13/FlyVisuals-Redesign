@@ -157,3 +157,5 @@ try:
 finally:
     _srv.terminate()
 subprocess.run([sys.executable,os.path.join(os.path.dirname(os.path.abspath(__file__)),'ssr_insert.py'),OUT],check=True)
+# sitemap lastmod (only for pages whose HTML changed)
+subprocess.run([sys.executable,os.path.join(os.path.dirname(os.path.abspath(__file__)),'sitemap_dates.py'),OUT,SRC+'launch/sitemap-dates.json'],check=True)
