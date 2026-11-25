@@ -5,7 +5,7 @@ import os,re,json,html,sys
 from PIL import Image
 OUT=sys.argv[1] if len(sys.argv)>1 else '/home/claude/flyvisuals-live/'
 DOMAIN='https://flyvisualsfl.com'
-TITLES={'/about/':'About Fly Visuals | Sign & Wrap Shop in Port Richey, FL','/blog/':'Sign & Wrap Tips | Fly Visuals Blog','/contact/':'Request a Free Quote | Fly Visuals',
+TITLES={'/privacy-policy/':'Privacy Policy | Fly Visuals','/terms/':'Terms of Service | Fly Visuals','/return-policy/':'Return & Refund Policy | Fly Visuals','/shipping-policy/':'Shipping & Pickup Policy | Fly Visuals','/about/':'About Fly Visuals | Sign & Wrap Shop in Port Richey, FL','/blog/':'Sign & Wrap Tips | Fly Visuals Blog','/contact/':'Request a Free Quote | Fly Visuals',
 '/financing/':'Sign & Wrap Financing with Snap | Fly Visuals','/gallery/':'Sign & Wrap Gallery | Fly Visuals Projects','/industries/':'Signs & Wraps by Industry | Fly Visuals',
 '/locations/':'Service Area: Pasco, Pinellas & Hillsborough | Fly Visuals','/our-process/':'Our Sign & Wrap Process | Fly Visuals','/products/':'Order Signs, Banners & Stickers Online | Fly Visuals',
 '/signs-and-graphics/':'Signs, Wraps & Graphics | All Products | Fly Visuals','/thanks/':'Thanks for Your Request | Fly Visuals','/services/':'Printing, Design & Sign Repair Services | Fly Visuals'}
