@@ -21,8 +21,9 @@ body{margin:0}
 <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 18px">
 <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: 8px; flex-wrap: wrap"><a href="index.html" style="color: #D4D4D4">Home</a><span aria-hidden="true">/</span><a href="Industries.dc.html" style="color: #D4D4D4">Industries</a><span aria-hidden="true">/</span><span>{{d.name}}</span></nav>
-<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8A8F">Signs &amp; graphics for</span>
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8A8F">{{d.name}}</span>
 <h1 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(34px, 4.2vw, 52px); line-height: 1.08; font-weight: 800">{{d.h1}}</h1>
+<h2 style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.25; font-weight: 700; color: #FFFFFF">{{d.h2}}</h2>
 <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #D4D4D4">{{d.intro}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px">
 <a href="Quote.dc.html" style="background: #DC1A21; color: #FFFFFF; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; padding: 16px 28px; border-radius: 4px; min-height: 52px; box-sizing: border-box; display: inline-flex; align-items: center">Get a Free Quote</a>
@@ -140,7 +141,7 @@ class Component extends DCLogic {
       tradeshow: { name: 'Trade Show Displays', href: 'Trade-Show-Displays.dc.html', img: '' }
     };
     var D = {
-      contractors: { name: 'Contractors & Home Services', h1: "Construction Signs & Contractor Truck Wraps", short: 'contractors', file: 'Industry-Contractors.dc.html', hero: '29c1b327d1eeb8fd2211ba4cde29ce46', photo: '',
+      contractors: { name: 'Contractors & Home Services', h1: "Contractor Truck Wraps & Job Site Signs", h2: "Signs & Wraps That Win More Jobs", short: 'contractors', file: 'Industry-Contractors.dc.html', hero: '29c1b327d1eeb8fd2211ba4cde29ce46', photo: '',
         intro: "Construction signs, job site banners and truck wraps for roofers, plumbers, HVAC, landscapers, pool and pest pros. Your truck and your job sites are your best ads. We make sure they bring in calls.",
         needs: [
           { t: 'Look professional on the road', d: 'A clean, branded truck tells homeowners you are established before you knock on the door.' },
@@ -160,7 +161,7 @@ class Component extends DCLogic {
           { q: 'Should I get a full wrap or lettering?', a: 'It depends on budget and goals. Lettering is affordable and clean; a full wrap gets the most attention. We can show you both on your vehicle.' },
           { q: 'Do you do yard signs for job sites?', a: 'Yes. We print corrugated yard signs with stakes in any quantity.' }
         ] },
-      restaurants: { name: 'Restaurants & Bars', h1: "Restaurant Signs & Signage", short: 'restaurants', file: 'Industry-Restaurants.dc.html', hero: '1bb5e5a8dd3bfa305e0608f8c7c1f176', photo: '',
+      restaurants: { name: 'Restaurants & Bars', h1: "Restaurant Signs & Graphics", h2: "Signs & Graphics That Fill Seats", short: 'restaurants', file: 'Industry-Restaurants.dc.html', hero: '1bb5e5a8dd3bfa305e0608f8c7c1f176', photo: '',
         intro: "Restaurant signs and signage that get hungry people through the door: storefront signs, menu boards, window decals, banners and food truck wraps for restaurants, bars and coffee shops.",
         needs: [
           { t: 'Be seen day and night', d: 'Lit signs keep you visible for dinner and late-night crowds.' },
@@ -180,7 +181,7 @@ class Component extends DCLogic {
           { q: 'Do you make menu boards?', a: 'Yes. Printed boards or panels you can update when prices change.' },
           { q: 'Can you work with my plaza sign rules?', a: 'Yes. Send us your landlord sign criteria and we design to fit.' }
         ] },
-      retail: { name: 'Retail Stores', h1: "Store Signs & Retail Signage", short: 'retailers', file: 'Industry-Retail.dc.html', hero: '9e472123707ac35f201017fc54bea9f0', photo: '',
+      retail: { name: 'Retail Stores', h1: "Store Signs & Retail Signage", h2: "Storefront Graphics That Pull Shoppers In", short: 'retailers', file: 'Industry-Retail.dc.html', hero: '9e472123707ac35f201017fc54bea9f0', photo: '',
         intro: "Store signs and retail signage that pull shoppers in from the street: storefront signs, business window decals, now hiring signs and in-store graphics for boutiques, shops and showrooms.",
         needs: [
           { t: 'Stop people walking by', d: 'Bold storefront and window graphics that make people look twice.' },
@@ -200,7 +201,7 @@ class Component extends DCLogic {
           { q: 'Can you see out through window graphics?', a: 'With perforated film, customers see the graphic outside and you can still see out.' },
           { q: 'Do you print posters and in-store signs?', a: 'Yes. Posters, frames, shelf signs and floor graphics.' }
         ] },
-      medical: { name: 'Medical & Dental', h1: "Medical Office Signs & Healthcare Signage", short: 'medical offices', file: 'Industry-Medical.dc.html', hero: '', photo: '[PHOTO: medical or dental office sign]',
+      medical: { name: 'Medical & Dental', h1: "Medical Office & Healthcare Signs", h2: "Signs That Help Patients Find & Trust You", short: 'medical offices', file: 'Industry-Medical.dc.html', hero: '', photo: '[PHOTO: medical or dental office sign]',
         intro: "Medical office signs and healthcare signage that help patients find you and feel at ease: building signs, ADA signs, wayfinding and lobby graphics for clinics, dental offices, pharmacies and vet clinics.",
         needs: [
           { t: 'Easy to find', d: 'Clear building and suite signs so patients don’t get lost.' },
@@ -220,7 +221,7 @@ class Component extends DCLogic {
           { q: 'Can you add privacy to exam room windows?', a: 'Yes. Frosted or privacy film blocks views while letting light in.' },
           { q: 'Can you update names when doctors change?', a: 'Yes. We can design directories and door signs with replaceable inserts.' }
         ] },
-      realestate: { name: 'Real Estate', h1: "Real Estate Signs & Realtor Signs", short: 'real estate pros', file: 'Industry-Real-Estate.dc.html', hero: '2807b4e78f3ea61ae9b3495e42671a78', photo: '',
+      realestate: { name: 'Real Estate', h1: "Signs & Vehicle Wraps for Real Estate Agents", h2: "Signs That Help Agents Sell Faster", short: 'real estate pros', file: 'Industry-Real-Estate.dc.html', hero: '2807b4e78f3ea61ae9b3495e42671a78', photo: '',
         intro: "Real estate signs and realtor signs that sell listings: for sale signs, open house signs, sign posts, riders and car magnets for agents, brokers, property managers and title offices.",
         needs: [
           { t: 'Signs for every listing', d: 'Yard signs, riders and open house signs ready when you need them.' },
@@ -240,7 +241,7 @@ class Component extends DCLogic {
           { q: 'Do you make open house signs?', a: 'Yes. A-frames, directional arrows and riders.' },
           { q: 'Can you make magnets for my car?', a: 'Yes. Car door magnets are a popular low-cost option for agents.' }
         ] },
-      automarine: { name: 'Auto & Marine', h1: "Dealership, Auto Shop & Marine Signs", short: 'auto and marine businesses', file: 'Industry-Auto-Marine.dc.html', hero: '5e07ae783f8ec039738438867d231755', photo: '',
+      automarine: { name: 'Auto & Marine', h1: "Car Dealership & Auto Shop Signs", h2: "Graphics That Sell Cars, Boats & Service", short: 'auto and marine businesses', file: 'Industry-Auto-Marine.dc.html', hero: '5e07ae783f8ec039738438867d231755', photo: '',
         intro: "Car dealership signs, car lot signs and auto shop signs, plus boat lettering and marine graphics for dealers, repair shops, car washes, gas stations and marinas.",
         needs: [
           { t: 'Brand your shop', d: 'Building and bay signs that tell drivers what you do.' },
@@ -260,7 +261,7 @@ class Component extends DCLogic {
           { q: 'Do you wrap boats?', a: 'Yes. We use marine-grade vinyl for hulls, consoles and boat names.' },
           { q: 'Do you work with dealers and shops?', a: 'Yes. We can set up ongoing pricing for repeat wrap and graphics work.' }
         ] },
-      hoa: { name: 'HOAs & Communities', h1: "HOA & Neighborhood Entrance Signs", short: 'communities', file: 'Industry-HOAs.dc.html', hero: '', photo: '[PHOTO: community entrance monument]',
+      hoa: { name: 'HOAs & Communities', h1: "Signs for HOAs & Communities", h2: "Curb Appeal for Your Neighborhood", short: 'communities', file: 'Industry-HOAs.dc.html', hero: '', photo: '[PHOTO: community entrance monument]',
         intro: "HOA signs, neighborhood entrance signs and community signs that make a great first impression: entrance monuments, custom street signs, pool and amenity signs and reserved parking signs.",
         needs: [
           { t: 'A strong entrance', d: 'Monument signs that set the tone for the whole community.' },
@@ -280,7 +281,7 @@ class Component extends DCLogic {
           { q: 'Do you handle permits for monument signs?', a: 'Yes. We prepare drawings and handle the permit process.' },
           { q: 'Can you match our community colors?', a: 'Yes. We match colors, fonts and logos to your community brand.' }
         ] },
-      schools: { name: 'Schools & Churches', h1: "Church Signs, Banners & School Signs", short: 'schools and churches', file: 'Industry-Schools-Churches.dc.html', hero: '', photo: '[PHOTO: school or church sign]',
+      schools: { name: 'Schools & Churches', h1: "Signs for Schools & Churches", h2: "Signs That Welcome Everyone In", short: 'schools and churches', file: 'Industry-Schools-Churches.dc.html', hero: '', photo: '[PHOTO: school or church sign]',
         intro: "Church signs, church banners and school signs that welcome families and visitors: outdoor church signs, LED message signs, directional signs, graduation yard signs and team banners.",
         needs: [
           { t: 'Easy to find', d: 'Monument and building signs visible from the road.' },
@@ -300,7 +301,7 @@ class Component extends DCLogic {
           { q: 'Do you do full campus wayfinding?', a: 'Yes. We can plan and quote every sign on your campus together.' },
           { q: 'Can you wrap our van or bus?', a: 'Yes. We do lettering and full wraps for church and school vehicles.' }
         ] },
-      government: { name: 'Government & Facilities', h1: "Parking, ADA & Facility Signs", short: 'facilities', file: 'Industry-Government.dc.html', hero: 'c6649eaea9e843e40a6b67ef7fc0b9d4', photo: '[PHOTO: facility or fleet signage]',
+      government: { name: 'Government & Facilities', h1: "Signs for Government & Public Facilities", h2: "Clear, Compliant Signs for Public Spaces", short: 'facilities', file: 'Industry-Government.dc.html', hero: 'c6649eaea9e843e40a6b67ef7fc0b9d4', photo: '[PHOTO: facility or fleet signage]',
         intro: "Custom parking signs, handicap parking signs, ADA signage and facility signs for government buildings, parks, warehouses and property managers. Clear, durable and code-compliant.",
         needs: [
           { t: 'Compliance', d: 'ADA signs built to current standards.' },
@@ -319,7 +320,7 @@ class Component extends DCLogic {
           { q: 'Can you do large sign packages?', a: 'Yes. We can survey a building and quote every sign at once.' },
           { q: 'Do you mark fleet vehicles?', a: 'Yes. We apply consistent markings across cars, trucks and equipment.' }
         ] },
-      franchise: { name: 'Franchises & Multi-Location Brands', h1: "Franchise Signs & Storefront Graphics", short: 'franchises', file: 'Industry-Franchises.dc.html', hero: 'ac6cac82d583332c286e5535e17ff041', photo: '',
+      franchise: { name: 'Franchises & Multi-Location Brands', h1: "Franchise Signs & Storefront Graphics", h2: "Brand-Consistent Signs for Every Location", short: 'franchises', file: 'Industry-Franchises.dc.html', hero: 'ac6cac82d583332c286e5535e17ff041', photo: '',
         intro: "Franchise signs, storefront window graphics, wall graphics and fleet wraps for franchise owners and multi-location brands across Tampa Bay. We print in-house in Port Richey and install with our own 3M and Avery Dennison certified crew. National sign programs: we install for you too.",
         needs: [
           { t: 'Match brand standards', d: 'Every location has to look the same. We build to your brand guide, colors and approved files.' },
