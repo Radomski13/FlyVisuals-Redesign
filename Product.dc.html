@@ -282,7 +282,7 @@ class Component extends DCLogic {
           { t: "Car Magnets & Magnetic Signs", d: "Removable magnetic signs for cars and trucks, perfect for vehicles you also drive personally." },
           { t: "Full Vehicle Wraps", d: "Complete coverage for maximum impact and a total color change.", href: "#wrap-pricing", cta: "See pricing ↓" },
           { t: "Partial Vehicle Wraps", d: "Cover part of the vehicle and blend with the paint to save cost.", href: "#wrap-pricing", cta: "See pricing ↓" },
-          { t: "Truck & Vehicle Lettering", d: "Name, phone and DOT numbers for a simple, clean look." }
+          { t: "Vehicle Lettering", d: "Name, phone and DOT numbers for a simple, clean look." }
 
         ],
         vehicles: [
@@ -316,7 +316,7 @@ class Component extends DCLogic {
         intro: 'Use your windows to show hours, promotions and your brand. Vinyl window graphics are affordable, fast and easy to update.',
         types: [
           { t: "Frosted & Decorative Film", d: "Frosted, etched and decorative window film for privacy and style in offices, homes and storefronts." },
-          { t: "Window Decals & Clings", d: "Window decals and static clings for hours, sales, seasons and promos." },
+          { t: "Window Clings & Static Clings", d: "Window decals and static clings for hours, sales, seasons and promos." },
           { t: "Perforated Window Graphics", d: "Full-color graphics outside while you can still see out." },
           { t: "Window Lettering", d: "Hours, logos and contact info on glass doors and windows." }
 
@@ -341,8 +341,8 @@ class Component extends DCLogic {
           { q: 'Can you design it for me?', a: 'Yes. Send your logo and info and our designers will create a proof.' },
           { q: 'Will it hold up outside?', a: 'We use outdoor-rated materials and finishing. Lifespan depends on sun and wind exposure.' }
         ], related: ['tradeshow', 'window', 'wraps'] },
-      interior: { name: 'Office & Indoor Signs', short: 'office sign', href: 'Interior-ADA-Signs.dc.html', photo: '[PHOTO: lobby logo wall]',
-        intro: 'Office and indoor signs that make a strong first impression the moment customers walk in: lobby logos, office and door signs, wall graphics, menu boards and ADA signs.',
+      interior: { name: 'Indoor & Interior Signs', short: 'indoor sign', href: 'Interior-ADA-Signs.dc.html', photo: '[PHOTO: lobby logo wall]',
+        intro: 'Indoor and interior signs that make a strong first impression the moment customers walk in: lobby logos, wall graphics, wayfinding, menu boards, ADA signs and office and door signs.',
         types: [
           { t: "Poster Printing", d: "Poster printing in any size for stores, offices and events, with snap frames for easy swaps." },
           { t: "Wall Murals & Graphics", d: "Printed wall vinyl for branding, decor and full-wall murals." },
@@ -403,13 +403,13 @@ class Component extends DCLogic {
           { q: "Can you wrap my boat in the water?", a: "No. Boats are wrapped in our shop, out of the water, so the surface is clean and dry. Bring it on the trailer." },
           { q: "How long does a boat wrap take?", a: "Most boat wraps take 2–3 days. Larger boats can take longer. Lettering and registration numbers are often done the same day." }
         ], related: ["wraps", "carwraps", "window"] },
-      stickers: { name: 'Custom Stickers & Decals', short: 'sticker', href: 'Custom-Stickers-Decals.dc.html', photo: '[PHOTO]', noCity: true,
-        intro: 'Custom stickers, decals and labels in any shape, size or quantity. Die-cut stickers, bumper stickers, vinyl decals and product labels, printed in our Port Richey shop. Pick up or we ship.',
+      stickers: { name: 'Custom Stickers', short: 'sticker', href: 'Custom-Stickers-Decals.dc.html', photo: '[PHOTO]', noCity: true,
+        intro: 'Custom stickers and labels in any shape, size or quantity. Die-cut stickers, bumper stickers and product labels, printed in our Port Richey shop. Pick up or we ship.',
         types: [
           { t: "Bumper Stickers", d: "Custom bumper stickers for businesses, campaigns, events and promotions." },
-          { t: "Car & Truck Decals", d: "Custom car and truck decals: logos, lettering, stripes and graphics." },
+          { t: "Car & Truck Decals", d: "Custom car and truck decals: logos, graphics, stripes and rear window decals." },
           { t: "Die-Cut Stickers", d: "Custom die-cut stickers cut to the exact shape of your logo or design, for products, promos and giveaways." },
-          { t: "Vinyl Decals", d: "Cut vinyl decals and lettering with no background, for windows, walls, vehicles, boats and equipment." },
+          { t: "Vinyl Decals", d: "Custom cut vinyl decals with no background, for walls, windows, equipment, boats and signs." },
           { t: "Labels & Product Stickers", d: "Custom labels and product stickers for packaging, bottles, jars and boxes." },
           { t: "Hard Hat Stickers", d: "Custom hard hat stickers and equipment decals for crews, safety programs and company branding." }
 
@@ -427,7 +427,7 @@ class Component extends DCLogic {
           { t: "Step & Repeat Backdrops", d: "Printed backdrops for events, photo walls and press." },
           { t: "Retractable Banner Stands", d: "Pull-up banners for trade shows, lobbies and events." },
           { t: "Vinyl & Mesh Banners", d: "Indoor and outdoor banners in any size, with hems and grommets." },
-          { t: "Window Decals & Clings", d: "Printed window decals and static clings for storefronts." },
+          { t: "Window Clings & Static Clings", d: "Printed window decals and static clings for storefronts." },
           { t: "Vinyl Signs", d: "Printed vinyl on rigid boards like coroplast and aluminum." },
           { t: "Floor Decals & Graphics", d: "Non-slip floor graphics for directions, promos and branding." }
 
@@ -483,7 +483,7 @@ class Component extends DCLogic {
     };
     var im = IMG[slug] || IMG.storefront;
     var gallery = im.g.filter(function (id) { return !!id; }).map(function (id) { return { src: B + id, has: true, no: false }; });
-    var OIMG = {"Boat Graphics & Decals": "653d5c533618ba385428442278f22b26", "Pontoon Boat Wraps": "1146554cde15943823eb9bb623460a23", "Truck Wraps": "06efd0b4c4e701379b638ac1bbc10d96", "Lightbox Signs": "ac6cac82d583332c286e5535e17ff041", "Full Vehicle Wraps": "29c1b327d1eeb8fd2211ba4cde29ce46", "Partial Vehicle Wraps": "1a50adfc2dea210acb9e8fe5f60e2c6a", "Truck & Vehicle Lettering": "2bc59a3657b701bbb1cbc0b087066e51", "Trailer & Box Truck Wraps": "aac65a0cf9ee229893a9262c630aa944", "Foam Monument Signs": "1bb5e5a8dd3bfa305e0608f8c7c1f176", "Perforated Window Graphics": "331a8db8745212714afde77c6b9cd526", "Window Decals & Clings": "a8a67f6f60fac1e8f10d5e0d40108971", "Yard Signs": "0379af1112497d904ec5f576ce4e6e96", "Color Change Wraps": "70196593ca83f865c6e738b052d385db", "Sign Repair & Installation": "c6310178ef29d7da1d0ce06bef15b96b", "Van Wraps": "75dbb44a7fead5f130cba2a22e75cbca", "Car & Truck Decals": "32ccf0e95ff43c73be44b4e5b57d5f51", "Racing Stripes & Accents": "573f79441c9329e92cb5c312589a8c83", "Chrome Delete": "f06d94f8843fd0160e2091aba1c13eaf", "Boat Lettering & Registration Numbers": "5444f3e4c0acb986570ae386e9405d62", "Logo & Graphic Design": "06b61233a80a909a40ad71c93fb7f386", "Vinyl Decals": "3163effd73cb30a034f2c29b71766848", "Office & Door Signs": "ef837f8ed683abd98a7a5f7ac74703d8", "Vinyl Signs": "be60f04d14957e31b6d0607ff2269cd0", "Safety, Parking & Construction Signs": "2807b4e78f3ea61ae9b3495e42671a78", "Address & Tenant Signs": "2ea15d84900f2c6dce4efeba699d3776", "Vinyl & Mesh Banners": "8ec6d01b8259744594432acd593b75f7"};
+    var OIMG = {"Boat Graphics & Decals": "653d5c533618ba385428442278f22b26", "Pontoon Boat Wraps": "1146554cde15943823eb9bb623460a23", "Truck Wraps": "06efd0b4c4e701379b638ac1bbc10d96", "Lightbox Signs": "ac6cac82d583332c286e5535e17ff041", "Full Vehicle Wraps": "29c1b327d1eeb8fd2211ba4cde29ce46", "Partial Vehicle Wraps": "1a50adfc2dea210acb9e8fe5f60e2c6a", "Vehicle Lettering": "2bc59a3657b701bbb1cbc0b087066e51", "Trailer & Box Truck Wraps": "aac65a0cf9ee229893a9262c630aa944", "Foam Monument Signs": "1bb5e5a8dd3bfa305e0608f8c7c1f176", "Perforated Window Graphics": "331a8db8745212714afde77c6b9cd526", "Window Clings & Static Clings": "a8a67f6f60fac1e8f10d5e0d40108971", "Yard Signs": "0379af1112497d904ec5f576ce4e6e96", "Color Change Wraps": "70196593ca83f865c6e738b052d385db", "Sign Repair & Installation": "c6310178ef29d7da1d0ce06bef15b96b", "Van Wraps": "75dbb44a7fead5f130cba2a22e75cbca", "Car & Truck Decals": "32ccf0e95ff43c73be44b4e5b57d5f51", "Racing Stripes & Accents": "573f79441c9329e92cb5c312589a8c83", "Chrome Delete": "f06d94f8843fd0160e2091aba1c13eaf", "Boat Lettering & Registration Numbers": "5444f3e4c0acb986570ae386e9405d62", "Logo & Graphic Design": "06b61233a80a909a40ad71c93fb7f386", "Vinyl Decals": "3163effd73cb30a034f2c29b71766848", "Office & Door Signs": "ef837f8ed683abd98a7a5f7ac74703d8", "Vinyl Signs": "be60f04d14957e31b6d0607ff2269cd0", "Safety, Parking & Construction Signs": "2807b4e78f3ea61ae9b3495e42671a78", "Address & Tenant Signs": "2ea15d84900f2c6dce4efeba699d3776", "Vinyl & Mesh Banners": "8ec6d01b8259744594432acd593b75f7"};
     var types = p.types.map(function (t) {
       var f = 'Option-' + t.t.replace(/&/g, 'and').replace(/[^A-Za-z0-9]+/g, '-').replace(/-+$/, '') + '.dc.html';
       var im = OIMG[t.t];
