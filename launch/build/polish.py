@@ -1,3 +1,5 @@
+import json as _j, os as _o
+NOINDEX=set(_j.load(open(_o.path.join(_o.path.dirname(_o.path.abspath(__file__)),'noindex.json')))['urls'])
 # SEO + performance polish over the built site (run after build.py)
 import os,re,json,html,sys
 from PIL import Image
@@ -139,6 +141,8 @@ for root,_,fs in os.walk(OUT):
             s=s.replace(dm.group(0),tag,1) if dm else s.replace('</title>','</title>'+tag,1)
         if '<link rel="icon"' not in s:
             s=s.replace('</head>','<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#111111"></head>',1)
+        if url in NOINDEX and 'name="robots"' not in s:
+            s=s.replace('<title>','<meta name="robots" content="noindex, follow"><title>',1)
         if url=='/order-complete/' and 'noindex' not in s:
             s=s.replace('<title>','<meta name="robots" content="noindex"><title>',1)
         if not runtime:
